@@ -23,6 +23,7 @@ __pycache__/
 *.pyd
 .Python
 .venv/
+.venv-win/
 venv/
 env/
 *.egg-info/
