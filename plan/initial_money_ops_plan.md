@@ -22,6 +22,7 @@ Claude Code と Chrome 拡張連携を使って、普段の明細保存や家計
 | # | 内容 | 状態 |
 |---|---|---|
 | [#1](https://github.com/genba-neko/agent-skills-money-ops/issues/1) | プロジェクト初期セットアップ（構成・CLAUDE.md・plugin.json） | [完了 PR#2 2026-04-11] |
+| [#3](https://github.com/genba-neko/agent-skills-money-ops/issues/3) | .work/除外と関連ルール整備 | [完了 PR#4 2026-04-11] |
 
 ---
 
