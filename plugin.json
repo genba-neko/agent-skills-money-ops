@@ -1,0 +1,11 @@
+{
+  "name": "agent-skills-money-ops",
+  "version": "0.1.0",
+  "description": "確定申告・家計・投資自動化スキル集",
+  "skills": [
+    "skills/tax-collect",
+    "skills/tax-calc",
+    "skills/tax-etax",
+    "skills/tax-review"
+  ]
+}
