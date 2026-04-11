@@ -1,93 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   TEG204 特定口座年間取引報告書 サンプル（匿名化済み）
-  e-Tax 標準フォーマット BZL030010 準拠
+  e-Tax 標準フォーマット TEG204 準拠（名前空間付き）
 -->
-<BZL030010>
-  <!-- 支払いの取扱者（証券会社）情報 -->
-  <ZLF010>サンプル証券株式会社</ZLF010>
-  <ZLF020>1234567890123</ZLF020>
+<kyotsu:TEG204
+  xmlns:kyotsu="http://xml.e-tax.nta.go.jp/XSD/kyotsu"
+  xmlns:general="http://xml.e-tax.nta.go.jp/XSD/general"
+  VR="1.0" id="TEG204_SAMPLE_001" page="1"
+  sakuseiDay="2026-01-01" sakuseiNM="サンプル証券株式会社" softNM="sample-soft">
 
-  <!-- 口座情報 -->
-  <ZLE010>1</ZLE010>
-  <ZLE020>1</ZLE020>
-  <ZLE030>1</ZLE030>
-  <ZLE040>20100310</ZLE040>
+  <!-- 書類名 -->
+  <kyotsu:ZLA00000>特定口座年間取引報告書</kyotsu:ZLA00000>
 
-  <!-- 取引件数 -->
-  <ZLH010>10</ZLH010>
-  <ZLH020>5</ZLH020>
-  <ZLH030>0</ZLH030>
+  <!-- 年度: 令和7年 (2025) -->
+  <kyotsu:ZLB00000>
+    <general:era>5</general:era>
+    <general:yy>7</general:yy>
+  </kyotsu:ZLB00000>
 
-  <!-- 上場株式等の譲渡 -->
-  <ZLH040>1000000</ZLH040>
-  <ZLH050>900000</ZLH050>
-  <ZLH060>100000</ZLH060>
+  <!-- 口座/顧客情報 -->
+  <kyotsu:ZLE00000>
+    <!-- 源泉徴収区分 (ZLE00080=譲渡, ZLE00090=配当, ZLE00100=その他) -->
+    <kyotsu:ZLE00070>
+      <kyotsu:ZLE00080><kyotsu:kubun_CD>1</kyotsu:kubun_CD></kyotsu:ZLE00080>
+      <kyotsu:ZLE00090><kyotsu:kubun_CD>1</kyotsu:kubun_CD></kyotsu:ZLE00090>
+      <kyotsu:ZLE00100><kyotsu:kubun_CD>1</kyotsu:kubun_CD></kyotsu:ZLE00100>
+    </kyotsu:ZLE00070>
+    <!-- 口座開設日: 平成22年3月10日 = 2010-03-10 -->
+    <kyotsu:ZLE00110>
+      <general:era>4</general:era>
+      <general:yy>22</general:yy>
+      <general:mm>3</general:mm>
+      <general:dd>10</general:dd>
+    </kyotsu:ZLE00110>
+    <!-- 口座種別: 1=源泉徴収あり特定口座 -->
+    <kyotsu:ZLE00120><kyotsu:kubun_CD>1</kyotsu:kubun_CD></kyotsu:ZLE00120>
+  </kyotsu:ZLE00000>
 
-  <!-- 一般株式等の譲渡 -->
-  <ZLH070>0</ZLH070>
-  <ZLH080>0</ZLH080>
-  <ZLH090>0</ZLH090>
+  <!-- 財務データ -->
+  <kyotsu:ZLF00000>
 
-  <!-- 損益通算後 -->
-  <ZLH100>0</ZLH100>
-  <ZLH110>10000</ZLH110>
-  <ZLH120>0</ZLH120>
+    <!-- 譲渡セクション -->
+    <kyotsu:ZLF00010>
+      <!-- 取引件数 -->
+      <kyotsu:ZLF00020>10</kyotsu:ZLF00020>
+      <kyotsu:ZLF00030>5</kyotsu:ZLF00030>
+      <kyotsu:ZLF00040>0</kyotsu:ZLF00040>
 
-  <!-- 合計 -->
-  <ZLH130>1000000</ZLH130>
-  <ZLH140>900000</ZLH140>
-  <ZLH150>100000</ZLH150>
+      <!-- 上場株式等の譲渡 -->
+      <kyotsu:ZLF00050>
+        <kyotsu:ZLF00060>1000000</kyotsu:ZLF00060>
+        <kyotsu:ZLF00070>0</kyotsu:ZLF00070>
+        <kyotsu:ZLF00080>900000</kyotsu:ZLF00080>
+        <kyotsu:ZLF00090>0</kyotsu:ZLF00090>
+        <kyotsu:ZLF00100>100000</kyotsu:ZLF00100>
+      </kyotsu:ZLF00050>
 
-  <!-- 上場株式の配当等 -->
-  <ZLI010>50000</ZLI010>
-  <ZLI020>7655</ZLI020>
-  <ZLI030>2499</ZLI030>
-  <ZLI040>0</ZLI040>
+      <!-- 一般株式等の譲渡 -->
+      <kyotsu:ZLF00110>
+        <kyotsu:ZLF00120>0</kyotsu:ZLF00120>
+        <kyotsu:ZLF00130>0</kyotsu:ZLF00130>
+        <kyotsu:ZLF00140>0</kyotsu:ZLF00140>
+      </kyotsu:ZLF00110>
 
-  <!-- 特定株式投資信託の収益の分配等 -->
-  <ZLI050>20000</ZLI050>
-  <ZLI060>3064</ZLI060>
-  <ZLI070>998</ZLI070>
-  <ZLI080>0</ZLI080>
+      <!-- 合計 -->
+      <kyotsu:ZLF00150>
+        <kyotsu:ZLF00160>1000000</kyotsu:ZLF00160>
+        <kyotsu:ZLF00170>900000</kyotsu:ZLF00170>
+        <kyotsu:ZLF00180>100000</kyotsu:ZLF00180>
+      </kyotsu:ZLF00150>
+    </kyotsu:ZLF00010>
 
-  <!-- 一般株式等の配当等 -->
-  <ZLI090>100</ZLI090>
-  <ZLI100>11</ZLI100>
-  <ZLI110>3</ZLI110>
-  <ZLI120>10</ZLI120>
+    <!-- 配当等セクション -->
+    <kyotsu:ZLF00190>
 
-  <!-- 投資信託等の収益の分配等 -->
-  <ZLI130>200000</ZLI130>
-  <ZLI140>30630</ZLI140>
-  <ZLI150>9990</ZLI150>
-  <ZLI160>20000</ZLI160>
+      <!-- 上場株式の配当等 -->
+      <kyotsu:ZLF00200>
+        <kyotsu:ZLF00210>50000</kyotsu:ZLF00210>
+        <kyotsu:ZLF00220>7655</kyotsu:ZLF00220>
+        <kyotsu:ZLF00230>2499</kyotsu:ZLF00230>
+        <kyotsu:ZLF00240>0</kyotsu:ZLF00240>
+        <kyotsu:ZLF00245>0</kyotsu:ZLF00245>
+      </kyotsu:ZLF00200>
 
-  <!-- 非居住者等への配当等 -->
-  <ZLI170>0</ZLI170>
-  <ZLI180>0</ZLI180>
-  <ZLI190>0</ZLI190>
-  <ZLI200>0</ZLI200>
+      <!-- 特定株式投資信託の収益の分配等 -->
+      <kyotsu:ZLF00250>
+        <kyotsu:ZLF00260>20000</kyotsu:ZLF00260>
+        <kyotsu:ZLF00270>3064</kyotsu:ZLF00270>
+        <kyotsu:ZLF00280>998</kyotsu:ZLF00280>
+        <kyotsu:ZLF00290>0</kyotsu:ZLF00290>
+        <kyotsu:ZLF00295>0</kyotsu:ZLF00295>
+      </kyotsu:ZLF00250>
 
-  <!-- 外国株式等の配当等 -->
-  <ZLI210>0</ZLI210>
-  <ZLI220>0</ZLI220>
+      <!-- 一般株式等の配当等 -->
+      <kyotsu:ZLF00300>
+        <kyotsu:ZLF00310>0</kyotsu:ZLF00310>
+        <kyotsu:ZLF00320>0</kyotsu:ZLF00320>
+        <kyotsu:ZLF00330>0</kyotsu:ZLF00330>
+        <kyotsu:ZLF00340>0</kyotsu:ZLF00340>
+        <kyotsu:ZLF00345>0</kyotsu:ZLF00345>
+      </kyotsu:ZLF00300>
 
-  <!-- NISA口座内の配当等 -->
-  <ZLI230>0</ZLI230>
+      <!-- 投資信託等の収益の分配等 -->
+      <kyotsu:ZLF00350>
+        <kyotsu:ZLF00360>0</kyotsu:ZLF00360>
+        <kyotsu:ZLF00370>0</kyotsu:ZLF00370>
+        <kyotsu:ZLF00380>0</kyotsu:ZLF00380>
+        <kyotsu:ZLF00390>0</kyotsu:ZLF00390>
+        <kyotsu:ZLF00400>0</kyotsu:ZLF00400>
+        <kyotsu:ZLF00405>0</kyotsu:ZLF00405>
+      </kyotsu:ZLF00350>
 
-  <!-- 配当等の合計 -->
-  <ZLI240>270100</ZLI240>
-  <ZLI250>41360</ZLI250>
-  <ZLI260>13490</ZLI260>
-  <ZLI270>20010</ZLI270>
-  <ZLI280>20010</ZLI280>
+      <!-- 外国株式等の配当等 -->
+      <kyotsu:ZLF00410>
+        <kyotsu:ZLF00420>0</kyotsu:ZLF00420>
+        <kyotsu:ZLF00430>0</kyotsu:ZLF00430>
+        <kyotsu:ZLF00440>0</kyotsu:ZLF00440>
+        <kyotsu:ZLF00450>0</kyotsu:ZLF00450>
+      </kyotsu:ZLF00410>
 
-  <!-- 源泉徴収税額合計 -->
-  <ZLK010>41360</ZLK010>
-  <ZLK020>13490</ZLK020>
+      <!-- 配当等合計 -->
+      <kyotsu:ZLF00460>
+        <kyotsu:ZLF00470>70000</kyotsu:ZLF00470>
+        <kyotsu:ZLF00480>10719</kyotsu:ZLF00480>
+        <kyotsu:ZLF00490>3497</kyotsu:ZLF00490>
+        <kyotsu:ZLF00500>0</kyotsu:ZLF00500>
+        <kyotsu:ZLF00515>0</kyotsu:ZLF00515>
+        <kyotsu:ZLF00520>0</kyotsu:ZLF00520>
+      </kyotsu:ZLF00460>
 
-  <!-- NISA口座内の上場株式等の譲渡 -->
-  <ZLJ010>0</ZLJ010>
-  <ZLJ020>0</ZLJ020>
-</BZL030010>
+      <!-- 源泉徴収税額合計 (譲渡分+配当分) -->
+      <kyotsu:ZLF00870>
+        <kyotsu:ZLF00880>18374</kyotsu:ZLF00880>
+        <kyotsu:ZLF00890>5996</kyotsu:ZLF00890>
+      </kyotsu:ZLF00870>
+
+      <!-- NISA口座内譲渡等 -->
+      <kyotsu:ZLF00900>
+        <kyotsu:ZLF00910>0</kyotsu:ZLF00910>
+        <kyotsu:ZLF00920>0</kyotsu:ZLF00920>
+      </kyotsu:ZLF00900>
+
+    </kyotsu:ZLF00190>
+  </kyotsu:ZLF00000>
+
+</kyotsu:TEG204>
