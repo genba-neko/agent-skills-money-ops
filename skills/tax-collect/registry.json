@@ -1,0 +1,20 @@
+{
+  "securities": [
+    { "code": "sbi",              "name": "SBI証券",              "url": "https://www.sbisec.co.jp/ETGate",                  "has_xml": true,  "マイナ連携": true,  "collection": "auto"   },
+    { "code": "rakuten",          "name": "楽天証券",              "url": "https://www.rakuten-sec.co.jp/",                   "has_xml": true,  "マイナ連携": false, "collection": "auto"   },
+    { "code": "nomura",           "name": "野村證券",              "url": "https://www.nomura.co.jp/",                        "has_xml": true,  "マイナ連携": true,  "collection": "auto"   },
+    { "code": "monex",            "name": "マネックス証券",        "url": "https://www.monex.co.jp/",                         "has_xml": true,  "マイナ連携": true,  "collection": "auto"   },
+    { "code": "matsui",           "name": "松井証券",              "url": "https://www.matsui.co.jp/",                        "has_xml": true,  "マイナ連携": false, "collection": "auto"   },
+    { "code": "gmo-click",        "name": "GMOクリック証券",       "url": "https://www.click-sec.com/",                       "has_xml": true,  "マイナ連携": false, "collection": "auto"   },
+    { "code": "smbc-nikko",       "name": "SMBC日興証券",          "url": "https://www.smbcnikko.co.jp/",                     "has_xml": true,  "マイナ連携": false, "collection": "auto"   },
+    { "code": "mufg-esmart",      "name": "三菱UFJ eスマート証券", "url": "https://kabu.com/",                                "has_xml": false, "マイナ連携": true,  "collection": "auto"   },
+    { "code": "tsumiki",          "name": "tsumiki証券",           "url": "https://www.tsumiki-sec.com/",                     "has_xml": false, "マイナ連携": false, "collection": "auto"   },
+    { "code": "saison-pocket",    "name": "セゾンポケット",        "url": "https://www.saison-pocket.com/",                   "has_xml": false, "マイナ連携": false, "collection": "auto"   },
+    { "code": "daiwa-connect",    "name": "大和CONNECT証券",       "url": "https://www.connect-sec.co.jp/service/login/",     "has_xml": false, "マイナ連携": false, "collection": "auto"   },
+    { "code": "paypay",           "name": "PayPay証券",            "url": "https://www.paypay-sec.co.jp/",                    "has_xml": false, "マイナ連携": false, "collection": "auto"   },
+    { "code": "webull",           "name": "ウィブル証券",          "url": null,                                               "has_xml": false, "マイナ連携": false, "collection": "manual" },
+    { "code": "nomura-mochikabu", "name": "野村證券持株会",        "url": "https://www.e-plan.nomura.co.jp/login/index.html", "has_xml": false, "マイナ連携": false, "collection": "auto"   },
+    { "code": "hifumi",           "name": "ひふみ投信",            "url": "https://hifumi.rheos.jp/",                         "has_xml": false, "マイナ連携": false, "collection": "auto"   },
+    { "code": "sawakami",         "name": "さわかみ投信",          "url": "https://fv.sawakami.co.jp/Account/Login",          "has_xml": false, "マイナ連携": false, "collection": "auto"   }
+  ]
+}
