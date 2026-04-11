@@ -1,0 +1,11 @@
+# NAME        COMMAND  [ # DESCRIPTION ]
+# - NAME: 実行するコマンド名
+# - COMMAND: 実行するコマンド。@args で引数を受け取れる。
+#            以下の環境変数が両プロファイルで利用可能:
+#              $VENV_PYTHON  : venv の python インタープリタ
+#              $PROJECT_ROOT : プロジェクトルートパス
+# - DESCRIPTION: help / show-workspace-menu に表示される説明文
+
+format        $VENV_PYTHON -m black . ; $VENV_PYTHON -m isort .  # black で整形 → isort で import 整理
+lint          $VENV_PYTHON -m mypy . ; $VENV_PYTHON -m pylint --recursive=y .  # 型チェック → 静的解析
+test          $VENV_PYTHON -m pytest @args  # pytest 実行

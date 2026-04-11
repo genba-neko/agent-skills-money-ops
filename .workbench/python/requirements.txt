@@ -1,0 +1,8 @@
+# workbench 共通ツールを継承
+-r ../../workbench/python/requirements.txt
+
+# プロジェクト固有の開発・テストツールをここに追記する
+# playwright を追加すると setup 実行時に chromium が自動インストールされる
+#
+# 例:
+# playwright>=1.40

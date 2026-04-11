@@ -1,0 +1,16 @@
+# TYPE    SOURCE           ARCHIVE_DIR      PREFIX    [DELETE|KEEP]
+#
+# BULK  : SOURCE の中身をまとめて1つの zip にアーカイブ (PREFIX_YYYYMMDD_HHmmss.zip)
+# DATED : SOURCE 内の YYYYMMDD* ファイル/ディレクトリを日付でグルーピングして zip にアーカイブ
+#         (PREFIX_YYYYMMDD.zip / 同じ日付のものはすべて1つの zip にまとめる)
+#
+# 5列目: DELETE = アーカイブ後に元を削除 / KEEP または省略 = 元を残す
+#
+# SOURCE / ARCHIVE_DIR には %ENV_VAR% 形式で環境変数を参照できる (.env から読み込まれる)
+#
+# 例:
+# BULK   %OUTPUT_DIR%                %ARCHIVE_DIR%            output            KEEP
+# BULK   data\output                 data\archive             output            KEEP
+# DATED  runtime\output\inspector    data\archive_inspector   inspector         DELETE
+
+BULK   data\output    data\archive    output    KEEP
