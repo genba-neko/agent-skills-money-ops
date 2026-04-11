@@ -1,0 +1,41 @@
+# データ・出力（個人情報を含むため絶対にコミット禁止）
+# ディレクトリ構造保持用の .gitkeep のみコミット可
+data/**
+!data/**/
+!data/**/.gitkeep
+output/**
+!output/.gitkeep
+
+# 設定ファイル（認証情報・個人設定）
+*.config.yaml
+*.config.json
+.env
+.env.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+
+# Playwright
+playwright-report/
+test-results/
