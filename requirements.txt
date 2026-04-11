@@ -1,0 +1,8 @@
+# プロジェクト固有のランタイム依存パッケージ
+#
+# 例:
+# requests>=2.31
+# pandas>=2.0
+playwright
+python-dotenv
+anthropic

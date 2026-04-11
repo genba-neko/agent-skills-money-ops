@@ -1,0 +1,31 @@
+{
+    "python.terminal.activateEnvironment": false,
+    "terminal.integrated.env.windows": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "terminal.integrated.profiles.windows": {
+        "PowerShell (workbench)": {
+            "source": "PowerShell",
+            "args": ["-ExecutionPolicy", "Bypass", "-NoExit", "-Command", "if (Test-Path './workbench/scripts/profile.ps1') { . './workbench/scripts/profile.ps1' } else { Write-Host '[ERROR] workbench submodule not found. Run: git submodule update --init' -ForegroundColor Red }"]
+        },
+        "WSL (workbench)": {
+            "path": "C:\\Windows\\System32\\wsl.exe",
+            "args": ["bash", "-i", "--rcfile", "./workbench/scripts/profile.sh"],
+            "icon": "terminal-linux"
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell (workbench)",
+    "files.encoding": "utf8",
+    "[powershell]": {
+        "files.encoding": "utf8bom"
+    },
+    "chat.tools.terminal.terminalProfile.windows": {
+        "path": "C:\\Windows\\System32\\wsl.exe",
+        "args": ["-d", "Ubuntu"],
+        "env": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "WSLENV": "PYTHONDONTWRITEBYTECODE"
+        },
+        "icon": "terminal-ubuntu"
+    }
+}

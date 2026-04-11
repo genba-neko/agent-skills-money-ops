@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        // Python
+        "ms-python.python",
+        "ms-python.pylance",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        // PowerShell
+        "ms-vscode.powershell",
+        // エディタ設定
+        "editorconfig.editorconfig"
+    ]
+}
