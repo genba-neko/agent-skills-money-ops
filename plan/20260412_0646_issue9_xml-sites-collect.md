@@ -20,7 +20,7 @@
 | GMOクリック証券 | `context.route("**/DPAW010501020")` でバイト捕捉（e-shishobako ポータル。SBIと同一） |
 | 野村證券 | ポップアップ内 iframe（ランダム name属性） + ダウンロードボタン → `expect_download()` |
 | マネックス証券 | ダブルiframe（`frame[name="PDF"]` 内にさらに iframe）+ ダウンロードボタン → `expect_download()` |
-| 松井証券 | frameset構成（`frame[name="pdfout"]` 内に iframe）+ ダウンロードボタン → `expect_download()` |
+| 松井証券 | `context.route("**/ClientPdfOut.jsp**")` でバイト捕捉（iframe ダウンロードボタンは存在しない） |
 | SMBC日興証券 | ポップアップ内 iframe（ランダム name属性）+ ダウンロードボタン → `expect_download()` |
 
 > SBI と GMOクリックは共通の e-shishobako ポータル（`plus.e-shishobako.ne.jp`）を使用。  
@@ -159,6 +159,49 @@ finally:
 ```
 
 e-shishobako ポータル（`plus.e-shishobako.ne.jp`）を使う全サイトでこの方式を使うこと。
+
+**URL パターンの注意**: JSP サイトは URL に `;jsessionid=xxx` が付く。glob パターン `**/xxx.jsp**` はセミコロンにマッチしない場合がある。**`re.compile(r"ファイル名キーワード")` の regex パターンを使うと確実**（松井証券で確認済み）。
+
+---
+
+### T-13: JSP サイトの PDF は popup の iframe src を読み取り context.request で直接フェッチする
+
+**根本原因**: Playwright Chromium の組み込み PDF ビューアは CDP ネットワーク層をバイパスするため、
+`context.on("response")` / `route()` / `route.fetch()` はいずれも PDF レスポンスを捕捉できない。
+
+**NG**: `context.on("response")`, `context.route()`, `route.fetch()` → すべて「PDF レスポンスを捕捉できませんでした」
+
+**OK**: `pdf_popup.url`（AccLogReg.jsp の URL）からパラメータを取得し、jsessionid をパスに含めた ClientPdfOut.jsp URL を構築して `context.request.get()` で直接フェッチする
+
+```python
+with popup.expect_popup() as pdf_popup_info:
+    pdf_link.click()
+pdf_popup = pdf_popup_info.value
+pdf_popup.wait_for_load_state("domcontentloaded")
+popup_url = pdf_popup.url  # AccLogReg.jsp;jsessionid=XXX?pdf=...&selectLit=...&listKey=...
+pdf_popup.close()
+
+parsed = urlparse(popup_url)
+params = parse_qs(parsed.query)
+pdf_file   = params["pdf"][0]       # /client3/.../xxx.pdf
+select_lit = params["selectLit"][0]
+list_key   = params["listKey"][0]
+
+# ★ deal.matsui.co.jp は cookie でなく URL パスの ;jsessionid= でセッション管理
+m = re.search(r';jsessionid=([^?&#]+)', popup_url)
+jsessionid = m.group(1) if m else ""
+jsession_path = f";jsessionid={jsessionid}" if jsessionid else ""
+
+base = f"{parsed.scheme}://{parsed.netloc}"
+pdf_url = f"{base}/QC/qcCom/ClientPdfOut.jsp{jsession_path}?selectLit={select_lit}&listKey={list_key}&outPdfFile={pdf_file}"
+
+resp = popup.context.request.get(pdf_url)
+body = resp.body()  # body[:4] == b"%PDF" で確認
+```
+
+- route/response イベントは PDF ロードをブロックするため**使用禁止**
+- jsessionid を URL パスに含めないと status=200 でも HTML が返る（セッション未認証）
+- デバッグは `DEBUG=true` で `dlog()` / `save_html()` / `save_response_html()` を使う（BaseCollector 共通機能）
 
 ---
 
@@ -327,7 +370,7 @@ skills/tax-collect/sites/
 |---|---|---|
 | SBI証券 | 完了（PR#XX） | 完了（2026-04-12） |
 | GMOクリック証券 | 完了（未コミット） | 完了（2026-04-12） |
-| 松井証券 | 未実装 | - |
+| 松井証券 | 完了（未コミット） | 完了（2026-04-12） |
 | マネックス証券 | 未実装 | - |
 | 野村證券 | 未実装 | - |
 | SMBC日興証券 | 未実装 | - |

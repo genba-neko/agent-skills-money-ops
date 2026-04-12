@@ -13,6 +13,10 @@ def _is_headless() -> bool:
     return os.environ.get("HEADLESS", "false").lower() == "true"
 
 
+def _is_debug() -> bool:
+    return os.environ.get("DEBUG", "false").lower() == "true"
+
+
 class BaseCollector:
     def __init__(self, site_json_path: str | Path):
         self.config = _load_site_config(site_json_path)
@@ -20,6 +24,46 @@ class BaseCollector:
         self.name: str = self.config["name"]
         self.output_dir = Path(self.config["output_dir"])
         self.headless: bool = _is_headless()
+        self.debug: bool = _is_debug()
+        self._debug_seq: int = 0  # HTML採取連番
+
+    def _debug_dir(self) -> Path:
+        d = Path("output") / "debug" / self.code
+        d.mkdir(parents=True, exist_ok=True)
+        return d
+
+    def dlog(self, message: str) -> None:
+        """DEBUG=true のときだけ出力する詳細ログ"""
+        if self.debug:
+            print(f"[{self.name}][DEBUG] {message}")
+
+    def save_html(self, page_or_frame, label: str) -> None:
+        """DEBUG=true のとき page/frame の HTML を output/debug/<code>/<seq>_<label>.html に保存
+        page_or_frame: Playwright の Page または Frame オブジェクト"""
+        if not self.debug:
+            return
+        self._debug_seq += 1
+        filename = f"{self._debug_seq:02d}_{label}.html"
+        path = self._debug_dir() / filename
+        try:
+            html = page_or_frame.content()
+            path.write_text(html, encoding="utf-8")
+            print(f"[{self.name}][DEBUG] HTML保存: {path}")
+        except Exception as e:
+            print(f"[{self.name}][DEBUG] HTML保存失敗({label}): {e}")
+
+    def save_response_html(self, body: bytes, label: str) -> None:
+        """DEBUG=true のとき レスポンスボディ（bytes）を HTML として保存"""
+        if not self.debug:
+            return
+        self._debug_seq += 1
+        filename = f"{self._debug_seq:02d}_{label}.html"
+        path = self._debug_dir() / filename
+        try:
+            path.write_bytes(body)
+            print(f"[{self.name}][DEBUG] レスポンス保存: {path}")
+        except Exception as e:
+            print(f"[{self.name}][DEBUG] レスポンス保存失敗({label}): {e}")
 
     def prepare_directory(self) -> None:
         self.output_dir.mkdir(parents=True, exist_ok=True)
