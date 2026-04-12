@@ -10,21 +10,22 @@
 
 ### ① PDFダウンロード問題
 
-楽天証券では Chrome PDF ビューアが先にインターセプトするため `context.route()` でバイトを捕捉する特殊実装が必要だった。  
-他の XMLあり各社は **iframe 内に PDF ビューアを埋め込み + ダウンロードボタン形式** であり、`expect_download()` でキャプチャ可能。
+楽天証券・SBI証券・GMOクリック証券は `context.route()` でバイトを捕捉する実装が必要。  
+残りの各社は **iframe 内に PDF ビューアを埋め込み + ダウンロードボタン形式** であり、`expect_download()` でキャプチャ可能。
 
 | 会社 | PDF取得方式 |
 |---|---|
 | 楽天証券（#8 実装済み） | `context.route()` でバイト捕捉 |
-| SBI証券 | ポップアップ内 iframe（ランダム name属性） + ダウンロードボタン → `expect_download()` |
+| SBI証券 | `context.route("**/DPAW010501020")` でバイト捕捉（e-shishobako ポータル） |
+| GMOクリック証券 | `context.route("**/DPAW010501020")` でバイト捕捉（e-shishobako ポータル。SBIと同一） |
 | 野村證券 | ポップアップ内 iframe（ランダム name属性） + ダウンロードボタン → `expect_download()` |
 | マネックス証券 | ダブルiframe（`frame[name="PDF"]` 内にさらに iframe）+ ダウンロードボタン → `expect_download()` |
 | 松井証券 | frameset構成（`frame[name="pdfout"]` 内に iframe）+ ダウンロードボタン → `expect_download()` |
-| GMOクリック証券 | ポップアップ内 iframe（ランダム name属性）+ ダウンロードボタン → `expect_download()` |
 | SMBC日興証券 | ポップアップ内 iframe（ランダム name属性）+ ダウンロードボタン → `expect_download()` |
 
-> iframe name属性がランダム値のため `iframe[name="..."]` 直接指定は不可。  
-> `page.frame_locator("iframe")` + `get_by_role("button", name="ダウンロード")` で探索する。
+> SBI と GMOクリックは共通の e-shishobako ポータル（`plus.e-shishobako.ne.jp`）を使用。  
+> PDF は `DPAW010501020` API で配信されるため、iframe の「ダウンロード」ボタンは存在しない。  
+> **`frame_locator("iframe").get_by_role("button", name="ダウンロード")` は絶対に使わないこと。**
 
 ---
 
@@ -137,6 +138,58 @@ e-shishobako は Angular SPA で、domcontentloaded 後も JS がコンポーネ
 
 ---
 
+### T-9: e-shishobako PDF は context.route() で捕捉する（GMOクリック・SBI共通）
+
+**NG**: `pdf_popup.frame_locator("iframe").get_by_role("button", name="ダウンロード").click()` → Timeout（ボタンは存在しない）  
+**OK**: SBI の `_download_pdf_via_route()` を完全コピーする
+
+```python
+_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')  # モジュールレベル必須
+
+popup.context.route("**/DPAW010501020", _capture_pdf)
+try:
+    with popup.expect_popup() as pdf_popup_info:
+        pdf_btn.first.click()
+    pdf_popup = pdf_popup_info.value
+    pdf_popup.wait_for_load_state("domcontentloaded")
+    _wait()
+    pdf_popup.close()
+finally:
+    popup.context.unroute("**/DPAW010501020", _capture_pdf)
+```
+
+e-shishobako ポータル（`plus.e-shishobako.ne.jp`）を使う全サイトでこの方式を使うこと。
+
+---
+
+### T-10: Angular SPA の検索は press("Enter")
+
+**NG**: `popup.get_by_role("button").filter(has_text="search").first.click()` → クリックが効かない場合がある  
+**OK**: `search_box.press("Enter")` を使う（SBI と同一ポータル）
+
+---
+
+### T-11: 行ボタンは get_by_role("button") で取得する
+
+**NG**: `popup.locator("button, a").filter(has_text=ym)` → `role="button"` の `<div>` 要素を取得できずヒットしない  
+**OK**: `popup.get_by_role("button").filter(has_text=ym)` — ARIA ロールで探すと `role="button"` div も対象になる
+
+また行クリック前に `row_btn.scroll_into_view_if_needed()` を呼ぶこと（リストが長い場合に要素が viewport 外にある）。
+
+---
+
+### T-12: ログインURLは取引プラットフォームのトップページを指定する
+
+**NG（GMOクリック）**: `https://www.click-sec.com/...`（ログインページ）  
+→ 認証後に取引プラットフォームが別タブで開き、`page` が `about:blank` のままになる。以降の操作が全て失敗する。
+
+**OK**: `https://kabu.click-sec.com/sec2/mypage/top.do`（取引プラットフォームのトップ）  
+→ `page.goto()` がこのURLを開くため、ログイン後も `page` が正しいタブを指す。
+
+**一般則**: ログインURLは「ログイン後に操作するページ」を直接指定する。ログインフォームのURLを指定すると認証後に別タブが開いて `page` が取り残されるサイトがある。
+
+---
+
 ### ④ 取引なし（報告書未発行）
 
 売却・配当がない年度は報告書自体が発行されないケースがある（操作記録でサンプル確認済み）。
@@ -209,11 +262,15 @@ e-shishobako は Angular SPA で、domcontentloaded 後も JS がコンポーネ
 
 | 項目 | 内容 |
 |---|---|
-| ログイン | ログインページを開き人間が手動でログイン・ポップアップ処理・トップ画面到達後 Enter |
-| ナビゲーション | ポップアップ → キーワード検索 `"特定口座年間取引報告書"` → `f"{issue_year}/"` ボタン |
-| XML取得 | `"特定口座年間取引報告書（xmlデータ）"` ボタン → `expect_download()` |
-| PDF取得 | `"特定口座年間取引報告書（PDFファイル）"` ボタン → ポップアップ → `iframe` 内ダウンロードボタン → `expect_download()` |
-| skip条件 | `f"{issue_year}/"` ボタンが存在しない |
+| ログインURL | `https://kabu.click-sec.com/sec2/mypage/top.do`（取引プラットフォームのトップ。ログインページ指定はNG） |
+| ログイン | 人間が手動でログイン・トップ画面到達後 Enter |
+| ナビゲーション | 精算表 → 電子書類閲覧 → `#stockReportLink`（ポップアップ）→ 2FA（セッション次第で出ない場合あり） |
+| ポータル待機 | `popup.wait_for_url("**/dp_apl/usr/**")` → Angular SPA 初期化完了（T-2 と同方式） |
+| 検索 | `search_box.press("Enter")` でフィルタ（T-10） |
+| 行ボタン | `popup.get_by_role("button").filter(has_text=ym)` → `scroll_into_view_if_needed()` → `click()`（T-11） |
+| XML取得 | `locator("button, a").filter(has_text="xmlデータ")` → fallback `"XMLデータ"` → `expect_download()` |
+| PDF取得 | `_download_pdf_via_route()` — `context.route("**/DPAW010501020")` で捕捉（T-9）。iframe ダウンロードボタンは**使用禁止** |
+| skip条件 | `_find_report_row_button()` が None を返す |
 
 ### SMBC日興証券（smbcnikko）
 
@@ -260,6 +317,20 @@ skills/tax-collect/sites/
   - ロールベース（`get_by_role`）が使えない箇所は実際の DOM から CSS セレクターを特定する
   - 操作記録のロケーターはあくまで出発点。実際の DOM と照合して修正する
 - **実装順**: 1社ずつ実装・動作確認してから次の会社へ進む（一括実装しない）
+  - **動作確認が取れていない会社の次の会社へは絶対に進まない**
+  - 動作確認 = 人間が実際にスクリプトを実行し、XML・PDF・JSON が正常に保存されたことを確認すること
+  - Claude は動作確認を代行できない。人間が確認して「OK」と伝えるまで次に進まない
+
+## 各社実装・動作確認ステータス
+
+| 会社 | 実装 | 動作確認 |
+|---|---|---|
+| SBI証券 | 完了（PR#XX） | 完了（2026-04-12） |
+| GMOクリック証券 | 完了（未コミット） | 完了（2026-04-12） |
+| 松井証券 | 未実装 | - |
+| マネックス証券 | 未実装 | - |
+| 野村證券 | 未実装 | - |
+| SMBC日興証券 | 未実装 | - |
 
 ---
 
