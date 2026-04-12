@@ -48,7 +48,96 @@
 
 ---
 
-### ③ 取引なし（報告書未発行）
+### ③ ブラウザ起動設定
+
+- `channel="chrome"` は**禁止**（起動中の Chrome プロセスとの干渉リスク・議論済み決定）
+- Playwright Chromium のデフォルト GPU は SwiftShader（ソフトウェアレンダラー）のため Canvas/WebGL フィンガープリントが実機 Chrome と異なり、金融サイトに毎回「新デバイス」と判定される
+- **`--use-angle=d3d11`** を必ず指定して実機 GPU を使わせること
+- **`--disable-blink-features=AutomationControlled`** + **`ignore_default_args=["--enable-automation"]`** で自動化フラグを除去
+- `user_agent` の固定指定は不要（`--use-angle=d3d11` があれば UA 偽装より実フィンガープリント一致のほうが効果的）
+
+---
+
+### ④ wait_for_load_state は `domcontentloaded` を使う
+
+金融サイトは WebSocket や常時通信を持つため `networkidle` は永遠に発火しない。  
+**`wait_for_load_state` は必ず `"domcontentloaded"` を使うこと。`"networkidle"` は使用禁止。**
+
+---
+
+## 実装 Tips（SBI 実装時のハマり・解決まとめ）
+
+後続実装で同じ失敗をしないための記録。
+
+---
+
+### T-1: ナビゲーションはトップから辿る
+
+**NG**: トップ画面でいきなり「取引報告書等(電子交付)」リンクを探してクリック → Timeout  
+**OK**: 口座管理 → 取引報告書等(電子交付) の順に遷移する  
+サブメニュー項目はトップ画面では非表示のため、親メニューを先にクリックして展開する必要がある。
+
+---
+
+### T-2: Angular SPA は domcontentloaded では描画が終わっていない
+
+**NG**: `popup.wait_for_load_state("domcontentloaded")` 直後に要素を探す → 見つからない  
+**OK**: `popup.wait_for_url("**/dp_apl/usr/**")` + `popup.wait_for_selector("input, button")` + `_wait(2.0, 3.0)` で Angular の初期化完了を待つ  
+e-shishobako は Angular SPA で、domcontentloaded 後も JS がコンポーネントを描画中。
+
+---
+
+### T-3: wait_for_selector は非表示要素にマッチして即返る
+
+**NG**: `popup.wait_for_selector("text=PDFファイル")` → ページ上の別要素（非表示含む）にマッチして即返り、アコーディオンが開く前に次へ進む  
+**OK**: `popup.locator("button, a").filter(has_text="PDFファイル").first.wait_for(state="visible")` で visible な要素が出るまで待つ
+
+---
+
+### T-4: ボタンは button 要素とは限らない
+
+**NG**: `get_by_role("button").filter(has_text="xmlデータ")` → Angular の `<a>` 要素スタイルボタンがヒットしない  
+**OK**: `locator("button, a").filter(has_text="xmlデータ")` で両方を対象にする
+
+---
+
+### T-5: route() は「ポップアップを閉じてから unroute」する（Rakuten 方式）
+
+**NG**: PDF ボタンクリック → `_wait()` → `unroute()` → コンテキストクローズ  
+→ unroute 後も pending な route リクエストが残り asyncio エラーが連鎖する  
+
+**OK**: Rakuten の実装と同様に、
+1. `context.route()` 登録
+2. PDF ボタンクリック → `expect_popup()` でポップアップ取得
+3. `pdf_popup.close()` でポップアップを**先に閉じる**
+4. `finally: context.unroute()` で登録解除
+
+ポップアップを閉じてから unroute することで pending なリクエストがなくなり、asyncio エラーが発生しない。
+
+---
+
+### T-6: ファイル名はサイト基準（Content-Disposition）で取得する
+
+**NG**: `fallback_name = f"{year}_nentori.pdf"` をハードコードして保存  
+**OK**: `response.headers.get("content-disposition")` から filename を正規表現で取得し、取れない場合のみ fallback を使う
+
+---
+
+### T-7: デバッグログに個人情報を出してはいけない
+
+`popup.locator("button, a").all()` 等でページ上の全要素テキストをログ出力すると氏名・口座番号が含まれる。  
+**デバッグログは必ず最終コードから削除すること。**
+
+---
+
+### T-8: collect() 内の事前存在チェックはキーワード検索後に行う
+
+**NG**: popup 表示直後（キーワード検索前）に `_find_report_row_button()` を呼んで「存在しない」と判定してスキップ  
+**OK**: 存在チェックは `_download_files()` 内でキーワード絞り込み後に行う（または collect() 側では実施しない）
+
+---
+
+### ④ 取引なし（報告書未発行）
 
 売却・配当がない年度は報告書自体が発行されないケースがある（操作記録でサンプル確認済み）。
 
