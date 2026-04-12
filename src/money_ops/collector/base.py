@@ -3,6 +3,12 @@ import os
 from datetime import datetime
 from pathlib import Path
 
+try:
+    from dotenv import load_dotenv as _load_dotenv
+    _load_dotenv()
+except ImportError:
+    pass
+
 
 def _load_site_config(site_json_path: str | Path) -> dict:
     with open(site_json_path, encoding="utf-8") as f:

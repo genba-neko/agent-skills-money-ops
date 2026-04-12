@@ -1,0 +1,10 @@
+{
+  "name": "マネックス証券",
+  "code": "monex",
+  "has_xml": true,
+  "target_year": 2025,
+  "output_dir": "data/income/securities/monex/2025/raw/",
+  "documents": [
+    { "type": "特定口座年間取引報告書" }
+  ]
+}

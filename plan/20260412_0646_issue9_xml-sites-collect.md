@@ -205,6 +205,38 @@ body = resp.body()  # body[:4] == b"%PDF" で確認
 
 ---
 
+### T-14: マネックス証券の PDF は FraAcDocRefer.jsp の frame src から URL を取得して直接フェッチ
+
+**構造**: PDF リンクをクリック → popup が `FraAcDocRefer.jsp?encodePrm=...` で開く（frameset 構成）  
+popup 内 `frame[name="PDF"]` の `src` が直接 `DocDispPdf?encodePrm=...` になっている。  
+**matsui の AccLogReg.jsp パターンと完全に同じ構造。**
+
+**NG**:
+- `frame_locator("frame[name='PDF']").frame_locator("iframe").get_by_role("button", name="ダウンロード").click()` → Chrome 拡張 iframe 内のため Timeout
+- `context.route("**/DocDispPdf**", handler)` → Chrome 拡張が PDF を遅延ロードするため route が close_browser() 後に発火し TargetClosedError
+
+**OK**: `frame[name="PDF"]` の `src` 属性を読み取り `context.request.get()` で直接フェッチ
+
+```python
+with page.expect_popup() as pdf_popup_info:
+    pdf_link.click()
+pdf_popup = pdf_popup_info.value
+pdf_popup.wait_for_load_state("domcontentloaded")
+
+pdf_src = pdf_popup.locator("frame[name='PDF']").get_attribute("src")
+# 相対パス → 絶対 URL に変換
+parsed = urlparse(pdf_popup.url)
+pdf_url = f"{parsed.scheme}://{parsed.netloc}{pdf_src}"
+pdf_popup.close()
+
+resp = pdf_popup.context.request.get(pdf_url)
+body = resp.body()  # body[:4] == b"%PDF" で確認
+```
+
+**一般則**: frameset 構成の popup は `frame[name="..."].get_attribute("src")` で PDF URL を取得し、`context.request.get()` で直接フェッチする。`context.route()` は使わない。
+
+---
+
 ### T-10: Angular SPA の検索は press("Enter")
 
 **NG**: `popup.get_by_role("button").filter(has_text="search").first.click()` → クリックが効かない場合がある  
@@ -287,7 +319,7 @@ body = resp.body()  # body[:4] == b"%PDF" で確認
 | ナビゲーション | 電子交付書面 → 特定口座年間取引報告書でフィルタ |
 | 絞り込み | `f"{issue_year}年"` を含む XML リンク / PDF リンクをそれぞれ取得 |
 | XML取得 | `"... XML"` リンク → `expect_download()` |
-| PDF取得 | `"..."` （XML なし） リンク → ポップアップ → ダブル `iframe` 内ダウンロードボタン → `expect_download()` |
+| PDF取得 | `_download_pdf_via_route()` — `context.route("**/DocDispPdf**")` で捕捉（T-14）。ダブル iframe ダウンロードボタンは**使用禁止**（Chrome 拡張ビューア内のため Playwright から操作不可） |
 | skip条件 | `f"{issue_year}年"` を含む XML リンクが存在しない |
 
 ### 松井証券（matsui）
@@ -369,9 +401,9 @@ skills/tax-collect/sites/
 | 会社 | 実装 | 動作確認 |
 |---|---|---|
 | SBI証券 | 完了（PR#XX） | 完了（2026-04-12） |
-| GMOクリック証券 | 完了（未コミット） | 完了（2026-04-12） |
-| 松井証券 | 完了（未コミット） | 完了（2026-04-12） |
-| マネックス証券 | 未実装 | - |
+| GMOクリック証券 | 完了（コミット済み） | 完了（2026-04-12） |
+| 松井証券 | 完了（コミット済み） | 完了（2026-04-12） |
+| マネックス証券 | 完了（コミット済み） | 完了（2026-04-12） |
 | 野村證券 | 未実装 | - |
 | SMBC日興証券 | 未実装 | - |
 
