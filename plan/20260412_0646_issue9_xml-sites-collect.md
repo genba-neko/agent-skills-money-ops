@@ -442,4 +442,4 @@ skills/tax-collect/sites/
 | [#5](https://github.com/genba-neko/agent-skills-money-ops/issues/5) | tax-collect 基盤 | `feat` | [完了 PR#13 2026-04-11] |
 | [#6](https://github.com/genba-neko/agent-skills-money-ops/issues/6) | TEG204 XML変換 | `feat` | [完了 PR#14 / bugfix PR#20 2026-04-11] |
 | [#8](https://github.com/genba-neko/agent-skills-money-ops/issues/8) | 楽天証券 収集スクリプト | `feat` | [完了 PR#19 2026-04-11] |
-| [#9](https://github.com/genba-neko/agent-skills-money-ops/issues/9) | XMLあり各社 収集スクリプト（本プラン） | `feat` | #5 #6 #8 |
+| [#9](https://github.com/genba-neko/agent-skills-money-ops/issues/9) | XMLあり各社 収集スクリプト（本プラン） | `feat` | [完了 PR#23 2026-04-13] |
