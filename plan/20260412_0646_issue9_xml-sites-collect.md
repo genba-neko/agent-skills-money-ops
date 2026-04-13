@@ -80,6 +80,16 @@
 
 ---
 
+### T-1b: ホバーで展開するドロップダウンメニューは `.hover()` が必須
+
+**NG**: `get_by_role("link", name="電子交付書面").click()` → 要素が非表示のため Timeout  
+**OK**: `page.locator("li.nav02").hover()` → `_wait(0.5, 1.0)` → `get_by_role("link", name="電子交付書面").click()`  
+CSS `:hover` トリガーのドロップダウンは JS/CSS が hover 状態を検知して初めて子要素が visible になる。  
+`click()` だけでは hover が発火せず、サブメニューが非表示のまま Timeout する。  
+**実例**: マネックス証券 `li.nav02`（資産・残高管理）ホバー → 「電子交付書面」リンク表示
+
+---
+
 ### T-2: Angular SPA は domcontentloaded では描画が終わっていない
 
 **NG**: `popup.wait_for_load_state("domcontentloaded")` 直後に要素を探す → 見つからない  
@@ -306,7 +316,7 @@ body = resp.body()  # body[:4] == b"%PDF" で確認
 |---|---|
 | ログイン | ログインページを開き人間が手動でログイン・ポップアップ処理・トップ画面到達後 Enter |
 | ナビゲーション | 口座情報/手続き → 取引報告書等Web交付（ポップアップ）→ 取引パスワード認証 |
-| 絞り込み | `str(target_year)` を含むボタンをクリック |
+| 絞り込み | 発行年月（`f"{target_year}/12"` or `f"{target_year+1}/01"`）＋ `"特定口座年間取引報告書"` で絞り込む（年のみでは取引残高報告書等に誤マッチする） |
 | XML取得 | `"特定口座年間取引報告書（xmlデータ）"` ボタン → `expect_download()` |
 | PDF取得 | `"特定口座年間取引報告書（PDFファイル）"` ボタン → ポップアップ → `iframe` 内ダウンロードボタン → `expect_download()` |
 | skip条件 | `str(target_year)` を含むボタンが存在しない |
