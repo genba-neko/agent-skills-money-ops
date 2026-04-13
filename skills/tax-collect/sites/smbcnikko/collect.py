@@ -22,7 +22,7 @@ import re
 import sys
 import time
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 _RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
 
@@ -88,22 +88,33 @@ class SMBCNikkoCollector(BaseCollector):
         _wait(2.0, 3.0)
         self.save_html(session, "after_search")
 
-    def _find_xml_link(self, session):
-        """XML ダウンロードリンクを返す（href に xml/download を含む最初のリンク）"""
-        link = session.locator("a[href*='xml/download']")
-        return link.first if link.count() > 0 else None
+    def _year_month_patterns(self, year: int) -> list[str]:
+        """作成日列の年月候補: 対象年12月 or 翌年1月"""
+        return [f"{year}/12", f"{year + 1}/01"]
 
-    def _find_pdf_link(self, session):
-        """PDF リンクを返す（href に trade_report/pdf を含む最初のリンク、fallback: .td01 > a）"""
-        link = session.locator("a[href*='trade_report/pdf']")
-        if link.count() > 0:
-            return link.first
-        link = session.locator(".td01 > a")
-        return link.first if link.count() > 0 else None
+    def _find_xml_link(self, session, year: int):
+        """作成日列（th.th05_7）が対象年月にマッチする行から XML リンクを返す"""
+        for ym in self._year_month_patterns(year):
+            row = session.locator("tr").filter(
+                has=session.locator(f"th.th05_7:has-text('{ym}')")
+            ).filter(has=session.locator("a[href*='xml/download']"))
+            if row.count() > 0:
+                return row.first.locator("a[href*='xml/download']").first
+        return None
 
-    def _download_xml(self, session) -> str | None:
+    def _find_pdf_link(self, session, year: int):
+        """作成日列（th.th05_7）が対象年月にマッチする行から PDF リンクを返す"""
+        for ym in self._year_month_patterns(year):
+            row = session.locator("tr").filter(
+                has=session.locator(f"th.th05_7:has-text('{ym}')")
+            ).filter(has=session.locator("a[href*='trade_report/pdf']"))
+            if row.count() > 0:
+                return row.first.locator("a[href*='trade_report/pdf']").first
+        return None
+
+    def _download_xml(self, session, year: int) -> str | None:
         """XML リンク → 取引パスワードポップアップ（人間入力）→ 認証 → expect_download()"""
-        xml_link = self._find_xml_link(session)
+        xml_link = self._find_xml_link(session, year)
         if xml_link is None:
             print(f"[{self.name}] XML リンクが見つかりません")
             return None
@@ -121,7 +132,6 @@ class SMBCNikkoCollector(BaseCollector):
         with pw_popup.expect_download(timeout=120000) as dl_info:
             pass
         dl = dl_info.value
-        year = self.config["target_year"]
         xml_path = self.output_dir / (dl.suggested_filename or f"{year}_nentori.xml")
         dl.save_as(str(xml_path))
         print(f"[{self.name}] XML 保存: {xml_path}")
@@ -129,9 +139,9 @@ class SMBCNikkoCollector(BaseCollector):
         _wait()
         return str(xml_path)
 
-    def _download_pdf(self, session) -> str | None:
+    def _download_pdf(self, session, year: int) -> str | None:
         """PDF リンクの href を取得して直接フェッチ（Chrome 拡張 iframe ボタンは NG）"""
-        pdf_link = self._find_pdf_link(session)
+        pdf_link = self._find_pdf_link(session, year)
         if pdf_link is None:
             print(f"[{self.name}] PDF リンクが見つかりません")
             return None
@@ -154,10 +164,14 @@ class SMBCNikkoCollector(BaseCollector):
             print(f"[{self.name}] PDF フェッチ失敗（status={resp.status}）")
             return None
 
-        year = self.config["target_year"]
         cd = resp.headers.get("content-disposition", "")
         m = _RE_FILENAME.search(cd)
-        filename = m.group(1).strip().strip('"\'') if m else f"{year}_nentori.pdf"
+        if m:
+            filename = m.group(1).strip().strip('"\'')
+        else:
+            # SMBC日興は Content-Disposition なし → URL パスのファイル名を使用
+            url_filename = Path(urlparse(pdf_url).path).name
+            filename = url_filename if url_filename else f"{year}_nentori.pdf"
         pdf_path = self.output_dir / filename
         pdf_path.write_bytes(body)
         print(f"[{self.name}] PDF 保存: {pdf_path}")
@@ -188,19 +202,20 @@ class SMBCNikkoCollector(BaseCollector):
             self._wait_for_login(page)
             session = self._session
             self._navigate_to_report_list()
+            year = self.config["target_year"]
 
-            if self._find_xml_link(session) is None:
-                self.log_result("skip", [], f"{self.config['target_year']}年度の取引報告書が存在しません")
+            if self._find_xml_link(session, year) is None:
+                self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
                 return
 
             self.prepare_directory()
             downloaded: list[str] = []
 
-            xml_path = self._download_xml(session)
+            xml_path = self._download_xml(session, year)
             if xml_path:
                 downloaded.append(xml_path)
 
-            pdf_path = self._download_pdf(session)
+            pdf_path = self._download_pdf(session, year)
             if pdf_path:
                 downloaded.append(pdf_path)
 
