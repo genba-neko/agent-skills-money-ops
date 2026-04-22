@@ -183,11 +183,22 @@ def _extract_with_docling_cli(pdf_path: Path) -> str:
     logging.getLogger("docling").setLevel(logging.ERROR)
     logging.getLogger("rapidocr").setLevel(logging.ERROR)
 
-    from docling.document_converter import DocumentConverter
+    from docling.document_converter import DocumentConverter, PdfFormatOption
+    from docling.datamodel.base_models import InputFormat
+    from docling.datamodel.pipeline_options import PdfPipelineOptions
 
-    converter = DocumentConverter()
-    result = converter.convert(str(pdf_path))
-    pdf_text = result.document.export_to_markdown()
+    def _convert(do_ocr: bool) -> str:
+        opts = PdfPipelineOptions()
+        opts.do_ocr = do_ocr
+        conv = DocumentConverter(
+            format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)}
+        )
+        return conv.convert(str(pdf_path)).document.export_to_markdown()
+
+    pdf_text = _convert(do_ocr=False)
+    if len(pdf_text.strip()) < 100:
+        print("[pdf_to_json] テキスト少 → OCR 有効で再試行")
+        pdf_text = _convert(do_ocr=True)
 
     schema_part = _EXTRACTION_PROMPT.split("**JSON スキーマ**")[1].strip()
     stdin_text = (

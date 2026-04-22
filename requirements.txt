@@ -6,3 +6,5 @@
 playwright
 python-dotenv
 anthropic
+google-genai
+docling
