@@ -1,19 +1,21 @@
 """PDF（特定口座年間取引報告書）→ nenkantorihikihokokusho.json 変換モジュール
 
-Claude API（claude-sonnet-4-6）を使用して PDF を解析し、
-プラン定義の JSON スキーマに変換する。
+優先順位:
+  1. ANTHROPIC_API_KEY が設定されていれば claude-sonnet-4-6 を使用
+  2. GEMINI_API_KEY（または GOOGLE_API_KEY）が設定されていれば gemini-2.0-flash を使用（PDF マルチモーダル）
+  3. Docling（ローカル PDF テキスト抽出）+ Gemini text API
 """
 
 from __future__ import annotations
 
 import base64
 import json
+import os
 from datetime import datetime
 from pathlib import Path
 
-import anthropic
-
-_MODEL = "claude-sonnet-4-6"
+_ANTHROPIC_MODEL = "claude-sonnet-4-6"
+_GEMINI_MODEL = "gemini-2.0-flash-lite"
 
 _EXTRACTION_PROMPT = """\
 添付の PDF は日本の証券会社が発行した「特定口座年間取引報告書」です。
@@ -129,42 +131,12 @@ def _encode_pdf(pdf_path: Path) -> str:
     return base64.standard_b64encode(pdf_path.read_bytes()).decode("utf-8")
 
 
-def convert_pdf_to_json(
-    pdf_path: str | Path,
-    company: str,
-    code: str,
-    year: int,
-    raw_files: list[str] | None = None,
-    collected_at: str | None = None,
-    client: anthropic.Anthropic | None = None,
-) -> dict:
-    """PDF を nenkantorihikihokokusho.json の dict に変換する。
-
-    Parameters
-    ----------
-    pdf_path:
-        特定口座年間取引報告書 PDF のパス
-    company:
-        証券会社名（registry.json の name）
-    code:
-        証券会社コード（registry.json の code）
-    year:
-        対象年度（例: 2025）
-    raw_files:
-        収集した原本ファイルのパスリスト
-    collected_at:
-        収集日時（ISO 8601 形式）。None の場合は現在日時を使用
-    client:
-        anthropic.Anthropic インスタンス。None の場合は自動生成（ANTHROPIC_API_KEY 環境変数が必要）
-    """
-    pdf_path = Path(pdf_path)
-    if client is None:
-        client = anthropic.Anthropic()
-
+def _extract_with_anthropic(pdf_path: Path, api_key: str) -> str:
+    import anthropic
+    client = anthropic.Anthropic(api_key=api_key)
     pdf_b64 = _encode_pdf(pdf_path)
-
     message = client.messages.create(
-        model=_MODEL,
+        model=_ANTHROPIC_MODEL,
         max_tokens=2048,
         messages=[
             {
@@ -178,16 +150,111 @@ def convert_pdf_to_json(
                             "data": pdf_b64,
                         },
                     },
-                    {
-                        "type": "text",
-                        "text": _EXTRACTION_PROMPT,
-                    },
+                    {"type": "text", "text": _EXTRACTION_PROMPT},
                 ],
             }
         ],
     )
+    return message.content[0].text
 
-    extracted = json.loads(message.content[0].text)
+
+def _extract_with_gemini(pdf_path: Path, api_key: str) -> str:
+    from google import genai
+    from google.genai import types
+    client = genai.Client(api_key=api_key)
+    pdf_bytes = pdf_path.read_bytes()
+    response = client.models.generate_content(
+        model=_GEMINI_MODEL,
+        contents=[
+            types.Part.from_bytes(data=pdf_bytes, mime_type="application/pdf"),
+            _EXTRACTION_PROMPT,
+        ],
+    )
+    return response.text
+
+
+def _extract_with_docling_cli(pdf_path: Path) -> str:
+    """Docling でローカル PDF テキスト抽出 → gemini CLI（OAuth）で JSON 構築。
+    API キー不要。gemini CLI のインストールと認証が前提。
+    """
+    import logging
+    import subprocess
+
+    logging.getLogger("docling").setLevel(logging.ERROR)
+    logging.getLogger("rapidocr").setLevel(logging.ERROR)
+
+    from docling.document_converter import DocumentConverter
+
+    converter = DocumentConverter()
+    result = converter.convert(str(pdf_path))
+    pdf_text = result.document.export_to_markdown()
+
+    schema_part = _EXTRACTION_PROMPT.split("**JSON スキーマ**")[1].strip()
+    stdin_text = (
+        "以下は「特定口座年間取引報告書」から抽出したテキストです。\n\n"
+        f"{pdf_text}\n\n"
+        f"**JSON スキーマ**\n{schema_part}"
+    )
+    prompt = (
+        "上記テキストから指定スキーマに従い数値・情報を抽出してJSONのみ出力。"
+        "説明文・コードブロック記号不要。記載なし項目は0または\"\"。金額は整数。"
+    )
+
+    import shutil
+    gemini_bin = shutil.which("gemini") or shutil.which("gemini.cmd")
+    if not gemini_bin:
+        raise RuntimeError("gemini CLI が見つかりません。npm install -g @google/generative-ai-cli 等でインストールしてください。")
+
+    proc = subprocess.run(
+        [gemini_bin, "--output-format", "text", "-p", prompt],
+        input=stdin_text,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        timeout=120,
+    )
+    if proc.returncode != 0:
+        raise RuntimeError(f"gemini CLI エラー: {proc.stderr[:500]}")
+    return proc.stdout.strip()
+
+
+def convert_pdf_to_json(
+    pdf_path: str | Path,
+    company: str,
+    code: str,
+    year: int,
+    raw_files: list[str] | None = None,
+    collected_at: str | None = None,
+    client=None,
+) -> dict:
+    """PDF を nenkantorihikihokokusho.json の dict に変換する。
+
+    優先順位:
+      1. ANTHROPIC_API_KEY → Claude (PDF マルチモーダル)
+      2. gemini CLI (Docling テキスト抽出 + OAuth)
+      3. GEMINI_API_KEY → Gemini API (PDF マルチモーダル、フォールバック)
+    """
+    pdf_path = Path(pdf_path)
+
+    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+    gemini_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+
+    if anthropic_key:
+        raw_text = _extract_with_anthropic(pdf_path, anthropic_key)
+    else:
+        try:
+            raw_text = _extract_with_docling_cli(pdf_path)
+        except Exception as e:
+            if not gemini_key:
+                raise RuntimeError(
+                    "gemini CLI 失敗かつ API キー未設定。"
+                    "gemini CLI をインストールするか GEMINI_API_KEY を設定してください。"
+                ) from e
+            print(f"[pdf_to_json] gemini CLI 失敗 ({type(e).__name__})、Gemini API フォールバック試行")
+            raw_text = _extract_with_gemini(pdf_path, gemini_key)
+        raw_text = _extract_with_docling_cli(pdf_path)
+
+    extracted = json.loads(raw_text)
 
     return {
         "company": company,
