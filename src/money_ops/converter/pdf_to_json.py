@@ -181,6 +181,8 @@ def _extract_with_docling_cli(pdf_path: Path) -> str:
     import subprocess
     import time
 
+    print("[pdf_to_json] PDF変換を開始します（目安: 約90秒）。お待ちください...")
+
     logging.getLogger("docling").setLevel(logging.ERROR)
     logging.getLogger("rapidocr").setLevel(logging.ERROR)
 
@@ -195,8 +197,6 @@ def _extract_with_docling_cli(pdf_path: Path) -> str:
             format_options={InputFormat.PDF: PdfFormatOption(pipeline_options=opts)}
         )
         return conv.convert(str(pdf_path)).document.export_to_markdown()
-
-    print("[pdf_to_json] PDF変換を開始します（目安: 約90秒）。お待ちください...")
     t0 = time.time()
     print("[pdf_to_json] Docling テキスト抽出中...")
     pdf_text = _convert(do_ocr=False)
