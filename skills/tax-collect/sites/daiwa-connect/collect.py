@@ -58,25 +58,31 @@ class DaiwaConnectCollector(BaseCollector):
             self.output_dir = Path(self.config["output_dir"])
 
     def _login(self, page) -> object:
-        """connect-sec.co.jp → ログインポップアップ → page1。
+        """connect-sec.co.jp → jumppages/login.html → 認証 → webbroker3。
 
         HAR 確認済み:
-          - section 内リンク（Webブラウザ用）→ popup page1
-          - メールアドレス + パスワード → ログイン
-          - 2段階認証コード（6桁）→ ログイン（毎回変わるため手動入力必須）
+          - section 内リンク → popup page1 (jumppages/login.html)
+          - Chromium popup ブロック回避のため直接 goto
+          - セッション有効時 → jumppages が webbroker3 へ即リダイレクト（ログインスキップ）
+          - セッション無効時 → メールアドレス + パスワード → ログイン → 2段階認証コード
         """
         page.goto(_LOGIN_URL)
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
-        with page.expect_popup() as popup_info:
-            page.locator("section").filter(
-                has_text=re.compile("パソコンを併用される方")
-            ).get_by_role("link").click()
-        page1 = popup_info.value
+        # Chromium で popup が読み込めないため同一ページで直接遷移
+        page.goto("https://www.connect-sec.co.jp/jumppages/login.html")
+        page1 = page
         page1.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
         self.dlog(f"page1 URL: {page1.url}")
+
+        # セッション有効時は webbroker3 へ即リダイレクトされる
+        if "webbroker3" in page1.url:
+            print(f"[{self.name}] セッション有効 → ログインスキップ")
+            state_path = self._browser_profile_dir() / "storage_state.json"
+            page.context.storage_state(path=str(state_path))
+            return page1
 
         user = os.environ.get("DAIWACONNECT_USER", "")
         password = os.environ.get("DAIWACONNECT_PASS", "")
@@ -84,22 +90,24 @@ class DaiwaConnectCollector(BaseCollector):
         if user and password:
             page1.get_by_role("textbox", name="メールアドレスを入力").fill(user)
             page1.get_by_role("textbox", name="ログインパスワードを入力").fill(password)
-        else:
-            print(f"[{self.name}] page1 でログインしてください（メールアドレス・パスワード）")
-            input("メールアドレス・パスワード入力後 Enter: ")
-
-        page1.get_by_role("link", name=re.compile("ログイン")).first.click()
-        _wait(2.0, 3.0)
-        self.save_html(page1, "after_login1")
-
-        # 2段階認証コード
-        code_field = page1.get_by_role("textbox").first
-        if code_field.count() > 0:
-            print(f"[{self.name}] 2段階認証コードを入力してください（メールに届いた6桁）")
-            code = input("認証コード: ").strip()
-            code_field.fill(code)
             page1.get_by_role("link", name=re.compile("ログイン")).first.click()
             _wait(2.0, 3.0)
+            self.save_html(page1, "after_login1")
+            # 2段階認証コード（自動ログイン時のみ）
+            if "webbroker3" not in page1.url:
+                print(f"[{self.name}] 2段階認証コードを入力してください（メールに届いた6桁）")
+                code = input("認証コード: ").strip()
+                page1.get_by_role("textbox").first.fill(code)
+                page1.get_by_role("link", name=re.compile("ログイン")).first.click()
+                _wait(2.0, 3.0)
+        else:
+            print(f"[{self.name}] ログインしてください（メールアドレス・パスワード・2段階認証まですべて完了後 Enter）")
+            input("完了後 Enter: ")
+
+        # webbroker3 SPA の読み込み完了を待つ
+        page1.wait_for_url("**/webbroker3/**", timeout=30000)
+        _wait(2.0, 3.0)
+        self.dlog(f"page1 after login URL: {page1.url}")
 
         state_path = self._browser_profile_dir() / "storage_state.json"
         page.context.storage_state(path=str(state_path))
@@ -114,12 +122,19 @@ class DaiwaConnectCollector(BaseCollector):
           - 「電子交付サービス」link → popup page2（w37.denshi-bato）
         """
         print(f"[{self.name}] お客様情報 → 電子交付サービスへ移動")
-        page1.get_by_role("link", name="お客様情報", exact=True).click()
+        # sidrToggle（モバイル用不可視）を除外して本体ナビをクリック
+        page1.locator("ul.navbar-nav a:not(.sidrToggle)", has_text="お客様情報").click()
         page1.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
+        # 暗証番号入力ページが挟まる場合はブラウザで入力する
+        # BatoSubmitHome が定義されていれば電子交付サービスが表示済み
+        print(f"[{self.name}] 暗証番号等の追加認証が必要な場合はブラウザで入力してください")
+        page1.wait_for_function("typeof BatoSubmitHome === 'function'", timeout=60000)
+
+        # BatoSubmitHome() が電子交付サービス popup を開く JS 関数
         with page1.expect_popup() as popup2_info:
-            page1.get_by_role("link", name=re.compile("電子交付サービス")).click()
+            page1.evaluate("BatoSubmitHome()")
         page2 = popup2_info.value
         page2.wait_for_load_state("domcontentloaded")
         _wait(2.0, 3.0)

@@ -270,7 +270,6 @@ def convert_pdf_to_json(
                 ) from e
             print(f"[pdf_to_json] gemini CLI 失敗 ({type(e).__name__})、Gemini API フォールバック試行")
             raw_text = _extract_with_gemini(pdf_path, gemini_key)
-        raw_text = _extract_with_docling_cli(pdf_path)
 
     extracted = json.loads(raw_text)
 
