@@ -8,3 +8,6 @@ python-dotenv
 anthropic
 google-genai
 docling
+
+# GPU (CUDA) 使用時: CPU版 torch を上書き（Blackwell GPU は cu128 以上が必要）
+# pip install --force-reinstall torch torchvision --index-url https://download.pytorch.org/whl/cu128
