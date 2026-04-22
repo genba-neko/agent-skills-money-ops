@@ -196,6 +196,7 @@ def _extract_with_docling_cli(pdf_path: Path) -> str:
         )
         return conv.convert(str(pdf_path)).document.export_to_markdown()
 
+    print("[pdf_to_json] PDF変換を開始します（目安: 約90秒）。お待ちください...")
     t0 = time.time()
     print("[pdf_to_json] Docling テキスト抽出中...")
     pdf_text = _convert(do_ocr=False)
@@ -252,7 +253,9 @@ def convert_pdf_to_json(
       2. gemini CLI (Docling テキスト抽出 + OAuth)
       3. GEMINI_API_KEY → Gemini API (PDF マルチモーダル、フォールバック)
     """
+    import time as _time
     pdf_path = Path(pdf_path)
+    _t0 = _time.time()
 
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
     gemini_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
@@ -271,6 +274,7 @@ def convert_pdf_to_json(
             print(f"[pdf_to_json] gemini CLI 失敗 ({type(e).__name__})、Gemini API フォールバック試行")
             raw_text = _extract_with_gemini(pdf_path, gemini_key)
 
+    print(f"[pdf_to_json] PDF変換合計: {_time.time()-_t0:.1f}s")
     extracted = json.loads(raw_text)
 
     return {
