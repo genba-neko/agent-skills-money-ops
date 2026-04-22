@@ -69,7 +69,7 @@ class TsumikiCollector(BaseCollector):
         _wait(1.5, 2.5)
 
         with page.expect_popup() as popup_info:
-            page.get_by_role("link", name="ログイン").click()
+            page.get_by_role("link", name="ログイン", exact=True).click()
         page1 = popup_info.value
         page1.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)

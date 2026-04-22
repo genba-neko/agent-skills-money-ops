@@ -179,6 +179,7 @@ def _extract_with_docling_cli(pdf_path: Path) -> str:
     """
     import logging
     import subprocess
+    import time
 
     logging.getLogger("docling").setLevel(logging.ERROR)
     logging.getLogger("rapidocr").setLevel(logging.ERROR)
@@ -195,10 +196,13 @@ def _extract_with_docling_cli(pdf_path: Path) -> str:
         )
         return conv.convert(str(pdf_path)).document.export_to_markdown()
 
+    t0 = time.time()
+    print("[pdf_to_json] Docling テキスト抽出中...")
     pdf_text = _convert(do_ocr=False)
     if len(pdf_text.strip()) < 100:
         print("[pdf_to_json] テキスト少 → OCR 有効で再試行")
         pdf_text = _convert(do_ocr=True)
+    print(f"[pdf_to_json] Docling 完了: {time.time()-t0:.1f}s ({len(pdf_text)}chars)")
 
     schema_part = _EXTRACTION_PROMPT.split("**JSON スキーマ**")[1].strip()
     stdin_text = (
@@ -216,6 +220,8 @@ def _extract_with_docling_cli(pdf_path: Path) -> str:
     if not gemini_bin:
         raise RuntimeError("gemini CLI が見つかりません。npm install -g @google/generative-ai-cli 等でインストールしてください。")
 
+    t1 = time.time()
+    print("[pdf_to_json] gemini CLI JSON変換中...")
     proc = subprocess.run(
         [gemini_bin, "--output-format", "text", "-p", prompt],
         input=stdin_text,
@@ -224,6 +230,7 @@ def _extract_with_docling_cli(pdf_path: Path) -> str:
         encoding="utf-8",
         timeout=120,
     )
+    print(f"[pdf_to_json] gemini CLI 完了: {time.time()-t1:.1f}s")
     if proc.returncode != 0:
         raise RuntimeError(f"gemini CLI エラー: {proc.stderr[:500]}")
     return proc.stdout.strip()
