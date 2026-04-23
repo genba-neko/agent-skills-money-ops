@@ -1,4 +1,4 @@
-# #10 PDFのみ各社 Playwright収集スクリプト 実装プラン
+# #10 PDFのみ各社 Playwright収集スクリプト 実装プラン [完了 PR#XX 2026-04-23]
 
 ## 対象 issue
 
@@ -80,7 +80,7 @@ hidden input をパース → `context.request.post(ChouhyouDisplayPost.do)` で
 | PayPay証券 | メインページ内 ダブルiframe →「ダウンロード」ボタン → `expect_download()` |
 | 野村證券持株会 | **T-13方式**: `context.request.get(weachouhyou.jsp)` → hidden input パース → `context.request.post(ChouhyouDisplayPost.do)` |
 | ひふみ投信 | ポップアップ → iframe（name属性ランダム）→「ダウンロード」ボタン → `expect_download()` ※HAR確認後に変更の可能性あり |
-| さわかみ投信 | 実装時に確認（codegen に PDF ダウンロード操作が記録されていない） |
+| さわかみ投信 | XHR POST `/e-delivery?handler=Download` → blob → `Utils.localDownload()` → `<a download>` click → `page.expect_download()` で捕捉 |
 
 **iframe name属性はセッションごとに変わるため、nameでは指定しない。**  
 `frame_locator("iframe").get_by_role("button", name="ダウンロード")` で取得する。
@@ -256,18 +256,17 @@ with open(json_path, "w", encoding="utf-8") as f:
 
 ---
 
-### 7. sawakami（さわかみ投信）
+### 7. sawakami（さわかみ投信）[完了 2026-04-23]
 
 | 項目 | 内容 |
 |---|---|
 | login_url | `https://fv.sawakami.co.jp/Account/Login` |
-| ログイン | ログインID + ログインパスワード → ログイン → 認証コード（spinbutton）→ 認証する → 手動完了後 Enter |
-| ナビゲーション | ハンバーガーメニュー（`path` 要素クリック）→ ボタンクリック → 「資産状況」div → 「各種報告書(電子交付)」リンク |
-| 絞り込み | 「特定口座年間取引報告書」チェックボックスをON → 受信日（FROM）に `{Y}/12/01`、受信日（TO）に `{Y+1}/01/31` を datepicker で設定 → 検索 |
-| 書類特定 | 検索結果一覧から「特定口座年間取引報告書」行を特定 |
-| PDF取得 | **codegen未記録。実装時に HARファイルを分析して確認する** |
-| skip条件 | 検索結果 0件 |
-| 備考 | codegenのUI操作が脆弱（`.x-checkbox.x-m-readonly`, `xdsoft_label` 等の内部クラスに依存）。datepicker の操作は JavaScript で value を直接入力するアプローチを優先する。PDF取得方式は実装前に HARを精査する |
+| ログイン | ログインID + ログインパスワード → ログイン → メール認証コード（spinbutton "認証コード"）→ 認証する |
+| ナビゲーション | 直接 `/e-delivery?sf=Inbox&fo=Unopened&fo=Opened&dd_f={Y+1}/01/01&rep_ty=03` へ URL ナビゲーション（UI操作不要） |
+| 書類特定 | `.contents-item` を `has_text="特定口座年間取引報告書"` + `has_text=str(issue_year)` でフィルタ |
+| PDF取得 | `a.x-shadowButton.x-m-download` クリック → XHR POST `/e-delivery?handler=Download` → blob → `Utils.localDownload()` → `<a download>` → `page.expect_download()` |
+| skip条件 | `.contents-item` が 0件（書類未発行の場合） |
+| 備考 | rep_ty=03 が UI で disabled でも URL 直指定でフィルタ可能。セッションチェックは URL だけでは不十分（未認証でも `/e-delivery?sf=Inbox...` にリダイレクトしログインフォームを表示）。`input[name="Input.LoginId"]` の存在で判定する。 |
 
 ---
 
