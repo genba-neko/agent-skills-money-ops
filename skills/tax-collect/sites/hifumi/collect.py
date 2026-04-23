@@ -43,7 +43,8 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://hifumi.rheos.jp/"
 
 
-from money_ops.utils import extract_filename, wait as _wait
+from money_ops.collector.eshishobako import capture_dpaw_pdf
+from money_ops.utils import wait as _wait
 
 
 def _year_month_patterns(target_year: int) -> list[str]:
@@ -164,52 +165,6 @@ class HifumiCollector(BaseCollector):
         _wait()
         return True
 
-    def _download_pdf_via_route(self, page2, target_year: int) -> str | None:
-        """「PDFファイル」ボタンクリック → DPAW010501020 route 捕捉 → blob popup 閉じる。
-        SBI と同じ e-shishobako ポータルのため完全同方式。
-        """
-        pdf_btn = page2.get_by_role("button").filter(has_text="PDFファイル")
-        if pdf_btn.count() == 0:
-            pdf_btn = page2.get_by_role("link").filter(has_text="PDFファイル")
-        if pdf_btn.count() == 0:
-            self.dlog("PDFファイル ボタンが見つかりません")
-            return None
-
-        pdf_bytes_holder: list[tuple[str, bytes]] = []
-        fallback_name = f"{target_year}_hifumi_nentori.pdf"
-
-        def _capture_pdf(route, _request) -> None:
-            response = route.fetch()
-            body = response.body()
-            if body[:4] == b"%PDF":
-                cd = response.headers.get("content-disposition", "")
-                m = _RE_FILENAME.search(cd)
-                filename = m.group(1).strip().strip('"\'') if m else fallback_name
-                pdf_bytes_holder.append((filename, body))
-            route.fulfill(response=response)
-
-        page2.context.route("**/DPAW010501020", _capture_pdf)
-        try:
-            with page2.expect_popup() as pdf_popup_info:
-                pdf_btn.first.click()
-            pdf_popup = pdf_popup_info.value
-            pdf_popup.wait_for_load_state("domcontentloaded")
-            _wait()
-            pdf_popup.close()
-        finally:
-            page2.context.unroute("**/DPAW010501020", _capture_pdf)
-
-        if not pdf_bytes_holder:
-            self.dlog("PDF レスポンスを捕捉できませんでした")
-            return None
-
-        self.prepare_directory()
-        filename, pdf_bytes = pdf_bytes_holder[0]
-        pdf_path = self.output_dir / filename
-        pdf_path.write_bytes(pdf_bytes)
-        print(f"[{self.name}] PDF 保存: {pdf_path}")
-        return str(pdf_path)
-
     def collect(self) -> None:
         page = self.launch_browser()
         try:
@@ -227,7 +182,10 @@ class HifumiCollector(BaseCollector):
                 self.log_result("skip", [], f"{year}年度の特定口座年間取引報告書ボタンが見つかりません")
                 return
 
-            pdf_path = self._download_pdf_via_route(page2, year)
+            self.prepare_directory()
+            pdf_path = capture_dpaw_pdf(
+                page2, self.output_dir, f"{year}_hifumi_nentori.pdf", label=self.name
+            )
             if pdf_path is None:
                 self.log_result("error", [], "PDF 捕捉失敗")
                 return

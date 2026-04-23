@@ -29,7 +29,8 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://www.sbisec.co.jp/ETGate"
 
 
-from money_ops.utils import extract_filename, wait as _wait
+from money_ops.collector.eshishobako import capture_dpaw_pdf
+from money_ops.utils import wait as _wait
 
 
 def _year_month_patterns(target_year: int) -> list[str]:
@@ -92,47 +93,6 @@ class SBICollector(BaseCollector):
                 return btn.first
         return None
 
-    def _download_pdf_via_route(self, popup, output_dir: Path, fallback_name: str) -> str | None:
-        """context.route() で DPAW010501020 の PDF レスポンスを捕捉して保存
-        PDF ボタンクリック → blob URL ポップアップが開く → 閉じてから unroute（Rakuten と同方式）"""
-        pdf_btn = popup.locator("button, a").filter(has_text="PDFファイル")
-        if pdf_btn.count() == 0:
-            print(f"[{self.name}] PDF ボタンが見つかりません")
-            return None
-
-        pdf_bytes_holder: list[tuple[str, bytes]] = []
-
-        def _capture_pdf(route, _request) -> None:
-            response = route.fetch()
-            body = response.body()
-            if body[:4] == b"%PDF":
-                cd = response.headers.get("content-disposition", "")
-                m = _RE_FILENAME.search(cd)
-                filename = m.group(1).strip().strip('"\'') if m else fallback_name
-                pdf_bytes_holder.append((filename, body))
-            route.fulfill(response=response)
-
-        popup.context.route("**/DPAW010501020", _capture_pdf)
-        try:
-            with popup.expect_popup() as pdf_popup_info:
-                pdf_btn.first.click()
-            pdf_popup = pdf_popup_info.value
-            pdf_popup.wait_for_load_state("domcontentloaded")
-            _wait()
-            pdf_popup.close()  # ポップアップを閉じてからunroute（Rakuten方式）
-        finally:
-            popup.context.unroute("**/DPAW010501020", _capture_pdf)
-
-        if not pdf_bytes_holder:
-            print(f"[{self.name}] PDF レスポンスを捕捉できませんでした")
-            return None
-
-        filename, pdf_bytes = pdf_bytes_holder[0]
-        pdf_path = output_dir / filename
-        pdf_path.write_bytes(pdf_bytes)
-        print(f"[{self.name}] PDF 保存: {pdf_path}")
-        return str(pdf_path)
-
     def _download_files(self, popup) -> list[str]:
         self.prepare_directory()
         year = self.config["target_year"]
@@ -174,8 +134,8 @@ class SBICollector(BaseCollector):
             print(f"[{self.name}] XML ボタンが見つかりません")
 
         # PDF
-        pdf_path = self._download_pdf_via_route(
-            popup, self.output_dir, f"{year}_nentori.pdf"
+        pdf_path = capture_dpaw_pdf(
+            popup, self.output_dir, f"{year}_nentori.pdf", label=self.name
         )
         if pdf_path:
             downloaded.append(pdf_path)

@@ -84,7 +84,8 @@ def test_collect_error_when_pdf_not_found(tmp_path):
          patch.object(c, "_navigate_to_eshishobako", return_value=page2), \
          patch.object(c, "_find_date_button", return_value=date_btn), \
          patch.object(c, "_open_report_detail", return_value=True), \
-         patch.object(c, "_download_pdf_via_route", return_value=None), \
+         patch.object(c, "prepare_directory"), \
+         patch.object(_mod, "capture_dpaw_pdf", return_value=None), \
          patch.object(c, "log_result") as mock_log:
         c.collect()
 
