@@ -14,7 +14,6 @@
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -23,7 +22,6 @@ _PROJECT_ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.xml_to_json import convert_teg204_xml
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://www.rakuten-sec.co.jp/"
@@ -153,28 +151,6 @@ class RakutenCollector(BaseCollector):
     # ------------------------------------------------------------------
     # JSON 変換
     # ------------------------------------------------------------------
-    def _convert_to_json(self, downloaded_files: list[str]) -> None:
-        year = self.config["target_year"]
-        xml_files = [f for f in downloaded_files if f.endswith(".xml")]
-        if not xml_files:
-            print(f"[{self.name}] XML が見つからないため JSON 変換をスキップします")
-            return
-
-        raw_files = [str(Path(f).name) for f in downloaded_files]
-        data = convert_teg204_xml(
-            xml_path=xml_files[0],
-            company=self.name,
-            code=self.code,
-            year=year,
-            raw_files=raw_files,
-        )
-
-        json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"[{self.name}] JSON 保存: {json_path}")
-
-    # ------------------------------------------------------------------
     # メイン収集フロー
     # ------------------------------------------------------------------
     def collect(self) -> None:
@@ -195,7 +171,7 @@ class RakutenCollector(BaseCollector):
                 self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
                 return
 
-            self._convert_to_json(downloaded)
+            self._convert_xml_to_json(downloaded)
             self.log_result("success", downloaded)
 
         except KeyboardInterrupt:

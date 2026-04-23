@@ -189,5 +189,31 @@ class BaseCollector:
             return False
         return True
 
+    def _write_report_json(self, data: dict) -> None:
+        """年間取引報告書 JSON を output_dir.parent/nenkantorihikihokokusho.json に保存する。"""
+        json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print(f"[{self.name}] JSON 保存: {json_path}")
+
+    def _convert_xml_to_json(self, downloaded_files: list[str]) -> None:
+        """XML ファイルを TEG204 形式として JSON に変換して保存する（XML配布サイト用）。"""
+        from money_ops.converter.xml_to_json import convert_teg204_xml
+
+        year = self.config["target_year"]
+        xml_files = [f for f in downloaded_files if f.endswith(".xml")]
+        if not xml_files:
+            print(f"[{self.name}] XML が見つからないため JSON 変換をスキップします")
+            return
+        raw_files = [str(Path(f).name) for f in downloaded_files]
+        data = convert_teg204_xml(
+            xml_path=xml_files[0],
+            company=self.name,
+            code=self.code,
+            year=year,
+            raw_files=raw_files,
+        )
+        self._write_report_json(data)
+
     def collect(self) -> None:
         raise NotImplementedError("collect() をサブクラスで実装してください")

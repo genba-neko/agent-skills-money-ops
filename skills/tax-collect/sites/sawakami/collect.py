@@ -237,10 +237,7 @@ class SawakamiCollector(BaseCollector):
                     year=year,
                     raw_files=[str(Path(pdf_path).name)],
                 )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
+                self._write_report_json(data)
             except Exception as e:
                 print(f"[{self.name}] JSON 変換スキップ: {e}")
 

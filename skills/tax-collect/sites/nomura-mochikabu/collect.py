@@ -164,8 +164,7 @@ class NomuraMochikabuCollector(BaseCollector):
             return None
 
         cd = pdf_resp.headers.get("content-disposition", "")
-        m = _RE_FILENAME.search(cd)
-        filename = m.group(1).strip().strip('"\'') if m else f"{year}_nomura_mochikabu_haito.pdf"
+        filename = extract_filename(cd, f"{year}_nomura_mochikabu_haito.pdf")
         pdf_path = self.output_dir / filename
         pdf_path.write_bytes(body)
         print(f"[{self.name}] PDF 保存: {pdf_path}")

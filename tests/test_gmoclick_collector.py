@@ -67,7 +67,7 @@ def test_find_report_row_button_not_found(tmp_path):
 
 def test_convert_to_json_skips_without_xml(tmp_path, capsys):
     c = _make(tmp_path)
-    c._convert_to_json(["data/foo.pdf"])
+    c._convert_xml_to_json(["data/foo.pdf"])
     assert "スキップ" in capsys.readouterr().out
 
 
@@ -76,7 +76,7 @@ def test_convert_to_json_with_xml(tmp_path):
         pytest.skip("teg204_sample.xml が存在しない")
     c = _make(tmp_path)
     c.output_dir.mkdir(parents=True, exist_ok=True)
-    c._convert_to_json([str(FIXTURE_XML)])
+    c._convert_xml_to_json([str(FIXTURE_XML)])
     json_path = c.output_dir.parent / "nenkantorihikihokokusho.json"
     assert json_path.exists()
     data = json.loads(json_path.read_text(encoding="utf-8"))

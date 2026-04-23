@@ -229,7 +229,7 @@ def test_download_files_no_xml_button(tmp_path):
 
 def test_convert_to_json_skips_without_xml(tmp_path, capsys):
     collector = _make_collector(tmp_path)
-    collector._convert_to_json(["data/foo.pdf"])
+    collector._convert_xml_to_json(["data/foo.pdf"])
     captured = capsys.readouterr()
     assert "スキップ" in captured.out
 
@@ -241,7 +241,7 @@ def test_convert_to_json_with_xml(tmp_path):
 
     collector = _make_collector(tmp_path)
     collector.output_dir.mkdir(parents=True, exist_ok=True)
-    collector._convert_to_json([str(fixture_xml)])
+    collector._convert_xml_to_json([str(fixture_xml)])
 
     json_path = collector.output_dir.parent / "nenkantorihikihokokusho.json"
     assert json_path.exists()
