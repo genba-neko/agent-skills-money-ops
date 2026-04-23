@@ -6,6 +6,7 @@
 #              $PROJECT_ROOT : プロジェクトルートパス
 # - DESCRIPTION: help / show-workspace-menu に表示される説明文
 
+adb           C:\Users\g\AppData\Local\Microsoft\WinGet\Packages\Google.PlatformTools_Microsoft.Winget.Source_8wekyb3d8bbwe\platform-tools\adb.exe @args  # Android Debug Bridge
 format        $VENV_PYTHON -m black . ; $VENV_PYTHON -m isort .  # black で整形 → isort で import 整理
 lint          $VENV_PYTHON -m mypy . ; $VENV_PYTHON -m pylint --recursive=y .  # 型チェック → 静的解析
 test          $VENV_PYTHON -m pytest @args  # pytest 実行
