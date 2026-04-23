@@ -1,0 +1,10 @@
+{
+  "name": "野村證券持株会",
+  "code": "nomura-mochikabu",
+  "has_xml": false,
+  "target_year": 2025,
+  "output_dir": "data/income/securities/nomura-mochikabu/2025/raw/",
+  "documents": [
+    { "type": "配当金等支払通知書" }
+  ]
+}
