@@ -22,7 +22,6 @@ import sys
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
-_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(_PROJECT_ROOT / "src"))
@@ -35,7 +34,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/"
 
 
-from money_ops.utils import wait as _wait
+from money_ops.utils import extract_filename, wait as _wait
 
 
 class SMBCNikkoCollector(BaseCollector):
@@ -169,10 +168,8 @@ class SMBCNikkoCollector(BaseCollector):
             return None
 
         cd = resp.headers.get("content-disposition", "")
-        m = _RE_FILENAME.search(cd)
-        if m:
-            filename = m.group(1).strip().strip('"\'')
-        else:
+        filename = extract_filename(cd)
+        if not filename:
             # SMBC日興は Content-Disposition なし → URL パスのファイル名を使用
             url_filename = Path(urlparse(pdf_url).path).name
             filename = url_filename if url_filename else f"{year}_nentori.pdf"

@@ -29,7 +29,6 @@ PDF取得方式（T-13方式: context.request 直接フェッチ）:
 from __future__ import annotations
 
 import argparse
-import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -44,10 +43,9 @@ _LOGIN_URL = "https://www.e-plan.nomura.co.jp/login/index.html"
 _WEB_KOFU_URL = "https://www.e-plan.nomura.co.jp/mocikabu/script/WEAW1200.jsp"
 _PDF_POST_URL = "https://www.e-plan.nomura.co.jp/cms/ChouhyouDisplayPost.do"
 
-_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
 
 
-from money_ops.utils import wait as _wait
+from money_ops.utils import extract_filename, wait as _wait
 
 
 def _year_month_patterns(target_year: int) -> list[str]:

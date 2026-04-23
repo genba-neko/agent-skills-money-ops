@@ -29,7 +29,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://www.rakuten-sec.co.jp/"
 
 
-from money_ops.utils import wait as _wait
+from money_ops.utils import extract_filename, wait as _wait
 
 
 class RakutenCollector(BaseCollector):
@@ -115,9 +115,7 @@ class RakutenCollector(BaseCollector):
                     try:
                         # Content-Disposition からオリジナルファイル名を取得
                         cd = response.headers.get("content-disposition", "")
-                        import re as _re
-                        m = _re.search(r'filename[^;=\n]*=([^;\n]*)', cd)
-                        fn = m.group(1).strip().strip('"\'') if m else ""
+                        fn = extract_filename(cd)
                         if not fn:
                             fn = request.url.rstrip("/").split("/")[-1].split("?")[0]
                         if not fn.lower().endswith(".pdf"):

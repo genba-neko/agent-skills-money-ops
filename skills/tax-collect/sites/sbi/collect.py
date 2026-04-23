@@ -15,11 +15,9 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
-_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(_PROJECT_ROOT / "src"))
@@ -31,7 +29,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://www.sbisec.co.jp/ETGate"
 
 
-from money_ops.utils import wait as _wait
+from money_ops.utils import extract_filename, wait as _wait
 
 
 def _year_month_patterns(target_year: int) -> list[str]:
