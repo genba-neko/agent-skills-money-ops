@@ -51,6 +51,8 @@ class RakutenCollector(BaseCollector):
         print(f"[{self.name}] ブラウザでログインしてください（絵文字認証含む）")
         input("ログイン完了後、Enter を押してください: ")
         _wait()
+        self.dlog(f"URL: {page.url}")
+        self.save_html(page, "after_login")
 
     # ------------------------------------------------------------------
     # 電子書面一覧ページへ移動
@@ -66,6 +68,8 @@ class RakutenCollector(BaseCollector):
         _wait()
         page.get_by_role("link", name="取引報告書等(電子書面)").first.click()
         _wait()
+        self.dlog(f"URL: {page.url}")
+        self.save_html(page, "report_list")
 
     # ------------------------------------------------------------------
     # 対象年度の行を特定してダウンロード

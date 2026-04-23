@@ -59,11 +59,15 @@ class GMOClickCollector(BaseCollector):
         if isinstance(url, str) and "mypage/top" in url:
             print(f"[{self.name}] ログイン済みを検出 → スキップ")
             self._session = page
+            self.dlog(f"URL: {page.url}")
+            self.save_html(page, "after_login_skip")
             return
         print(f"[{self.name}] ブラウザでログインしてください")
         input("ログイン完了後 Enter を押してください: ")
         _wait()
         self._session = page
+        self.dlog(f"URL: {page.url}")
+        self.save_html(page, "after_login")
         # セッション状態（cookie含む）を保存
         page.context.storage_state(path=str(self._browser_profile_dir() / "storage_state.json"))
         print(f"[{self.name}] セッション状態を保存しました")
@@ -106,6 +110,8 @@ class GMOClickCollector(BaseCollector):
         popup.wait_for_url("**/dp_apl/usr/**", timeout=30000)
         popup.wait_for_selector("input, button", timeout=30000)
         _wait(2.0, 3.0)
+        self.dlog(f"popup URL: {popup.url}")
+        self.save_html(popup, "report_popup")
         return popup
 
     def _find_report_row_button(self, popup, target_year: int):

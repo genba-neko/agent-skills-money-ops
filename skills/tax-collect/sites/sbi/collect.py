@@ -55,10 +55,14 @@ class SBICollector(BaseCollector):
         page.wait_for_load_state("domcontentloaded")
         if page.locator('input[name="username"]').count() == 0:
             print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self.dlog(f"URL: {page.url}")
+            self.save_html(page, "after_login_skip")
             return
         print(f"[{self.name}] ブラウザでログイン・OTP等をすべて完了してください")
         input("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()
+        self.dlog(f"URL: {page.url}")
+        self.save_html(page, "after_login")
         # ログイン直後にセッション状態（Cookie・デバイス登録情報）を明示的に保存
         page.context.storage_state(path=str(self._browser_profile_dir() / "storage_state.json"))
         print(f"[{self.name}] セッション状態を保存しました")
@@ -81,6 +85,8 @@ class SBICollector(BaseCollector):
         popup.wait_for_url("**/dp_apl/usr/**", timeout=30000)
         popup.wait_for_selector("input, button", timeout=30000)
         _wait(2.0, 3.0)
+        self.dlog(f"popup URL: {popup.url}")
+        self.save_html(popup, "report_popup")
         return popup
 
     def _find_report_row_button(self, popup, target_year: int):
