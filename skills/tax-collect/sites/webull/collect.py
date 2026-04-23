@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import time
@@ -42,11 +43,7 @@ _PACKAGE = "org.dayup.stocks.jp"
 _DOCS_DIR = "/sdcard/Documents"
 _TARGET_DOC = "特定口座年間取引報告書"
 
-_ADB_FALLBACK = Path(
-    r"C:\Users\g\AppData\Local\Microsoft\WinGet\Packages"
-    r"\Google.PlatformTools_Microsoft.Winget.Source_8wekyb3d8bbwe"
-    r"\platform-tools\adb.exe"
-)
+_ADB_FALLBACK = Path(os.environ["ADB_PATH"]) if os.environ.get("ADB_PATH") else None
 
 
 def _adb(*args: str) -> str:
@@ -56,13 +53,13 @@ def _adb(*args: str) -> str:
             cmd, capture_output=True, text=True, encoding="utf-8", errors="replace"
         )
     except FileNotFoundError:
-        if _ADB_FALLBACK.exists():
+        if _ADB_FALLBACK is not None and _ADB_FALLBACK.exists():
             cmd[0] = str(_ADB_FALLBACK)
             result = subprocess.run(
                 cmd, capture_output=True, text=True, encoding="utf-8", errors="replace"
             )
         else:
-            raise RuntimeError("adb が見つかりません。PATH に追加してください（README_ADB.md 参照）")
+            raise RuntimeError("adb が見つかりません。PATH に追加するか ADB_PATH 環境変数を設定してください")
     return result.stdout.strip()
 
 

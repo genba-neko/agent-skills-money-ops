@@ -160,15 +160,6 @@ class MonexCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-        if not captured["body"]:
-            print(f"[{self.name}] PDF 捕捉できませんでした")
-            return None
-
-        pdf_path = self.output_dir / captured["filename"]
-        pdf_path.write_bytes(captured["body"])
-        print(f"[{self.name}] PDF 保存: {pdf_path}")
-        return str(pdf_path)
-
     def _download_files(self, page) -> list[str]:
         self.prepare_directory()
         year = self.config["target_year"]

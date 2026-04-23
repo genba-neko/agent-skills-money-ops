@@ -75,15 +75,26 @@ class GMOClickCollector(BaseCollector):
         _wait()
         session.get_by_role("link", name="電子書類閲覧").click()
         _wait()
-        with session.expect_popup() as popup_info:
-            session.locator("#stockReportLink").click()
-            _wait(2.0, 3.0)
-            # 2FAモーダルが表示された場合のみ処理（セッション状態によって有無が変わる）
-            if session.locator("#appTwoStepVerificationCode").is_visible():
-                print(f"[{self.name}] アプリ2FAコードを入力してください（認証ボタンはスクリプトが押します）")
-                input("コード入力後 Enter を押してください: ")
+        session.locator("#stockReportLink").click()
+        _wait(2.0, 3.0)
+        # 2FAモーダルが表示された場合のみ処理（セッション状態によって有無が変わる）
+        if session.locator("#appTwoStepVerificationCode").is_visible():
+            print(f"[{self.name}] アプリ2FAコードを入力してください（認証ボタンはスクリプトが押します）")
+            input("コード入力後 Enter を押してください: ")
+            with session.expect_popup() as popup_info:
                 session.locator("#btnConfirm").click()
-        popup = popup_info.value
+            popup = popup_info.value
+        else:
+            # 2FAなし: #stockReportLink クリックでポップアップが開く（遅延考慮でリトライ）
+            popup = None
+            for _ in range(6):
+                new_pages = [p for p in session.context.pages if p is not session]
+                if new_pages:
+                    popup = new_pages[-1]
+                    break
+                _wait(0.5, 1.0)
+            if popup is None:
+                raise RuntimeError(f"[{self.name}] ポップアップが開きませんでした")
         popup.wait_for_load_state("domcontentloaded")
         # e-shishobako Angular SPA: SSO後のルーティング完了を待つ（SBIと同方式）
         popup.wait_for_url("**/dp_apl/usr/**", timeout=30000)
