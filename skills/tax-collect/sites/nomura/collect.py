@@ -54,6 +54,12 @@ class NomuraCollector(BaseCollector):
 
     def _wait_for_login(self, page) -> None:
         page.goto(_LOGIN_URL)
+        page.wait_for_load_state("domcontentloaded")
+        url = page.url
+        if isinstance(url, str) and "hometrade.nomura.co.jp" in url and "login" not in url.lower():
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self._session = page
+            return
         print(f"[{self.name}] ブラウザでログインしてください（メール認証コード含む）")
         input("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()

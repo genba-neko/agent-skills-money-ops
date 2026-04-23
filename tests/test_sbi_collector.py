@@ -44,6 +44,15 @@ def test_wait_for_login(tmp_path):
     page.goto.assert_called_once_with(_mod._LOGIN_URL)
 
 
+def test_wait_for_login_skips_when_logged_in(tmp_path):
+    c = _make(tmp_path)
+    page = MagicMock()
+    page.locator.return_value.count.return_value = 0  # no username input = logged in
+    with patch("builtins.input") as mock_input:
+        c._wait_for_login(page)
+    mock_input.assert_not_called()
+
+
 def test_find_report_row_button_found(tmp_path):
     c = _make(tmp_path, year=2025)
     popup = MagicMock()

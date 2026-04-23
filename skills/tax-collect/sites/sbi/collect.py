@@ -52,6 +52,10 @@ class SBICollector(BaseCollector):
 
     def _wait_for_login(self, page) -> None:
         page.goto(_LOGIN_URL)
+        page.wait_for_load_state("domcontentloaded")
+        if page.locator('input[name="username"]').count() == 0:
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            return
         print(f"[{self.name}] ブラウザでログイン・OTP等をすべて完了してください")
         input("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()

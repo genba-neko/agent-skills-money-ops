@@ -37,6 +37,15 @@ def test_wait_for_login(tmp_path):
     page.goto.assert_called_once_with(_mod._LOGIN_URL)
 
 
+def test_wait_for_login_skips_when_logged_in(tmp_path):
+    c = _make(tmp_path)
+    page = MagicMock()
+    page.url = "https://mst.monex.co.jp/pc/ITS/usr/TopMenu.jsp"
+    with patch("builtins.input") as mock_input:
+        c._wait_for_login(page)
+    mock_input.assert_not_called()
+
+
 def test_find_xml_link_found(tmp_path):
     c = _make(tmp_path, year=2025)
     page = MagicMock()

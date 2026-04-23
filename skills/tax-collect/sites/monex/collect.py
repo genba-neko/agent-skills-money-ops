@@ -53,6 +53,11 @@ class MonexCollector(BaseCollector):
 
     def _wait_for_login(self, page) -> None:
         page.goto(_LOGIN_URL)
+        page.wait_for_load_state("domcontentloaded")
+        url = page.url
+        if isinstance(url, str) and "mst.monex.co.jp" in url and "LoginIDPassword" not in url:
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            return
         print(f"[{self.name}] ブラウザでログインしてください（OTP含む）")
         input("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()

@@ -51,6 +51,13 @@ class SMBCNikkoCollector(BaseCollector):
 
     def _wait_for_login(self, page) -> None:
         page.goto(_LOGIN_URL)
+        page.wait_for_load_state("domcontentloaded")
+        url = page.url
+        if isinstance(url, str) and "trade.smbcnikko.co.jp" in url and "/Login/0/login/" not in url:
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self._session = page
+            self.save_html(self._session, "after_login_skip")
+            return
         print(f"[{self.name}] ブラウザでログインしてください（ランダムキーパッド・OTP含む）")
         input("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()

@@ -54,6 +54,12 @@ class GMOClickCollector(BaseCollector):
 
     def _wait_for_login(self, page) -> None:
         page.goto(_LOGIN_URL)
+        page.wait_for_load_state("domcontentloaded")
+        url = page.url
+        if isinstance(url, str) and "mypage/top" in url:
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self._session = page
+            return
         print(f"[{self.name}] ブラウザでログインしてください")
         input("ログイン完了後 Enter を押してください: ")
         _wait()
