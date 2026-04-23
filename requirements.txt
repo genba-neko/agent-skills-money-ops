@@ -11,3 +11,9 @@ docling
 
 # GPU (CUDA) 使用時: CPU版 torch を上書き（Blackwell GPU は cu128 以上が必要）
 # pip install --force-reinstall torch torchvision --index-url https://download.pytorch.org/whl/cu128
+
+# スマホプロキシ Wifiプロキシで設定して仲介するが、証明書ピンニングで無視されて直接通信になる
+#mitmproxy
+
+# Androidデバッグ操作
+uiautomator2
