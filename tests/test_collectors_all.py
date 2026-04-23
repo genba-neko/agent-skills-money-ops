@@ -90,3 +90,46 @@ def test_collect_not_implemented_on_base(tmp_path, code, cls_name):
     assert "collect" in cls.__dict__ or any(
         "collect" in C.__dict__ for C in cls.__mro__[1:-1]
     )
+
+
+@pytest.mark.parametrize("code,cls_name", ALL_SITES, ids=IDS)
+def test_verify_pdf_has_method(tmp_path, code, cls_name):
+    """verify_pdf() が BaseCollector から継承されていること（webull は BaseCollector 未継承のため除外）"""
+    if code == "webull":
+        pytest.skip("webull は BaseCollector 未継承（M-4 で対応予定）")
+    mod = load_site_module(code)
+    cls = getattr(mod, cls_name)
+    collector = build_collector(tmp_path, code, cls)
+    assert callable(getattr(collector, "verify_pdf", None))
+
+
+def test_verify_pdf_valid(tmp_path):
+    """正常な PDF（%PDF ヘッダ）は True を返す"""
+    from tests.conftest import build_collector, load_site_module
+    mod = load_site_module("sbi")
+    c = build_collector(tmp_path, "sbi", mod.SBICollector)
+    pdf = tmp_path / "test.pdf"
+    pdf.write_bytes(b"%PDF-1.4 fake content")
+    assert c.verify_pdf(pdf) is True
+
+
+def test_verify_pdf_not_exists(tmp_path):
+    mod = load_site_module("sbi")
+    c = build_collector(tmp_path, "sbi", mod.SBICollector)
+    assert c.verify_pdf(tmp_path / "missing.pdf") is False
+
+
+def test_verify_pdf_empty(tmp_path):
+    mod = load_site_module("sbi")
+    c = build_collector(tmp_path, "sbi", mod.SBICollector)
+    pdf = tmp_path / "empty.pdf"
+    pdf.write_bytes(b"")
+    assert c.verify_pdf(pdf) is False
+
+
+def test_verify_pdf_wrong_magic(tmp_path):
+    mod = load_site_module("sbi")
+    c = build_collector(tmp_path, "sbi", mod.SBICollector)
+    pdf = tmp_path / "notpdf.pdf"
+    pdf.write_bytes(b"HTML<html>not a pdf")
+    assert c.verify_pdf(pdf) is False

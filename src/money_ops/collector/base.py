@@ -153,5 +153,21 @@ class BaseCollector:
 
         print(f"[{self.name}] {status}: {message or ', '.join(files)}")
 
+    def verify_pdf(self, pdf_path: str | Path) -> bool:
+        """PDF ファイルの存在・非空・マジックバイト（%PDF）を検証する。"""
+        path = Path(pdf_path)
+        if not path.exists():
+            print(f"[{self.name}] PDF が存在しません: {path}")
+            return False
+        if path.stat().st_size == 0:
+            print(f"[{self.name}] PDF が空ファイルです: {path}")
+            return False
+        with open(path, "rb") as f:
+            header = f.read(4)
+        if header != b"%PDF":
+            print(f"[{self.name}] PDF マジックバイト不正: {header!r} ({path})")
+            return False
+        return True
+
     def collect(self) -> None:
         raise NotImplementedError("collect() をサブクラスで実装してください")
