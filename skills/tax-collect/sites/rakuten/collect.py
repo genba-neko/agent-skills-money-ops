@@ -182,6 +182,7 @@ class RakutenCollector(BaseCollector):
         page = self.launch_browser()
         try:
             self._wait_for_login(page)
+            self._save_session_state(page)
             self._navigate_to_report_list(page)
 
             year = self.config["target_year"]

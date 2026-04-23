@@ -113,8 +113,12 @@ class BaseCollector:
         state_path = self._browser_profile_dir() / "storage_state.json"
         if not state_path.exists():
             return
-        with open(state_path, encoding="utf-8") as f:
-            state = json.load(f)
+        try:
+            with open(state_path, encoding="utf-8") as f:
+                state = json.load(f)
+        except json.JSONDecodeError as e:
+            print(f"[{self.name}] storage_state.json が破損しています（スキップ）: {e}")
+            return
         cookies = state.get("cookies", [])
         if not cookies:
             return
@@ -152,6 +156,22 @@ class BaseCollector:
             json.dump(history, f, ensure_ascii=False, indent=2)
 
         print(f"[{self.name}] {status}: {message or ', '.join(files)}")
+
+    def _save_session_state(self, page) -> None:
+        """cookie が存在する場合のみ storage_state.json を保存（空書き込みで既存 cookie 喪失を防ぐ）。
+        atomic write で書き込み中断時の JSON 破損を防ぐ。"""
+        state = page.context.storage_state()
+        if not state.get("cookies"):
+            self.dlog("storage_state が空のため保存スキップ")
+            return
+        profile_dir = self._browser_profile_dir()
+        profile_dir.mkdir(parents=True, exist_ok=True)
+        state_path = profile_dir / "storage_state.json"
+        tmp_path = state_path.with_suffix(".tmp")
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(state, f, ensure_ascii=False, indent=2)
+        os.replace(tmp_path, state_path)
+        print(f"[{self.name}] セッション保存: {state_path} ({len(state['cookies'])} cookies)")
 
     def verify_pdf(self, pdf_path: str | Path) -> bool:
         """PDF ファイルの存在・非空・マジックバイト（%PDF）を検証する。"""

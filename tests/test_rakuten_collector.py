@@ -269,6 +269,7 @@ def test_collect_skip_when_year_row_not_found(tmp_path):
     with patch.object(collector, "launch_browser", return_value=page), \
          patch.object(collector, "close_browser"), \
          patch.object(collector, "_wait_for_login"), \
+         patch.object(collector, "_save_session_state"), \
          patch.object(collector, "_navigate_to_report_list"), \
          patch.object(collector, "log_result") as mock_log, \
          patch.object(_mod, "_wait"):

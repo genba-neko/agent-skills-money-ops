@@ -84,6 +84,7 @@ def test_collect_skip_when_xml_link_not_found(tmp_path):
     with patch.object(c, "launch_browser", return_value=page), \
          patch.object(c, "close_browser"), \
          patch.object(c, "_wait_for_login"), \
+         patch.object(c, "_save_session_state"), \
          patch.object(c, "_navigate_to_report_list"), \
          patch.object(c, "_find_xml_link", return_value=None), \
          patch.object(c, "log_result") as mock_log, \

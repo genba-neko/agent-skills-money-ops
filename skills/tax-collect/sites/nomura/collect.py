@@ -209,6 +209,7 @@ class NomuraCollector(BaseCollector):
         page = self.launch_browser()
         try:
             self._wait_for_login(page)
+            self._save_session_state(page)
             popup = self._navigate_to_report_popup()
             year = self.config["target_year"]
 

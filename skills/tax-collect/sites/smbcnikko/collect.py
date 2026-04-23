@@ -200,6 +200,7 @@ class SMBCNikkoCollector(BaseCollector):
         page = self.launch_browser()
         try:
             self._wait_for_login(page)
+            self._save_session_state(page)
             session = self._session
             self._navigate_to_report_list()
             year = self.config["target_year"]
