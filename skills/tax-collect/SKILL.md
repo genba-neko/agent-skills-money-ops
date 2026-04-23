@@ -35,6 +35,45 @@ python skills/tax-collect/run.py --year <YEAR> [オプション]
 実行後、サマリー（OK / ERROR / DONE / SKIP）をユーザーに報告する。
 ERRORが出た場合は内容を確認してユーザーに伝える。
 
+---
+
+## 取引なし指示への対応
+
+ユーザーが以下のような発言をしたら、`create_zero_json.py` を実行してゼロ値JSONを生成する。
+
+### トリガーパターン
+
+- `SBI証券は取引無し` / `さわかみは取引なし` → 該当社のコードを特定 → `--codes <code>`
+- `SBIとマネックスは取引無し` → 複数コードを特定 → `--codes sbi monex`
+- `残りの会社は取引無し` / `残りは全部取引なし` → JSON未存在の全社 → `--codes` 省略
+
+### 会社名→コードの解決
+
+`skills/tax-collect/registry.json` の `name` フィールドと照合する。
+曖昧な場合はユーザーに確認する。
+
+### 実行コマンド
+
+```bash
+# 特定社
+python skills/tax-collect/create_zero_json.py --year <YEAR> --codes <code> [<code> ...]
+
+# JSON未存在の全社（「残り全部」指示時）
+python skills/tax-collect/create_zero_json.py --year <YEAR>
+```
+
+### 実行前確認
+
+生成対象の社名・コードをユーザーに提示してから実行する。
+
+### 注意
+
+- `nomura-mochikabu` は「配当金等支払通知書」形式のため `nenkantorihikihokokusho.json` 非該当。
+  「残りは取引なし」指示でも nomura-mochikabu は対象外と伝える。
+- `source: "manual_zero"` で生成 → 実際に報告書を取得したデータと区別可能。
+
+---
+
 ## 対応会社コード一覧
 
 `skills/tax-collect/registry.json` を参照。

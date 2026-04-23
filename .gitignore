@@ -29,7 +29,7 @@ htmlcov/
 # Runtime data
 # スタンドアロン使用時に cleanup_rules / archive_rules が参照するディレクトリ。
 # -----------------------------------------------------------------------------
-/data/
+#/data/
 /logs/
 /work/
 /runtime/
