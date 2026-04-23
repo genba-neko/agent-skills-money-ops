@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__codex__codex",
+      "mcp__codex__codex-reply",
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(rtk *)",
+      "Bash(npm *)",
+      "Bash(pip *)",
+      "Bash(python *)",
+      "Bash(pytest *)",
+      "Bash(.venv-win/*)",
+      "Bash(../.venv-win/Scripts/python.exe *)",
+      "Bash(scrapy *)",
+      "Bash(pylint *)",
+      "Bash(ruff *)",
+      "Bash(pyright *)",
+      "Bash(grep *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(cat *)",
+      "Bash(echo *)",
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(mkdir *)",
+      "Bash(cp *)",
+      "Bash(mv *)",
+      "Bash(date *)",
+      "Bash(cd *)",
+      "Bash(powershell *)",
+      "WriteFile(*)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)"
+    ]
+  }
+}
