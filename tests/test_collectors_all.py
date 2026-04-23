@@ -94,9 +94,7 @@ def test_collect_not_implemented_on_base(tmp_path, code, cls_name):
 
 @pytest.mark.parametrize("code,cls_name", ALL_SITES, ids=IDS)
 def test_verify_pdf_has_method(tmp_path, code, cls_name):
-    """verify_pdf() が BaseCollector から継承されていること（webull は BaseCollector 未継承のため除外）"""
-    if code == "webull":
-        pytest.skip("webull は BaseCollector 未継承（M-4 で対応予定）")
+    """verify_pdf() が BaseCollector から継承されていること"""
     mod = load_site_module(code)
     cls = getattr(mod, cls_name)
     collector = build_collector(tmp_path, code, cls)

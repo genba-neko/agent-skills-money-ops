@@ -36,6 +36,7 @@ from pathlib import Path
 _PROJECT_ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
+from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
@@ -67,16 +68,13 @@ def _wait(t: float = 1.5) -> None:
     time.sleep(t)
 
 
-class WebullCollector:
+class WebullCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        with open(site_json_path, encoding="utf-8") as f:
-            self.config = json.load(f)
-        self.name: str = self.config["name"]
-        self.code: str = self.config["code"]
+        super().__init__(site_json_path)
         if year is not None:
             self.config["target_year"] = year
             self.config["output_dir"] = f"data/income/securities/webull/{year}/raw/"
-        self.output_dir = _PROJECT_ROOT / self.config["output_dir"]
+            self.output_dir = Path(self.config["output_dir"])
 
     def _list_dir(self, remote_dir: str) -> set[str]:
         out = _adb("shell", "ls", remote_dir)
@@ -165,106 +163,118 @@ class WebullCollector:
         try:
             import uiautomator2 as u2
         except ImportError:
-            print(f"[{self.name}] uiautomator2 未インストール: pip install uiautomator2")
+            self.log_result("error", [], "uiautomator2 未インストール: pip install uiautomator2")
             sys.exit(1)
 
         target_year = self.config.get("target_year")
         if target_year is None:
+            self.log_result("error", [], "target_year が設定されていません")
             raise ValueError("target_year が設定されていません")
 
-        if serial is None:
-            serial = self._find_adb_serial()
-
-        d = u2.connect(serial)
-        print(f"[{self.name}] デバイス接続: {d.serial}")
-
         try:
-            self._launch_app(d)
-            self._navigate_to_history(d)
+            if serial is None:
+                serial = self._find_adb_serial()
 
-            files_before = self._snapshot()
-
-            print(f"[{self.name}] {_TARGET_DOC} ({target_year}) を検索中...")
-            if not self._find_and_tap_doc(d, target_year):
-                print(f"[{self.name}] {_TARGET_DOC} ({target_year}) が見つかりません")
-                return
-
-            # WebView 読み込み待ち
-            _wait(3.0)
-            webview = d(resourceId=f"{_PACKAGE}:id/webview")
-            if not webview.wait(timeout=15):
-                print(f"[{self.name}] WebView タイムアウト")
-                return
-            _wait(2.0)
-
-            # ダウンロードボタン（r2_menu_icon）
-            dl_btn = d(resourceId=f"{_PACKAGE}:id/r2_menu_icon")
-            if not dl_btn.exists:
-                print(f"[{self.name}] ダウンロードボタンが見つかりません")
-                return
-            dl_btn.click()
-
-            # フォルダ権限ダイアログ（初回のみ・2段階）: 最大10秒待ちながら検出→タップ
-            for _ in range(10):
-                _wait(1.0)
-                for btn_text in ["このフォルダを使用", "許可", "ALLOW", "Allow"]:
-                    btn = d(text=btn_text)
-                    if btn.exists:
-                        print(f"[{self.name}] 権限ダイアログ「{btn_text}」→ タップ")
-                        btn.click()
-                        _wait(0.5)
-
-            _wait(4.0)
-
-            # 新規ファイル特定（Documents と Download 両方チェック）
-            new_files = self._snapshot() - files_before
-            print(f"[{self.name}] 新規ファイル: {new_files or '(なし)'}")
-
-            if not new_files:
-                print(f"[{self.name}] ダウンロードファイルが見つかりません")
-                return
-            if len(new_files) > 1:
-                print(f"[{self.name}] 警告: 複数の新規ファイル: {new_files}")
-
-            remote_path = next(iter(new_files))
-
-            self.output_dir.mkdir(parents=True, exist_ok=True)
-            local_path = self.output_dir / f"{target_year}_webull_nentori.pdf"
-
-            print(f"[{self.name}] adb pull: {remote_path} → {local_path}")
-            _adb("pull", remote_path, str(local_path))
-
-            if not local_path.exists() or local_path.stat().st_size == 0:
-                print(f"[{self.name}] pull 失敗")
-                return
-
-            if local_path.read_bytes()[:4] != b"%PDF":
-                print(f"[{self.name}] PDF 検証失敗")
-                local_path.unlink(missing_ok=True)
-                return
-
-            print(f"[{self.name}] PDF 保存: {local_path}")
+            d = u2.connect(serial)
+            print(f"[{self.name}] デバイス接続: {d.serial}")
 
             try:
-                data = convert_pdf_to_json(
-                    pdf_path=str(local_path),
-                    company=self.name,
-                    code=self.code,
-                    year=target_year,
-                    raw_files=[local_path.name],
-                )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ: {e}")
+                self._launch_app(d)
+                self._navigate_to_history(d)
 
-            print(f"[{self.name}] 完了")
+                files_before = self._snapshot()
 
-        finally:
-            _adb("shell", "am", "force-stop", _PACKAGE)
-            print(f"[{self.name}] アプリ終了")
+                print(f"[{self.name}] {_TARGET_DOC} ({target_year}) を検索中...")
+                if not self._find_and_tap_doc(d, target_year):
+                    self.log_result("skip", [], f"{_TARGET_DOC} ({target_year}) が見つかりません")
+                    return
+
+                # WebView 読み込み待ち
+                _wait(3.0)
+                webview = d(resourceId=f"{_PACKAGE}:id/webview")
+                if not webview.wait(timeout=15):
+                    self.log_result("skip", [], "WebView タイムアウト")
+                    return
+                _wait(2.0)
+
+                # ダウンロードボタン（r2_menu_icon）
+                dl_btn = d(resourceId=f"{_PACKAGE}:id/r2_menu_icon")
+                if not dl_btn.exists:
+                    self.log_result("skip", [], "ダウンロードボタンが見つかりません")
+                    return
+                dl_btn.click()
+
+                # フォルダ権限ダイアログ（初回のみ・2段階）: 最大10秒待ちながら検出→タップ
+                for _ in range(10):
+                    _wait(1.0)
+                    for btn_text in ["このフォルダを使用", "許可", "ALLOW", "Allow"]:
+                        btn = d(text=btn_text)
+                        if btn.exists:
+                            print(f"[{self.name}] 権限ダイアログ「{btn_text}」→ タップ")
+                            btn.click()
+                            _wait(0.5)
+
+                _wait(4.0)
+
+                # 新規ファイル特定（Documents と Download 両方チェック）
+                new_files = self._snapshot() - files_before
+                print(f"[{self.name}] 新規ファイル: {new_files or '(なし)'}")
+
+                if not new_files:
+                    self.log_result("skip", [], "ダウンロードファイルが見つかりません")
+                    return
+                if len(new_files) > 1:
+                    print(f"[{self.name}] 警告: 複数の新規ファイル: {new_files}")
+
+                remote_path = next(iter(new_files))
+
+                self.output_dir.mkdir(parents=True, exist_ok=True)
+                local_path = self.output_dir / f"{target_year}_webull_nentori.pdf"
+
+                print(f"[{self.name}] adb pull: {remote_path} → {local_path}")
+                _adb("pull", remote_path, str(local_path))
+
+                if not local_path.exists() or local_path.stat().st_size == 0:
+                    self.log_result("error", [], "adb pull 失敗")
+                    return
+
+                if local_path.read_bytes()[:4] != b"%PDF":
+                    self.log_result("error", [], "PDF 検証失敗")
+                    local_path.unlink(missing_ok=True)
+                    return
+
+                print(f"[{self.name}] PDF 保存: {local_path}")
+
+                json_ok = False
+                try:
+                    data = convert_pdf_to_json(
+                        pdf_path=str(local_path),
+                        company=self.name,
+                        code=self.code,
+                        year=target_year,
+                        raw_files=[local_path.name],
+                    )
+                    json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
+                    with open(json_path, "w", encoding="utf-8") as f:
+                        json.dump(data, f, ensure_ascii=False, indent=2)
+                    print(f"[{self.name}] JSON 保存: {json_path}")
+                    json_ok = True
+                except Exception as e:
+                    print(f"[{self.name}] JSON 変換スキップ: {e}")
+
+                if json_ok:
+                    self.log_result("success", [str(local_path)])
+                else:
+                    self.log_result("error", [str(local_path)], "JSON 変換失敗")
+
+            finally:
+                _adb("shell", "am", "force-stop", _PACKAGE)
+                print(f"[{self.name}] アプリ終了")
+
+        except Exception as e:
+            print(f"[{self.name}] エラー: {e}")
+            self.log_result("error", [], str(e))
+            raise
 
 
 def main() -> None:
