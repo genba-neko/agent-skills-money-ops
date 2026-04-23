@@ -67,7 +67,6 @@ def run_site(code: str, name: str, year: int) -> Literal["ok", "error", "missing
     try:
         result = subprocess.run(
             [sys.executable, str(script), "--year", str(year)],
-            stdin=sys.stdin,
             stdout=sys.stdout,
             stderr=sys.stderr,
         )
