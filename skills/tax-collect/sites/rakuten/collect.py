@@ -15,9 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
-import random
 import sys
-import time
 from datetime import datetime
 from pathlib import Path
 
@@ -31,8 +29,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://www.rakuten-sec.co.jp/"
 
 
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
+from money_ops.utils import wait as _wait
 
 
 class RakutenCollector(BaseCollector):

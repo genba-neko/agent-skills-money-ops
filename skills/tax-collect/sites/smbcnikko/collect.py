@@ -17,10 +17,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import random
 import re
 import sys
-import time
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
@@ -37,8 +35,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/"
 
 
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
+from money_ops.utils import wait as _wait
 
 
 class SMBCNikkoCollector(BaseCollector):

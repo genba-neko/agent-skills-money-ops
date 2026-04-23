@@ -16,10 +16,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import random
 import re
 import sys
-import time
 from pathlib import Path
 
 _RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
@@ -34,8 +32,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://mst.monex.co.jp/pc/ITS/login/LoginIDPassword.jsp"
 
 
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
+from money_ops.utils import wait as _wait
 
 
 def _year_month_patterns(target_year: int) -> list[str]:

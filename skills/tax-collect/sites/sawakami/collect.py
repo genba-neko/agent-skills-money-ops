@@ -37,9 +37,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import random
 import sys
-import time
 from pathlib import Path
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[4]
@@ -53,8 +51,7 @@ _LOGIN_URL = "https://fv.sawakami.co.jp/Account/Login"
 _EDELIVERY_URL = "https://fv.sawakami.co.jp/e-delivery"
 
 
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
+from money_ops.utils import wait as _wait
 
 
 class SawakamiCollector(BaseCollector):

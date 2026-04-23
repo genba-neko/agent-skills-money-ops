@@ -29,9 +29,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import random
 import sys
-import time
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -46,8 +44,7 @@ _TOP_URL = "https://www.paypay-sec.co.jp/"
 _TRADE_URL = "https://www.paypay-sec.co.jp/trade/"
 
 
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
+from money_ops.utils import wait as _wait
 
 
 class PaypayCollector(BaseCollector):

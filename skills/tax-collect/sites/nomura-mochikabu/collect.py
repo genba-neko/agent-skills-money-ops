@@ -29,10 +29,8 @@ PDF取得方式（T-13方式: context.request 直接フェッチ）:
 from __future__ import annotations
 
 import argparse
-import random
 import re
 import sys
-import time
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -49,8 +47,7 @@ _PDF_POST_URL = "https://www.e-plan.nomura.co.jp/cms/ChouhyouDisplayPost.do"
 _RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
 
 
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
+from money_ops.utils import wait as _wait
 
 
 def _year_month_patterns(target_year: int) -> list[str]:

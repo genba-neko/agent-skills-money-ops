@@ -16,10 +16,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import random
 import re
 import sys
-import time
 from urllib.parse import urlparse, parse_qs
 from pathlib import Path
 
@@ -35,8 +33,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://www.matsui.co.jp/"
 
 
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
+from money_ops.utils import wait as _wait
 
 
 def _year_month_patterns(target_year: int) -> list[str]:

@@ -29,10 +29,8 @@ from __future__ import annotations
 import argparse
 import json
 import os
-import random
 import re
 import sys
-import time
 from pathlib import Path
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[4]
@@ -45,8 +43,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://www.connect-sec.co.jp/service/login/"
 
 
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
+from money_ops.utils import wait as _wait
 
 
 class DaiwaConnectCollector(BaseCollector):
