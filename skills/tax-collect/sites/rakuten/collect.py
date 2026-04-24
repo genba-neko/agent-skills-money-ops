@@ -8,7 +8,7 @@
 
 注意:
     ログイン・絵文字認証は人間が手動で行う。
-    スクリプト起動後、ブラウザでログインを完了してから Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。ログイン完了を自動検出します。
 """
 
 from __future__ import annotations
@@ -32,8 +32,11 @@ class RakutenCollector(BaseCollector):
     # ------------------------------------------------------------------
     def _wait_for_login(self, page) -> None:
         page.goto(self.config["login_url"])
-        print(f"[{self.name}] ブラウザでログインしてください（絵文字認証含む）")
-        self.prompt("ログイン完了後、Enter を押してください: ")
+        print(f"[{self.name}] ブラウザでログインしてください（絵文字認証含む）（最大5分）")
+        page.wait_for_url(
+            lambda url: "rakuten-sec.co.jp" in url and "login" not in url.lower(),
+            timeout=300_000,
+        )
         _wait()
         self.dlog(f"URL: {page.url}")
         self.save_html(page, "after_login")

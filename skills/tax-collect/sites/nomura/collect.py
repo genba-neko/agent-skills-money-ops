@@ -9,8 +9,7 @@
 
 注意:
     ログイン・2FA は人間が手動で行う。
-    スクリプト起動後、ブラウザでログインしてトップ画面到達後 Enter を押すこと。
-    取引報告書Web交付の取引パスワード入力も人間が行う。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達・取引パスワード入力完了を自動検出します。
 """
 
 from __future__ import annotations
@@ -42,8 +41,11 @@ class NomuraCollector(BaseCollector):
             print(f"[{self.name}] ログイン済みを検出 → スキップ")
             self._session = page
             return
-        print(f"[{self.name}] ブラウザでログインしてください（メール認証コード含む）")
-        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
+        print(f"[{self.name}] ブラウザでログインしてください（メール認証コード含む）（最大5分）")
+        page.wait_for_url(
+            lambda url: "hometrade.nomura.co.jp" in url and "login" not in url.lower(),
+            timeout=300_000,
+        )
         _wait()
         # goto で hometrade.nomura.co.jp へ直接遷移しているため page 自体がセッション
         self._session = page
@@ -66,8 +68,7 @@ class NomuraCollector(BaseCollector):
         self.dlog(f"report popup URL: {popup.url}")
         self.save_html(popup, "report_popup_before_tradepw")
 
-        print(f"[{self.name}] 取引パスワードを入力・認証後、書類一覧が表示されたら Enter を押してください")
-        self.prompt("Enter を押してください: ")
+        print(f"[{self.name}] 取引パスワードをブラウザで入力・認証してください（最大5分）")
 
         # e-shishobako Angular SPA 初期化完了を待機
         # wait_for_url で dp_apl/usr/ へのルーティング完了を確認後、レンダリング待ち

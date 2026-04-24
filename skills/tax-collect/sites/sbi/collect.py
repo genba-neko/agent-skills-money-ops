@@ -8,7 +8,7 @@
 
 注意:
     ログイン・2FA・ポップアップ処理は人間が手動で行う。
-    スクリプト起動後、ブラウザでトップ画面まで到達してから Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達を自動検出します。
 """
 
 from __future__ import annotations
@@ -39,8 +39,8 @@ class SBICollector(BaseCollector):
             self.dlog(f"URL: {page.url}")
             self.save_html(page, "after_login_skip")
             return
-        print(f"[{self.name}] ブラウザでログイン・OTP等をすべて完了してください")
-        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
+        print(f"[{self.name}] ブラウザでログイン・OTP等をすべて完了してください（最大5分）")
+        page.wait_for_selector('input[name="username"]', state="detached", timeout=300_000)
         _wait()
         self.dlog(f"URL: {page.url}")
         self.save_html(page, "after_login")

@@ -10,8 +10,8 @@
     TSUMIKI_PASS    パスワード（未設定時は手動入力）
 
 注意:
-    ワンタイムパスワード（OTP）は必ず手動入力が必要。
-    OTP 送信後、メール/SMS に届いたコードを入力して Enter を押すこと。
+    ワンタイムパスワード（OTP）はブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造:
     page:  tsumiki-sec.com トップ
@@ -70,8 +70,8 @@ class TsumikiCollector(BaseCollector):
             _wait(2.0, 3.0)
             print(f"[{self.name}] 自動ログイン完了")
         else:
-            print(f"[{self.name}] page1 でログインしてください（エポスNet ID・パスワード）")
-            self.prompt("ログイン完了後 Enter を押してください: ")
+            print(f"[{self.name}] page1 でログインしてください（エポスNet ID・パスワード）（最大5分）")
+            page1.wait_for_selector("button[name='ログインする']", state="detached", timeout=300_000)
             _wait(2.0, 3.0)
 
         # 通知等のダイアログを閉じる
@@ -116,13 +116,8 @@ class TsumikiCollector(BaseCollector):
         if otp_field.count() == 0:
             return True
 
-        print(f"[{self.name}] ワンタイムパスワードを入力してください（メール/SMSに届いたコード）")
-        otp = self.prompt("OTP コード: ").strip()
-        if not otp:
-            return False
-
-        otp_field.fill(otp)
-        page1.get_by_role("button", name="送信してすすむ").click()
+        print(f"[{self.name}] ワンタイムパスワードをブラウザに入力して「送信してすすむ」を押してください（最大5分）")
+        otp_field.wait_for(state="detached", timeout=300_000)
         _wait(2.0, 3.0)
         self.save_html(page1, "after_otp")
         return True

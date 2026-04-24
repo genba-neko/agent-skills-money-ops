@@ -9,7 +9,7 @@
 
 注意:
     ログイン・2FA・ランダムキーパッドは人間が手動で行う。
-    スクリプト起動後、ブラウザでトップ画面まで到達してから Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達を自動検出します。
     XML ダウンロード時の取引パスワード入力も人間が行う（認証ボタンはスクリプトが押す）。
 """
 
@@ -40,8 +40,11 @@ class SMBCNikkoCollector(BaseCollector):
             self._session = page
             self.save_html(self._session, "after_login_skip")
             return
-        print(f"[{self.name}] ブラウザでログインしてください（ランダムキーパッド・OTP含む）")
-        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
+        print(f"[{self.name}] ブラウザでログインしてください（ランダムキーパッド・OTP含む）（最大5分）")
+        page.wait_for_url(
+            lambda url: "trade.smbcnikko.co.jp" in url and "/Login/0/login/" not in url,
+            timeout=300_000,
+        )
         _wait()
         self._session = page
         self.dlog(f"session URL: {self._session.url}")

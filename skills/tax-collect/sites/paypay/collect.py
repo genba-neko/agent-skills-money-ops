@@ -10,7 +10,8 @@
     PAYPAY_PASS     パスワード（未設定時は手動入力）
 
 注意:
-    SMS 認証コード（6桁）は必ず手動入力が必要。
+    SMS 認証コード（6桁）はブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造（HAR確認済み）:
     page: paypay-sec.co.jp/ → /account/login/ → /login/
@@ -86,8 +87,7 @@ class PaypayCollector(BaseCollector):
             _wait(2.0, 3.0)
             self.save_html(page, "after_credential_submit")
         else:
-            print(f"[{self.name}] 会員ID・パスワードをブラウザで入力してログインボタンを押してください")
-            self.prompt("ログインボタン押下後 Enter: ")
+            print(f"[{self.name}] 会員ID・パスワードをブラウザで入力してログインボタンを押してください（最大5分）")
 
         # emailauth か /trade/ のどちらかに遷移するまで待つ
         page.wait_for_url(
@@ -99,14 +99,8 @@ class PaypayCollector(BaseCollector):
 
         # SMS 認証
         if "emailauth" in page.url:
-            print(f"[{self.name}] SMS 認証コード（6桁）を入力してください")
-            code = self.prompt("コード: ").strip()
-            if len(code) != 6 or not code.isdigit():
-                raise ValueError(f"SMS コードは6桁の数字です: {code!r}")
-            for i, digit in enumerate(code, 1):
-                page.locator(f"#code{i}").fill(digit)
-            page.locator("#btn_sms_success").click()
-            page.wait_for_url("**/trade/**", timeout=120000)
+            print(f"[{self.name}] SMS 認証コード（6桁）をブラウザに入力して送信してください（最大5分）")
+            page.wait_for_url("**/trade/**", timeout=300_000)
             _wait(2.0, 3.0)
 
         self.dlog(f"trade URL: {page.url}")

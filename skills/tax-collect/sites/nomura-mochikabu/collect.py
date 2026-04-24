@@ -9,7 +9,7 @@
 
 注意:
     ログイン・2FA・ポップアップ処理は人間が手動で行う。
-    スクリプト起動後、ブラウザでログインしてトップ画面到達後 Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達を自動検出します。
 
 収集対象:
     配当金等支払通知書（Web交付）
@@ -51,8 +51,11 @@ class NomuraMochikabuCollector(BaseCollector):
     def _wait_for_login(self, page) -> None:
         page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
-        print(f"[{self.name}] ブラウザでログインしてください（2FA・ポップアップ処理含む）")
-        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
+        print(f"[{self.name}] ブラウザでログインしてください（2FA・ポップアップ処理含む）（最大5分）")
+        page.wait_for_url(
+            lambda url: "login" not in url.lower() and "e-plan.nomura.co.jp" in url,
+            timeout=300_000,
+        )
         _wait()
         self.dlog(f"login done, URL: {page.url}")
         self.save_html(page, "after_login")

@@ -30,27 +30,17 @@ def test_handle_otp_skips_when_no_field(tmp_path):
     assert result is True
 
 
-def test_handle_otp_returns_false_on_empty_input(tmp_path):
+def test_handle_otp_waits_for_field_detached(tmp_path):
+    """OTPフィールドが表示された場合、wait_for(state='detached') を呼び出す"""
     c = _make(tmp_path)
     page1 = MagicMock()
     otp_field = MagicMock()
     otp_field.count.return_value = 1
     page1.get_by_role.return_value = otp_field
-    with patch.object(c, "prompt", return_value=""):
-        result = c._handle_otp(page1)
-    assert result is False
-
-
-def test_handle_otp_submits_code(tmp_path):
-    c = _make(tmp_path)
-    page1 = MagicMock()
-    otp_field = MagicMock()
-    otp_field.count.return_value = 1
-    page1.get_by_role.return_value = otp_field
-    with patch.object(c, "prompt", return_value="123456"), patch.object(_mod, "_wait"):
+    with patch.object(_mod, "_wait"):
         result = c._handle_otp(page1)
     assert result is True
-    otp_field.fill.assert_called_once_with("123456")
+    otp_field.wait_for.assert_called_once_with(state="detached", timeout=300_000)
 
 
 def test_collect_skip_when_otp_cancelled(tmp_path):

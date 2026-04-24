@@ -9,7 +9,7 @@
 
 注意:
     ログイン・OTP は人間が手動で行う。
-    スクリプト起動後、ブラウザでトップ画面まで到達してから Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達を自動検出します。
 """
 
 from __future__ import annotations
@@ -39,8 +39,11 @@ class MonexCollector(BaseCollector):
         if isinstance(url, str) and "mst.monex.co.jp" in url and "LoginIDPassword" not in url:
             print(f"[{self.name}] ログイン済みを検出 → スキップ")
             return
-        print(f"[{self.name}] ブラウザでログインしてください（OTP含む）")
-        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
+        print(f"[{self.name}] ブラウザでログインしてください（OTP含む）（最大5分）")
+        page.wait_for_url(
+            lambda url: "mst.monex.co.jp" in url and "LoginIDPassword" not in url,
+            timeout=300_000,
+        )
         _wait()
         page.wait_for_load_state("domcontentloaded")
         page.context.storage_state(path=str(self._browser_profile_dir() / "storage_state.json"))

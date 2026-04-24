@@ -10,8 +10,8 @@
     DAIWACONNECT_PASS   ログインパスワード（未設定時は手動入力）
 
 注意:
-    ログイン後の2段階認証コードは必ず手動入力が必要。
-    コード入力後 Enter を押すこと。
+    ログイン後の2段階認証コードはブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造:
     page:  connect-sec.co.jp/service/login/（トップ）
@@ -80,14 +80,11 @@ class DaiwaConnectCollector(BaseCollector):
             self.save_html(page1, "after_login1")
             # 2段階認証コード（自動ログイン時のみ）
             if "webbroker3" not in page1.url:
-                print(f"[{self.name}] 2段階認証コードを入力してください（メールに届いた6桁）")
-                code = self.prompt("認証コード: ").strip()
-                page1.get_by_role("textbox").first.fill(code)
-                page1.get_by_role("link", name=re.compile("ログイン")).first.click()
-                _wait(2.0, 3.0)
+                print(f"[{self.name}] 2段階認証コードをブラウザに入力して送信してください（最大5分）")
+                page1.wait_for_url("**/webbroker3/**", timeout=300_000)
         else:
-            print(f"[{self.name}] ログインしてください（メールアドレス・パスワード・2段階認証まですべて完了後 Enter）")
-            self.prompt("完了後 Enter: ")
+            print(f"[{self.name}] ログインしてください（メールアドレス・パスワード・2段階認証まですべて完了）（最大5分）")
+            page1.wait_for_url("**/webbroker3/**", timeout=300_000)
 
         # webbroker3 SPA の読み込み完了を待つ
         page1.wait_for_url("**/webbroker3/**", timeout=30000)

@@ -8,8 +8,7 @@
 
 注意:
     ログインは人間が手動で行う。
-    スクリプト起動後、ブラウザでトップ画面まで到達してから Enter を押すこと。
-    サイトはフレーム構成（frameset）のため、ログイン後もフレームが表示されている状態で Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。フレーム構成（frameset）の表示を自動検出します。
 """
 
 from __future__ import annotations
@@ -35,8 +34,8 @@ class MatsuiCollector(BaseCollector):
 
     def _wait_for_login(self, page) -> None:
         page.goto(self.config["login_url"])
-        print(f"[{self.name}] ブラウザでログインしてください")
-        self.prompt("トップ画面（フレーム表示）で操作可能になったら Enter を押してください: ")
+        print(f"[{self.name}] ブラウザでログインしてください（最大5分）")
+        page.wait_for_selector("frame[name='GM']", timeout=300_000)
         _wait()
         page.context.storage_state(path=str(self._browser_profile_dir() / "storage_state.json"))
         print(f"[{self.name}] セッション状態を保存しました")

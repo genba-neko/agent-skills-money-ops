@@ -10,7 +10,8 @@
     SAWAKAMI_PASS   ログインパスワード（未設定時は手動入力）
 
 注意:
-    メール認証コード（6桁）は必ず手動入力が必要。
+    メール認証コード（6桁）はブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造（HAR確認済み）:
     GET  /Account/Login
@@ -88,8 +89,7 @@ class SawakamiCollector(BaseCollector):
             _wait(2.0, 3.0)
             self.save_html(page, "after_credential_submit")
         else:
-            print(f"[{self.name}] ログインID・パスワードをブラウザで入力してログインボタンを押してください")
-            self.prompt("ログインボタン押下後 Enter: ")
+            print(f"[{self.name}] ログインID・パスワードをブラウザで入力してログインボタンを押してください（最大5分）")
 
         # twofactorauth か home のどちらかを待つ
         page.wait_for_url(
@@ -104,13 +104,10 @@ class SawakamiCollector(BaseCollector):
 
         # メール 2FA
         if "twofactorauth" in page.url:
-            print(f"[{self.name}] メール認証コードを入力してください")
-            code = self.prompt("認証コード: ").strip()
-            page.get_by_role("spinbutton", name="認証コード").fill(code)
-            page.get_by_role("button", name="認証する").click()
+            print(f"[{self.name}] メール認証コードをブラウザに入力して「認証する」を押してください（最大5分）")
             page.wait_for_url(
                 lambda url: "twofactorauth" not in url,
-                timeout=120000,
+                timeout=300_000,
             )
             _wait(2.0, 3.0)
 

@@ -9,7 +9,7 @@
 
 注意:
     ログイン・取引パスワード入力は人間が手動で行う。
-    スクリプト起動後、ブラウザでポップアップ（page1）にてログイン完了後 Enter を押すこと。
+    スクリプト起動後、ブラウザでポップアップ（page1）にてログイン完了を自動検出します。
 
 実測済みポップアップ構造:
     page:  ひふみ トップ（hifumi.rheos.jp）
@@ -67,8 +67,8 @@ class HifumiCollector(BaseCollector):
         _wait(1.5, 2.5)
         self.dlog(f"page1 URL: {page1.url}")
 
-        print(f"[{self.name}] page1 でログインしてください（loginId・パスワード・取引パスワード）")
-        self.prompt("ログイン完了後 Enter を押してください: ")
+        print(f"[{self.name}] page1 でログインしてください（loginId・パスワード・取引パスワード）（最大5分）")
+        page1.wait_for_selector("a:has-text('各種資料')", timeout=300_000)
         _wait(2.0, 3.0)
 
         # session cookie 明示保存（persistent profile だけでは session cookie が消える）
