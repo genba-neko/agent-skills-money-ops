@@ -64,19 +64,19 @@
 - 問題: `re.compile(r'filename[^;=\n]*=...')` が9社にコピー
 - 修正: `money_ops.utils.http.extract_filename(response, fallback)` ヘルパに抽出
 
-### R-3: e-shishobako PDF 捕捉ヘルパ抽出
+### R-3: e-shishobako PDF 捕捉ヘルパ抽出 [完了 branch:feature/34_tax-collect-code-review 2026-04-24]
 - 対象: sbi / gmo-click / nomura / hifumi（同一の DPAW010501020 route パターン）
 - 修正: `money_ops.collector.eshishobako.capture_pdf(scope, fallback_name)` に共通化
 
-### R-4: `_convert_to_json` + `_write_report_json` を BaseCollector に
+### R-4: `_convert_to_json` + `_write_report_json` を BaseCollector に [完了 branch:feature/34_tax-collect-code-review 2026-04-24]
 - 問題: JSON書き出しボイラープレートが全社コピー
 - 修正: `BaseCollector._write_report_json(data: dict)` を追加。各社は data を渡すだけ
 
-### R-5: `collect()` スケルトンを Template Method 化
+### R-5: `collect()` スケルトンを Template Method 化 [完了 branch:feature/34_tax-collect-code-review 2026-04-24]
 - 問題: `try/except KeyboardInterrupt/Exception/finally close_browser` が全社コピー
 - 修正: `BaseCollector.run()` にスケルトン実装。各社は `_collect_core()` のみ実装
 
-### R-6: `__init__` の year / output_dir 構築を BaseCollector に移動
+### R-6: `__init__` の year / output_dir 構築を BaseCollector に移動 [完了 branch:feature/34_tax-collect-code-review 2026-04-24]
 - 問題: `self.config["target_year"] = year` / `output_dir = f"data/.../code/year/raw/"` が全社コピー
 - 修正: `BaseCollector.__init__(site_json, year=None)` に `year` パラメータを追加。config mutation も廃止
 
@@ -84,19 +84,19 @@
 
 ## DESIGN — 設計改善（中長期）
 
-### D-1: `sys.path.insert` を `pip install -e .` に統一
+### D-1: `sys.path.insert` を `pip install -e .` に統一 [完了 branch:feature/34_tax-collect-code-review 2026-04-24]
 - 問題: `Path(__file__).parents[4]` の深さ依存でディレクトリ移動で壊れる
 - 修正: 開発環境セットアップドキュメントに `pip install -e .` を明記し、path 注入を削除
 
-### D-2: `site.json` に login_url / converter_type を集約
+### D-2: `site.json` に login_url / converter_type を集約 [完了 branch:feature/34_tax-collect-code-review 2026-04-24]
 - 問題: `_LOGIN_URL` 等の定数がコードにハードコード。URL変更時にコード修正が必要
 - 修正: `site.json` に `login_url`, `converter_type: "teg204_xml" | "pdf_llm"` を追加。BaseCollector が dispatch
 
-### D-3: `input()` を PromptStrategy に抽象化（並列化の布石）
+### D-3: `input()` を PromptStrategy に抽象化（並列化の布石） [完了 branch:feature/34_tax-collect-code-review 2026-04-24]
 - 問題: `input()` がコード深部に散在。CLAUDE.md 要件の並列収集 Subagents 対応不可
 - 修正: `PromptStrategy` 抽象（InteractivePrompt / EnvPrompt）を設計。ランナーから注入
 
-### D-4: `HEADLESS` / `DEBUG` を CLI 引数化
+### D-4: `HEADLESS` / `DEBUG` を CLI 引数化 [完了 branch:feature/34_tax-collect-code-review 2026-04-24]
 - 問題: 全社共通グローバルフラグで社別制御不可
 - 修正: `--headless` / `--debug` を argparse に追加し環境変数より優先
 
