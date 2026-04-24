@@ -32,11 +32,15 @@ class RakutenCollector(BaseCollector):
     # ------------------------------------------------------------------
     def _wait_for_login(self, page) -> None:
         page.goto(self.config["login_url"])
-        print(f"[{self.name}] ブラウザでログインしてください（絵文字認証含む）（最大5分）")
-        page.wait_for_url(
-            lambda url: "rakuten-sec.co.jp" in url and "login" not in url.lower(),
-            timeout=300_000,
-        )
+        # ログイン済み確認（URL で判定）
+        if "rakuten-sec.co.jp" in page.url and "login" not in page.url.lower():
+            btn = page.locator('button[aria-label*="マイメニュー"]')
+            if btn.count() > 0:
+                print(f"[{self.name}] ログイン済みを検出 → スキップ")
+                return
+        print(f"[{self.name}] ブラウザでログインしてください（絵文字認証・二段階認証含む）（最大10分）")
+        # 2FA中間URLで誤発火しないよう、ダッシュボードのボタン出現を待つ
+        page.wait_for_selector('button[aria-label*="マイメニュー"]', timeout=600_000)
         _wait()
         self.dlog(f"URL: {page.url}")
         self.save_html(page, "after_login")

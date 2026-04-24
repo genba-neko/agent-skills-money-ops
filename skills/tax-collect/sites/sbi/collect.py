@@ -41,6 +41,8 @@ class SBICollector(BaseCollector):
             return
         print(f"[{self.name}] ブラウザでログイン・OTP等をすべて完了してください（最大5分）")
         page.wait_for_selector('input[name="username"]', state="detached", timeout=300_000)
+        # OTP等の多段認証後にダッシュボード到達まで待つ
+        page.wait_for_url("**/ETGate/**", timeout=300_000)
         _wait()
         self.dlog(f"URL: {page.url}")
         self.save_html(page, "after_login")
@@ -54,6 +56,7 @@ class SBICollector(BaseCollector):
         page.get_by_role("link", name="口座管理").first.click(force=True)
         page.wait_for_load_state("domcontentloaded")
         _wait()
+        page.get_by_role("link", name="取引報告書等(電子交付)").first.wait_for(state="visible", timeout=60_000)
         page.get_by_role("link", name="取引報告書等(電子交付)").first.click(force=True)
         page.wait_for_load_state("domcontentloaded")
         _wait()

@@ -48,6 +48,18 @@ class BaseCollector:
         d.mkdir(parents=True, exist_ok=True)
         return d
 
+    def _log_access(self, url: str) -> None:
+        """debug モード時のみ全ナビゲーションを output/debug/<code>/access.log に追記"""
+        if not self.debug:
+            return
+        try:
+            log_path = self._debug_dir() / "access.log"
+            ts = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+            with open(log_path, "a", encoding="utf-8") as f:
+                f.write(f"{ts} {url}\n")
+        except Exception:
+            pass
+
     def prompt(self, message: str) -> str:
         """ユーザーへの入力要求。将来的に並列収集用 EnvPrompt で差し替え可能。"""
         return input(message)
@@ -117,7 +129,15 @@ class BaseCollector:
         )
         self._page = self._context.new_page()
         self._restore_session_cookies()
+        # 全ページのナビゲーションをアクセスログに記録
+        self._context.on("page", self._attach_access_logger)
+        self._attach_access_logger(self._page)
         return self._page
+
+    def _attach_access_logger(self, page) -> None:
+        page.on("framenavigated", lambda frame: (
+            self._log_access(frame.url) if frame == frame.page.main_frame else None
+        ))
 
     def _restore_session_cookies(self) -> None:
         """前回ログイン時に保存した storage_state.json から全 cookie を注入する。
