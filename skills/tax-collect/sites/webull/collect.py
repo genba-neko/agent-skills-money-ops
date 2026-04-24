@@ -69,11 +69,7 @@ def _wait(t: float = 1.5) -> None:
 
 class WebullCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/webull/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+        super().__init__(site_json_path, year)
 
     def _list_dir(self, remote_dir: str) -> set[str]:
         out = _adb("shell", "ls", remote_dir)

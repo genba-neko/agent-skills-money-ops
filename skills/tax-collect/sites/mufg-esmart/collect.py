@@ -55,11 +55,7 @@ from money_ops.utils import wait as _wait
 
 class MufgEsmartCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/mufg-esmart/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+        super().__init__(site_json_path, year)
 
     def _save_session(self, page) -> None:
         """cookie が存在する場合のみ storage_state.json を保存（空書き込みで既存 cookie 喪失を防ぐ）。"""

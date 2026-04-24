@@ -52,11 +52,7 @@ def _year_month_patterns(target_year: int) -> list[str]:
 
 class HifumiCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/hifumi/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+        super().__init__(site_json_path, year)
 
     def _wait_for_login(self, page) -> object:
         """HAR 確認済み:

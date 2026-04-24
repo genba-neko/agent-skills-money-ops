@@ -24,7 +24,7 @@ def _is_debug() -> bool:
 
 
 class BaseCollector:
-    def __init__(self, site_json_path: str | Path):
+    def __init__(self, site_json_path: str | Path, year: int | None = None):
         self.config = _load_site_config(site_json_path)
         self.code: str = self.config["code"]
         self.name: str = self.config["name"]
@@ -32,6 +32,10 @@ class BaseCollector:
         self.headless: bool = _is_headless()
         self.debug: bool = _is_debug()
         self._debug_seq: int = 0  # HTML採取連番
+        if year is not None:
+            self.config["target_year"] = year
+            self.config["output_dir"] = f"data/income/securities/{self.code}/{year}/raw/"
+            self.output_dir = Path(self.config["output_dir"])
 
     def _debug_dir(self) -> Path:
         d = Path("output") / "debug" / self.code

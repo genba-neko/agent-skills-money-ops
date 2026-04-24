@@ -48,11 +48,7 @@ from money_ops.utils import wait as _wait
 
 class PaypayCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/paypay/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+        super().__init__(site_json_path, year)
 
     def _is_logged_in(self, page) -> bool:
         """セッション有効チェック: /trade/ にアクセスして確認。
