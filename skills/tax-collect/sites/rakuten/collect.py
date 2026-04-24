@@ -24,8 +24,8 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 from money_ops.utils import extract_filename, wait as _wait
 
 class RakutenCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path, year)
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     # ------------------------------------------------------------------
     # 手動ログイン待機
@@ -169,8 +169,10 @@ def main() -> None:
         default=None,
         help="対象年度（未指定時は site.json の target_year を使用）",
     )
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = RakutenCollector(year=args.year)
+    collector = RakutenCollector(year=args.year, headless=args.headless, debug=args.debug)
     collector.run()
 
 if __name__ == "__main__":

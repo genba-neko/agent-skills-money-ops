@@ -24,13 +24,19 @@ def _is_debug() -> bool:
 
 
 class BaseCollector:
-    def __init__(self, site_json_path: str | Path, year: int | None = None):
+    def __init__(
+        self,
+        site_json_path: str | Path,
+        year: int | None = None,
+        headless: bool | None = None,
+        debug: bool | None = None,
+    ):
         self.config = _load_site_config(site_json_path)
         self.code: str = self.config["code"]
         self.name: str = self.config["name"]
         self.output_dir = Path(self.config["output_dir"])
-        self.headless: bool = _is_headless()
-        self.debug: bool = _is_debug()
+        self.headless: bool = headless if headless is not None else _is_headless()
+        self.debug: bool = debug if debug is not None else _is_debug()
         self._debug_seq: int = 0  # HTML採取連番
         if year is not None:
             self.config["target_year"] = year

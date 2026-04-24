@@ -39,8 +39,8 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 from money_ops.utils import wait as _wait
 
 class DaiwaConnectCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path, year)
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _login(self, page) -> object:
         """connect-sec.co.jp → jumppages/login.html → 認証 → webbroker3。
@@ -246,8 +246,10 @@ class DaiwaConnectCollector(BaseCollector):
 def main() -> None:
     parser = argparse.ArgumentParser(description="大和コネクト証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = DaiwaConnectCollector(year=args.year)
+    collector = DaiwaConnectCollector(year=args.year, headless=args.headless, debug=args.debug)
     collector.run()
 
 if __name__ == "__main__":

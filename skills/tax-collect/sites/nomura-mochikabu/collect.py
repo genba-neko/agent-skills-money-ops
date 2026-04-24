@@ -45,8 +45,8 @@ def _year_month_patterns(target_year: int) -> list[str]:
     return [f"{target_year}年12月", f"{target_year + 1}年01月"]
 
 class NomuraMochikabuCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path, year)
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
         page.goto(self.config["login_url"])
@@ -178,8 +178,10 @@ class NomuraMochikabuCollector(BaseCollector):
 def main() -> None:
     parser = argparse.ArgumentParser(description="野村證券持株会 配当金等支払通知書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = NomuraMochikabuCollector(year=args.year)
+    collector = NomuraMochikabuCollector(year=args.year, headless=args.headless, debug=args.debug)
     collector.run()
 
 if __name__ == "__main__":

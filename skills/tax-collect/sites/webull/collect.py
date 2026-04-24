@@ -62,8 +62,8 @@ def _wait(t: float = 1.5) -> None:
     time.sleep(t)
 
 class WebullCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path, year)
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _list_dir(self, remote_dir: str) -> set[str]:
         out = _adb("shell", "ls", remote_dir)
@@ -266,8 +266,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="ウィブル証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
     parser.add_argument("--serial", default=None, help="ADB デバイスシリアル（省略時: adb devices から自動取得）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = WebullCollector(year=args.year)
+    collector = WebullCollector(year=args.year, headless=args.headless, debug=args.debug)
     collector.collect(serial=args.serial)
 
 if __name__ == "__main__":
