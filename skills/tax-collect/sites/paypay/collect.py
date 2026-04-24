@@ -28,12 +28,8 @@ from __future__ import annotations
 
 import argparse
 import os
-import sys
 from pathlib import Path
 from urllib.parse import urljoin
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
@@ -42,9 +38,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 _TOP_URL = "https://www.paypay-sec.co.jp/"
 _TRADE_URL = "https://www.paypay-sec.co.jp/trade/"
 
-
 from money_ops.utils import wait as _wait
-
 
 class PaypayCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
@@ -210,15 +204,12 @@ class PaypayCollector(BaseCollector):
 
         self.log_result("success", [pdf_path])
 
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description="PayPay証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
     args = parser.parse_args()
     collector = PaypayCollector(year=args.year)
     collector.run()
-
 
 if __name__ == "__main__":
     main()

@@ -37,11 +37,7 @@ import argparse
 import json
 import os
 import re
-import sys
 from pathlib import Path
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
@@ -49,9 +45,7 @@ from money_ops.converter.pdf_to_json import convert_pdf_to_json
 _SITE_JSON = Path(__file__).parent / "site.json"
 _TOP_URL = "https://kabu.com/"
 
-
 from money_ops.utils import wait as _wait
-
 
 class MufgEsmartCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
@@ -294,15 +288,12 @@ class MufgEsmartCollector(BaseCollector):
 
         self.log_result("success", [pdf_path])
 
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description="MUFG eスマート証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
     args = parser.parse_args()
     collector = MufgEsmartCollector(year=args.year)
     collector.run()
-
 
 if __name__ == "__main__":
     main()

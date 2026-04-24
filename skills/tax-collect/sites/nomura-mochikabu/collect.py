@@ -29,12 +29,8 @@ PDF取得方式（T-13方式: context.request 直接フェッチ）:
 from __future__ import annotations
 
 import argparse
-import sys
 from html.parser import HTMLParser
 from pathlib import Path
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.collector.base import BaseCollector
 
@@ -43,15 +39,11 @@ _LOGIN_URL = "https://www.e-plan.nomura.co.jp/login/index.html"
 _WEB_KOFU_URL = "https://www.e-plan.nomura.co.jp/mocikabu/script/WEAW1200.jsp"
 _PDF_POST_URL = "https://www.e-plan.nomura.co.jp/cms/ChouhyouDisplayPost.do"
 
-
-
 from money_ops.utils import extract_filename, wait as _wait
-
 
 def _year_month_patterns(target_year: int) -> list[str]:
     """発行年月の候補: 対象年12月 or 翌年1月"""
     return [f"{target_year}年12月", f"{target_year + 1}年01月"]
-
 
 class NomuraMochikabuCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
@@ -184,15 +176,12 @@ class NomuraMochikabuCollector(BaseCollector):
 
         self.log_result("success", [pdf_path])
 
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description="野村證券持株会 配当金等支払通知書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
     args = parser.parse_args()
     collector = NomuraMochikabuCollector(year=args.year)
     collector.run()
-
 
 if __name__ == "__main__":
     main()

@@ -17,13 +17,8 @@ from __future__ import annotations
 
 import argparse
 import re
-import sys
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
-
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.collector.base import BaseCollector
 
@@ -31,9 +26,7 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 # 直接ログインフォームへ遷移（www.smbcnikko.co.jp 経由ポップアップは Playwright コンテキスト外になる）
 _LOGIN_URL = "https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/"
 
-
 from money_ops.utils import extract_filename, wait as _wait
-
 
 class SMBCNikkoCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
@@ -201,15 +194,12 @@ class SMBCNikkoCollector(BaseCollector):
         self._convert_xml_to_json(downloaded)
         self.log_result("success", downloaded)
 
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description="SMBC日興証券 年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None)
     args = parser.parse_args()
     collector = SMBCNikkoCollector(year=args.year)
     collector.run()
-
 
 if __name__ == "__main__":
     main()

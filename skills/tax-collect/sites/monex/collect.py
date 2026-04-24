@@ -16,26 +16,18 @@ from __future__ import annotations
 
 import argparse
 import re
-import sys
 from pathlib import Path
-
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://mst.monex.co.jp/pc/ITS/login/LoginIDPassword.jsp"
 
-
 from money_ops.utils import extract_filename, wait as _wait
-
 
 def _year_month_patterns(target_year: int) -> list[str]:
     """発行年月の候補: 対象年12月 or 翌年1月（日本語表記）"""
     return [f"{target_year}年12月", f"{target_year + 1}年01月"]
-
 
 class MonexCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
@@ -199,15 +191,12 @@ class MonexCollector(BaseCollector):
         self._convert_xml_to_json(downloaded)
         self.log_result("success", downloaded)
 
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description="マネックス証券 年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None)
     args = parser.parse_args()
     collector = MonexCollector(year=args.year)
     collector.run()
-
 
 if __name__ == "__main__":
     main()

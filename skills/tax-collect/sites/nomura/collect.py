@@ -17,27 +17,19 @@ from __future__ import annotations
 
 import argparse
 import re
-import sys
 from pathlib import Path
-
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 _LOGIN_URL = "https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do"
 
-
 from money_ops.collector.eshishobako import capture_dpaw_pdf
 from money_ops.utils import wait as _wait
-
 
 def _year_month_patterns(target_year: int) -> list[str]:
     """発行年月の候補: 対象年12月 or 翌年1月（GMO-clickと同形式）"""
     return [f"{target_year}/12", f"{target_year + 1}/01"]
-
 
 class NomuraCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
@@ -162,15 +154,12 @@ class NomuraCollector(BaseCollector):
         self._convert_xml_to_json(downloaded)
         self.log_result("success", downloaded)
 
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description="野村證券 年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None)
     args = parser.parse_args()
     collector = NomuraCollector(year=args.year)
     collector.run()
-
 
 if __name__ == "__main__":
     main()

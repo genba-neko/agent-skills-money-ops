@@ -83,6 +83,12 @@ python skills/tax-collect/create_zero_json.py --year <YEAR>
 
 `data/income/securities/<code>/<year>/nenkantorihikihokokusho.json` の存在で判断。
 
+## 前提条件
+
+- `money_ops` パッケージがインストール済みであること（`pip install -e .` を実行済み）
+- 各 `collect.py` は `money_ops` がインストールされた環境の Python で実行する必要がある
+- `run.py` は `sys.executable` で子プロセスを起動するため環境は自動引き継ぎされる
+
 ## 注意事項
 
 - ブラウザが起動したらユーザーが手動でログイン・2FA処理を行う
