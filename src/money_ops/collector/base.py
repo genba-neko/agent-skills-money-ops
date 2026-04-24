@@ -1,7 +1,11 @@
 import json
 import os
+import sys
+import time
 from datetime import datetime
 from pathlib import Path
+
+_SIGNAL_DIR = Path(".")  # プロジェクトルートから実行前提
 
 try:
     from dotenv import load_dotenv as _load_dotenv
@@ -49,8 +53,24 @@ class BaseCollector:
         return d
 
     def prompt(self, message: str) -> str:
-        """ユーザーへの入力要求。将来的に並列収集用 EnvPrompt で差し替え可能。"""
-        return input(message)
+        """ユーザーへの入力要求。
+        TTY接続時: input()で待機（ターミナル直接実行）
+        非TTY時: .waiting_<code> / .signal_<code> ファイル経由で待機（Bashツール経由）
+        """
+        if sys.stdin.isatty():
+            return input(message)
+        waiting = _SIGNAL_DIR / f".waiting_{self.code}"
+        signal = _SIGNAL_DIR / f".signal_{self.code}"
+        signal.unlink(missing_ok=True)
+        waiting.write_text(message, encoding="utf-8")
+        print(f"[{self.name}] 待機中（signal: {signal}）", flush=True)
+        try:
+            while not signal.exists():
+                time.sleep(0.5)
+        finally:
+            waiting.unlink(missing_ok=True)
+        signal.unlink(missing_ok=True)
+        return ""
 
     def dlog(self, message: str) -> None:
         """DEBUG=true のときだけ出力する詳細ログ"""
