@@ -1,10 +1,12 @@
 {
   "name": "ウィブル証券",
   "code": "webull",
-  "has_xml": false,
   "target_year": 2025,
   "output_dir": "data/income/securities/webull/2025/raw/",
-"documents": [
-    { "type": "特定口座年間取引報告書" }
-  ]
+  "documents": [
+    {
+      "type": "特定口座年間取引報告書"
+    }
+  ],
+  "converter_type": "pdf_llm"
 }

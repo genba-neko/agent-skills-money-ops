@@ -34,7 +34,6 @@ from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.tsumiki-sec.com/"
 
 from money_ops.utils import wait as _wait
 
@@ -50,7 +49,7 @@ class TsumikiCollector(BaseCollector):
           - エポスNet ID + パスワード入力 → ログインするボタン
           - ログイン後: 閉じるボタン（通知等）→ 以降の操作
         """
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 

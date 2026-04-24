@@ -22,7 +22,6 @@ from pathlib import Path
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do"
 
 from money_ops.collector.eshishobako import capture_dpaw_pdf
 from money_ops.utils import wait as _wait
@@ -36,7 +35,7 @@ class NomuraCollector(BaseCollector):
         super().__init__(site_json_path, year)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         url = page.url
         if isinstance(url, str) and "hometrade.nomura.co.jp" in url and "login" not in url.lower():

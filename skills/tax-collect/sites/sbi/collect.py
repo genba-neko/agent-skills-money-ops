@@ -19,7 +19,6 @@ from pathlib import Path
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.sbisec.co.jp/ETGate"
 
 from money_ops.collector.eshishobako import capture_dpaw_pdf
 from money_ops.utils import wait as _wait
@@ -33,7 +32,7 @@ class SBICollector(BaseCollector):
         super().__init__(site_json_path, year)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         if page.locator('input[name="username"]').count() == 0:
             print(f"[{self.name}] ログイン済みを検出 → スキップ")

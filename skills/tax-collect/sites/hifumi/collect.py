@@ -34,7 +34,6 @@ from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://hifumi.rheos.jp/"
 
 from money_ops.collector.eshishobako import capture_dpaw_pdf
 from money_ops.utils import wait as _wait
@@ -52,7 +51,7 @@ class HifumiCollector(BaseCollector):
           - loginId + #password_01 → 「ログイン」→ 取引パスワード → 「認証」（すべて手動）
           - page1 URL はログイン後も login.jsp のまま（SPA）
         """
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 

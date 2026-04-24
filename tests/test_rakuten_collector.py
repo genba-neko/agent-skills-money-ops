@@ -65,7 +65,7 @@ def test_wait_for_login(tmp_path):
     with patch.object(_mod, "_wait"), patch("builtins.input", return_value=""):
         collector._wait_for_login(page)
 
-    page.goto.assert_called_once_with(_mod._LOGIN_URL)
+    page.goto.assert_called_once_with(collector.config["login_url"])
 
 
 # ---------------------------------------------------------------------------

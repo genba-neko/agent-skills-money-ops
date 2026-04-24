@@ -35,7 +35,6 @@ from pathlib import Path
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.e-plan.nomura.co.jp/login/index.html"
 _WEB_KOFU_URL = "https://www.e-plan.nomura.co.jp/mocikabu/script/WEAW1200.jsp"
 _PDF_POST_URL = "https://www.e-plan.nomura.co.jp/cms/ChouhyouDisplayPost.do"
 
@@ -50,7 +49,7 @@ class NomuraMochikabuCollector(BaseCollector):
         super().__init__(site_json_path, year)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         print(f"[{self.name}] ブラウザでログインしてください（2FA・ポップアップ処理含む）")
         input("トップ画面で操作可能になったら Enter を押してください: ")

@@ -1,10 +1,13 @@
 {
   "name": "GMOクリック証券",
   "code": "gmo-click",
-  "has_xml": true,
   "target_year": 2025,
   "output_dir": "data/income/securities/gmo-click/2025/raw/",
   "documents": [
-    { "type": "特定口座年間取引報告書" }
-  ]
+    {
+      "type": "特定口座年間取引報告書"
+    }
+  ],
+  "login_url": "https://kabu.click-sec.com/sec2/mypage/top.do",
+  "converter_type": "teg204_xml"
 }

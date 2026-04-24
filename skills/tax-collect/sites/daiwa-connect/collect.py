@@ -35,7 +35,6 @@ from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.connect-sec.co.jp/service/login/"
 
 from money_ops.utils import wait as _wait
 
@@ -52,7 +51,7 @@ class DaiwaConnectCollector(BaseCollector):
           - セッション有効時 → jumppages が webbroker3 へ即リダイレクト（ログインスキップ）
           - セッション無効時 → メールアドレス + パスワード → ログイン → 2段階認証コード
         """
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 

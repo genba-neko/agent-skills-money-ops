@@ -22,7 +22,6 @@ from pathlib import Path
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.matsui.co.jp/"
 
 from money_ops.utils import extract_filename, wait as _wait
 
@@ -35,7 +34,7 @@ class MatsuiCollector(BaseCollector):
         super().__init__(site_json_path, year)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         print(f"[{self.name}] ブラウザでログインしてください")
         input("トップ画面（フレーム表示）で操作可能になったら Enter を押してください: ")
         _wait()

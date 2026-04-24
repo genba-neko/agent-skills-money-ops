@@ -35,7 +35,6 @@ from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_TOP_URL = "https://www.paypay-sec.co.jp/"
 _TRADE_URL = "https://www.paypay-sec.co.jp/trade/"
 
 from money_ops.utils import wait as _wait
@@ -64,7 +63,7 @@ class PaypayCollector(BaseCollector):
             → POST /noauth/emailauth/verify_otp_code (otp_prefix は hidden field 自動送信)
           - 認証後: /trade/ へリダイレクト
         """
-        page.goto(_TOP_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
@@ -158,7 +157,7 @@ class PaypayCollector(BaseCollector):
             print(f"[{self.name}] HREF 属性なし")
             return None
 
-        dl_url = urljoin(_TOP_URL, href)
+        dl_url = urljoin(self.config["login_url"], href)
         self.dlog(f"PDF download URL: {dl_url}")
 
         response = page.request.get(dl_url)

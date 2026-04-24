@@ -1,10 +1,13 @@
 {
   "name": "SMBC日興証券",
   "code": "smbcnikko",
-  "has_xml": true,
   "target_year": 2025,
   "output_dir": "data/income/securities/smbcnikko/2025/raw/",
   "documents": [
-    { "type": "特定口座年間取引報告書" }
-  ]
+    {
+      "type": "特定口座年間取引報告書"
+    }
+  ],
+  "login_url": "https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/",
+  "converter_type": "teg204_xml"
 }

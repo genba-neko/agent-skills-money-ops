@@ -1,10 +1,13 @@
 {
   "name": "SBI証券",
   "code": "sbi",
-  "has_xml": true,
   "target_year": 2025,
   "output_dir": "data/income/securities/sbi/2025/raw/",
   "documents": [
-    { "type": "特定口座年間取引報告書" }
-  ]
+    {
+      "type": "特定口座年間取引報告書"
+    }
+  ],
+  "login_url": "https://www.sbisec.co.jp/ETGate",
+  "converter_type": "teg204_xml"
 }

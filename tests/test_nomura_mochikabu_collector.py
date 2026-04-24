@@ -33,7 +33,7 @@ def test_wait_for_login(tmp_path):
     page = MagicMock()
     with patch.object(_mod, "_wait"), patch("builtins.input", return_value=""):
         c._wait_for_login(page)
-    page.goto.assert_called_once_with(_mod._LOGIN_URL)
+    page.goto.assert_called_once_with(c.config["login_url"])
 
 
 def test_parse_hidden_inputs_basic(tmp_path):

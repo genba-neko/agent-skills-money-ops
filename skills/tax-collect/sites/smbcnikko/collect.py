@@ -24,7 +24,6 @@ from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 # 直接ログインフォームへ遷移（www.smbcnikko.co.jp 経由ポップアップは Playwright コンテキスト外になる）
-_LOGIN_URL = "https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/"
 
 from money_ops.utils import extract_filename, wait as _wait
 
@@ -33,7 +32,7 @@ class SMBCNikkoCollector(BaseCollector):
         super().__init__(site_json_path, year)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         url = page.url
         if isinstance(url, str) and "trade.smbcnikko.co.jp" in url and "/Login/0/login/" not in url:

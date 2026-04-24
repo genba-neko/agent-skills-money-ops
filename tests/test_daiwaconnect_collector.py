@@ -32,7 +32,7 @@ def test_login_first_goto_is_login_url(tmp_path):
         result = c._login(page)
 
     # 最初の goto が LOGIN_URL であること
-    assert page.goto.call_args_list[0] == call(_mod._LOGIN_URL)
+    assert page.goto.call_args_list[0] == call(c.config["login_url"])
     assert result is page
 
 

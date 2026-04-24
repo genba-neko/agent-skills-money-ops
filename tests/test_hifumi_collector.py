@@ -41,7 +41,7 @@ def test_wait_for_login_returns_page2(tmp_path):
     with patch.object(_mod, "_wait"), patch("builtins.input", return_value=""):
         result = c._wait_for_login(page)
 
-    page.goto.assert_called_once_with(_mod._LOGIN_URL)
+    page.goto.assert_called_once_with(c.config["login_url"])
     assert result is page2
 
 

@@ -21,7 +21,6 @@ from pathlib import Path
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://mst.monex.co.jp/pc/ITS/login/LoginIDPassword.jsp"
 
 from money_ops.utils import extract_filename, wait as _wait
 
@@ -34,7 +33,7 @@ class MonexCollector(BaseCollector):
         super().__init__(site_json_path, year)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         url = page.url
         if isinstance(url, str) and "mst.monex.co.jp" in url and "LoginIDPassword" not in url:

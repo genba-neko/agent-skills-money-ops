@@ -43,7 +43,6 @@ from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://fv.sawakami.co.jp/Account/Login"
 _EDELIVERY_URL = "https://fv.sawakami.co.jp/e-delivery"
 
 from money_ops.utils import wait as _wait
@@ -75,7 +74,7 @@ class SawakamiCollector(BaseCollector):
           - GET  /account/twofactorauth?provider=Email&ReturnUrl=%2F&RememberMe=False
           - POST /account/twofactorauth?returnUrl=/ → 302 → /
         """
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 

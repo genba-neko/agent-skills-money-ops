@@ -43,7 +43,6 @@ from money_ops.collector.base import BaseCollector
 from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_TOP_URL = "https://kabu.com/"
 
 from money_ops.utils import wait as _wait
 
@@ -71,7 +70,7 @@ class MufgEsmartCollector(BaseCollector):
           - 認証後: mauth-sso callback → s20.si1.kabu.co.jp/members/
           - セッション有効時: Auth0 がフォームをスキップして直接 si1.kabu.co.jp へ
         """
-        page.goto(_TOP_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 

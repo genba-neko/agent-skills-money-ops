@@ -20,7 +20,6 @@ from pathlib import Path
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.rakuten-sec.co.jp/"
 
 from money_ops.utils import extract_filename, wait as _wait
 
@@ -32,7 +31,7 @@ class RakutenCollector(BaseCollector):
     # 手動ログイン待機
     # ------------------------------------------------------------------
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         print(f"[{self.name}] ブラウザでログインしてください（絵文字認証含む）")
         input("ログイン完了後、Enter を押してください: ")
         _wait()
