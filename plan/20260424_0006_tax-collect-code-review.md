@@ -100,6 +100,28 @@
 - 問題: 全社共通グローバルフラグで社別制御不可
 - 修正: `--headless` / `--debug` を argparse に追加し環境変数より優先
 
+### D-5: `prompt()` / `input()` を `page.wait_for_url()` / `wait_for_event()` に置換（全社）
+- 問題: `input()` が Bash ツール経由で EOF → Claude Codeスキルからの実行が不可能
+- 根本解決: Enter待ちをやめ、ブラウザ状態（URL・要素・イベント）を自身で検出する
+  - ログイン待ち → `page.wait_for_url(dashboard_pattern, timeout=300_000)`
+  - 2FA後のポップアップ待ち → `session.wait_for_event("popup", timeout=300_000)`
+  - OTP入力 → ユーザーがブラウザ直接入力・送信 → `page.wait_for_url()` で継続検出（スクリプトは fill/click 不要）
+- GMO-click で動作確認済み（2026-04-24）: signal ファイル不要・チャット完結・ターミナル実行と共存
+
+#### 全23箇所の分類（調査済み）
+
+**カテゴリA: ログイン・ダッシュボード到達待ち（13箇所）→ `wait_for_url`**
+- gmo-click, hifumi, matsui, monex, nomura, nomura-mochikabu, rakuten, sbi, smbcnikko, tsumiki, sawakami, paypay, webull(別途)
+
+**カテゴリB: OTP/認証コード（5箇所）→ ユーザーがブラウザ直接入力+送信 → `wait_for_url`**
+- daiwa-connect:84, mufg-esmart:121, paypay:103, sawakami:108, tsumiki:120
+- スクリプト側の `page.fill(code)` + `click()` を削除。ブラウザで完結させる。
+
+**カテゴリC: 中間フロー確認（5箇所）→ `wait_for_url` or `wait_for_selector` or `wait_for_event`**
+- daiwa-connect:90, mufg-esmart:131/141, nomura:70, gmo-click:74（実装済み）
+
+**webull**: Android/ADB のため別途検討
+
 ---
 
 ## 実装優先度

@@ -43,9 +43,8 @@ class GMOClickCollector(BaseCollector):
             self.dlog(f"URL: {page.url}")
             self.save_html(page, "after_login_skip")
             return
-        print(f"[{self.name}] ブラウザでログインしてください")
-        self.prompt("ログイン完了後 Enter を押してください: ")
-        _wait()
+        print(f"[{self.name}] ブラウザでログインしてください（最大5分）")
+        page.wait_for_url("**/mypage/top**", timeout=300_000)
         self._session = page
         self.dlog(f"URL: {page.url}")
         self.save_html(page, "after_login")
@@ -70,11 +69,8 @@ class GMOClickCollector(BaseCollector):
         _wait(2.0, 3.0)
         # 2FAモーダルが表示された場合のみ処理（セッション状態によって有無が変わる）
         if session.locator("#appTwoStepVerificationCode").is_visible():
-            print(f"[{self.name}] アプリ2FAコードを入力してください（認証ボタンはスクリプトが押します）")
-            self.prompt("コード入力後 Enter を押してください: ")
-            with session.expect_popup() as popup_info:
-                session.locator("#btnConfirm").click()
-            popup = popup_info.value
+            print(f"[{self.name}] 2FAコードを入力して「認証する」ボタンを押してください（最大5分）")
+            popup = session.wait_for_event("popup", timeout=300_000)
         else:
             # 2FAなし: #stockReportLink クリックでポップアップが開く（遅延考慮でリトライ）
             popup = None
