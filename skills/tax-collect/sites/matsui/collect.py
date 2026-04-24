@@ -190,29 +190,18 @@ class MatsuiCollector(BaseCollector):
 
         return downloaded
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            self._wait_for_login(page)
-            popup = self._navigate_to_report_popup(page)
+    def _collect_core(self, page) -> None:
+        self._wait_for_login(page)
+        popup = self._navigate_to_report_popup(page)
 
-            downloaded = self._download_files(popup)
-            if not downloaded:
-                self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
-                return
+        downloaded = self._download_files(popup)
+        if not downloaded:
+            self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
+            return
 
-            self._convert_xml_to_json(downloaded)
-            self.log_result("success", downloaded)
+        self._convert_xml_to_json(downloaded)
+        self.log_result("success", downloaded)
 
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
 
 
 def main() -> None:
@@ -220,7 +209,7 @@ def main() -> None:
     parser.add_argument("--year", type=int, default=None)
     args = parser.parse_args()
     collector = MatsuiCollector(year=args.year)
-    collector.collect()
+    collector.run()
 
 
 if __name__ == "__main__":

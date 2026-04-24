@@ -273,6 +273,6 @@ def test_collect_skip_when_year_row_not_found(tmp_path):
          patch.object(collector, "_navigate_to_report_list"), \
          patch.object(collector, "log_result") as mock_log, \
          patch.object(_mod, "_wait"):
-        collector.collect()
+        collector.run()
 
     mock_log.assert_called_once_with("skip", [], f"{collector.config['target_year']}年の取引報告書が存在しません")

@@ -53,7 +53,7 @@ def test_collect_calls_login_when_not_logged_in(tmp_path):
          patch.object(c, "_navigate_to_documents"), \
          patch.object(c, "_download_pdf", return_value=None), \
          patch.object(c, "log_result"):
-        c.collect()
+        c.run()
 
     mock_login.assert_called_once()
 
@@ -69,7 +69,7 @@ def test_collect_skips_login_when_logged_in(tmp_path):
          patch.object(c, "_navigate_to_documents"), \
          patch.object(c, "_download_pdf", return_value=None), \
          patch.object(c, "log_result"):
-        c.collect()
+        c.run()
 
     mock_login.assert_not_called()
 
@@ -84,7 +84,7 @@ def test_collect_error_when_pdf_not_found(tmp_path):
          patch.object(c, "_navigate_to_documents"), \
          patch.object(c, "_download_pdf", return_value=None), \
          patch.object(c, "log_result") as mock_log:
-        c.collect()
+        c.run()
 
     assert mock_log.called
     assert mock_log.call_args[0][0] == "error"

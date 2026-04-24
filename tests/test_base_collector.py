@@ -41,7 +41,7 @@ def test_prepare_directory(tmp_path, monkeypatch):
     assert collector.output_dir.exists()
 
 
-def test_collect_not_implemented():
+def test_collect_core_not_implemented():
     collector = BaseCollector(SITE_JSON)
     with pytest.raises(NotImplementedError):
-        collector.collect()
+        collector._collect_core(None)

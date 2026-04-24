@@ -185,46 +185,35 @@ class PaypayCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def collect(self) -> None:
-        page = self.launch_browser()
+    def _collect_core(self, page) -> None:
+        year = self.config.get("target_year")
+        if year is None:
+            raise ValueError("target_year が設定されていません")
+
+        if not self._is_logged_in(page):
+            self._login(page)
+
+        self._navigate_to_documents(page)
+
+        pdf_path = self._download_pdf(page, year)
+        if pdf_path is None:
+            self.log_result("error", [], "PDF 取得失敗")
+            return
+
         try:
-            year = self.config.get("target_year")
-            if year is None:
-                raise ValueError("target_year が設定されていません")
-
-            if not self._is_logged_in(page):
-                self._login(page)
-
-            self._navigate_to_documents(page)
-
-            pdf_path = self._download_pdf(page, year)
-            if pdf_path is None:
-                self.log_result("error", [], "PDF 取得失敗")
-                return
-
-            try:
-                data = convert_pdf_to_json(
-                    pdf_path=pdf_path,
-                    company=self.name,
-                    code=self.code,
-                    year=year,
-                    raw_files=[str(Path(pdf_path).name)],
-                )
-                self._write_report_json(data)
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ: {e}")
-
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
+            data = convert_pdf_to_json(
+                pdf_path=pdf_path,
+                company=self.name,
+                code=self.code,
+                year=year,
+                raw_files=[str(Path(pdf_path).name)],
+            )
+            self._write_report_json(data)
         except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
+            print(f"[{self.name}] JSON 変換スキップ: {e}")
+
+        self.log_result("success", [pdf_path])
+
 
 
 def main() -> None:
@@ -232,7 +221,7 @@ def main() -> None:
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
     args = parser.parse_args()
     collector = PaypayCollector(year=args.year)
-    collector.collect()
+    collector.run()
 
 
 if __name__ == "__main__":

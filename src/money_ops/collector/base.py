@@ -215,5 +215,19 @@ class BaseCollector:
         )
         self._write_report_json(data)
 
-    def collect(self) -> None:
-        raise NotImplementedError("collect() をサブクラスで実装してください")
+    def _collect_core(self, page) -> None:
+        raise NotImplementedError("_collect_core() をサブクラスで実装してください")
+
+    def run(self) -> None:
+        page = self.launch_browser()
+        try:
+            self._collect_core(page)
+        except KeyboardInterrupt:
+            print(f"\n[{self.name}] ユーザーによる中断")
+            self.log_result("interrupted", [], "ユーザーによる中断")
+        except Exception as e:
+            print(f"[{self.name}] エラー: {e}")
+            self.log_result("error", [], str(e))
+            raise
+        finally:
+            self.close_browser()

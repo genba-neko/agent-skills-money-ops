@@ -64,7 +64,7 @@ def test_collect_skip_when_otp_cancelled(tmp_path):
          patch.object(c, "_navigate_to_reports"), \
          patch.object(c, "_handle_otp", return_value=False), \
          patch.object(c, "log_result") as mock_log:
-        c.collect()
+        c.run()
 
     assert mock_log.called
     assert mock_log.call_args[0][0] == "skip"
@@ -82,7 +82,7 @@ def test_collect_error_when_pdf_not_found(tmp_path):
          patch.object(c, "_handle_otp", return_value=True), \
          patch.object(c, "_download_pdf_via_route", return_value=None), \
          patch.object(c, "log_result") as mock_log:
-        c.collect()
+        c.run()
 
     assert mock_log.called
     assert mock_log.call_args[0][0] == "error"

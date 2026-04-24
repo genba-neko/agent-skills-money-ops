@@ -164,54 +164,43 @@ class HifumiCollector(BaseCollector):
         _wait()
         return True
 
-    def collect(self) -> None:
-        page = self.launch_browser()
+    def _collect_core(self, page) -> None:
+        page1 = self._wait_for_login(page)
+        year = self.config["target_year"]
+
+        page2 = self._navigate_to_eshishobako(page1)
+
+        date_btn = self._find_date_button(page2, year)
+        if date_btn is None:
+            self.log_result("skip", [], f"{year}年度の書類が見つかりません（日付ボタン 0件）")
+            return
+
+        if not self._open_report_detail(page2, date_btn):
+            self.log_result("skip", [], f"{year}年度の特定口座年間取引報告書ボタンが見つかりません")
+            return
+
+        self.prepare_directory()
+        pdf_path = capture_dpaw_pdf(
+            page2, self.output_dir, f"{year}_hifumi_nentori.pdf", label=self.name
+        )
+        if pdf_path is None:
+            self.log_result("error", [], "PDF 捕捉失敗")
+            return
+
         try:
-            page1 = self._wait_for_login(page)
-            year = self.config["target_year"]
-
-            page2 = self._navigate_to_eshishobako(page1)
-
-            date_btn = self._find_date_button(page2, year)
-            if date_btn is None:
-                self.log_result("skip", [], f"{year}年度の書類が見つかりません（日付ボタン 0件）")
-                return
-
-            if not self._open_report_detail(page2, date_btn):
-                self.log_result("skip", [], f"{year}年度の特定口座年間取引報告書ボタンが見つかりません")
-                return
-
-            self.prepare_directory()
-            pdf_path = capture_dpaw_pdf(
-                page2, self.output_dir, f"{year}_hifumi_nentori.pdf", label=self.name
+            data = convert_pdf_to_json(
+                pdf_path=pdf_path,
+                company=self.name,
+                code=self.code,
+                year=year,
+                raw_files=[str(Path(pdf_path).name)],
             )
-            if pdf_path is None:
-                self.log_result("error", [], "PDF 捕捉失敗")
-                return
-
-            try:
-                data = convert_pdf_to_json(
-                    pdf_path=pdf_path,
-                    company=self.name,
-                    code=self.code,
-                    year=year,
-                    raw_files=[str(Path(pdf_path).name)],
-                )
-                self._write_report_json(data)
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ（ANTHROPIC_API_KEY 未設定等）: {e}")
-
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
+            self._write_report_json(data)
         except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
+            print(f"[{self.name}] JSON 変換スキップ（ANTHROPIC_API_KEY 未設定等）: {e}")
+
+        self.log_result("success", [pdf_path])
+
 
 
 def main() -> None:
@@ -219,7 +208,7 @@ def main() -> None:
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
     args = parser.parse_args()
     collector = HifumiCollector(year=args.year)
-    collector.collect()
+    collector.run()
 
 
 if __name__ == "__main__":

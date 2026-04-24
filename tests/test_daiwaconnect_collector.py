@@ -49,7 +49,7 @@ def test_collect_error_when_pdf_not_found(tmp_path):
          patch.object(c, "_navigate_to_annual_report"), \
          patch.object(c, "_download_pdf_via_route", return_value=None), \
          patch.object(c, "log_result") as mock_log:
-        c.collect()
+        c.run()
 
     assert mock_log.called
     assert mock_log.call_args[0][0] == "error"
@@ -70,7 +70,7 @@ def test_collect_success_flow(tmp_path):
          patch.object(c, "_download_pdf_via_route", return_value=pdf_path), \
          patch.object(_mod, "convert_pdf_to_json", return_value={"code": _CODE}), \
          patch.object(c, "log_result") as mock_log:
-        c.collect()
+        c.run()
 
     assert mock_log.called
     assert mock_log.call_args[0][0] == "success"

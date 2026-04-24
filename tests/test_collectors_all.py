@@ -79,16 +79,18 @@ def test_output_dir_contains_year(tmp_path, code, cls_name):
 
 
 @pytest.mark.parametrize("code,cls_name", ALL_SITES, ids=IDS)
-def test_collect_not_implemented_on_base(tmp_path, code, cls_name):
-    """collect() は各社で実装されている（NotImplementedError を投げないこと）"""
+def test_collect_core_implemented(tmp_path, code, cls_name):
+    """_collect_core() は各社で実装されている（BaseCollector の NotImplementedError を上書きしていること）"""
     mod = load_site_module(code)
     cls = getattr(mod, cls_name)
     collector = build_collector(tmp_path, code, cls)
-    # collect メソッドが存在し、BaseCollector の NotImplementedError を上書きしていること
-    assert callable(getattr(collector, "collect", None))
-    # クラス自身のメソッド（継承元の NotImplementedError ではない）
-    assert "collect" in cls.__dict__ or any(
-        "collect" in C.__dict__ for C in cls.__mro__[1:-1]
+    # webull は collect() のみ実装（Android 自動化）
+    if code == "webull":
+        assert callable(getattr(collector, "collect", None))
+        return
+    assert callable(getattr(collector, "_collect_core", None))
+    assert "_collect_core" in cls.__dict__ or any(
+        "_collect_core" in C.__dict__ for C in cls.__mro__[1:-1]
     )
 
 

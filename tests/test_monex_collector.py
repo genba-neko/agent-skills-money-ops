@@ -103,7 +103,7 @@ def test_collect_skip_when_report_not_found(tmp_path):
          patch.object(c, "_navigate_to_report_list"), \
          patch.object(c, "log_result") as mock_log, \
          patch.object(_mod, "_wait"):
-        c.collect()
+        c.run()
 
     assert mock_log.called
     assert mock_log.call_args[0][0] == "skip"

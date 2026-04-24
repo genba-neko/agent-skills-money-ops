@@ -65,7 +65,7 @@ def test_collect_skip_when_date_button_not_found(tmp_path):
          patch.object(c, "_navigate_to_eshishobako", return_value=page2), \
          patch.object(c, "_find_date_button", return_value=None), \
          patch.object(c, "log_result") as mock_log:
-        c.collect()
+        c.run()
 
     assert mock_log.called
     assert mock_log.call_args[0][0] == "skip"
@@ -87,7 +87,7 @@ def test_collect_error_when_pdf_not_found(tmp_path):
          patch.object(c, "prepare_directory"), \
          patch.object(_mod, "capture_dpaw_pdf", return_value=None), \
          patch.object(c, "log_result") as mock_log:
-        c.collect()
+        c.run()
 
     assert mock_log.called
     assert mock_log.call_args[0][0] == "error"

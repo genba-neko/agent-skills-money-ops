@@ -176,46 +176,35 @@ class SMBCNikkoCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            self._wait_for_login(page)
-            self._save_session_state(page)
-            session = self._session
-            self._navigate_to_report_list()
-            year = self.config["target_year"]
+    def _collect_core(self, page) -> None:
+        self._wait_for_login(page)
+        self._save_session_state(page)
+        session = self._session
+        self._navigate_to_report_list()
+        year = self.config["target_year"]
 
-            if self._find_xml_link(session, year) is None:
-                self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
-                return
+        if self._find_xml_link(session, year) is None:
+            self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
+            return
 
-            self.prepare_directory()
-            downloaded: list[str] = []
+        self.prepare_directory()
+        downloaded: list[str] = []
 
-            xml_path = self._download_xml(session, year)
-            if xml_path:
-                downloaded.append(xml_path)
+        xml_path = self._download_xml(session, year)
+        if xml_path:
+            downloaded.append(xml_path)
 
-            pdf_path = self._download_pdf(session, year)
-            if pdf_path:
-                downloaded.append(pdf_path)
+        pdf_path = self._download_pdf(session, year)
+        if pdf_path:
+            downloaded.append(pdf_path)
 
-            if not downloaded:
-                self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
-                return
+        if not downloaded:
+            self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
+            return
 
-            self._convert_xml_to_json(downloaded)
-            self.log_result("success", downloaded)
+        self._convert_xml_to_json(downloaded)
+        self.log_result("success", downloaded)
 
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
 
 
 def main() -> None:
@@ -223,7 +212,7 @@ def main() -> None:
     parser.add_argument("--year", type=int, default=None)
     args = parser.parse_args()
     collector = SMBCNikkoCollector(year=args.year)
-    collector.collect()
+    collector.run()
 
 
 if __name__ == "__main__":
