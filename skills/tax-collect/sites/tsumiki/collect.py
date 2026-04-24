@@ -71,7 +71,7 @@ class TsumikiCollector(BaseCollector):
             print(f"[{self.name}] 自動ログイン完了")
         else:
             print(f"[{self.name}] page1 でログインしてください（エポスNet ID・パスワード）（最大5分）")
-            page1.wait_for_selector("button[name='ログインする']", state="detached", timeout=300_000)
+            page1.get_by_role("button", name="ログインする").first.wait_for(state="detached", timeout=300_000)
             _wait(2.0, 3.0)
 
         # 通知等のダイアログを閉じる

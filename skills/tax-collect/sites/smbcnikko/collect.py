@@ -121,7 +121,7 @@ class SMBCNikkoCollector(BaseCollector):
 
         # 認証後は自動でダウンロードが始まる。expect_download で待機するだけ
         print(f"[{self.name}] ポップアップで取引パスワードを入力し「認証する」をクリックしてください")
-        with pw_popup.expect_download(timeout=120000) as dl_info:
+        with pw_popup.expect_download(timeout=300_000) as dl_info:
             pass
         dl = dl_info.value
         xml_path = self.output_dir / (dl.suggested_filename or f"{year}_nentori.xml")
