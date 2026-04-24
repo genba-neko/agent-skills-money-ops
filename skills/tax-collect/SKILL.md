@@ -19,7 +19,7 @@ description: >
 
 ### 2. 実行
 
-確認後、Bash ツールで **バックグラウンド実行**する:
+確認後、以下を実行する:
 
 ```bash
 python skills/tax-collect/run.py --year <YEAR> [オプション]
@@ -30,27 +30,9 @@ python skills/tax-collect/run.py --year <YEAR> [オプション]
 - `--force` — 収集済みでも再実行
 - `--fail-fast` — 1社エラーで即停止
 
-**run_in_background: true** で起動後、以下のシグナルファイルループを回す:
-
-#### シグナルファイル待機ループ（1社ごとに繰り返す）
-
-1. `.waiting_<code>` ファイルが出現するまでポーリング（Bash でチェック）
-2. 出現したら内容（ログイン待ちメッセージ）を読んでユーザーに表示
-3. **AskUserQuestion** で「ログイン完了したら教えてください」と確認
-4. ユーザーが完了を伝えたら `.signal_<code>` ファイルを作成
-5. 次の `.waiting_*` を待つ。全社完了まで繰り返す
-
-```bash
-# シグナルファイルポーリング例
-ls .waiting_* 2>/dev/null
-
-# シグナル送信
-echo "" > .signal_sbi
-```
-
 ### 3. 結果報告
 
-run.py プロセス終了後、サマリー（OK / ERROR / DONE / SKIP）をユーザーに報告する。
+実行後、サマリー（OK / ERROR / DONE / SKIP）をユーザーに報告する。
 ERRORが出た場合は内容を確認してユーザーに伝える。
 
 ---
