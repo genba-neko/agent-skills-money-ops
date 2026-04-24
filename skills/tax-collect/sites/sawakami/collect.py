@@ -89,7 +89,7 @@ class SawakamiCollector(BaseCollector):
             self.save_html(page, "after_credential_submit")
         else:
             print(f"[{self.name}] ログインID・パスワードをブラウザで入力してログインボタンを押してください")
-            input("ログインボタン押下後 Enter: ")
+            self.prompt("ログインボタン押下後 Enter: ")
 
         # twofactorauth か home のどちらかを待つ
         page.wait_for_url(
@@ -105,7 +105,7 @@ class SawakamiCollector(BaseCollector):
         # メール 2FA
         if "twofactorauth" in page.url:
             print(f"[{self.name}] メール認証コードを入力してください")
-            code = input("認証コード: ").strip()
+            code = self.prompt("認証コード: ").strip()
             page.get_by_role("spinbutton", name="認証コード").fill(code)
             page.get_by_role("button", name="認証する").click()
             page.wait_for_url(

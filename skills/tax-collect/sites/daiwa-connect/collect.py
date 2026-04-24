@@ -81,13 +81,13 @@ class DaiwaConnectCollector(BaseCollector):
             # 2段階認証コード（自動ログイン時のみ）
             if "webbroker3" not in page1.url:
                 print(f"[{self.name}] 2段階認証コードを入力してください（メールに届いた6桁）")
-                code = input("認証コード: ").strip()
+                code = self.prompt("認証コード: ").strip()
                 page1.get_by_role("textbox").first.fill(code)
                 page1.get_by_role("link", name=re.compile("ログイン")).first.click()
                 _wait(2.0, 3.0)
         else:
             print(f"[{self.name}] ログインしてください（メールアドレス・パスワード・2段階認証まですべて完了後 Enter）")
-            input("完了後 Enter: ")
+            self.prompt("完了後 Enter: ")
 
         # webbroker3 SPA の読み込み完了を待つ
         page1.wait_for_url("**/webbroker3/**", timeout=30000)

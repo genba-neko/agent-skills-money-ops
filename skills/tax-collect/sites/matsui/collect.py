@@ -36,7 +36,7 @@ class MatsuiCollector(BaseCollector):
     def _wait_for_login(self, page) -> None:
         page.goto(self.config["login_url"])
         print(f"[{self.name}] ブラウザでログインしてください")
-        input("トップ画面（フレーム表示）で操作可能になったら Enter を押してください: ")
+        self.prompt("トップ画面（フレーム表示）で操作可能になったら Enter を押してください: ")
         _wait()
         page.context.storage_state(path=str(self._browser_profile_dir() / "storage_state.json"))
         print(f"[{self.name}] セッション状態を保存しました")

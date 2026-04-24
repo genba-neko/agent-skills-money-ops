@@ -40,7 +40,7 @@ class MonexCollector(BaseCollector):
             print(f"[{self.name}] ログイン済みを検出 → スキップ")
             return
         print(f"[{self.name}] ブラウザでログインしてください（OTP含む）")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()
         page.wait_for_load_state("domcontentloaded")
         page.context.storage_state(path=str(self._browser_profile_dir() / "storage_state.json"))

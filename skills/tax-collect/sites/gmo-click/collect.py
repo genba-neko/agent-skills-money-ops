@@ -44,7 +44,7 @@ class GMOClickCollector(BaseCollector):
             self.save_html(page, "after_login_skip")
             return
         print(f"[{self.name}] ブラウザでログインしてください")
-        input("ログイン完了後 Enter を押してください: ")
+        self.prompt("ログイン完了後 Enter を押してください: ")
         _wait()
         self._session = page
         self.dlog(f"URL: {page.url}")
@@ -71,7 +71,7 @@ class GMOClickCollector(BaseCollector):
         # 2FAモーダルが表示された場合のみ処理（セッション状態によって有無が変わる）
         if session.locator("#appTwoStepVerificationCode").is_visible():
             print(f"[{self.name}] アプリ2FAコードを入力してください（認証ボタンはスクリプトが押します）")
-            input("コード入力後 Enter を押してください: ")
+            self.prompt("コード入力後 Enter を押してください: ")
             with session.expect_popup() as popup_info:
                 session.locator("#btnConfirm").click()
             popup = popup_info.value

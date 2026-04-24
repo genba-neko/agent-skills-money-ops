@@ -36,7 +36,7 @@ def test_handle_otp_returns_false_on_empty_input(tmp_path):
     otp_field = MagicMock()
     otp_field.count.return_value = 1
     page1.get_by_role.return_value = otp_field
-    with patch("builtins.input", return_value=""):
+    with patch.object(c, "prompt", return_value=""):
         result = c._handle_otp(page1)
     assert result is False
 
@@ -47,7 +47,7 @@ def test_handle_otp_submits_code(tmp_path):
     otp_field = MagicMock()
     otp_field.count.return_value = 1
     page1.get_by_role.return_value = otp_field
-    with patch("builtins.input", return_value="123456"), patch.object(_mod, "_wait"):
+    with patch.object(c, "prompt", return_value="123456"), patch.object(_mod, "_wait"):
         result = c._handle_otp(page1)
     assert result is True
     otp_field.fill.assert_called_once_with("123456")

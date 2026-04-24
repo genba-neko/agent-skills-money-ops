@@ -33,7 +33,7 @@ class RakutenCollector(BaseCollector):
     def _wait_for_login(self, page) -> None:
         page.goto(self.config["login_url"])
         print(f"[{self.name}] ブラウザでログインしてください（絵文字認証含む）")
-        input("ログイン完了後、Enter を押してください: ")
+        self.prompt("ログイン完了後、Enter を押してください: ")
         _wait()
         self.dlog(f"URL: {page.url}")
         self.save_html(page, "after_login")

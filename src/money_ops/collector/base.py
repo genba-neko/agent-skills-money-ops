@@ -42,6 +42,10 @@ class BaseCollector:
         d.mkdir(parents=True, exist_ok=True)
         return d
 
+    def prompt(self, message: str) -> str:
+        """ユーザーへの入力要求。将来的に並列収集用 EnvPrompt で差し替え可能。"""
+        return input(message)
+
     def dlog(self, message: str) -> None:
         """DEBUG=true のときだけ出力する詳細ログ"""
         if self.debug:

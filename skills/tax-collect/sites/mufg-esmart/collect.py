@@ -118,7 +118,7 @@ class MufgEsmartCollector(BaseCollector):
             _wait(1.0, 2.0)
             if "mfa-email-challenge" in page1.url:
                 print(f"[{self.name}] ワンタイム認証コード（メール）を入力してください")
-                code = input("認証コード: ").strip()
+                code = self.prompt("認証コード: ").strip()
                 page1.get_by_role("textbox", name="ワンタイム認証コード").fill(code)
                 page1.get_by_role("button", name="続ける").click()
                 page1.wait_for_url(
@@ -128,7 +128,7 @@ class MufgEsmartCollector(BaseCollector):
                 _wait(2.0, 3.0)
         else:
             print(f"[{self.name}] page1 でログインしてください（口座番号・パスワード・OTP まですべて完了後 Enter）")
-            input("完了後 Enter: ")
+            self.prompt("完了後 Enter: ")
             page1.wait_for_url(
                 lambda u: "si1.kabu.co.jp" in u or "members" in u,
                 timeout=60000,
@@ -138,7 +138,7 @@ class MufgEsmartCollector(BaseCollector):
         # 契約書類再同意画面が挟まる場合は手動操作を促す
         if "KeiyakuSyoruiSaidoui" in page1.url or "Confirm" in page1.url:
             print(f"[{self.name}] 契約書類再同意画面が表示されました。ブラウザで同意操作を完了してください")
-            input("完了後 Enter: ")
+            self.prompt("完了後 Enter: ")
             _wait(2.0, 3.0)
 
         self._save_session(page)

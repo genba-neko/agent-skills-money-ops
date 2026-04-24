@@ -52,7 +52,7 @@ class NomuraMochikabuCollector(BaseCollector):
         page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         print(f"[{self.name}] ブラウザでログインしてください（2FA・ポップアップ処理含む）")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()
         self.dlog(f"login done, URL: {page.url}")
         self.save_html(page, "after_login")

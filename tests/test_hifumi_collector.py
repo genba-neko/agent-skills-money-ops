@@ -38,7 +38,7 @@ def test_wait_for_login_returns_page2(tmp_path):
     popup_cm.__exit__ = MagicMock(return_value=False)
     page.expect_popup.return_value = popup_cm
 
-    with patch.object(_mod, "_wait"), patch("builtins.input", return_value=""):
+    with patch.object(_mod, "_wait"), patch.object(c, "prompt", return_value=""):
         result = c._wait_for_login(page)
 
     page.goto.assert_called_once_with(c.config["login_url"])

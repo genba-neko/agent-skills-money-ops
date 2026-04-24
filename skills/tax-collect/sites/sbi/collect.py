@@ -40,7 +40,7 @@ class SBICollector(BaseCollector):
             self.save_html(page, "after_login_skip")
             return
         print(f"[{self.name}] ブラウザでログイン・OTP等をすべて完了してください")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()
         self.dlog(f"URL: {page.url}")
         self.save_html(page, "after_login")

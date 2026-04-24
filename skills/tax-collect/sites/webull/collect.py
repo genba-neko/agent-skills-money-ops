@@ -96,7 +96,7 @@ class WebullCollector(BaseCollector):
         hyohyo_tab = d(resourceId=f"{_PACKAGE}:id/tabTitle", text="帳票")
         if not hyohyo_tab.exists:
             print(f"[{self.name}] 認証が必要です。アプリでログインして帳票タブが表示されたら Enter を押してください")
-            input("Enter: ")
+            self.prompt("Enter: ")
             _wait(1.0)
             hyohyo_tab = d(resourceId=f"{_PACKAGE}:id/tabTitle", text="帳票")
             if not hyohyo_tab.exists:

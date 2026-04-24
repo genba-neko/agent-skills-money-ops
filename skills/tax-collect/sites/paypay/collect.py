@@ -87,7 +87,7 @@ class PaypayCollector(BaseCollector):
             self.save_html(page, "after_credential_submit")
         else:
             print(f"[{self.name}] 会員ID・パスワードをブラウザで入力してログインボタンを押してください")
-            input("ログインボタン押下後 Enter: ")
+            self.prompt("ログインボタン押下後 Enter: ")
 
         # emailauth か /trade/ のどちらかに遷移するまで待つ
         page.wait_for_url(
@@ -100,7 +100,7 @@ class PaypayCollector(BaseCollector):
         # SMS 認証
         if "emailauth" in page.url:
             print(f"[{self.name}] SMS 認証コード（6桁）を入力してください")
-            code = input("コード: ").strip()
+            code = self.prompt("コード: ").strip()
             if len(code) != 6 or not code.isdigit():
                 raise ValueError(f"SMS コードは6桁の数字です: {code!r}")
             for i, digit in enumerate(code, 1):

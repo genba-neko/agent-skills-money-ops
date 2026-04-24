@@ -41,7 +41,7 @@ class SMBCNikkoCollector(BaseCollector):
             self.save_html(self._session, "after_login_skip")
             return
         print(f"[{self.name}] ブラウザでログインしてください（ランダムキーパッド・OTP含む）")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()
         self._session = page
         self.dlog(f"session URL: {self._session.url}")

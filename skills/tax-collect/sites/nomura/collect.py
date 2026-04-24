@@ -43,7 +43,7 @@ class NomuraCollector(BaseCollector):
             self._session = page
             return
         print(f"[{self.name}] ブラウザでログインしてください（メール認証コード含む）")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        self.prompt("トップ画面で操作可能になったら Enter を押してください: ")
         _wait()
         # goto で hometrade.nomura.co.jp へ直接遷移しているため page 自体がセッション
         self._session = page
@@ -67,7 +67,7 @@ class NomuraCollector(BaseCollector):
         self.save_html(popup, "report_popup_before_tradepw")
 
         print(f"[{self.name}] 取引パスワードを入力・認証後、書類一覧が表示されたら Enter を押してください")
-        input("Enter を押してください: ")
+        self.prompt("Enter を押してください: ")
 
         # e-shishobako Angular SPA 初期化完了を待機
         # wait_for_url で dp_apl/usr/ へのルーティング完了を確認後、レンダリング待ち

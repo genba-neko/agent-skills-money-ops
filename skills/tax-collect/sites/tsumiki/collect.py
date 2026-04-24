@@ -71,7 +71,7 @@ class TsumikiCollector(BaseCollector):
             print(f"[{self.name}] 自動ログイン完了")
         else:
             print(f"[{self.name}] page1 でログインしてください（エポスNet ID・パスワード）")
-            input("ログイン完了後 Enter を押してください: ")
+            self.prompt("ログイン完了後 Enter を押してください: ")
             _wait(2.0, 3.0)
 
         # 通知等のダイアログを閉じる
@@ -117,7 +117,7 @@ class TsumikiCollector(BaseCollector):
             return True
 
         print(f"[{self.name}] ワンタイムパスワードを入力してください（メール/SMSに届いたコード）")
-        otp = input("OTP コード: ").strip()
+        otp = self.prompt("OTP コード: ").strip()
         if not otp:
             return False
 

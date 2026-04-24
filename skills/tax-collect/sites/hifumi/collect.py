@@ -68,7 +68,7 @@ class HifumiCollector(BaseCollector):
         self.dlog(f"page1 URL: {page1.url}")
 
         print(f"[{self.name}] page1 でログインしてください（loginId・パスワード・取引パスワード）")
-        input("ログイン完了後 Enter を押してください: ")
+        self.prompt("ログイン完了後 Enter を押してください: ")
         _wait(2.0, 3.0)
 
         # session cookie 明示保存（persistent profile だけでは session cookie が消える）
