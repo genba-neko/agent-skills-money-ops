@@ -31,7 +31,6 @@ import re
 from pathlib import Path
 
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 
@@ -68,7 +67,9 @@ class HifumiCollector(BaseCollector):
         self.dlog(f"page1 URL: {page1.url}")
 
         print(f"[{self.name}] page1 でログインしてください（loginId・パスワード・取引パスワード）（最大5分）")
-        page1.wait_for_selector("a:has-text('各種資料')", timeout=300_000)
+        # login.jsp → login.do への URL 変化でダッシュボード到達を検出
+        # a:has-text('残高照会') は DOM に複数存在し visible=false のため使用不可
+        page1.wait_for_url("**/wsys/login.do**", timeout=300_000)
         _wait(2.0, 3.0)
 
         # session cookie 明示保存（persistent profile だけでは session cookie が消える）
@@ -88,13 +89,19 @@ class HifumiCollector(BaseCollector):
           - page2 = popup（最終的に post.plus.e-shishobako.ne.jp/dp_apl/usr/#/user-delivery）
         """
         print(f"[{self.name}] 各種資料（報告書）へ移動")
-        page1.get_by_role("link", name="各種資料（報告書）").click()
-        page1.wait_for_load_state("domcontentloaded")
-        _wait(1.5, 2.5)
-        self.save_html(page1, "after_kakushu_shiryo")
-
-        with page1.expect_popup() as popup2_info:
-            page1.get_by_role("link", name="閲覧する").nth(1).click()
+        kakushu = page1.get_by_role("link", name="各種資料（報告書）")
+        if kakushu.count() > 0:
+            kakushu.first.click()
+            page1.wait_for_load_state("domcontentloaded")
+            _wait(1.5, 2.5)
+            self.save_html(page1, "after_kakushu_shiryo")
+            with page1.expect_popup() as popup2_info:
+                page1.get_by_role("link", name="閲覧する").nth(1).click()
+        else:
+            # 各種資料リンクが見つからない場合は shishyobakoRedirect へ直接
+            print(f"[{self.name}] 各種資料リンク未検出 → shishyobakoRedirect を直接クリック")
+            with page1.expect_popup() as popup2_info:
+                page1.locator("a[href*='shishyobakoRedirect']").first.click()
         page2 = popup2_info.value
 
         # shishyobakoRedirect.do → e-shishobako Angular SPA へのリダイレクト完了待機
@@ -174,18 +181,7 @@ class HifumiCollector(BaseCollector):
             self.log_result("error", [], "PDF 捕捉失敗")
             return
 
-        try:
-            data = convert_pdf_to_json(
-                pdf_path=pdf_path,
-                company=self.name,
-                code=self.code,
-                year=year,
-                raw_files=[str(Path(pdf_path).name)],
-            )
-            self._write_report_json(data)
-        except Exception as e:
-            print(f"[{self.name}] JSON 変換スキップ（ANTHROPIC_API_KEY 未設定等）: {e}")
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
         self.log_result("success", [pdf_path])
 
 def main() -> None:

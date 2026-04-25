@@ -33,17 +33,26 @@ class MonexCollector(BaseCollector):
         super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
+        # 認証中URLのみ除外（LoginScreenTransfer / MailOneTimePwdAuthConfCheck）。
+        # CheckMajorCustmer はログイン完了後ダッシュボード表示時にも残るためダッシュボード扱い。
+        def _is_dashboard(url: str) -> bool:
+            if "mxp3.monex.co.jp" not in url:
+                return False
+            for auth_path in ("/login/LoginScreenTransfer", "MailOneTimePwdAuthConfCheck"):
+                if auth_path in url:
+                    return False
+            return True
+
         page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
-        url = page.url
-        if isinstance(url, str) and "mst.monex.co.jp" in url and "LoginIDPassword" not in url:
+        _wait(1.5, 2.5)
+        if _is_dashboard(page.url):
             print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self.dlog(f"URL: {page.url}")
             return
-        print(f"[{self.name}] ブラウザでログインしてください（OTP含む）（最大5分）")
-        page.wait_for_url(
-            lambda url: "mst.monex.co.jp" in url and "LoginIDPassword" not in url,
-            timeout=300_000,
-        )
+
+        print(f"[{self.name}] ブラウザでログインしてください（OTP含む）（最大10分）")
+        page.wait_for_url(_is_dashboard, timeout=600_000)
         _wait()
         page.wait_for_load_state("domcontentloaded")
         page.context.storage_state(path=str(self._browser_profile_dir() / "storage_state.json"))

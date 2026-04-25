@@ -32,7 +32,6 @@ import re
 from pathlib import Path
 
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 
@@ -52,11 +51,6 @@ class DaiwaConnectCollector(BaseCollector):
           - セッション無効時 → メールアドレス + パスワード → ログイン → 2段階認証コード
         """
         page.goto(self.config["login_url"])
-        page.wait_for_load_state("domcontentloaded")
-        _wait(1.5, 2.5)
-
-        # Chromium で popup が読み込めないため同一ページで直接遷移
-        page.goto("https://www.connect-sec.co.jp/jumppages/login.html")
         page1 = page
         page1.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
@@ -105,7 +99,8 @@ class DaiwaConnectCollector(BaseCollector):
         """
         print(f"[{self.name}] お客様情報 → 電子交付サービスへ移動")
         # sidrToggle（モバイル用不可視）を除外して本体ナビをクリック
-        page1.locator("ul.navbar-nav a:not(.sidrToggle)", has_text="お客様情報").click()
+        page1.locator("ul.navbar-nav a:not(.sidrToggle)").filter(has_text="お客様情報").first.wait_for(state="visible", timeout=60_000)
+        page1.locator("ul.navbar-nav a:not(.sidrToggle)").filter(has_text="お客様情報").first.click()
         page1.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
@@ -226,18 +221,7 @@ class DaiwaConnectCollector(BaseCollector):
             self.log_result("error", [], "PDF 捕捉失敗")
             return
 
-        try:
-            data = convert_pdf_to_json(
-                pdf_path=pdf_path,
-                company=self.name,
-                code=self.code,
-                year=year,
-                raw_files=[str(Path(pdf_path).name)],
-            )
-            self._write_report_json(data)
-        except Exception as e:
-            print(f"[{self.name}] JSON 変換スキップ: {e}")
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
         self.log_result("success", [pdf_path])
 
 def main() -> None:

@@ -33,7 +33,6 @@ import time
 from pathlib import Path
 
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 _PACKAGE = "org.dayup.stocks.jp"
@@ -92,15 +91,12 @@ class WebullCollector(BaseCollector):
             trade_btn.click()
             _wait(2.0)
 
-        # 帳票タブが見つからない場合は認証が必要 → 手動ログイン待ち
+        # 帳票タブが見つからない場合は認証が必要 → 出現を最大10分待機
         hyohyo_tab = d(resourceId=f"{_PACKAGE}:id/tabTitle", text="帳票")
         if not hyohyo_tab.exists:
-            print(f"[{self.name}] 認証が必要です。アプリでログインして帳票タブが表示されたら Enter を押してください")
-            self.prompt("Enter: ")
-            _wait(1.0)
-            hyohyo_tab = d(resourceId=f"{_PACKAGE}:id/tabTitle", text="帳票")
-            if not hyohyo_tab.exists:
-                raise RuntimeError(f"[{self.name}] 帳票タブが見つかりません")
+            print(f"[{self.name}] 認証が必要です。アプリでログインしてください（帳票タブ出現まで最大10分待機）")
+            if not hyohyo_tab.wait(timeout=600):
+                raise RuntimeError(f"[{self.name}] 帳票タブが見つかりません（10分タイムアウト）")
 
         # 帳票タブ（タブバーの「履歴」ではなく「帳票」）
         hyohyo_tab.click()
@@ -135,17 +131,39 @@ class WebullCollector(BaseCollector):
             _wait(1.0)
         return False
 
-    def _find_adb_serial(self) -> str:
-        """adb devices から接続済みデバイスのシリアルを返す。見つからなければ例外。"""
-        out = _adb("devices")
-        for line in out.splitlines()[1:]:
-            parts = line.strip().split()
-            if len(parts) == 2 and parts[1] == "device":
-                return parts[0]
+    def _find_adb_serial(self, max_wait_sec: int = 30) -> str:
+        """adb server 起動 → USB接続デバイス検出をリトライ。
+        `device`(ready) を検出したら serial 返却。
+        `unauthorized`(USBデバッグ承認待ち) / `offline` 中は進捗ログ出してリトライ。
+        max_wait_sec 経過で例外。
+        """
+        _adb("start-server")
+        deadline = time.time() + max_wait_sec
+        last_log = ""
+        while time.time() < deadline:
+            out = _adb("devices")
+            states: dict[str, str] = {}
+            for line in out.splitlines()[1:]:
+                parts = line.strip().split()
+                if len(parts) == 2:
+                    states[parts[0]] = parts[1]
+            for serial, state in states.items():
+                if state == "device":
+                    print(f"[{self.name}] ADB デバイス検出: {serial}")
+                    return serial
+            if any(s == "unauthorized" for s in states.values()):
+                msg = "USBデバッグ承認待ち（端末で許可ダイアログをタップ）"
+            elif any(s == "offline" for s in states.values()):
+                msg = "adb offline → 再接続待ち"
+            else:
+                msg = "ADB デバイス未検出 → USB接続待ち"
+            if msg != last_log:
+                print(f"[{self.name}] {msg}")
+                last_log = msg
+            time.sleep(2.0)
         raise RuntimeError(
-            "ADB デバイスが見つかりません。\n"
-            "先に以下を実行してください（ポートはワイヤレスデバッグ画面で確認）:\n"
-            "  adb connect <AndroidのIP>:<ポート番号>"
+            f"[{self.name}] ADB デバイス検出タイムアウト（{max_wait_sec}秒）。\n"
+            "確認: USBケーブル接続 / 端末で USBデバッグ 有効 / 端末ロック解除"
         )
 
     def collect(self, serial: str | None = None) -> None:
@@ -234,24 +252,8 @@ class WebullCollector(BaseCollector):
 
                 print(f"[{self.name}] PDF 保存: {local_path}")
 
-                json_ok = False
-                try:
-                    data = convert_pdf_to_json(
-                        pdf_path=str(local_path),
-                        company=self.name,
-                        code=self.code,
-                        year=target_year,
-                        raw_files=[local_path.name],
-                    )
-                    self._write_report_json(data)
-                    json_ok = True
-                except Exception as e:
-                    print(f"[{self.name}] JSON 変換スキップ: {e}")
-
-                if json_ok:
-                    self.log_result("success", [str(local_path)])
-                else:
-                    self.log_result("error", [str(local_path)], "JSON 変換失敗")
+                self._queue_pdf_to_json(str(local_path), [local_path.name])
+                self.log_result("success", [str(local_path)])
 
             finally:
                 _adb("shell", "am", "force-stop", _PACKAGE)

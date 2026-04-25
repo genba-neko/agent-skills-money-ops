@@ -41,7 +41,6 @@ import re
 from pathlib import Path
 
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 
@@ -273,18 +272,7 @@ class MufgEsmartCollector(BaseCollector):
             self.log_result("error", [], "PDF 取得失敗")
             return
 
-        try:
-            data = convert_pdf_to_json(
-                pdf_path=pdf_path,
-                company=self.name,
-                code=self.code,
-                year=year,
-                raw_files=[str(Path(pdf_path).name)],
-            )
-            self._write_report_json(data)
-        except Exception as e:
-            print(f"[{self.name}] JSON 変換スキップ: {e}")
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
         self.log_result("success", [pdf_path])
 
 def main() -> None:

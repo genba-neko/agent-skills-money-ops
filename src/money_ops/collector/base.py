@@ -156,7 +156,11 @@ class BaseCollector:
         cookies = state.get("cookies", [])
         if not cookies:
             return
-        self._context.add_cookies(cookies)
+        # Playwright add_cookies requires url OR (domain AND path)
+        valid = [c for c in cookies if c.get("url") or (c.get("domain") and c.get("path") is not None)]
+        if not valid:
+            return
+        self._context.add_cookies(valid)
         print(f"[{self.name}] cookie {len(cookies)}件を復元しました")
 
     def close_browser(self) -> None:
@@ -229,6 +233,27 @@ class BaseCollector:
         with open(json_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         print(f"[{self.name}] JSON 保存: {json_path}")
+
+    def _queue_pdf_to_json(self, pdf_path: str | Path, raw_files: list[str]) -> None:
+        """PDF→JSON変換をキューファイルに登録する（収集フェーズと変換フェーズを分離）。
+        実際の変換は別途 `python skills/tax-collect/convert.py` で直列実行する。
+        """
+        year = self.config["target_year"]
+        queue_dir = Path("output") / "converting"
+        queue_dir.mkdir(parents=True, exist_ok=True)
+        queue_path = queue_dir / f"{self.code}_{year}.queue"
+        payload = {
+            "code": self.code,
+            "year": year,
+            "company": self.name,
+            "pdf_path": str(pdf_path),
+            "raw_files": list(raw_files),
+            "queued_at": datetime.now().isoformat(),
+        }
+        queue_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[{self.name}] PDF→JSON変換キューに登録: {queue_path.name}")
 
     def _convert_xml_to_json(self, downloaded_files: list[str]) -> None:
         """XML ファイルを TEG204 形式として JSON に変換して保存する（XML配布サイト用）。"""
