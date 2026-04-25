@@ -1,6 +1,18 @@
 {
   "securities": [
     {
+      "code": "webull",
+      "name": "ウィブル証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": null,
+      "login_url": null,
+      "dashboard_url": null,
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "android",
+      "login_detection": null
+    },
+    {
       "code": "sbi",
       "name": "SBI証券",
       "document_type": "特定口座年間取引報告書",
@@ -20,14 +32,14 @@
       "name": "楽天証券",
       "document_type": "特定口座年間取引報告書",
       "site_url": "https://www.rakuten-sec.co.jp/",
-      "login_url": "https://www.rakuten-sec.co.jp/",
-      "dashboard_url": "https://www.rakuten-sec.co.jp/",
+      "login_url": "https://member.rakuten-sec.co.jp/app/MhLogin.do?login_type=1",
+      "dashboard_url": "https://member.rakuten-sec.co.jp/app/home",
       "has_xml": true,
       "マイナ連携": false,
       "collection": "auto",
       "login_detection": {
-        "done_selector": "button[aria-label*='マイメニュー']",
-        "skip_selector": "button[aria-label*='マイメニュー']"
+        "done_url": "**/member.rakuten-sec.co.jp/app/**",
+        "skip_url_contains": "member.rakuten-sec.co.jp/app/"
       }
     },
     {
@@ -51,13 +63,12 @@
       "document_type": "特定口座年間取引報告書",
       "site_url": "https://www.monex.co.jp/",
       "login_url": "https://mst.monex.co.jp/pc/ITS/login/LoginIDPassword.jsp",
-      "dashboard_url": "https://mst.monex.co.jp/",
+      "dashboard_url": "https://mxp3.monex.co.jp/",
       "has_xml": true,
       "マイナ連携": true,
       "collection": "auto",
       "login_detection": {
-        "skip_url_contains": "mst.monex.co.jp",
-        "skip_url_excludes": "LoginIDPassword"
+        "skip_url_contains": "mxp3.monex.co.jp"
       }
     },
     {
@@ -65,8 +76,8 @@
       "name": "松井証券",
       "document_type": "特定口座年間取引報告書",
       "site_url": "https://www.matsui.co.jp/",
-      "login_url": "https://www.matsui.co.jp/",
-      "dashboard_url": "https://www.matsui.co.jp/",
+      "login_url": "https://www.deal.matsui.co.jp/ITS/login/MemberLogin.jsp",
+      "dashboard_url": "https://www.deal.matsui.co.jp/",
       "has_xml": true,
       "マイナ連携": false,
       "collection": "auto",
@@ -115,7 +126,9 @@
       "has_xml": false,
       "マイナ連携": true,
       "collection": "auto",
-      "login_detection": { "custom": true }
+      "login_detection": {
+        "custom": true
+      }
     },
     {
       "code": "tsumiki",
@@ -127,15 +140,17 @@
       "has_xml": false,
       "マイナ連携": false,
       "collection": "auto",
-      "login_detection": { "custom": true }
+      "login_detection": {
+        "custom": true
+      }
     },
     {
       "code": "daiwa-connect",
       "name": "大和CONNECT証券",
       "document_type": "特定口座年間取引報告書",
       "site_url": "https://www.connect-sec.co.jp/",
-      "login_url": "https://www.connect-sec.co.jp/service/login/",
-      "dashboard_url": null,
+      "login_url": "https://www.connect-sec.co.jp/jumppages/login.html",
+      "dashboard_url": "https://trade.connect-sec.co.jp/webbroker3/Web3App",
       "has_xml": false,
       "マイナ連携": false,
       "collection": "auto",
@@ -154,19 +169,9 @@
       "has_xml": false,
       "マイナ連携": false,
       "collection": "auto",
-      "login_detection": { "custom": true }
-    },
-    {
-      "code": "webull",
-      "name": "ウィブル証券",
-      "document_type": "特定口座年間取引報告書",
-      "site_url": null,
-      "login_url": null,
-      "dashboard_url": null,
-      "has_xml": false,
-      "マイナ連携": false,
-      "collection": "android",
-      "login_detection": null
+      "login_detection": {
+        "custom": true
+      }
     },
     {
       "code": "nomura-mochikabu",
@@ -193,7 +198,9 @@
       "has_xml": false,
       "マイナ連携": false,
       "collection": "auto",
-      "login_detection": { "custom": true }
+      "login_detection": {
+        "custom": true
+      }
     },
     {
       "code": "sawakami",
@@ -205,7 +212,9 @@
       "has_xml": false,
       "マイナ連携": false,
       "collection": "auto",
-      "login_detection": { "custom": true }
+      "login_detection": {
+        "custom": true
+      }
     }
   ]
 }

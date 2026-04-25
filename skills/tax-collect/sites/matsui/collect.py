@@ -34,6 +34,12 @@ class MatsuiCollector(BaseCollector):
 
     def _wait_for_login(self, page) -> None:
         page.goto(self.config["login_url"])
+        page.wait_for_load_state("domcontentloaded")
+        _wait(1.5, 2.5)
+        if page.locator("frame[name='GM']").count() > 0:
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self.dlog(f"URL: {page.url}")
+            return
         print(f"[{self.name}] ブラウザでログインしてください（最大5分）")
         page.wait_for_selector("frame[name='GM']", timeout=300_000)
         _wait()

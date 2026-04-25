@@ -32,17 +32,21 @@ class SMBCNikkoCollector(BaseCollector):
         super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
+        def _is_dashboard(url: str) -> bool:
+            return "trade.smbcnikko.co.jp" in url and "/Login/0/login/" not in url
+
         page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
-        url = page.url
-        if isinstance(url, str) and "trade.smbcnikko.co.jp" in url and "/Login/0/login/" not in url:
+        _wait(1.5, 2.5)
+        if _is_dashboard(page.url):
             print(f"[{self.name}] ログイン済みを検出 → スキップ")
             self._session = page
             self.save_html(self._session, "after_login_skip")
             return
+
         print(f"[{self.name}] ブラウザでログインしてください（ランダムキーパッド・OTP含む）（最大5分）")
         page.wait_for_url(
-            lambda url: "trade.smbcnikko.co.jp" in url and "/Login/0/login/" not in url,
+            lambda url: _is_dashboard(url),
             timeout=300_000,
         )
         _wait()
@@ -55,7 +59,8 @@ class SMBCNikkoCollector(BaseCollector):
         session = self._session
         print(f"[{self.name}] 各種お手続き → 電子交付サービス → 電子交付履歴 へ移動")
 
-        session.get_by_role("link", name="各種お手続き").click()
+        session.get_by_role("link", name="各種お手続き").first.wait_for(state="visible", timeout=60_000)
+        session.get_by_role("link", name="各種お手続き").first.click()
         session.wait_for_load_state("domcontentloaded")
         _wait()
         self.save_html(session, "after_otetsuzuki")

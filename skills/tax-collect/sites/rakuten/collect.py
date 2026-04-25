@@ -31,19 +31,32 @@ class RakutenCollector(BaseCollector):
     # 手動ログイン待機
     # ------------------------------------------------------------------
     def _wait_for_login(self, page) -> None:
+        def _is_dashboard(url: str) -> bool:
+            return (
+                "member.rakuten-sec.co.jp/app/" in url
+                and "Login" not in url
+                and "MhLogin" not in url
+            )
+
         page.goto(self.config["login_url"])
-        # ログイン済み確認（URL で判定）
-        if "rakuten-sec.co.jp" in page.url and "login" not in page.url.lower():
-            btn = page.locator('button[aria-label*="マイメニュー"]')
-            if btn.count() > 0:
-                print(f"[{self.name}] ログイン済みを検出 → スキップ")
-                return
+        page.wait_for_load_state("domcontentloaded")
+        _wait(1.5, 2.5)
+        if _is_dashboard(page.url):
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self.dlog(f"URL: {page.url}")
+            return
+
+        # セッション切れ → ログインフォームへ
+        page.goto(self.config["login_url"])
+        page.wait_for_load_state("domcontentloaded")
         print(f"[{self.name}] ブラウザでログインしてください（絵文字認証・二段階認証含む）（最大10分）")
-        # 2FA中間URLで誤発火しないよう、ダッシュボードのボタン出現を待つ
-        page.wait_for_selector('button[aria-label*="マイメニュー"]', timeout=600_000)
+        page.wait_for_url(
+            lambda url: _is_dashboard(url),
+            timeout=600_000,
+        )
         _wait()
         self.dlog(f"URL: {page.url}")
-        self.save_html(page, "after_login")
+        self.save_html(page, "01_after_login")
 
     # ------------------------------------------------------------------
     # 電子書面一覧ページへ移動

@@ -34,18 +34,24 @@ class NomuraCollector(BaseCollector):
         super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
+        def _is_dashboard(url: str) -> bool:
+            return (
+                "hometrade.nomura.co.jp" in url
+                and "login" not in url.lower()
+                and "rmfIndexWebAction" not in url
+            )
+
         page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
+        _wait(1.5, 2.5)
         url = page.url
-        if isinstance(url, str) and "hometrade.nomura.co.jp" in url and "login" not in url.lower():
+        if isinstance(url, str) and _is_dashboard(url):
             print(f"[{self.name}] ログイン済みを検出 → スキップ")
             self._session = page
             return
-        print(f"[{self.name}] ブラウザでログインしてください（メール認証コード含む）（最大5分）")
-        page.wait_for_url(
-            lambda url: "hometrade.nomura.co.jp" in url and "login" not in url.lower(),
-            timeout=300_000,
-        )
+
+        print(f"[{self.name}] ブラウザでログインしてください（メール認証コード含む）（最大10分）")
+        page.wait_for_url(_is_dashboard, timeout=600_000)
         _wait()
         # goto で hometrade.nomura.co.jp へ直接遷移しているため page 自体がセッション
         self._session = page

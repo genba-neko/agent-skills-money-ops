@@ -49,13 +49,19 @@ class NomuraMochikabuCollector(BaseCollector):
         super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
+        def _is_dashboard(url: str) -> bool:
+            return "e-plan.nomura.co.jp" in url and "login" not in url.lower()
+
         page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
+        _wait(1.5, 2.5)
+        if _is_dashboard(page.url):
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self.dlog(f"URL: {page.url}")
+            return
+
         print(f"[{self.name}] ブラウザでログインしてください（2FA・ポップアップ処理含む）（最大5分）")
-        page.wait_for_url(
-            lambda url: "login" not in url.lower() and "e-plan.nomura.co.jp" in url,
-            timeout=300_000,
-        )
+        page.wait_for_url(_is_dashboard, timeout=300_000)
         _wait()
         self.dlog(f"login done, URL: {page.url}")
         self.save_html(page, "after_login")
@@ -69,6 +75,7 @@ class NomuraMochikabuCollector(BaseCollector):
         self.save_html(page, "weaw1200_before_filter")
 
         # chohyoType=3（配当金等支払通知書）を選択 → onchange で自動フォームサブミット
+        page.locator("#chohyoType").wait_for(state="visible", timeout=60_000)
         page.locator("#chohyoType").select_option("3")
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
