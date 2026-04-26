@@ -1,4 +1,4 @@
-# tax-collect 全社コードレビュー 対応プラン
+# tax-collect 全社コードレビュー 対応プラン [完了 PR#37 2026-04-26]
 
 作成: 2026-04-24  
 レビュー: Claude Opus（全15社 collect.py + BaseCollector 精査）  
