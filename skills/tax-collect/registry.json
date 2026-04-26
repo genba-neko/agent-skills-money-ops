@@ -215,6 +215,20 @@
       "login_detection": {
         "custom": true
       }
+    },
+    {
+      "code": "saison-am",
+      "name": "セゾン投信",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.saison-am.co.jp/",
+      "login_url": null,
+      "dashboard_url": null,
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "custom": true
+      }
     }
   ]
 }
