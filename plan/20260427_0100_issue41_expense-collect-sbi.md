@@ -49,11 +49,12 @@
 
 ## 実装方針
 
-### スキル構成
+### スキル構成（tax-collect に準拠）
 
 ```
 skills/expense-collect/
-├── SKILL.md                 # スキル仕様・使い方
+├── README.md                # スキル概要
+├── SKILL.md                 # スキル仕様・使い方（Claude 起動用 frontmatter）
 ├── registry.json            # 対応サイト一覧
 ├── run.py                   # 一括実行ランナー
 └── sites/
@@ -61,6 +62,10 @@ skills/expense-collect/
         ├── site.json
         └── collect.py
 ```
+
+将来追加（このプランでは含まず）:
+- `convert.py` / `convert_worker.py` — CSV→統一 JSON 変換
+- `recorder.py` — tax-collect と共通化検討（src 配下移動 or symlink）
 
 ### 共通基盤
 
@@ -123,12 +128,37 @@ CSV→JSON 変換は別タスク（このプランには含めず最小実装で
 - 共有デメリット: 並列実行時 cookie 競合、片方の更新がもう片方に影響
 - **推奨: 共有（家計管理とは tax-collect 終了後に実行する想定）**
 
-### 期間指定
+### 期間指定（重要）
 
-- デフォルト: 当年（YYYY/01/01 〜 今日）
-- CLI 引数: `--year YYYY`（年指定、その年の 1/1〜12/31 範囲）
-  - ただし将来年度は今日まで
+- CLI 引数: `--year YYYY`
+- **過去年（YYYY < 今年）**: `YYYY/01/01 〜 YYYY/12/31`（年全体）
+- **当年（YYYY == 今年）**:
+  - 試行 1: `YYYY/01/01 〜 YYYY/12/31` を入力して「照会」
+  - サイトが未来日拒否したら 試行 2: `YYYY/01/01 〜 今日` で再入力
+  - 動作確認後どちらが正しいか確定
+
+### 実装
+
+```python
+from datetime import date
+
+def _build_date_range(target_year: int) -> tuple[str, str]:
+    today = date.today()
+    start = f"{target_year}/01/01"
+    if target_year < today.year:
+        end = f"{target_year}/12/31"
+    elif target_year == today.year:
+        # 試行 1: 12/31 まで指定。サイトが未来日エラーなら今日に切替
+        end = f"{target_year}/12/31"  # 後段で照会失敗時 today.strftime("%Y/%m/%d") にフォールバック
+    else:
+        raise ValueError(f"未来年は指定不可: {target_year}")
+    return start, end
+```
+
+照会失敗パターン（alert・error message）を検出してフォールバックする実装にする。
+
 - recorder 確認: 開始日 `2026/01/01` 入力 → 終了日省略（デフォルト今日）
+  - 実装上は終了日を明示指定したい（過去年との一貫性のため）
 
 ### 自動 vs 手動の境界
 
