@@ -1,0 +1,14 @@
+{
+  "name": "SBI証券（入出金明細）",
+  "code": "sbi",
+  "target_year": 2025,
+  "output_dir": "data/expense/sbi/2025/raw/",
+  "documents": [
+    {
+      "type": "入出金明細"
+    }
+  ],
+  "login_url": "https://www.sbisec.co.jp/ETGate/",
+  "history_url": "https://member.c.sbisec.co.jp/banking/yen/detail-history",
+  "converter_type": "csv"
+}
