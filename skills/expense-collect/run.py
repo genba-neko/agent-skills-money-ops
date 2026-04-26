@@ -6,7 +6,7 @@
     python skills/expense-collect/run.py --year 2025 --force
     python skills/expense-collect/run.py --year 2025 --fail-fast
 
-デフォルト: 収集済み（data/expense/<code>/<year>/raw/ に CSV 1つ以上存在）はスキップ。
+デフォルト: 収集済み（data/expenses/<code>/<year>/raw/ に CSV 1つ以上存在）はスキップ。
 --force: 収集済みでも再実行。
 """
 
@@ -42,8 +42,8 @@ def load_accounts() -> list[dict]:
 
 
 def is_collected(code: str, year: int) -> bool:
-    """収集済み判定: data/expense/<code>/<year>/raw/ に CSV ファイルが 1 つ以上存在。"""
-    raw_dir = _PROJECT_ROOT / "data" / "expense" / code / str(year) / "raw"
+    """収集済み判定: data/expenses/<code>/<year>/raw/ に CSV ファイルが 1 つ以上存在。"""
+    raw_dir = _PROJECT_ROOT / "data" / "expenses" / code / str(year) / "raw"
     if not raw_dir.exists():
         return False
     return any(raw_dir.glob("*.csv"))

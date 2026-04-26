@@ -38,7 +38,7 @@ class SBIExpenseCollector(BaseCollector):
         # BaseCollector は data/income/securities/... を hardcode するので
         # expense 用に上書き
         if year is not None:
-            self.output_dir = Path(f"data/expense/{self.code}/{year}/raw/")
+            self.output_dir = Path(f"data/expenses/{self.code}/{year}/raw/")
             self.config["output_dir"] = str(self.output_dir)
 
     def _build_date_range(self) -> tuple[str, str]:
