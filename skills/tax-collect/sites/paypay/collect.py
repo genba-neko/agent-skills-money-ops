@@ -63,18 +63,24 @@ class PaypayCollector(BaseCollector):
           - SMS 6桁（#code1-#code6） → #btn_sms_success クリック
             → POST /noauth/emailauth/verify_otp_code (otp_prefix は hidden field 自動送信)
           - 認証後: /trade/ へリダイレクト
+
+        最適化: cookie 残存時は _is_logged_in が /trade/→/login/ にリダイレクトして
+        page.url が既に /login/ になっている。この状態で top 経由再遷移すると
+        /login/→/→/account/login/→/login/ と「行き来」する → 既に /login/ 系なら
+        top 経由スキップして直接 credential 入力へ進む。
         """
-        page.goto(self.config["login_url"])
-        page.wait_for_load_state("domcontentloaded")
-        _wait(1.5, 2.5)
+        if "/login/" not in page.url and "/account/login/" not in page.url:
+            page.goto(self.config["login_url"])
+            page.wait_for_load_state("domcontentloaded")
+            _wait(1.5, 2.5)
 
-        page.get_by_role("link", name="ログイン").first.click()
-        page.wait_for_load_state("domcontentloaded")
-        _wait(1.0, 2.0)
+            page.get_by_role("link", name="ログイン").first.click()
+            page.wait_for_load_state("domcontentloaded")
+            _wait(1.0, 2.0)
 
-        page.get_by_role("link", name="PC取引画面へログイン").first.click()
-        page.wait_for_load_state("domcontentloaded")
-        _wait(1.0, 2.0)
+            page.get_by_role("link", name="PC取引画面へログイン").first.click()
+            page.wait_for_load_state("domcontentloaded")
+            _wait(1.0, 2.0)
         self.dlog(f"login page URL: {page.url}")
 
         user = os.environ.get("PAYPAY_USER", "")
@@ -89,10 +95,10 @@ class PaypayCollector(BaseCollector):
         else:
             print(f"[{self.name}] 会員ID・パスワードをブラウザで入力してログインボタンを押してください（最大5分）")
 
-        # emailauth か /trade/ のどちらかに遷移するまで待つ
+        # emailauth か /trade/ のどちらかに遷移するまで待つ（手動入力時間考慮で 5分）
         page.wait_for_url(
             lambda url: "emailauth" in url or "/trade/" in url,
-            timeout=60000,
+            timeout=300_000,
         )
         _wait(1.0, 2.0)
         self.dlog(f"after login URL: {page.url}")
