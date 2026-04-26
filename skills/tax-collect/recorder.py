@@ -13,10 +13,13 @@
 成果物:
     trace.zip       Playwright Trace Viewer で操作再現（スクショ+DOM+ソース）
     network.har     全ネットワーク（リクエスト・レスポンス・ヘッダ・cookie）
-    events.jsonl    framenavigated / popup / download / dialog / console の時系列
+    events.jsonl    framenavigated / popup / download / dialog / console
+                    + user_click / user_input / user_change / user_submit の時系列
+                    （ユーザー操作は context.add_init_script + expose_binding で
+                     全 page に DOM event listener を inject して捕捉、password はマスク）
     dom_*.html      マイルストーン地点と最終地点の DOM スナップショット
     milestones.txt  ユーザーが Enter で記録したラベル一覧
-    summary.md      URL 推移・popup・download の要約（実装の起点）
+    summary.md      URL 推移・popup・download・ユーザー操作の要約（実装の起点）
 
 注意:
     既存の persistent context（~/.money-ops-browser/<code>/）を流用するため、
@@ -44,11 +47,12 @@ def _write_summary(out_dir: Path, events: list[dict], milestones: list[dict]) ->
     popups = [e for e in events if e["kind"] == "popup"]
     downloads = [e for e in events if e["kind"] == "download"]
     dialogs = [e for e in events if e["kind"] == "dialog"]
+    user_ops = [e for e in events if e["kind"].startswith("user_")]
 
     lines: list[str] = []
     lines.append(f"# recorder summary\n")
     lines.append(f"- generated: {_now()}\n")
-    lines.append(f"- events: {len(events)} / nav: {len(nav)} / popup: {len(popups)} / download: {len(downloads)} / dialog: {len(dialogs)}\n")
+    lines.append(f"- events: {len(events)} / nav: {len(nav)} / popup: {len(popups)} / download: {len(downloads)} / dialog: {len(dialogs)} / user_ops: {len(user_ops)}\n")
 
     lines.append("\n## milestones\n")
     if milestones:
@@ -82,6 +86,34 @@ def _write_summary(out_dir: Path, events: list[dict], milestones: list[dict]) ->
     for e in dialogs:
         lines.append(f"- `{e['ts']}` type={e.get('type', '')} message={e.get('message', '')[:200]}\n")
     if not dialogs:
+        lines.append("(なし)\n")
+
+    lines.append("\n## ユーザー操作（時系列）\n")
+    if user_ops:
+        for e in user_ops:
+            kind = e["kind"]
+            ts = e["ts"]
+            if kind == "user_click":
+                tag = e.get("tag", "")
+                text = e.get("text", "")
+                name = e.get("name", "") or e.get("href", "")
+                sel = e.get("selector", "")
+                lines.append(f"- `{ts}` **click** {tag}[{name}] text=\"{text}\" sel=`{sel}`\n")
+            elif kind == "user_input":
+                name = e.get("name", "")
+                typ = e.get("type", "")
+                val = e.get("value", "")
+                lines.append(f"- `{ts}` **input** {name}({typ})=\"{val}\"\n")
+            elif kind == "user_change":
+                name = e.get("name", "")
+                val = e.get("value", "")
+                txt = e.get("selectedText", "")
+                lines.append(f"- `{ts}` **change** {name} value=\"{val}\" text=\"{txt}\"\n")
+            elif kind == "user_submit":
+                name = e.get("name", "")
+                action = e.get("action", "")
+                lines.append(f"- `{ts}` **submit** {name} action={action}\n")
+    else:
         lines.append("(なし)\n")
 
     (out_dir / "summary.md").write_text("".join(lines), encoding="utf-8")
@@ -147,6 +179,16 @@ def main() -> int:
         page.on("dialog", lambda d: add_event("dialog", type=d.type, message=d.message))
         page.on("console", lambda m: add_event("console", level=m.type, text=m.text[:300]))
 
+    def on_user_event(source, kind, data) -> None:
+        """JS 側 (init_script) からの user_click / user_input / user_change / user_submit を受信。
+        events.jsonl に時系列で追記し、実装時の操作復元情報として活用する。"""
+        # source.page から URL も付与
+        try:
+            url = source.page.url
+        except Exception:
+            url = ""
+        add_event(kind, url=url, **(data if isinstance(data, dict) else {"value": data}))
+
     def input_loop() -> None:
         print("\n[recorder] 操作開始。Enter=milestone（ラベル任意） / 'q'+Enter=停止\n")
         while not stop_event.is_set():
@@ -163,6 +205,91 @@ def main() -> int:
             print(f"[milestone] {label} (DOM保存待機中...)")
             milestone_queue.put(label)
 
+    # 全 page に inject する DOM event listener（user_click/input/change/submit）
+    # password はマスク、value は 200 chars truncate
+    user_event_js = r"""
+    (() => {
+      if (window.__recorder_installed) return;
+      window.__recorder_installed = true;
+
+      function getCssPath(el) {
+        if (!(el instanceof Element)) return '';
+        const path = [];
+        while (el && el.nodeType === Node.ELEMENT_NODE && path.length < 6) {
+          let sel = el.nodeName.toLowerCase();
+          if (el.id) { sel += '#' + el.id; path.unshift(sel); break; }
+          const cls = (el.className || '').toString().trim().split(/\s+/).slice(0, 2).join('.');
+          if (cls) sel += '.' + cls;
+          path.unshift(sel);
+          el = el.parentElement;
+        }
+        return path.join(' > ');
+      }
+
+      function safeText(s, n) { return (s || '').toString().replace(/\s+/g, ' ').trim().slice(0, n); }
+
+      document.addEventListener('click', (e) => {
+        const el = e.target;
+        if (!el || !el.tagName) return;
+        try {
+          window.__recorder_event('user_click', {
+            tag: el.tagName,
+            text: safeText(el.textContent, 100),
+            role: el.getAttribute && el.getAttribute('role'),
+            name: el.getAttribute && (el.getAttribute('name') || el.id || el.getAttribute('aria-label')),
+            href: el.getAttribute && el.getAttribute('href'),
+            selector: getCssPath(el),
+          });
+        } catch (err) {}
+      }, true);
+
+      document.addEventListener('change', (e) => {
+        const el = e.target;
+        if (!el || !el.tagName) return;
+        try {
+          if (el.tagName === 'SELECT') {
+            const opt = el.options[el.selectedIndex];
+            window.__recorder_event('user_change', {
+              name: el.name || el.id,
+              value: el.value,
+              selectedText: opt ? safeText(opt.text, 100) : '',
+              selector: getCssPath(el),
+            });
+          } else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            const isPassword = el.type === 'password';
+            const data = {
+              name: el.name || el.id,
+              type: el.type,
+              selector: getCssPath(el),
+            };
+            // type 別の意味ある属性を取得
+            if (el.type === 'file') {
+              data.files = Array.from(el.files || []).map(f => f.name).slice(0, 5);
+            } else if (el.type === 'checkbox' || el.type === 'radio') {
+              data.checked = el.checked;
+              data.value = safeText(el.value, 100);
+            } else {
+              data.value = isPassword ? '***MASKED***' : safeText(el.value, 200);
+            }
+            window.__recorder_event('user_input', data);
+          }
+        } catch (err) {}
+      }, true);
+
+      document.addEventListener('submit', (e) => {
+        const f = e.target;
+        if (!f || !f.tagName) return;
+        try {
+          window.__recorder_event('user_submit', {
+            name: f.name || f.id,
+            action: f.action,
+            method: f.method,
+          });
+        } catch (err) {}
+      }, true);
+    })();
+    """
+
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
@@ -176,6 +303,9 @@ def main() -> int:
             ],
             ignore_default_args=["--enable-automation"],
         )
+        # 全 page（popup 含む）で user 操作を捕捉
+        context.expose_binding("__recorder_event", on_user_event)
+        context.add_init_script(user_event_js)
         context.tracing.start(screenshots=True, snapshots=True, sources=True)
         page = context.new_page()
         state["page"] = page
@@ -252,7 +382,8 @@ def main() -> int:
     print(f"\n[recorder] 完了 → {out_dir}")
     print("  - trace.zip    : npx playwright show-trace で再生")
     print("  - network.har  : HAR Viewer / Chrome DevTools")
-    print("  - summary.md   : 実装起点（URL推移・popup・DL要約）")
+    print("  - events.jsonl : ユーザー操作含む全 event 時系列")
+    print("  - summary.md   : 実装起点（URL推移・popup・DL・ユーザー操作要約）")
     return 0
 
 
