@@ -9,50 +9,47 @@
 
 注意:
     ログイン・2FA・ランダムキーパッドは人間が手動で行う。
-    スクリプト起動後、ブラウザでトップ画面まで到達してから Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達を自動検出します。
     XML ダウンロード時の取引パスワード入力も人間が行う（認証ボタンはスクリプトが押す）。
 """
 
 from __future__ import annotations
 
 import argparse
-import json
-import random
-import re
 import sys
-import time
+import re
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
-_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.xml_to_json import convert_teg204_xml
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 # 直接ログインフォームへ遷移（www.smbcnikko.co.jp 経由ポップアップは Playwright コンテキスト外になる）
-_LOGIN_URL = "https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import extract_filename, wait as _wait
 
 class SMBCNikkoCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/smbcnikko/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
-        print(f"[{self.name}] ブラウザでログインしてください（ランダムキーパッド・OTP含む）")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        def _is_dashboard(url: str) -> bool:
+            return "trade.smbcnikko.co.jp" in url and "/Login/0/login/" not in url
+
+        page.goto(self.config["login_url"])
+        page.wait_for_load_state("domcontentloaded")
+        _wait(1.5, 2.5)
+        if _is_dashboard(page.url):
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self._session = page
+            self.save_html(self._session, "after_login_skip")
+            return
+
+        print(f"[{self.name}] ブラウザでログインしてください（ランダムキーパッド・OTP含む）（最大5分）")
+        page.wait_for_url(
+            lambda url: _is_dashboard(url),
+            timeout=300_000,
+        )
         _wait()
         self._session = page
         self.dlog(f"session URL: {self._session.url}")
@@ -63,7 +60,8 @@ class SMBCNikkoCollector(BaseCollector):
         session = self._session
         print(f"[{self.name}] 各種お手続き → 電子交付サービス → 電子交付履歴 へ移動")
 
-        session.get_by_role("link", name="各種お手続き").click()
+        session.get_by_role("link", name="各種お手続き").first.wait_for(state="visible", timeout=60_000)
+        session.get_by_role("link", name="各種お手続き").first.click()
         session.wait_for_load_state("domcontentloaded")
         _wait()
         self.save_html(session, "after_otetsuzuki")
@@ -129,7 +127,7 @@ class SMBCNikkoCollector(BaseCollector):
 
         # 認証後は自動でダウンロードが始まる。expect_download で待機するだけ
         print(f"[{self.name}] ポップアップで取引パスワードを入力し「認証する」をクリックしてください")
-        with pw_popup.expect_download(timeout=120000) as dl_info:
+        with pw_popup.expect_download(timeout=300_000) as dl_info:
             pass
         dl = dl_info.value
         xml_path = self.output_dir / (dl.suggested_filename or f"{year}_nentori.xml")
@@ -165,10 +163,8 @@ class SMBCNikkoCollector(BaseCollector):
             return None
 
         cd = resp.headers.get("content-disposition", "")
-        m = _RE_FILENAME.search(cd)
-        if m:
-            filename = m.group(1).strip().strip('"\'')
-        else:
+        filename = extract_filename(cd)
+        if not filename:
             # SMBC日興は Content-Disposition なし → URL パスのファイル名を使用
             url_filename = Path(urlparse(pdf_url).path).name
             filename = url_filename if url_filename else f"{year}_nentori.pdf"
@@ -177,73 +173,42 @@ class SMBCNikkoCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def _convert_to_json(self, downloaded_files: list[str]) -> None:
+    def _collect_core(self, page) -> None:
+        self._wait_for_login(page)
+        self._save_session_state(page)
+        session = self._session
+        self._navigate_to_report_list()
         year = self.config["target_year"]
-        xml_files = [f for f in downloaded_files if f.endswith(".xml")]
-        if not xml_files:
-            print(f"[{self.name}] XML が見つからないため JSON 変換をスキップします")
+
+        if self._find_xml_link(session, year) is None:
+            self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
             return
-        raw_files = [str(Path(f).name) for f in downloaded_files]
-        data = convert_teg204_xml(
-            xml_path=xml_files[0],
-            company=self.name,
-            code=self.code,
-            year=year,
-            raw_files=raw_files,
-        )
-        json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"[{self.name}] JSON 保存: {json_path}")
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            self._wait_for_login(page)
-            session = self._session
-            self._navigate_to_report_list()
-            year = self.config["target_year"]
+        self.prepare_directory()
+        downloaded: list[str] = []
 
-            if self._find_xml_link(session, year) is None:
-                self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
-                return
+        xml_path = self._download_xml(session, year)
+        if xml_path:
+            downloaded.append(xml_path)
 
-            self.prepare_directory()
-            downloaded: list[str] = []
+        pdf_path = self._download_pdf(session, year)
+        if pdf_path:
+            downloaded.append(pdf_path)
 
-            xml_path = self._download_xml(session, year)
-            if xml_path:
-                downloaded.append(xml_path)
+        if not downloaded:
+            self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
+            return
 
-            pdf_path = self._download_pdf(session, year)
-            if pdf_path:
-                downloaded.append(pdf_path)
-
-            if not downloaded:
-                self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
-                return
-
-            self._convert_to_json(downloaded)
-            self.log_result("success", downloaded)
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._convert_xml_to_json(downloaded)
+        self.log_result("success", downloaded)
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="SMBC日興証券 年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None)
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = SMBCNikkoCollector(year=args.year)
-    collector.collect()
-
-
+    collector = SMBCNikkoCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

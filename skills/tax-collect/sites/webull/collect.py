@@ -26,28 +26,20 @@ UI 構造（uiautomator dump 確認済み）:
 from __future__ import annotations
 
 import argparse
-import json
+import os
 import subprocess
 import sys
 import time
 from pathlib import Path
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
+from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
 _PACKAGE = "org.dayup.stocks.jp"
 _DOCS_DIR = "/sdcard/Documents"
 _TARGET_DOC = "特定口座年間取引報告書"
 
-_ADB_FALLBACK = Path(
-    r"C:\Users\g\AppData\Local\Microsoft\WinGet\Packages"
-    r"\Google.PlatformTools_Microsoft.Winget.Source_8wekyb3d8bbwe"
-    r"\platform-tools\adb.exe"
-)
-
+_ADB_FALLBACK = Path(os.environ["ADB_PATH"]) if os.environ.get("ADB_PATH") else None
 
 def _adb(*args: str) -> str:
     cmd = ["adb", *args]
@@ -56,30 +48,21 @@ def _adb(*args: str) -> str:
             cmd, capture_output=True, text=True, encoding="utf-8", errors="replace"
         )
     except FileNotFoundError:
-        if _ADB_FALLBACK.exists():
+        if _ADB_FALLBACK is not None and _ADB_FALLBACK.exists():
             cmd[0] = str(_ADB_FALLBACK)
             result = subprocess.run(
                 cmd, capture_output=True, text=True, encoding="utf-8", errors="replace"
             )
         else:
-            raise RuntimeError("adb が見つかりません。PATH に追加してください（README_ADB.md 参照）")
+            raise RuntimeError("adb が見つかりません。PATH に追加するか ADB_PATH 環境変数を設定してください")
     return result.stdout.strip()
-
 
 def _wait(t: float = 1.5) -> None:
     time.sleep(t)
 
-
-class WebullCollector:
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        with open(site_json_path, encoding="utf-8") as f:
-            self.config = json.load(f)
-        self.name: str = self.config["name"]
-        self.code: str = self.config["code"]
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/webull/{year}/raw/"
-        self.output_dir = _PROJECT_ROOT / self.config["output_dir"]
+class WebullCollector(BaseCollector):
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _list_dir(self, remote_dir: str) -> set[str]:
         out = _adb("shell", "ls", remote_dir)
@@ -108,15 +91,12 @@ class WebullCollector:
             trade_btn.click()
             _wait(2.0)
 
-        # 帳票タブが見つからない場合は認証が必要 → 手動ログイン待ち
+        # 帳票タブが見つからない場合は認証が必要 → 出現を最大10分待機
         hyohyo_tab = d(resourceId=f"{_PACKAGE}:id/tabTitle", text="帳票")
         if not hyohyo_tab.exists:
-            print(f"[{self.name}] 認証が必要です。アプリでログインして帳票タブが表示されたら Enter を押してください")
-            input("Enter: ")
-            _wait(1.0)
-            hyohyo_tab = d(resourceId=f"{_PACKAGE}:id/tabTitle", text="帳票")
-            if not hyohyo_tab.exists:
-                raise RuntimeError(f"[{self.name}] 帳票タブが見つかりません")
+            print(f"[{self.name}] 認証が必要です。アプリでログインしてください（帳票タブ出現まで最大10分待機）")
+            if not hyohyo_tab.wait(timeout=600):
+                raise RuntimeError(f"[{self.name}] 帳票タブが見つかりません（10分タイムアウト）")
 
         # 帳票タブ（タブバーの「履歴」ではなく「帳票」）
         hyohyo_tab.click()
@@ -151,133 +131,148 @@ class WebullCollector:
             _wait(1.0)
         return False
 
-    def _find_adb_serial(self) -> str:
-        """adb devices から接続済みデバイスのシリアルを返す。見つからなければ例外。"""
-        out = _adb("devices")
-        for line in out.splitlines()[1:]:
-            parts = line.strip().split()
-            if len(parts) == 2 and parts[1] == "device":
-                return parts[0]
+    def _find_adb_serial(self, max_wait_sec: int = 30) -> str:
+        """adb server 起動 → USB接続デバイス検出をリトライ。
+        `device`(ready) を検出したら serial 返却。
+        `unauthorized`(USBデバッグ承認待ち) / `offline` 中は進捗ログ出してリトライ。
+        max_wait_sec 経過で例外。
+        """
+        _adb("start-server")
+        deadline = time.time() + max_wait_sec
+        last_log = ""
+        while time.time() < deadline:
+            out = _adb("devices")
+            states: dict[str, str] = {}
+            for line in out.splitlines()[1:]:
+                parts = line.strip().split()
+                if len(parts) == 2:
+                    states[parts[0]] = parts[1]
+            for serial, state in states.items():
+                if state == "device":
+                    print(f"[{self.name}] ADB デバイス検出: {serial}")
+                    return serial
+            if any(s == "unauthorized" for s in states.values()):
+                msg = "USBデバッグ承認待ち（端末で許可ダイアログをタップ）"
+            elif any(s == "offline" for s in states.values()):
+                msg = "adb offline → 再接続待ち"
+            else:
+                msg = "ADB デバイス未検出 → USB接続待ち"
+            if msg != last_log:
+                print(f"[{self.name}] {msg}")
+                last_log = msg
+            time.sleep(2.0)
         raise RuntimeError(
-            "ADB デバイスが見つかりません。\n"
-            "先に以下を実行してください（ポートはワイヤレスデバッグ画面で確認）:\n"
-            "  adb connect <AndroidのIP>:<ポート番号>"
+            f"[{self.name}] ADB デバイス検出タイムアウト（{max_wait_sec}秒）。\n"
+            "確認: USBケーブル接続 / 端末で USBデバッグ 有効 / 端末ロック解除"
         )
 
     def collect(self, serial: str | None = None) -> None:
         try:
             import uiautomator2 as u2
         except ImportError:
-            print(f"[{self.name}] uiautomator2 未インストール: pip install uiautomator2")
+            self.log_result("error", [], "uiautomator2 未インストール: pip install uiautomator2")
             sys.exit(1)
 
         target_year = self.config.get("target_year")
         if target_year is None:
+            self.log_result("error", [], "target_year が設定されていません")
             raise ValueError("target_year が設定されていません")
 
-        if serial is None:
-            serial = self._find_adb_serial()
-
-        d = u2.connect(serial)
-        print(f"[{self.name}] デバイス接続: {d.serial}")
-
         try:
-            self._launch_app(d)
-            self._navigate_to_history(d)
+            if serial is None:
+                serial = self._find_adb_serial()
 
-            files_before = self._snapshot()
-
-            print(f"[{self.name}] {_TARGET_DOC} ({target_year}) を検索中...")
-            if not self._find_and_tap_doc(d, target_year):
-                print(f"[{self.name}] {_TARGET_DOC} ({target_year}) が見つかりません")
-                return
-
-            # WebView 読み込み待ち
-            _wait(3.0)
-            webview = d(resourceId=f"{_PACKAGE}:id/webview")
-            if not webview.wait(timeout=15):
-                print(f"[{self.name}] WebView タイムアウト")
-                return
-            _wait(2.0)
-
-            # ダウンロードボタン（r2_menu_icon）
-            dl_btn = d(resourceId=f"{_PACKAGE}:id/r2_menu_icon")
-            if not dl_btn.exists:
-                print(f"[{self.name}] ダウンロードボタンが見つかりません")
-                return
-            dl_btn.click()
-
-            # フォルダ権限ダイアログ（初回のみ・2段階）: 最大10秒待ちながら検出→タップ
-            for _ in range(10):
-                _wait(1.0)
-                for btn_text in ["このフォルダを使用", "許可", "ALLOW", "Allow"]:
-                    btn = d(text=btn_text)
-                    if btn.exists:
-                        print(f"[{self.name}] 権限ダイアログ「{btn_text}」→ タップ")
-                        btn.click()
-                        _wait(0.5)
-
-            _wait(4.0)
-
-            # 新規ファイル特定（Documents と Download 両方チェック）
-            new_files = self._snapshot() - files_before
-            print(f"[{self.name}] 新規ファイル: {new_files or '(なし)'}")
-
-            if not new_files:
-                print(f"[{self.name}] ダウンロードファイルが見つかりません")
-                return
-            if len(new_files) > 1:
-                print(f"[{self.name}] 警告: 複数の新規ファイル: {new_files}")
-
-            remote_path = next(iter(new_files))
-
-            self.output_dir.mkdir(parents=True, exist_ok=True)
-            local_path = self.output_dir / f"{target_year}_webull_nentori.pdf"
-
-            print(f"[{self.name}] adb pull: {remote_path} → {local_path}")
-            _adb("pull", remote_path, str(local_path))
-
-            if not local_path.exists() or local_path.stat().st_size == 0:
-                print(f"[{self.name}] pull 失敗")
-                return
-
-            if local_path.read_bytes()[:4] != b"%PDF":
-                print(f"[{self.name}] PDF 検証失敗")
-                local_path.unlink(missing_ok=True)
-                return
-
-            print(f"[{self.name}] PDF 保存: {local_path}")
+            d = u2.connect(serial)
+            print(f"[{self.name}] デバイス接続: {d.serial}")
 
             try:
-                data = convert_pdf_to_json(
-                    pdf_path=str(local_path),
-                    company=self.name,
-                    code=self.code,
-                    year=target_year,
-                    raw_files=[local_path.name],
-                )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ: {e}")
+                self._launch_app(d)
+                self._navigate_to_history(d)
 
-            print(f"[{self.name}] 完了")
+                files_before = self._snapshot()
 
-        finally:
-            _adb("shell", "am", "force-stop", _PACKAGE)
-            print(f"[{self.name}] アプリ終了")
+                print(f"[{self.name}] {_TARGET_DOC} ({target_year}) を検索中...")
+                if not self._find_and_tap_doc(d, target_year):
+                    self.log_result("skip", [], f"{_TARGET_DOC} ({target_year}) が見つかりません")
+                    return
 
+                # WebView 読み込み待ち
+                _wait(3.0)
+                webview = d(resourceId=f"{_PACKAGE}:id/webview")
+                if not webview.wait(timeout=15):
+                    self.log_result("skip", [], "WebView タイムアウト")
+                    return
+                _wait(2.0)
+
+                # ダウンロードボタン（r2_menu_icon）
+                dl_btn = d(resourceId=f"{_PACKAGE}:id/r2_menu_icon")
+                if not dl_btn.exists:
+                    self.log_result("skip", [], "ダウンロードボタンが見つかりません")
+                    return
+                dl_btn.click()
+
+                # フォルダ権限ダイアログ（初回のみ・2段階）: 最大10秒待ちながら検出→タップ
+                for _ in range(10):
+                    _wait(1.0)
+                    for btn_text in ["このフォルダを使用", "許可", "ALLOW", "Allow"]:
+                        btn = d(text=btn_text)
+                        if btn.exists:
+                            print(f"[{self.name}] 権限ダイアログ「{btn_text}」→ タップ")
+                            btn.click()
+                            _wait(0.5)
+
+                _wait(4.0)
+
+                # 新規ファイル特定（Documents と Download 両方チェック）
+                new_files = self._snapshot() - files_before
+                print(f"[{self.name}] 新規ファイル: {new_files or '(なし)'}")
+
+                if not new_files:
+                    self.log_result("skip", [], "ダウンロードファイルが見つかりません")
+                    return
+                if len(new_files) > 1:
+                    print(f"[{self.name}] 警告: 複数の新規ファイル: {new_files}")
+
+                remote_path = next(iter(new_files))
+
+                self.output_dir.mkdir(parents=True, exist_ok=True)
+                local_path = self.output_dir / f"{target_year}_webull_nentori.pdf"
+
+                print(f"[{self.name}] adb pull: {remote_path} → {local_path}")
+                _adb("pull", remote_path, str(local_path))
+
+                if not local_path.exists() or local_path.stat().st_size == 0:
+                    self.log_result("error", [], "adb pull 失敗")
+                    return
+
+                if local_path.read_bytes()[:4] != b"%PDF":
+                    self.log_result("error", [], "PDF 検証失敗")
+                    local_path.unlink(missing_ok=True)
+                    return
+
+                print(f"[{self.name}] PDF 保存: {local_path}")
+
+                self._queue_pdf_to_json(str(local_path), [local_path.name])
+                self.log_result("success", [str(local_path)])
+
+            finally:
+                _adb("shell", "am", "force-stop", _PACKAGE)
+                print(f"[{self.name}] アプリ終了")
+
+        except Exception as e:
+            print(f"[{self.name}] エラー: {e}")
+            self.log_result("error", [], str(e))
+            raise
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="ウィブル証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
     parser.add_argument("--serial", default=None, help="ADB デバイスシリアル（省略時: adb devices から自動取得）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = WebullCollector(year=args.year)
+    collector = WebullCollector(year=args.year, headless=args.headless, debug=args.debug)
     collector.collect(serial=args.serial)
-
 
 if __name__ == "__main__":
     main()

@@ -79,15 +79,15 @@ def run_site(code: str, name: str, year: int) -> Literal["ok", "error", "missing
 
 def _prompt_android(code: str, name: str) -> bool:
     """Enterで実行、s で スキップ。非対話(EOF)はスキップ側。戻り: True=実行, False=スキップ"""
-    _print_header(f"[{code}] {name} — Android収集")
+    _print_header(f"[{code}] {name} - Android収集")
     print("  1. デバイスをUSBで接続")
     print("  2. USBデバッグを有効化（開発者オプション）")
     print("\nEnterで収集開始、Sキー+Enterでスキップ: ", end="", flush=True)
     try:
         ans = input().strip().lower()
     except EOFError:
-        print("\n[非対話実行] スキップ")
-        return False
+        print("\n[非対話実行] 実行")
+        return True
     return ans != "s"
 
 
@@ -173,8 +173,30 @@ def main() -> None:
     print(f"  SKIP    : {', '.join(results['skip']) or 'なし'}  ← 手動/未対応")
     print(f"{'='*60}")
 
+    _report_pdf_queue()
+
     if results["error"] or results["missing"]:
         sys.exit(1)
+
+
+def _report_pdf_queue() -> None:
+    """PDF→JSON変換キューの登録件数を表示。実変換は convert.py で行う。"""
+    queue_dir = _PROJECT_ROOT / "output" / "converting"
+    if not queue_dir.exists():
+        return
+    queues = sorted(queue_dir.glob("*.queue"))
+    err_queues = sorted(queue_dir.glob("*.queue.err"))
+    if not queues and not err_queues:
+        return
+    if queues:
+        print(f"\n[QUEUE] PDF→JSON変換キュー: {len(queues)}件")
+        for p in queues:
+            print(f"  - {p.stem}")
+    if err_queues:
+        print(f"\n[QUEUE] 前回失敗キュー: {len(err_queues)}件（.queue にリネームで再実行可）")
+        for p in err_queues:
+            print(f"  - {p.name}")
+    print(f"[QUEUE] 変換実行: python skills/tax-collect/convert.py --year <YEAR>")
 
 
 if __name__ == "__main__":

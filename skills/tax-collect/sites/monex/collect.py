@@ -9,52 +9,51 @@
 
 注意:
     ログイン・OTP は人間が手動で行う。
-    スクリプト起動後、ブラウザでトップ画面まで到達してから Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達を自動検出します。
 """
 
 from __future__ import annotations
 
 import argparse
-import json
-import random
-import re
 import sys
-import time
+import re
 from pathlib import Path
 
-_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.xml_to_json import convert_teg204_xml
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://mst.monex.co.jp/pc/ITS/login/LoginIDPassword.jsp"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import extract_filename, wait as _wait
 
 def _year_month_patterns(target_year: int) -> list[str]:
     """発行年月の候補: 対象年12月 or 翌年1月（日本語表記）"""
     return [f"{target_year}年12月", f"{target_year + 1}年01月"]
 
-
 class MonexCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/monex/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
-        print(f"[{self.name}] ブラウザでログインしてください（OTP含む）")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        # 認証中URLのみ除外（LoginScreenTransfer / MailOneTimePwdAuthConfCheck）。
+        # CheckMajorCustmer はログイン完了後ダッシュボード表示時にも残るためダッシュボード扱い。
+        def _is_dashboard(url: str) -> bool:
+            if "mxp3.monex.co.jp" not in url:
+                return False
+            for auth_path in ("/login/LoginScreenTransfer", "MailOneTimePwdAuthConfCheck"):
+                if auth_path in url:
+                    return False
+            return True
+
+        page.goto(self.config["login_url"])
+        page.wait_for_load_state("domcontentloaded")
+        _wait(1.5, 2.5)
+        if _is_dashboard(page.url):
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self.dlog(f"URL: {page.url}")
+            return
+
+        print(f"[{self.name}] ブラウザでログインしてください（OTP含む）（最大10分）")
+        page.wait_for_url(_is_dashboard, timeout=600_000)
         _wait()
         page.wait_for_load_state("domcontentloaded")
         page.context.storage_state(path=str(self._browser_profile_dir() / "storage_state.json"))
@@ -153,19 +152,9 @@ class MonexCollector(BaseCollector):
             return None
 
         cd = resp.headers.get("content-disposition", "")
-        m = _RE_FILENAME.search(cd)
-        filename = m.group(1).strip().strip('"\'') if m else fallback_name
+        filename = extract_filename(cd, fallback_name)
         pdf_path = self.output_dir / filename
         pdf_path.write_bytes(body)
-        print(f"[{self.name}] PDF 保存: {pdf_path}")
-        return str(pdf_path)
-
-        if not captured["body"]:
-            print(f"[{self.name}] PDF 捕捉できませんでした")
-            return None
-
-        pdf_path = self.output_dir / captured["filename"]
-        pdf_path.write_bytes(captured["body"])
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
@@ -197,62 +186,30 @@ class MonexCollector(BaseCollector):
 
         return downloaded
 
-    def _convert_to_json(self, downloaded_files: list[str]) -> None:
+    def _collect_core(self, page) -> None:
+        self._wait_for_login(page)
+        self._navigate_to_report_list(page)
+
         year = self.config["target_year"]
-        xml_files = [f for f in downloaded_files if f.endswith(".xml")]
-        if not xml_files:
-            print(f"[{self.name}] XML が見つからないため JSON 変換をスキップします")
+        if self._find_xml_link(page, year) is None:
+            self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
             return
-        raw_files = [str(Path(f).name) for f in downloaded_files]
-        data = convert_teg204_xml(
-            xml_path=xml_files[0],
-            company=self.name,
-            code=self.code,
-            year=year,
-            raw_files=raw_files,
-        )
-        json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"[{self.name}] JSON 保存: {json_path}")
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            self._wait_for_login(page)
-            self._navigate_to_report_list(page)
+        downloaded = self._download_files(page)
+        if not downloaded:
+            self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
+            return
 
-            year = self.config["target_year"]
-            if self._find_xml_link(page, year) is None:
-                self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
-                return
-
-            downloaded = self._download_files(page)
-            if not downloaded:
-                self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
-                return
-
-            self._convert_to_json(downloaded)
-            self.log_result("success", downloaded)
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._convert_xml_to_json(downloaded)
+        self.log_result("success", downloaded)
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="マネックス証券 年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None)
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = MonexCollector(year=args.year)
-    collector.collect()
-
-
+    collector = MonexCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

@@ -62,10 +62,10 @@ def test_wait_for_login(tmp_path):
     collector = _make_collector(tmp_path)
     page = MagicMock()
 
-    with patch.object(_mod, "_wait"), patch("builtins.input", return_value=""):
+    with patch.object(_mod, "_wait"), patch.object(collector, "prompt", return_value=""):
         collector._wait_for_login(page)
 
-    page.goto.assert_called_once_with(_mod._LOGIN_URL)
+    page.goto.assert_called_once_with(collector.config["login_url"])
 
 
 # ---------------------------------------------------------------------------
@@ -229,7 +229,7 @@ def test_download_files_no_xml_button(tmp_path):
 
 def test_convert_to_json_skips_without_xml(tmp_path, capsys):
     collector = _make_collector(tmp_path)
-    collector._convert_to_json(["data/foo.pdf"])
+    collector._convert_xml_to_json(["data/foo.pdf"])
     captured = capsys.readouterr()
     assert "スキップ" in captured.out
 
@@ -241,7 +241,7 @@ def test_convert_to_json_with_xml(tmp_path):
 
     collector = _make_collector(tmp_path)
     collector.output_dir.mkdir(parents=True, exist_ok=True)
-    collector._convert_to_json([str(fixture_xml)])
+    collector._convert_xml_to_json([str(fixture_xml)])
 
     json_path = collector.output_dir.parent / "nenkantorihikihokokusho.json"
     assert json_path.exists()
@@ -269,9 +269,10 @@ def test_collect_skip_when_year_row_not_found(tmp_path):
     with patch.object(collector, "launch_browser", return_value=page), \
          patch.object(collector, "close_browser"), \
          patch.object(collector, "_wait_for_login"), \
+         patch.object(collector, "_save_session_state"), \
          patch.object(collector, "_navigate_to_report_list"), \
          patch.object(collector, "log_result") as mock_log, \
          patch.object(_mod, "_wait"):
-        collector.collect()
+        collector.run()
 
     mock_log.assert_called_once_with("skip", [], f"{collector.config['target_year']}年の取引報告書が存在しません")

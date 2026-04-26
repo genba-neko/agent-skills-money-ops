@@ -10,7 +10,8 @@
     PAYPAY_PASS     パスワード（未設定時は手動入力）
 
 注意:
-    SMS 認証コード（6桁）は必ず手動入力が必要。
+    SMS 認証コード（6桁）はブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造（HAR確認済み）:
     page: paypay-sec.co.jp/ → /account/login/ → /login/
@@ -27,36 +28,21 @@ PDF取得方式:
 from __future__ import annotations
 
 import argparse
-import json
-import os
-import random
 import sys
-import time
+import os
 from pathlib import Path
 from urllib.parse import urljoin
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_TOP_URL = "https://www.paypay-sec.co.jp/"
 _TRADE_URL = "https://www.paypay-sec.co.jp/trade/"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import wait as _wait
 
 class PaypayCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/paypay/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _is_logged_in(self, page) -> bool:
         """セッション有効チェック: /trade/ にアクセスして確認。
@@ -77,18 +63,24 @@ class PaypayCollector(BaseCollector):
           - SMS 6桁（#code1-#code6） → #btn_sms_success クリック
             → POST /noauth/emailauth/verify_otp_code (otp_prefix は hidden field 自動送信)
           - 認証後: /trade/ へリダイレクト
+
+        最適化: cookie 残存時は _is_logged_in が /trade/→/login/ にリダイレクトして
+        page.url が既に /login/ になっている。この状態で top 経由再遷移すると
+        /login/→/→/account/login/→/login/ と「行き来」する → 既に /login/ 系なら
+        top 経由スキップして直接 credential 入力へ進む。
         """
-        page.goto(_TOP_URL)
-        page.wait_for_load_state("domcontentloaded")
-        _wait(1.5, 2.5)
+        if "/login/" not in page.url and "/account/login/" not in page.url:
+            page.goto(self.config["login_url"])
+            page.wait_for_load_state("domcontentloaded")
+            _wait(1.5, 2.5)
 
-        page.get_by_role("link", name="ログイン").first.click()
-        page.wait_for_load_state("domcontentloaded")
-        _wait(1.0, 2.0)
+            page.get_by_role("link", name="ログイン").first.click()
+            page.wait_for_load_state("domcontentloaded")
+            _wait(1.0, 2.0)
 
-        page.get_by_role("link", name="PC取引画面へログイン").first.click()
-        page.wait_for_load_state("domcontentloaded")
-        _wait(1.0, 2.0)
+            page.get_by_role("link", name="PC取引画面へログイン").first.click()
+            page.wait_for_load_state("domcontentloaded")
+            _wait(1.0, 2.0)
         self.dlog(f"login page URL: {page.url}")
 
         user = os.environ.get("PAYPAY_USER", "")
@@ -101,27 +93,20 @@ class PaypayCollector(BaseCollector):
             _wait(2.0, 3.0)
             self.save_html(page, "after_credential_submit")
         else:
-            print(f"[{self.name}] 会員ID・パスワードをブラウザで入力してログインボタンを押してください")
-            input("ログインボタン押下後 Enter: ")
+            print(f"[{self.name}] 会員ID・パスワードをブラウザで入力してログインボタンを押してください（最大5分）")
 
-        # emailauth か /trade/ のどちらかに遷移するまで待つ
+        # emailauth か /trade/ のどちらかに遷移するまで待つ（手動入力時間考慮で 5分）
         page.wait_for_url(
             lambda url: "emailauth" in url or "/trade/" in url,
-            timeout=60000,
+            timeout=300_000,
         )
         _wait(1.0, 2.0)
         self.dlog(f"after login URL: {page.url}")
 
         # SMS 認証
         if "emailauth" in page.url:
-            print(f"[{self.name}] SMS 認証コード（6桁）を入力してください")
-            code = input("コード: ").strip()
-            if len(code) != 6 or not code.isdigit():
-                raise ValueError(f"SMS コードは6桁の数字です: {code!r}")
-            for i, digit in enumerate(code, 1):
-                page.locator(f"#code{i}").fill(digit)
-            page.locator("#btn_sms_success").click()
-            page.wait_for_url("**/trade/**", timeout=120000)
+            print(f"[{self.name}] SMS 認証コード（6桁）をブラウザに入力して送信してください（最大5分）")
+            page.wait_for_url("**/trade/**", timeout=300_000)
             _wait(2.0, 3.0)
 
         self.dlog(f"trade URL: {page.url}")
@@ -172,7 +157,7 @@ class PaypayCollector(BaseCollector):
             print(f"[{self.name}] HREF 属性なし")
             return None
 
-        dl_url = urljoin(_TOP_URL, href)
+        dl_url = urljoin(self.config["login_url"], href)
         self.dlog(f"PDF download URL: {dl_url}")
 
         response = page.request.get(dl_url)
@@ -189,58 +174,31 @@ class PaypayCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            year = self.config.get("target_year")
-            if year is None:
-                raise ValueError("target_year が設定されていません")
+    def _collect_core(self, page) -> None:
+        year = self.config.get("target_year")
+        if year is None:
+            raise ValueError("target_year が設定されていません")
 
-            if not self._is_logged_in(page):
-                self._login(page)
+        if not self._is_logged_in(page):
+            self._login(page)
 
-            self._navigate_to_documents(page)
+        self._navigate_to_documents(page)
 
-            pdf_path = self._download_pdf(page, year)
-            if pdf_path is None:
-                self.log_result("error", [], "PDF 取得失敗")
-                return
+        pdf_path = self._download_pdf(page, year)
+        if pdf_path is None:
+            self.log_result("error", [], "PDF 取得失敗")
+            return
 
-            try:
-                data = convert_pdf_to_json(
-                    pdf_path=pdf_path,
-                    company=self.name,
-                    code=self.code,
-                    year=year,
-                    raw_files=[str(Path(pdf_path).name)],
-                )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ: {e}")
-
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
+        self.log_result("success", [pdf_path])
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="PayPay証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = PaypayCollector(year=args.year)
-    collector.collect()
-
-
+    collector = PaypayCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

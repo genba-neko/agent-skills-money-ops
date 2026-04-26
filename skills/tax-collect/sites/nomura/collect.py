@@ -9,53 +9,50 @@
 
 注意:
     ログイン・2FA は人間が手動で行う。
-    スクリプト起動後、ブラウザでログインしてトップ画面到達後 Enter を押すこと。
-    取引報告書Web交付の取引パスワード入力も人間が行う。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達・取引パスワード入力完了を自動検出します。
 """
 
 from __future__ import annotations
 
 import argparse
-import json
-import random
-import re
 import sys
-import time
+import re
 from pathlib import Path
 
-_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.xml_to_json import convert_teg204_xml
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.collector.eshishobako import capture_dpaw_pdf
+from money_ops.utils import wait as _wait
 
 def _year_month_patterns(target_year: int) -> list[str]:
     """発行年月の候補: 対象年12月 or 翌年1月（GMO-clickと同形式）"""
     return [f"{target_year}/12", f"{target_year + 1}/01"]
 
-
 class NomuraCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/nomura/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
-        print(f"[{self.name}] ブラウザでログインしてください（メール認証コード含む）")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        def _is_dashboard(url: str) -> bool:
+            return (
+                "hometrade.nomura.co.jp" in url
+                and "login" not in url.lower()
+                and "rmfIndexWebAction" not in url
+            )
+
+        page.goto(self.config["login_url"])
+        page.wait_for_load_state("domcontentloaded")
+        _wait(1.5, 2.5)
+        url = page.url
+        if isinstance(url, str) and _is_dashboard(url):
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self._session = page
+            return
+
+        print(f"[{self.name}] ブラウザでログインしてください（メール認証コード含む）（最大10分）")
+        page.wait_for_url(_is_dashboard, timeout=600_000)
         _wait()
         # goto で hometrade.nomura.co.jp へ直接遷移しているため page 自体がセッション
         self._session = page
@@ -78,8 +75,7 @@ class NomuraCollector(BaseCollector):
         self.dlog(f"report popup URL: {popup.url}")
         self.save_html(popup, "report_popup_before_tradepw")
 
-        print(f"[{self.name}] 取引パスワードを入力・認証後、書類一覧が表示されたら Enter を押してください")
-        input("Enter を押してください: ")
+        print(f"[{self.name}] 取引パスワードをブラウザで入力・認証してください（最大5分）")
 
         # e-shishobako Angular SPA 初期化完了を待機
         # wait_for_url で dp_apl/usr/ へのルーティング完了を確認後、レンダリング待ち
@@ -100,47 +96,6 @@ class NomuraCollector(BaseCollector):
             if btn.count() > 0:
                 return btn.first
         return None
-
-    def _download_pdf_via_route(self, popup, fallback_name: str) -> str | None:
-        """context.route() で DPAW010501020 の PDF レスポンスを捕捉して保存
-        PDF ボタンクリック → blob URL ポップアップが開く → 閉じてから unroute（GMO-clickと同方式）"""
-        pdf_btn = popup.locator("button, a").filter(has_text="PDFファイル")
-        if pdf_btn.count() == 0:
-            print(f"[{self.name}] PDF ボタンが見つかりません")
-            return None
-
-        pdf_bytes_holder: list[tuple[str, bytes]] = []
-
-        def _capture_pdf(route, _request) -> None:
-            response = route.fetch()
-            body = response.body()
-            if body[:4] == b"%PDF":
-                cd = response.headers.get("content-disposition", "")
-                m = _RE_FILENAME.search(cd)
-                filename = m.group(1).strip().strip('"\'') if m else fallback_name
-                pdf_bytes_holder.append((filename, body))
-            route.fulfill(response=response)
-
-        popup.context.route("**/DPAW010501020", _capture_pdf)
-        try:
-            with popup.expect_popup() as pdf_popup_info:
-                pdf_btn.first.click()
-            pdf_popup = pdf_popup_info.value
-            pdf_popup.wait_for_load_state("domcontentloaded")
-            _wait()
-            pdf_popup.close()
-        finally:
-            popup.context.unroute("**/DPAW010501020", _capture_pdf)
-
-        if not pdf_bytes_holder:
-            print(f"[{self.name}] PDF レスポンスを捕捉できませんでした")
-            return None
-
-        filename, pdf_bytes = pdf_bytes_holder[0]
-        pdf_path = self.output_dir / filename
-        pdf_path.write_bytes(pdf_bytes)
-        print(f"[{self.name}] PDF 保存: {pdf_path}")
-        return str(pdf_path)
 
     def _download_files(self, popup) -> list[str]:
         self.prepare_directory()
@@ -178,70 +133,41 @@ class NomuraCollector(BaseCollector):
         else:
             print(f"[{self.name}] XML ボタンが見つかりません")
 
-        # PDF（e-shishobako DPAW010501020 ルート捕捉。GMO-clickと完全同方式）
-        pdf_path = self._download_pdf_via_route(popup, f"{year}_nentori.pdf")
+        # PDF（e-shishobako DPAW010501020 ルート捕捉）
+        pdf_path = capture_dpaw_pdf(
+            popup, self.output_dir, f"{year}_nentori.pdf", label=self.name
+        )
         if pdf_path:
             downloaded.append(pdf_path)
             _wait()
 
         return downloaded
 
-    def _convert_to_json(self, downloaded_files: list[str]) -> None:
+    def _collect_core(self, page) -> None:
+        self._wait_for_login(page)
+        self._save_session_state(page)
+        popup = self._navigate_to_report_popup()
         year = self.config["target_year"]
-        xml_files = [f for f in downloaded_files if f.endswith(".xml")]
-        if not xml_files:
-            print(f"[{self.name}] XML が見つからないため JSON 変換をスキップします")
+
+        if self._find_report_row_button(popup, year) is None:
+            self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
             return
-        raw_files = [str(Path(f).name) for f in downloaded_files]
-        data = convert_teg204_xml(
-            xml_path=xml_files[0],
-            company=self.name,
-            code=self.code,
-            year=year,
-            raw_files=raw_files,
-        )
-        json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"[{self.name}] JSON 保存: {json_path}")
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            self._wait_for_login(page)
-            popup = self._navigate_to_report_popup()
-            year = self.config["target_year"]
+        downloaded = self._download_files(popup)
+        if not downloaded:
+            self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
+            return
 
-            if self._find_report_row_button(popup, year) is None:
-                self.log_result("skip", [], f"{year}年度の取引報告書が存在しません")
-                return
-
-            downloaded = self._download_files(popup)
-            if not downloaded:
-                self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
-                return
-
-            self._convert_to_json(downloaded)
-            self.log_result("success", downloaded)
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._convert_xml_to_json(downloaded)
+        self.log_result("success", downloaded)
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="野村證券 年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None)
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = NomuraCollector(year=args.year)
-    collector.collect()
-
-
+    collector = NomuraCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

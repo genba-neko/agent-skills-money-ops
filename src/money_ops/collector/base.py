@@ -24,19 +24,46 @@ def _is_debug() -> bool:
 
 
 class BaseCollector:
-    def __init__(self, site_json_path: str | Path):
+    def __init__(
+        self,
+        site_json_path: str | Path,
+        year: int | None = None,
+        headless: bool | None = None,
+        debug: bool | None = None,
+    ):
         self.config = _load_site_config(site_json_path)
         self.code: str = self.config["code"]
         self.name: str = self.config["name"]
         self.output_dir = Path(self.config["output_dir"])
-        self.headless: bool = _is_headless()
-        self.debug: bool = _is_debug()
+        self.headless: bool = headless if headless is not None else _is_headless()
+        self.debug: bool = debug if debug is not None else _is_debug()
         self._debug_seq: int = 0  # HTML採取連番
+        self._final_status: str | None = None  # 最終 log_result の status を保持（exit code 判定用）
+        if year is not None:
+            self.config["target_year"] = year
+            self.config["output_dir"] = f"data/income/securities/{self.code}/{year}/raw/"
+            self.output_dir = Path(self.config["output_dir"])
 
     def _debug_dir(self) -> Path:
         d = Path("output") / "debug" / self.code
         d.mkdir(parents=True, exist_ok=True)
         return d
+
+    def _log_access(self, url: str) -> None:
+        """debug モード時のみ全ナビゲーションを output/debug/<code>/access.log に追記"""
+        if not self.debug:
+            return
+        try:
+            log_path = self._debug_dir() / "access.log"
+            ts = datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+            with open(log_path, "a", encoding="utf-8") as f:
+                f.write(f"{ts} {url}\n")
+        except Exception:
+            pass
+
+    def prompt(self, message: str) -> str:
+        """ユーザーへの入力要求。将来的に並列収集用 EnvPrompt で差し替え可能。"""
+        return input(message)
 
     def dlog(self, message: str) -> None:
         """DEBUG=true のときだけ出力する詳細ログ"""
@@ -103,7 +130,15 @@ class BaseCollector:
         )
         self._page = self._context.new_page()
         self._restore_session_cookies()
+        # 全ページのナビゲーションをアクセスログに記録
+        self._context.on("page", self._attach_access_logger)
+        self._attach_access_logger(self._page)
         return self._page
+
+    def _attach_access_logger(self, page) -> None:
+        page.on("framenavigated", lambda frame: (
+            self._log_access(frame.url) if frame == frame.page.main_frame else None
+        ))
 
     def _restore_session_cookies(self) -> None:
         """前回ログイン時に保存した storage_state.json から全 cookie を注入する。
@@ -113,12 +148,20 @@ class BaseCollector:
         state_path = self._browser_profile_dir() / "storage_state.json"
         if not state_path.exists():
             return
-        with open(state_path, encoding="utf-8") as f:
-            state = json.load(f)
+        try:
+            with open(state_path, encoding="utf-8") as f:
+                state = json.load(f)
+        except json.JSONDecodeError as e:
+            print(f"[{self.name}] storage_state.json が破損しています（スキップ）: {e}")
+            return
         cookies = state.get("cookies", [])
         if not cookies:
             return
-        self._context.add_cookies(cookies)
+        # Playwright add_cookies requires url OR (domain AND path)
+        valid = [c for c in cookies if c.get("url") or (c.get("domain") and c.get("path") is not None)]
+        if not valid:
+            return
+        self._context.add_cookies(valid)
         print(f"[{self.name}] cookie {len(cookies)}件を復元しました")
 
     def close_browser(self) -> None:
@@ -151,7 +194,107 @@ class BaseCollector:
         with open(log_path, "w", encoding="utf-8") as f:
             json.dump(history, f, ensure_ascii=False, indent=2)
 
+        self._final_status = status
         print(f"[{self.name}] {status}: {message or ', '.join(files)}")
 
-    def collect(self) -> None:
-        raise NotImplementedError("collect() をサブクラスで実装してください")
+    def _save_session_state(self, page) -> None:
+        """cookie が存在する場合のみ storage_state.json を保存（空書き込みで既存 cookie 喪失を防ぐ）。
+        atomic write で書き込み中断時の JSON 破損を防ぐ。"""
+        state = page.context.storage_state()
+        if not state.get("cookies"):
+            self.dlog("storage_state が空のため保存スキップ")
+            return
+        profile_dir = self._browser_profile_dir()
+        profile_dir.mkdir(parents=True, exist_ok=True)
+        state_path = profile_dir / "storage_state.json"
+        tmp_path = state_path.with_suffix(".tmp")
+        with open(tmp_path, "w", encoding="utf-8") as f:
+            json.dump(state, f, ensure_ascii=False, indent=2)
+        os.replace(tmp_path, state_path)
+        print(f"[{self.name}] セッション保存: {state_path} ({len(state['cookies'])} cookies)")
+
+    def verify_pdf(self, pdf_path: str | Path) -> bool:
+        """PDF ファイルの存在・非空・マジックバイト（%PDF）を検証する。"""
+        path = Path(pdf_path)
+        if not path.exists():
+            print(f"[{self.name}] PDF が存在しません: {path}")
+            return False
+        if path.stat().st_size == 0:
+            print(f"[{self.name}] PDF が空ファイルです: {path}")
+            return False
+        with open(path, "rb") as f:
+            header = f.read(4)
+        if header != b"%PDF":
+            print(f"[{self.name}] PDF マジックバイト不正: {header!r} ({path})")
+            return False
+        return True
+
+    def _write_report_json(self, data: dict) -> None:
+        """年間取引報告書 JSON を output_dir.parent/nenkantorihikihokokusho.json に保存する。"""
+        json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
+        with open(json_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print(f"[{self.name}] JSON 保存: {json_path}")
+
+    def _queue_pdf_to_json(self, pdf_path: str | Path, raw_files: list[str]) -> None:
+        """PDF→JSON変換をキューファイルに登録する（収集フェーズと変換フェーズを分離）。
+        実際の変換は別途 `python skills/tax-collect/convert.py` で直列実行する。
+        """
+        year = self.config["target_year"]
+        queue_dir = Path("output") / "converting"
+        queue_dir.mkdir(parents=True, exist_ok=True)
+        queue_path = queue_dir / f"{self.code}_{year}.queue"
+        payload = {
+            "code": self.code,
+            "year": year,
+            "company": self.name,
+            "pdf_path": str(pdf_path),
+            "raw_files": list(raw_files),
+            "queued_at": datetime.now().isoformat(),
+        }
+        queue_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[{self.name}] PDF→JSON変換キューに登録: {queue_path.name}")
+
+    def _convert_xml_to_json(self, downloaded_files: list[str]) -> None:
+        """XML ファイルを TEG204 形式として JSON に変換して保存する（XML配布サイト用）。"""
+        from money_ops.converter.xml_to_json import convert_teg204_xml
+
+        year = self.config["target_year"]
+        xml_files = [f for f in downloaded_files if f.endswith(".xml")]
+        if not xml_files:
+            print(f"[{self.name}] XML が見つからないため JSON 変換をスキップします")
+            return
+        raw_files = [str(Path(f).name) for f in downloaded_files]
+        data = convert_teg204_xml(
+            xml_path=xml_files[0],
+            company=self.name,
+            code=self.code,
+            year=year,
+            raw_files=raw_files,
+        )
+        self._write_report_json(data)
+
+    def _collect_core(self, page) -> None:
+        raise NotImplementedError("_collect_core() をサブクラスで実装してください")
+
+    def run(self) -> int:
+        """ブラウザ起動 → _collect_core 実行 → 結果から exit code 返す。
+        success/skip → 0、error/interrupted → 1（run.py 一括ランナーで判定）。
+        skip は「対象書類なし」等の正常系（取引なし等）として 0 扱い。
+        """
+        page = self.launch_browser()
+        try:
+            self._collect_core(page)
+        except KeyboardInterrupt:
+            print(f"\n[{self.name}] ユーザーによる中断")
+            self.log_result("interrupted", [], "ユーザーによる中断")
+        except Exception as e:
+            print(f"[{self.name}] エラー: {e}")
+            self.log_result("error", [], str(e))
+            self.close_browser()
+            raise
+        finally:
+            self.close_browser()
+        return 0 if self._final_status in ("success", "skip") else 1

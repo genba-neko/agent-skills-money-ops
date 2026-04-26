@@ -329,7 +329,30 @@ def convert_pdf_to_json(
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
     gemini_key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
 
-    if anthropic_key:
+    if client is not None:
+        pdf_b64 = _encode_pdf(pdf_path)
+        message = client.messages.create(
+            model=_ANTHROPIC_MODEL,
+            max_tokens=2048,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "document",
+                            "source": {
+                                "type": "base64",
+                                "media_type": "application/pdf",
+                                "data": pdf_b64,
+                            },
+                        },
+                        {"type": "text", "text": _EXTRACTION_PROMPT},
+                    ],
+                }
+            ],
+        )
+        raw_text = message.content[0].text
+    elif anthropic_key:
         raw_text = _extract_with_anthropic(pdf_path, anthropic_key)
     else:
         try:

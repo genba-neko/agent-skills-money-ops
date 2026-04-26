@@ -10,8 +10,8 @@
     DAIWACONNECT_PASS   ログインパスワード（未設定時は手動入力）
 
 注意:
-    ログイン後の2段階認証コードは必ず手動入力が必要。
-    コード入力後 Enter を押すこと。
+    ログイン後の2段階認証コードはブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造:
     page:  connect-sec.co.jp/service/login/（トップ）
@@ -27,35 +27,20 @@ PDF取得方式:
 from __future__ import annotations
 
 import argparse
-import json
-import os
-import random
-import re
 import sys
-import time
+import os
+import re
 from pathlib import Path
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.connect-sec.co.jp/service/login/"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import wait as _wait
 
 class DaiwaConnectCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/daiwa-connect/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _login(self, page) -> object:
         """connect-sec.co.jp → jumppages/login.html → 認証 → webbroker3。
@@ -66,12 +51,7 @@ class DaiwaConnectCollector(BaseCollector):
           - セッション有効時 → jumppages が webbroker3 へ即リダイレクト（ログインスキップ）
           - セッション無効時 → メールアドレス + パスワード → ログイン → 2段階認証コード
         """
-        page.goto(_LOGIN_URL)
-        page.wait_for_load_state("domcontentloaded")
-        _wait(1.5, 2.5)
-
-        # Chromium で popup が読み込めないため同一ページで直接遷移
-        page.goto("https://www.connect-sec.co.jp/jumppages/login.html")
+        page.goto(self.config["login_url"])
         page1 = page
         page1.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
@@ -95,14 +75,11 @@ class DaiwaConnectCollector(BaseCollector):
             self.save_html(page1, "after_login1")
             # 2段階認証コード（自動ログイン時のみ）
             if "webbroker3" not in page1.url:
-                print(f"[{self.name}] 2段階認証コードを入力してください（メールに届いた6桁）")
-                code = input("認証コード: ").strip()
-                page1.get_by_role("textbox").first.fill(code)
-                page1.get_by_role("link", name=re.compile("ログイン")).first.click()
-                _wait(2.0, 3.0)
+                print(f"[{self.name}] 2段階認証コードをブラウザに入力して送信してください（最大5分）")
+                page1.wait_for_url("**/webbroker3/**", timeout=300_000)
         else:
-            print(f"[{self.name}] ログインしてください（メールアドレス・パスワード・2段階認証まですべて完了後 Enter）")
-            input("完了後 Enter: ")
+            print(f"[{self.name}] ログインしてください（メールアドレス・パスワード・2段階認証まですべて完了）（最大5分）")
+            page1.wait_for_url("**/webbroker3/**", timeout=300_000)
 
         # webbroker3 SPA の読み込み完了を待つ
         page1.wait_for_url("**/webbroker3/**", timeout=30000)
@@ -123,7 +100,8 @@ class DaiwaConnectCollector(BaseCollector):
         """
         print(f"[{self.name}] お客様情報 → 電子交付サービスへ移動")
         # sidrToggle（モバイル用不可視）を除外して本体ナビをクリック
-        page1.locator("ul.navbar-nav a:not(.sidrToggle)", has_text="お客様情報").click()
+        page1.locator("ul.navbar-nav a:not(.sidrToggle)").filter(has_text="お客様情報").first.wait_for(state="visible", timeout=60_000)
+        page1.locator("ul.navbar-nav a:not(.sidrToggle)").filter(has_text="お客様情報").first.click()
         page1.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
@@ -232,55 +210,28 @@ class DaiwaConnectCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            page1 = self._login(page)
-            year = self.config["target_year"]
+    def _collect_core(self, page) -> None:
+        page1 = self._login(page)
+        year = self.config["target_year"]
 
-            page2 = self._open_electronic_delivery(page1)
-            self._navigate_to_annual_report(page2)
+        page2 = self._open_electronic_delivery(page1)
+        self._navigate_to_annual_report(page2)
 
-            pdf_path = self._download_pdf_via_route(page2, year)
-            if pdf_path is None:
-                self.log_result("error", [], "PDF 捕捉失敗")
-                return
+        pdf_path = self._download_pdf_via_route(page2, year)
+        if pdf_path is None:
+            self.log_result("error", [], "PDF 捕捉失敗")
+            return
 
-            try:
-                data = convert_pdf_to_json(
-                    pdf_path=pdf_path,
-                    company=self.name,
-                    code=self.code,
-                    year=year,
-                    raw_files=[str(Path(pdf_path).name)],
-                )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ: {e}")
-
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
+        self.log_result("success", [pdf_path])
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="大和コネクト証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = DaiwaConnectCollector(year=args.year)
-    collector.collect()
-
-
+    collector = DaiwaConnectCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

@@ -10,7 +10,8 @@
     SAWAKAMI_PASS   ログインパスワード（未設定時は手動入力）
 
 注意:
-    メール認証コード（6桁）は必ず手動入力が必要。
+    メール認証コード（6桁）はブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造（HAR確認済み）:
     GET  /Account/Login
@@ -35,35 +36,21 @@ e-delivery フィルター:
 from __future__ import annotations
 
 import argparse
+import sys
 import json
 import os
-import random
-import sys
-import time
 from pathlib import Path
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://fv.sawakami.co.jp/Account/Login"
 _EDELIVERY_URL = "https://fv.sawakami.co.jp/e-delivery"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import wait as _wait
 
 class SawakamiCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/sawakami/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _is_logged_in(self, page) -> bool:
         """セッション有効チェック: /e-delivery にアクセスしてログイン済みか確認。
@@ -88,7 +75,7 @@ class SawakamiCollector(BaseCollector):
           - GET  /account/twofactorauth?provider=Email&ReturnUrl=%2F&RememberMe=False
           - POST /account/twofactorauth?returnUrl=/ → 302 → /
         """
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
@@ -102,8 +89,7 @@ class SawakamiCollector(BaseCollector):
             _wait(2.0, 3.0)
             self.save_html(page, "after_credential_submit")
         else:
-            print(f"[{self.name}] ログインID・パスワードをブラウザで入力してログインボタンを押してください")
-            input("ログインボタン押下後 Enter: ")
+            print(f"[{self.name}] ログインID・パスワードをブラウザで入力してログインボタンを押してください（最大5分）")
 
         # twofactorauth か home のどちらかを待つ
         page.wait_for_url(
@@ -118,13 +104,10 @@ class SawakamiCollector(BaseCollector):
 
         # メール 2FA
         if "twofactorauth" in page.url:
-            print(f"[{self.name}] メール認証コードを入力してください")
-            code = input("認証コード: ").strip()
-            page.get_by_role("spinbutton", name="認証コード").fill(code)
-            page.get_by_role("button", name="認証する").click()
+            print(f"[{self.name}] メール認証コードをブラウザに入力して「認証する」を押してください（最大5分）")
             page.wait_for_url(
                 lambda url: "twofactorauth" not in url,
-                timeout=120000,
+                timeout=300_000,
             )
             _wait(2.0, 3.0)
 
@@ -217,56 +200,29 @@ class SawakamiCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            year = self.config.get("target_year")
-            if year is None:
-                raise ValueError("target_year が設定されていません")
+    def _collect_core(self, page) -> None:
+        year = self.config.get("target_year")
+        if year is None:
+            raise ValueError("target_year が設定されていません")
 
-            if not self._is_logged_in(page):
-                self._login(page)
+        if not self._is_logged_in(page):
+            self._login(page)
 
-            pdf_path = self._download_pdf(page, year)
-            if pdf_path is None:
-                self.log_result("error", [], "PDF 取得失敗")
-                return
+        pdf_path = self._download_pdf(page, year)
+        if pdf_path is None:
+            self.log_result("error", [], "PDF 取得失敗")
+            return
 
-            try:
-                data = convert_pdf_to_json(
-                    pdf_path=pdf_path,
-                    company=self.name,
-                    code=self.code,
-                    year=year,
-                    raw_files=[str(Path(pdf_path).name)],
-                )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ: {e}")
-
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
+        self.log_result("success", [pdf_path])
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="さわかみ投信 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = SawakamiCollector(year=args.year)
-    collector.collect()
-
-
+    collector = SawakamiCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

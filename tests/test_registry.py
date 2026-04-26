@@ -29,7 +29,7 @@ def test_list_auto_companies():
 
 def test_all_companies_have_required_fields():
     registry = load_registry()
-    required = {"code", "name", "url", "has_xml", "マイナ連携", "collection"}
+    required = {"code", "name", "site_url", "has_xml", "マイナ連携", "collection"}
     for company in registry["securities"]:
         missing = required - company.keys()
         assert not missing, f"{company['code']} にフィールドが不足: {missing}"

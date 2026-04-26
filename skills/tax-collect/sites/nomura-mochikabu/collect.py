@@ -9,7 +9,7 @@
 
 注意:
     ログイン・2FA・ポップアップ処理は人間が手動で行う。
-    スクリプト起動後、ブラウザでログインしてトップ画面到達後 Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。トップ画面到達を自動検出します。
 
 収集対象:
     配当金等支払通知書（Web交付）
@@ -29,48 +29,40 @@ PDF取得方式（T-13方式: context.request 直接フェッチ）:
 from __future__ import annotations
 
 import argparse
-import random
-import re
 import sys
-import time
 from html.parser import HTMLParser
 from pathlib import Path
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.collector.base import BaseCollector
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.e-plan.nomura.co.jp/login/index.html"
 _WEB_KOFU_URL = "https://www.e-plan.nomura.co.jp/mocikabu/script/WEAW1200.jsp"
 _PDF_POST_URL = "https://www.e-plan.nomura.co.jp/cms/ChouhyouDisplayPost.do"
 
-_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
-
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import extract_filename, wait as _wait
 
 def _year_month_patterns(target_year: int) -> list[str]:
     """発行年月の候補: 対象年12月 or 翌年1月"""
     return [f"{target_year}年12月", f"{target_year + 1}年01月"]
 
-
 class NomuraMochikabuCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/nomura-mochikabu/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
+        def _is_dashboard(url: str) -> bool:
+            return "e-plan.nomura.co.jp" in url and "login" not in url.lower()
+
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
-        print(f"[{self.name}] ブラウザでログインしてください（2FA・ポップアップ処理含む）")
-        input("トップ画面で操作可能になったら Enter を押してください: ")
+        _wait(1.5, 2.5)
+        if _is_dashboard(page.url):
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self.dlog(f"URL: {page.url}")
+            return
+
+        print(f"[{self.name}] ブラウザでログインしてください（2FA・ポップアップ処理含む）（最大5分）")
+        page.wait_for_url(_is_dashboard, timeout=300_000)
         _wait()
         self.dlog(f"login done, URL: {page.url}")
         self.save_html(page, "after_login")
@@ -84,6 +76,7 @@ class NomuraMochikabuCollector(BaseCollector):
         self.save_html(page, "weaw1200_before_filter")
 
         # chohyoType=3（配当金等支払通知書）を選択 → onchange で自動フォームサブミット
+        page.locator("#chohyoType").wait_for(state="visible", timeout=60_000)
         page.locator("#chohyoType").select_option("3")
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
@@ -169,51 +162,37 @@ class NomuraMochikabuCollector(BaseCollector):
             return None
 
         cd = pdf_resp.headers.get("content-disposition", "")
-        m = _RE_FILENAME.search(cd)
-        filename = m.group(1).strip().strip('"\'') if m else f"{year}_nomura_mochikabu_haito.pdf"
+        filename = extract_filename(cd, f"{year}_nomura_mochikabu_haito.pdf")
         pdf_path = self.output_dir / filename
         pdf_path.write_bytes(body)
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            self._wait_for_login(page)
-            year = self.config["target_year"]
+    def _collect_core(self, page) -> None:
+        self._wait_for_login(page)
+        year = self.config["target_year"]
 
-            self._navigate_to_list(page)
+        self._navigate_to_list(page)
 
-            report_link = self._find_report_link(page, year)
-            if report_link is None:
-                self.log_result("skip", [], f"{year}年度の配当金等支払通知書が見つかりません")
-                return
+        report_link = self._find_report_link(page, year)
+        if report_link is None:
+            self.log_result("skip", [], f"{year}年度の配当金等支払通知書が見つかりません")
+            return
 
-            pdf_path = self._download_pdf(page, report_link)
-            if pdf_path is None:
-                self.log_result("error", [], "PDF ダウンロードに失敗しました")
-                return
+        pdf_path = self._download_pdf(page, report_link)
+        if pdf_path is None:
+            self.log_result("error", [], "PDF ダウンロードに失敗しました")
+            return
 
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self.log_result("success", [pdf_path])
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="野村證券持株会 配当金等支払通知書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = NomuraMochikabuCollector(year=args.year)
-    collector.collect()
-
-
+    collector = NomuraMochikabuCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

@@ -10,8 +10,8 @@
     TSUMIKI_PASS    パスワード（未設定時は手動入力）
 
 注意:
-    ワンタイムパスワード（OTP）は必ず手動入力が必要。
-    OTP 送信後、メール/SMS に届いたコードを入力して Enter を押すこと。
+    ワンタイムパスワード（OTP）はブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造:
     page:  tsumiki-sec.com トップ
@@ -26,35 +26,20 @@ PDF取得方式:
 from __future__ import annotations
 
 import argparse
-import json
-import os
-import random
-import re
 import sys
-import time
+import os
+import re
 from pathlib import Path
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.tsumiki-sec.com/"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import wait as _wait
 
 class TsumikiCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/tsumiki/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _login(self, page) -> object:
         """tsumiki-sec.com → ログインリンク → popup page1（omamori SPA）。
@@ -64,7 +49,7 @@ class TsumikiCollector(BaseCollector):
           - エポスNet ID + パスワード入力 → ログインするボタン
           - ログイン後: 閉じるボタン（通知等）→ 以降の操作
         """
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
@@ -85,8 +70,8 @@ class TsumikiCollector(BaseCollector):
             _wait(2.0, 3.0)
             print(f"[{self.name}] 自動ログイン完了")
         else:
-            print(f"[{self.name}] page1 でログインしてください（エポスNet ID・パスワード）")
-            input("ログイン完了後 Enter を押してください: ")
+            print(f"[{self.name}] page1 でログインしてください（エポスNet ID・パスワード）（最大5分）")
+            page1.get_by_role("button", name="ログインする").first.wait_for(state="detached", timeout=300_000)
             _wait(2.0, 3.0)
 
         # 通知等のダイアログを閉じる
@@ -131,13 +116,8 @@ class TsumikiCollector(BaseCollector):
         if otp_field.count() == 0:
             return True
 
-        print(f"[{self.name}] ワンタイムパスワードを入力してください（メール/SMSに届いたコード）")
-        otp = input("OTP コード: ").strip()
-        if not otp:
-            return False
-
-        otp_field.fill(otp)
-        page1.get_by_role("button", name="送信してすすむ").click()
+        print(f"[{self.name}] ワンタイムパスワードをブラウザに入力して「送信してすすむ」を押してください（最大5分）")
+        otp_field.wait_for(state="detached", timeout=300_000)
         _wait(2.0, 3.0)
         self.save_html(page1, "after_otp")
         return True
@@ -145,17 +125,14 @@ class TsumikiCollector(BaseCollector):
     def _find_report_button(self, page1, target_year: int):
         """特定口座年間取引報告書ボタンを年度で検索。
 
-        HAR 確認済み: ボタン名 = 「特定口座年間取引報告書 作成日 YYYY/MM/DD」
+        HAR 確認済み: 実 DOM は <div role="button" aria-label="特定口座年間取引報告書　作成日　YYYY/MM/DD　既読　報告書を新しいタブで開く">
+        → locator("a, button") では拾えない。get_by_role("button") なら role=button の div もマッチ。
+        作成年度 = target_year+1 （例: 2025年度の報告書は 2026/01/01 作成）。
         """
-        btn = page1.get_by_role("button").filter(
-            has_text=re.compile(r"特定口座年間取引報告書")
-        ).filter(
-            has_text=re.compile(str(target_year + 1))
-        )
+        # まず作成年度 (target_year+1) で絞り込み、無ければ年度なしで検索
+        btn = page1.get_by_role("button", name=re.compile(rf"特定口座年間取引報告書.*{target_year + 1}"))
         if btn.count() == 0:
-            btn = page1.get_by_role("button").filter(
-                has_text=re.compile(r"特定口座年間取引報告書")
-            )
+            btn = page1.get_by_role("button", name=re.compile(r"特定口座年間取引報告書"))
         return btn.first if btn.count() > 0 else None
 
     def _download_pdf_via_route(self, page1, target_year: int) -> str | None:
@@ -209,58 +186,31 @@ class TsumikiCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            page1 = self._login(page)
-            year = self.config["target_year"]
+    def _collect_core(self, page) -> None:
+        page1 = self._login(page)
+        year = self.config["target_year"]
 
-            self._navigate_to_reports(page1)
+        self._navigate_to_reports(page1)
 
-            if not self._handle_otp(page1):
-                self.log_result("skip", [], "OTP 入力がキャンセルされました")
-                return
+        if not self._handle_otp(page1):
+            self.log_result("skip", [], "OTP 入力がキャンセルされました")
+            return
 
-            pdf_path = self._download_pdf_via_route(page1, year)
-            if pdf_path is None:
-                self.log_result("error", [], "PDF 捕捉失敗")
-                return
+        pdf_path = self._download_pdf_via_route(page1, year)
+        if pdf_path is None:
+            self.log_result("error", [], "PDF 捕捉失敗")
+            return
 
-            try:
-                data = convert_pdf_to_json(
-                    pdf_path=pdf_path,
-                    company=self.name,
-                    code=self.code,
-                    year=year,
-                    raw_files=[str(Path(pdf_path).name)],
-                )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ: {e}")
-
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
+        self.log_result("success", [pdf_path])
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="tsumiki証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = TsumikiCollector(year=args.year)
-    collector.collect()
-
-
+    collector = TsumikiCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

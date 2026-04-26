@@ -1,10 +1,13 @@
 {
   "name": "野村證券",
   "code": "nomura",
-  "has_xml": true,
   "target_year": 2025,
   "output_dir": "data/income/securities/nomura/2025/raw/",
   "documents": [
-    { "type": "特定口座年間取引報告書" }
-  ]
+    {
+      "type": "特定口座年間取引報告書"
+    }
+  ],
+  "login_url": "https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do",
+  "converter_type": "teg204_xml"
 }

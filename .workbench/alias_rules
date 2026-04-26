@@ -10,3 +10,6 @@ adb           C:\Users\g\AppData\Local\Microsoft\WinGet\Packages\Google.Platform
 format        $VENV_PYTHON -m black . ; $VENV_PYTHON -m isort .  # black で整形 → isort で import 整理
 lint          $VENV_PYTHON -m mypy . ; $VENV_PYTHON -m pylint --recursive=y .  # 型チェック → 静的解析
 test          $VENV_PYTHON -m pytest @args  # pytest 実行
+tax-collect   $VENV_PYTHON $PROJECT_ROOT/skills/tax-collect/run.py @args  # tax-collect 一括収集
+tax-convert   $VENV_PYTHON $PROJECT_ROOT/skills/tax-collect/convert.py @args  # PDF→JSON 直列変換（30秒delay）
+tax-recorder  $VENV_PYTHON $PROJECT_ROOT/skills/tax-collect/recorder.py @args  # 新規サイト追加用 操作記録

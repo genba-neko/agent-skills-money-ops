@@ -1,10 +1,13 @@
 {
   "name": "tsumiki証券",
   "code": "tsumiki",
-  "has_xml": false,
   "target_year": 2025,
   "output_dir": "data/income/securities/tsumiki/2025/raw/",
   "documents": [
-    { "type": "特定口座年間取引報告書" }
-  ]
+    {
+      "type": "特定口座年間取引報告書"
+    }
+  ],
+  "login_url": "https://www.tsumiki-sec.com/",
+  "converter_type": "pdf_llm"
 }

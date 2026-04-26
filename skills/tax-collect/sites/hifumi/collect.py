@@ -9,7 +9,7 @@
 
 注意:
     ログイン・取引パスワード入力は人間が手動で行う。
-    スクリプト起動後、ブラウザでポップアップ（page1）にてログイン完了後 Enter を押すこと。
+    スクリプト起動後、ブラウザでポップアップ（page1）にてログイン完了を自動検出します。
 
 実測済みポップアップ構造:
     page:  ひふみ トップ（hifumi.rheos.jp）
@@ -27,40 +27,23 @@ PDF取得方式:
 from __future__ import annotations
 
 import argparse
-import json
-import random
-import re
 import sys
-import time
+import re
 from pathlib import Path
 
-_RE_FILENAME = re.compile(r'filename[^;=\n]*=([^;\n]*)')
-
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://hifumi.rheos.jp/"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.collector.eshishobako import capture_dpaw_pdf
+from money_ops.utils import wait as _wait
 
 def _year_month_patterns(target_year: int) -> list[str]:
     return [f"{target_year}/12", f"{target_year + 1}/01"]
 
-
 class HifumiCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/hifumi/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _wait_for_login(self, page) -> object:
         """HAR 確認済み:
@@ -68,7 +51,7 @@ class HifumiCollector(BaseCollector):
           - loginId + #password_01 → 「ログイン」→ 取引パスワード → 「認証」（すべて手動）
           - page1 URL はログイン後も login.jsp のまま（SPA）
         """
-        page.goto(_LOGIN_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
@@ -84,8 +67,11 @@ class HifumiCollector(BaseCollector):
         _wait(1.5, 2.5)
         self.dlog(f"page1 URL: {page1.url}")
 
-        print(f"[{self.name}] page1 でログインしてください（loginId・パスワード・取引パスワード）")
-        input("ログイン完了後 Enter を押してください: ")
+        print(f"[{self.name}] page1 でログインしてください（loginId・パスワード・取引パスワード）（最大5分）")
+        # ダッシュボード描画完了を「各種資料（報告書）」link visible で検出（5分タイムアウト）。
+        # URL 変化（login.jsp→login.do）はセッション cookie 残存時に手動入力前に発火して
+        # しまう（=login.do に自動遷移しても再ログイン画面の場合あり）→ URL 待機は使わない。
+        page1.get_by_role("link", name="各種資料（報告書）").first.wait_for(state="visible", timeout=300_000)
         _wait(2.0, 3.0)
 
         # session cookie 明示保存（persistent profile だけでは session cookie が消える）
@@ -105,17 +91,25 @@ class HifumiCollector(BaseCollector):
           - page2 = popup（最終的に post.plus.e-shishobako.ne.jp/dp_apl/usr/#/user-delivery）
         """
         print(f"[{self.name}] 各種資料（報告書）へ移動")
-        page1.get_by_role("link", name="各種資料（報告書）").click()
-        page1.wait_for_load_state("domcontentloaded")
-        _wait(1.5, 2.5)
-        self.save_html(page1, "after_kakushu_shiryo")
+        kakushu = page1.get_by_role("link", name="各種資料（報告書）")
+        if kakushu.count() > 0:
+            kakushu.first.click()
+            page1.wait_for_load_state("domcontentloaded")
+            _wait(1.5, 2.5)
+            self.save_html(page1, "after_kakushu_shiryo")
+        else:
+            print(f"[{self.name}] 各種資料リンク未検出 → 直接 shishyobakoRedirect を試行")
 
+        # 「閲覧する」は nth(1) で順序依存 → href ロケートに統一
+        # （HAR 確認: target="_blank" rel="noopener" で popup 開く設計）
+        shishobako_link = page1.locator("a[href*='shishyobakoRedirect']")
+        shishobako_link.first.wait_for(state="visible", timeout=15000)
         with page1.expect_popup() as popup2_info:
-            page1.get_by_role("link", name="閲覧する").nth(1).click()
+            shishobako_link.first.click()
         page2 = popup2_info.value
 
-        # shishyobakoRedirect.do → e-shishobako Angular SPA へのリダイレクト完了待機
-        page2.wait_for_url("**/dp_apl/usr/**", timeout=30000)
+        # 4段リダイレクト（shishyobakoRedirect → SSO → DPAW010501000 → /dp_apl/usr/）+ Angular SPA 初期化 → 60s
+        page2.wait_for_url("**/dp_apl/usr/**", timeout=60000)
         page2.wait_for_selector("input, button", timeout=30000)
         _wait(2.0, 3.0)
         self.dlog(f"page2 URL: {page2.url}")
@@ -151,126 +145,56 @@ class HifumiCollector(BaseCollector):
         _wait(1.5, 2.5)
         self.save_html(page2, "after_report_button")
 
-        # Angular ルーター遷移後、「PDFファイル」ボタンが visible になるまで待機
+        # Angular ルーター遷移後、「特定口座年間取引報告書...PDFファイル」ボタン visible 待機。
+        # 詳細画面には PDF ボタン複数（投資信託等）並ぶため、has_text="PDFファイル" のみだと
+        # .first が hidden な別 PDF ボタンを掴む可能性 → 厳密パターンで一意特定。
+        target_pdf_pattern = re.compile(r"特定口座年間取引報告書.*PDFファイル")
         try:
-            page2.get_by_role("button").filter(has_text="PDFファイル").first.wait_for(
+            page2.get_by_role("button", name=target_pdf_pattern).first.wait_for(
                 state="visible", timeout=15000
             )
         except Exception:
-            # fallback: link として存在する場合
-            try:
-                page2.get_by_role("link").filter(has_text="PDFファイル").first.wait_for(
-                    state="visible", timeout=10000
-                )
-            except Exception:
-                self.dlog("「PDFファイル」ボタンが visible になりませんでした")
-                return False
+            self.dlog("「特定口座年間取引報告書...PDFファイル」ボタンが visible になりませんでした")
+            return False
         _wait()
         return True
 
-    def _download_pdf_via_route(self, page2, target_year: int) -> str | None:
-        """「PDFファイル」ボタンクリック → DPAW010501020 route 捕捉 → blob popup 閉じる。
-        SBI と同じ e-shishobako ポータルのため完全同方式。
-        """
-        pdf_btn = page2.get_by_role("button").filter(has_text="PDFファイル")
-        if pdf_btn.count() == 0:
-            pdf_btn = page2.get_by_role("link").filter(has_text="PDFファイル")
-        if pdf_btn.count() == 0:
-            self.dlog("PDFファイル ボタンが見つかりません")
-            return None
+    def _collect_core(self, page) -> None:
+        page1 = self._wait_for_login(page)
+        year = self.config["target_year"]
 
-        pdf_bytes_holder: list[tuple[str, bytes]] = []
-        fallback_name = f"{target_year}_hifumi_nentori.pdf"
+        page2 = self._navigate_to_eshishobako(page1)
 
-        def _capture_pdf(route, _request) -> None:
-            response = route.fetch()
-            body = response.body()
-            if body[:4] == b"%PDF":
-                cd = response.headers.get("content-disposition", "")
-                m = _RE_FILENAME.search(cd)
-                filename = m.group(1).strip().strip('"\'') if m else fallback_name
-                pdf_bytes_holder.append((filename, body))
-            route.fulfill(response=response)
+        date_btn = self._find_date_button(page2, year)
+        if date_btn is None:
+            self.log_result("skip", [], f"{year}年度の書類が見つかりません（日付ボタン 0件）")
+            return
 
-        page2.context.route("**/DPAW010501020", _capture_pdf)
-        try:
-            with page2.expect_popup() as pdf_popup_info:
-                pdf_btn.first.click()
-            pdf_popup = pdf_popup_info.value
-            pdf_popup.wait_for_load_state("domcontentloaded")
-            _wait()
-            pdf_popup.close()
-        finally:
-            page2.context.unroute("**/DPAW010501020", _capture_pdf)
-
-        if not pdf_bytes_holder:
-            self.dlog("PDF レスポンスを捕捉できませんでした")
-            return None
+        if not self._open_report_detail(page2, date_btn):
+            self.log_result("skip", [], f"{year}年度の特定口座年間取引報告書ボタンが見つかりません")
+            return
 
         self.prepare_directory()
-        filename, pdf_bytes = pdf_bytes_holder[0]
-        pdf_path = self.output_dir / filename
-        pdf_path.write_bytes(pdf_bytes)
-        print(f"[{self.name}] PDF 保存: {pdf_path}")
-        return str(pdf_path)
+        # hifumi の詳細画面には PDF ボタン複数（投資信託・特定口座等）並ぶ →
+        # 「特定口座年間取引報告書...PDFファイル」を厳密マッチ（has_text のみだと .first が誤選択）
+        pdf_path = capture_dpaw_pdf(
+            page2, self.output_dir, f"{year}_hifumi_nentori.pdf", label=self.name,
+            button_name_pattern=re.compile(r"特定口座年間取引報告書.*PDFファイル"),
+        )
+        if pdf_path is None:
+            self.log_result("error", [], "PDF 捕捉失敗")
+            return
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            page1 = self._wait_for_login(page)
-            year = self.config["target_year"]
-
-            page2 = self._navigate_to_eshishobako(page1)
-
-            date_btn = self._find_date_button(page2, year)
-            if date_btn is None:
-                self.log_result("skip", [], f"{year}年度の書類が見つかりません（日付ボタン 0件）")
-                return
-
-            if not self._open_report_detail(page2, date_btn):
-                self.log_result("skip", [], f"{year}年度の特定口座年間取引報告書ボタンが見つかりません")
-                return
-
-            pdf_path = self._download_pdf_via_route(page2, year)
-            if pdf_path is None:
-                self.log_result("error", [], "PDF 捕捉失敗")
-                return
-
-            try:
-                data = convert_pdf_to_json(
-                    pdf_path=pdf_path,
-                    company=self.name,
-                    code=self.code,
-                    year=year,
-                    raw_files=[str(Path(pdf_path).name)],
-                )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ（ANTHROPIC_API_KEY 未設定等）: {e}")
-
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
+        self.log_result("success", [pdf_path])
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="ひふみ投信 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = HifumiCollector(year=args.year)
-    collector.collect()
-
-
+    collector = HifumiCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

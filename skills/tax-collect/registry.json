@@ -1,19 +1,220 @@
 {
   "securities": [
-    { "code": "sbi",              "name": "SBI証券",              "document_type": "特定口座年間取引報告書", "site_url": "https://www.sbisec.co.jp/",                        "login_url": "https://www.sbisec.co.jp/ETGate",                                      "has_xml": true,  "マイナ連携": true,  "collection": "auto"   },
-    { "code": "rakuten",          "name": "楽天証券",              "document_type": "特定口座年間取引報告書", "site_url": "https://www.rakuten-sec.co.jp/",                   "login_url": "https://www.rakuten-sec.co.jp/",                                        "has_xml": true,  "マイナ連携": false, "collection": "auto"   },
-    { "code": "nomura",           "name": "野村證券",              "document_type": "特定口座年間取引報告書", "site_url": "https://www.nomura.co.jp/",                        "login_url": "https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do",              "has_xml": true,  "マイナ連携": true,  "collection": "auto"   },
-    { "code": "monex",            "name": "マネックス証券",        "document_type": "特定口座年間取引報告書", "site_url": "https://www.monex.co.jp/",                         "login_url": "https://mst.monex.co.jp/pc/ITS/login/LoginIDPassword.jsp",             "has_xml": true,  "マイナ連携": true,  "collection": "auto"   },
-    { "code": "matsui",           "name": "松井証券",              "document_type": "特定口座年間取引報告書", "site_url": "https://www.matsui.co.jp/",                        "login_url": "https://www.matsui.co.jp/",                                             "has_xml": true,  "マイナ連携": false, "collection": "auto"   },
-    { "code": "gmo-click",        "name": "GMOクリック証券",       "document_type": "特定口座年間取引報告書", "site_url": "https://www.click-sec.com/",                       "login_url": "https://kabu.click-sec.com/sec2/mypage/top.do",                        "has_xml": true,  "マイナ連携": false, "collection": "auto"   },
-    { "code": "smbcnikko",        "name": "SMBC日興証券",          "document_type": "特定口座年間取引報告書", "site_url": "https://www.smbcnikko.co.jp/",                     "login_url": "https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/",          "has_xml": true,  "マイナ連携": false, "collection": "auto"   },
-    { "code": "mufg-esmart",      "name": "三菱UFJ eスマート証券", "document_type": "特定口座年間取引報告書", "site_url": "https://kabu.com/",                                "login_url": null,                                                                    "has_xml": false, "マイナ連携": true,  "collection": "auto"   },
-    { "code": "tsumiki",          "name": "tsumiki証券",           "document_type": "特定口座年間取引報告書", "site_url": "https://www.tsumiki-sec.com/",                     "login_url": null,                                                                    "has_xml": false, "マイナ連携": false, "collection": "auto"   },
-    { "code": "daiwa-connect",    "name": "大和CONNECT証券",       "document_type": "特定口座年間取引報告書", "site_url": "https://www.connect-sec.co.jp/",                   "login_url": "https://www.connect-sec.co.jp/service/login/",                         "has_xml": false, "マイナ連携": false, "collection": "auto"   },
-    { "code": "paypay",           "name": "PayPay証券",            "document_type": "特定口座年間取引報告書", "site_url": "https://www.paypay-sec.co.jp/",                    "login_url": null,                                                                    "has_xml": false, "マイナ連携": false, "collection": "auto"   },
-    { "code": "webull",           "name": "ウィブル証券",          "document_type": "特定口座年間取引報告書", "site_url": null,                                               "login_url": null,                                                                    "has_xml": false, "マイナ連携": false, "collection": "android" },
-    { "code": "nomura-mochikabu", "name": "野村證券持株会",        "document_type": "配当金等支払通知書",     "site_url": "https://www.e-plan.nomura.co.jp/",                 "login_url": "https://www.e-plan.nomura.co.jp/login/index.html",                     "has_xml": false, "マイナ連携": false, "collection": "auto"   },
-    { "code": "hifumi",           "name": "ひふみ投信",            "document_type": "特定口座年間取引報告書", "site_url": "https://hifumi.rheos.jp/",                         "login_url": null,                                                                    "has_xml": false, "マイナ連携": false, "collection": "auto"   },
-    { "code": "sawakami",         "name": "さわかみ投信",          "document_type": "特定口座年間取引報告書", "site_url": "https://fv.sawakami.co.jp/",                       "login_url": "https://fv.sawakami.co.jp/Account/Login",                              "has_xml": false, "マイナ連携": false, "collection": "auto"   }
+    {
+      "code": "webull",
+      "name": "ウィブル証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": null,
+      "login_url": null,
+      "dashboard_url": null,
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "android",
+      "login_detection": null
+    },
+    {
+      "code": "sbi",
+      "name": "SBI証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.sbisec.co.jp/",
+      "login_url": "https://www.sbisec.co.jp/ETGate",
+      "dashboard_url": "https://www.sbisec.co.jp/ETGate/",
+      "has_xml": true,
+      "マイナ連携": true,
+      "collection": "auto",
+      "login_detection": {
+        "done_url": "**/ETGate/**",
+        "skip_selector_absent": "input[name='username']"
+      }
+    },
+    {
+      "code": "rakuten",
+      "name": "楽天証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.rakuten-sec.co.jp/",
+      "login_url": "https://member.rakuten-sec.co.jp/app/MhLogin.do?login_type=1",
+      "dashboard_url": "https://member.rakuten-sec.co.jp/app/home",
+      "has_xml": true,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "done_url": "**/member.rakuten-sec.co.jp/app/**",
+        "skip_url_contains": "member.rakuten-sec.co.jp/app/"
+      }
+    },
+    {
+      "code": "nomura",
+      "name": "野村證券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.nomura.co.jp/",
+      "login_url": "https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do",
+      "dashboard_url": "https://hometrade.nomura.co.jp/web/",
+      "has_xml": true,
+      "マイナ連携": true,
+      "collection": "auto",
+      "login_detection": {
+        "skip_url_contains": "hometrade.nomura.co.jp",
+        "skip_url_excludes": "login"
+      }
+    },
+    {
+      "code": "monex",
+      "name": "マネックス証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.monex.co.jp/",
+      "login_url": "https://mst.monex.co.jp/pc/ITS/login/LoginIDPassword.jsp",
+      "dashboard_url": "https://mxp3.monex.co.jp/",
+      "has_xml": true,
+      "マイナ連携": true,
+      "collection": "auto",
+      "login_detection": {
+        "skip_url_contains": "mxp3.monex.co.jp"
+      }
+    },
+    {
+      "code": "matsui",
+      "name": "松井証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.matsui.co.jp/",
+      "login_url": "https://www.deal.matsui.co.jp/ITS/login/MemberLogin.jsp",
+      "dashboard_url": "https://www.deal.matsui.co.jp/",
+      "has_xml": true,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "done_selector": "frame[name='GM']",
+        "skip_selector": "frame[name='GM']"
+      }
+    },
+    {
+      "code": "gmo-click",
+      "name": "GMOクリック証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.click-sec.com/",
+      "login_url": "https://kabu.click-sec.com/sec2/mypage/top.do",
+      "dashboard_url": "https://kabu.click-sec.com/sec2/mypage/top.do",
+      "has_xml": true,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "done_url": "**/mypage/top**",
+        "skip_url_contains": "mypage/top"
+      }
+    },
+    {
+      "code": "smbcnikko",
+      "name": "SMBC日興証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.smbcnikko.co.jp/",
+      "login_url": "https://trade.smbcnikko.co.jp/Login/0/login/ipan_web/hyoji/",
+      "dashboard_url": "https://trade.smbcnikko.co.jp/",
+      "has_xml": true,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "skip_url_contains": "trade.smbcnikko.co.jp",
+        "skip_url_excludes": "/Login/0/login/"
+      }
+    },
+    {
+      "code": "mufg-esmart",
+      "name": "三菱UFJ eスマート証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://kabu.com/",
+      "login_url": null,
+      "dashboard_url": null,
+      "has_xml": false,
+      "マイナ連携": true,
+      "collection": "auto",
+      "login_detection": {
+        "custom": true
+      }
+    },
+    {
+      "code": "tsumiki",
+      "name": "tsumiki証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.tsumiki-sec.com/",
+      "login_url": null,
+      "dashboard_url": null,
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "custom": true
+      }
+    },
+    {
+      "code": "daiwa-connect",
+      "name": "大和CONNECT証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.connect-sec.co.jp/",
+      "login_url": "https://www.connect-sec.co.jp/jumppages/login.html",
+      "dashboard_url": "https://trade.connect-sec.co.jp/webbroker3/Web3App",
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "done_url": "**/webbroker3/**",
+        "skip_url_contains": "webbroker3"
+      }
+    },
+    {
+      "code": "paypay",
+      "name": "PayPay証券",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://www.paypay-sec.co.jp/",
+      "login_url": null,
+      "dashboard_url": null,
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "custom": true
+      }
+    },
+    {
+      "code": "nomura-mochikabu",
+      "name": "野村證券持株会",
+      "document_type": "配当金等支払通知書",
+      "site_url": "https://www.e-plan.nomura.co.jp/",
+      "login_url": "https://www.e-plan.nomura.co.jp/login/index.html",
+      "dashboard_url": "https://www.e-plan.nomura.co.jp/",
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "skip_url_contains": "e-plan.nomura.co.jp",
+        "skip_url_excludes": "login"
+      }
+    },
+    {
+      "code": "hifumi",
+      "name": "ひふみ投信",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://hifumi.rheos.jp/",
+      "login_url": null,
+      "dashboard_url": null,
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "custom": true
+      }
+    },
+    {
+      "code": "sawakami",
+      "name": "さわかみ投信",
+      "document_type": "特定口座年間取引報告書",
+      "site_url": "https://fv.sawakami.co.jp/",
+      "login_url": "https://fv.sawakami.co.jp/Account/Login",
+      "dashboard_url": null,
+      "has_xml": false,
+      "マイナ連携": false,
+      "collection": "auto",
+      "login_detection": {
+        "custom": true
+      }
+    }
   ]
 }

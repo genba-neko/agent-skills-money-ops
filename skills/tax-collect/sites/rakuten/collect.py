@@ -8,49 +8,56 @@
 
 注意:
     ログイン・絵文字認証は人間が手動で行う。
-    スクリプト起動後、ブラウザでログインを完了してから Enter を押すこと。
+    スクリプト起動後、ブラウザでログインしてください。ログイン完了を自動検出します。
 """
 
 from __future__ import annotations
 
 import argparse
-import json
-import random
 import sys
-import time
 from datetime import datetime
 from pathlib import Path
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.xml_to_json import convert_teg204_xml
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_LOGIN_URL = "https://www.rakuten-sec.co.jp/"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import extract_filename, wait as _wait
 
 class RakutenCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/rakuten/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     # ------------------------------------------------------------------
     # 手動ログイン待機
     # ------------------------------------------------------------------
     def _wait_for_login(self, page) -> None:
-        page.goto(_LOGIN_URL)
-        print(f"[{self.name}] ブラウザでログインしてください（絵文字認証含む）")
-        input("ログイン完了後、Enter を押してください: ")
+        def _is_dashboard(url: str) -> bool:
+            return (
+                "member.rakuten-sec.co.jp/app/" in url
+                and "Login" not in url
+                and "MhLogin" not in url
+            )
+
+        page.goto(self.config["login_url"])
+        page.wait_for_load_state("domcontentloaded")
+        _wait(1.5, 2.5)
+        if _is_dashboard(page.url):
+            print(f"[{self.name}] ログイン済みを検出 → スキップ")
+            self.dlog(f"URL: {page.url}")
+            return
+
+        # セッション切れ → ログインフォームへ
+        page.goto(self.config["login_url"])
+        page.wait_for_load_state("domcontentloaded")
+        print(f"[{self.name}] ブラウザでログインしてください（絵文字認証・二段階認証含む）（最大10分）")
+        page.wait_for_url(
+            lambda url: _is_dashboard(url),
+            timeout=600_000,
+        )
         _wait()
+        self.dlog(f"URL: {page.url}")
+        self.save_html(page, "01_after_login")
 
     # ------------------------------------------------------------------
     # 電子書面一覧ページへ移動
@@ -66,6 +73,8 @@ class RakutenCollector(BaseCollector):
         _wait()
         page.get_by_role("link", name="取引報告書等(電子書面)").first.click()
         _wait()
+        self.dlog(f"URL: {page.url}")
+        self.save_html(page, "report_list")
 
     # ------------------------------------------------------------------
     # 対象年度の行を特定してダウンロード
@@ -114,9 +123,7 @@ class RakutenCollector(BaseCollector):
                     try:
                         # Content-Disposition からオリジナルファイル名を取得
                         cd = response.headers.get("content-disposition", "")
-                        import re as _re
-                        m = _re.search(r'filename[^;=\n]*=([^;\n]*)', cd)
-                        fn = m.group(1).strip().strip('"\'') if m else ""
+                        fn = extract_filename(cd)
                         if not fn:
                             fn = request.url.rstrip("/").split("/")[-1].split("?")[0]
                         if not fn.lower().endswith(".pdf"):
@@ -154,60 +161,26 @@ class RakutenCollector(BaseCollector):
     # ------------------------------------------------------------------
     # JSON 変換
     # ------------------------------------------------------------------
-    def _convert_to_json(self, downloaded_files: list[str]) -> None:
-        year = self.config["target_year"]
-        xml_files = [f for f in downloaded_files if f.endswith(".xml")]
-        if not xml_files:
-            print(f"[{self.name}] XML が見つからないため JSON 変換をスキップします")
-            return
-
-        raw_files = [str(Path(f).name) for f in downloaded_files]
-        data = convert_teg204_xml(
-            xml_path=xml_files[0],
-            company=self.name,
-            code=self.code,
-            year=year,
-            raw_files=raw_files,
-        )
-
-        json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-        with open(json_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-        print(f"[{self.name}] JSON 保存: {json_path}")
-
-    # ------------------------------------------------------------------
     # メイン収集フロー
     # ------------------------------------------------------------------
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            self._wait_for_login(page)
-            self._navigate_to_report_list(page)
+    def _collect_core(self, page) -> None:
+        self._wait_for_login(page)
+        self._save_session_state(page)
+        self._navigate_to_report_list(page)
 
-            year = self.config["target_year"]
-            if page.locator(f"tr:has(td span:text-is('{year}'))").count() == 0:
-                self.log_result("skip", [], f"{year}年の取引報告書が存在しません")
-                return
+        year = self.config["target_year"]
+        if page.locator(f"tr:has(td span:text-is('{year}'))").count() == 0:
+            self.log_result("skip", [], f"{year}年の取引報告書が存在しません")
+            return
 
-            downloaded = self._download_files(page)
+        downloaded = self._download_files(page)
 
-            if not downloaded:
-                self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
-                return
+        if not downloaded:
+            self.log_result("skip", [], "ダウンロード対象ファイルが見つかりませんでした")
+            return
 
-            self._convert_to_json(downloaded)
-            self.log_result("success", downloaded)
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._convert_xml_to_json(downloaded)
+        self.log_result("success", downloaded)
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="楽天証券 年間取引報告書収集")
@@ -217,10 +190,10 @@ def main() -> None:
         default=None,
         help="対象年度（未指定時は site.json の target_year を使用）",
     )
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = RakutenCollector(year=args.year)
-    collector.collect()
-
-
+    collector = RakutenCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

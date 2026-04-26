@@ -10,7 +10,8 @@
     MUFGESMART_PASS     パスワード（未設定時は手動入力）
 
 注意:
-    ログイン後のワンタイム認証コード（メール）は必ず手動入力が必要。
+    ログイン後のワンタイム認証コード（メール）はブラウザで直接入力・送信してください。
+    スクリプトはブラウザの状態変化を自動検出します。
 
 実測済みページ構造（HAR確認済み）:
     page:  kabu.com（トップ）
@@ -34,35 +35,21 @@ PDF取得方式:
 from __future__ import annotations
 
 import argparse
+import sys
 import json
 import os
-import random
 import re
-import sys
-import time
 from pathlib import Path
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(_PROJECT_ROOT / "src"))
-
 from money_ops.collector.base import BaseCollector
-from money_ops.converter.pdf_to_json import convert_pdf_to_json
 
 _SITE_JSON = Path(__file__).parent / "site.json"
-_TOP_URL = "https://kabu.com/"
 
-
-def _wait(lo: float = 1.0, hi: float = 3.0) -> None:
-    time.sleep(random.uniform(lo, hi))
-
+from money_ops.utils import wait as _wait
 
 class MufgEsmartCollector(BaseCollector):
-    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None):
-        super().__init__(site_json_path)
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/mufg-esmart/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None, headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
 
     def _save_session(self, page) -> None:
         """cookie が存在する場合のみ storage_state.json を保存（空書き込みで既存 cookie 喪失を防ぐ）。"""
@@ -84,7 +71,7 @@ class MufgEsmartCollector(BaseCollector):
           - 認証後: mauth-sso callback → s20.si1.kabu.co.jp/members/
           - セッション有効時: Auth0 がフォームをスキップして直接 si1.kabu.co.jp へ
         """
-        page.goto(_TOP_URL)
+        page.goto(self.config["login_url"])
         page.wait_for_load_state("domcontentloaded")
         _wait(1.5, 2.5)
 
@@ -131,28 +118,27 @@ class MufgEsmartCollector(BaseCollector):
             )
             _wait(1.0, 2.0)
             if "mfa-email-challenge" in page1.url:
-                print(f"[{self.name}] ワンタイム認証コード（メール）を入力してください")
-                code = input("認証コード: ").strip()
-                page1.get_by_role("textbox", name="ワンタイム認証コード").fill(code)
-                page1.get_by_role("button", name="続ける").click()
+                print(f"[{self.name}] ワンタイム認証コード（メール）をブラウザに入力して送信してください（最大5分）")
                 page1.wait_for_url(
                     lambda u: "si1.kabu.co.jp" in u or "members" in u,
-                    timeout=60000,
+                    timeout=300_000,
                 )
                 _wait(2.0, 3.0)
         else:
-            print(f"[{self.name}] page1 でログインしてください（口座番号・パスワード・OTP まですべて完了後 Enter）")
-            input("完了後 Enter: ")
+            print(f"[{self.name}] page1 でログインしてください（口座番号・パスワード・OTP まですべて完了）（最大5分）")
             page1.wait_for_url(
                 lambda u: "si1.kabu.co.jp" in u or "members" in u,
-                timeout=60000,
+                timeout=300_000,
             )
             _wait(2.0, 3.0)
 
         # 契約書類再同意画面が挟まる場合は手動操作を促す
         if "KeiyakuSyoruiSaidoui" in page1.url or "Confirm" in page1.url:
-            print(f"[{self.name}] 契約書類再同意画面が表示されました。ブラウザで同意操作を完了してください")
-            input("完了後 Enter: ")
+            print(f"[{self.name}] 契約書類再同意画面が表示されました。ブラウザで同意操作を完了してください（最大5分）")
+            page1.wait_for_url(
+                lambda u: "KeiyakuSyoruiSaidoui" not in u and "Confirm" not in u,
+                timeout=300_000,
+            )
             _wait(2.0, 3.0)
 
         self._save_session(page)
@@ -274,56 +260,29 @@ class MufgEsmartCollector(BaseCollector):
         print(f"[{self.name}] PDF 保存: {pdf_path}")
         return str(pdf_path)
 
-    def collect(self) -> None:
-        page = self.launch_browser()
-        try:
-            year = self.config.get("target_year")
-            if year is None:
-                raise ValueError("target_year が設定されていません")
+    def _collect_core(self, page) -> None:
+        year = self.config.get("target_year")
+        if year is None:
+            raise ValueError("target_year が設定されていません")
 
-            page1 = self._open_trade_page(page)
-            self._navigate_to_pdf_report(page1)
+        page1 = self._open_trade_page(page)
+        self._navigate_to_pdf_report(page1)
 
-            pdf_path = self._download_pdf(page1, year)
-            if pdf_path is None:
-                self.log_result("error", [], "PDF 取得失敗")
-                return
+        pdf_path = self._download_pdf(page1, year)
+        if pdf_path is None:
+            self.log_result("error", [], "PDF 取得失敗")
+            return
 
-            try:
-                data = convert_pdf_to_json(
-                    pdf_path=pdf_path,
-                    company=self.name,
-                    code=self.code,
-                    year=year,
-                    raw_files=[str(Path(pdf_path).name)],
-                )
-                json_path = self.output_dir.parent / "nenkantorihikihokokusho.json"
-                with open(json_path, "w", encoding="utf-8") as f:
-                    json.dump(data, f, ensure_ascii=False, indent=2)
-                print(f"[{self.name}] JSON 保存: {json_path}")
-            except Exception as e:
-                print(f"[{self.name}] JSON 変換スキップ: {e}")
-
-            self.log_result("success", [pdf_path])
-
-        except KeyboardInterrupt:
-            print(f"\n[{self.name}] ユーザーによる中断")
-            self.log_result("interrupted", [], "ユーザーによる中断")
-        except Exception as e:
-            print(f"[{self.name}] エラー: {e}")
-            self.log_result("error", [], str(e))
-            raise
-        finally:
-            self.close_browser()
-
+        self._queue_pdf_to_json(pdf_path, [str(Path(pdf_path).name)])
+        self.log_result("success", [pdf_path])
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="MUFG eスマート証券 特定口座年間取引報告書収集")
     parser.add_argument("--year", type=int, default=None, help="対象年度（例: 2025）")
+    parser.add_argument("--headless", action=argparse.BooleanOptionalAction, default=None)
+    parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
-    collector = MufgEsmartCollector(year=args.year)
-    collector.collect()
-
-
+    collector = MufgEsmartCollector(year=args.year, headless=args.headless, debug=args.debug)
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()
