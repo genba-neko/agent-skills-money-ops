@@ -15,7 +15,7 @@ from pathlib import Path
 
 import pytest
 
-_FIXTURE_HTML = Path(__file__).parent / "fixtures" / "rakuten_elect_del_top.html"
+_FIXTURE_HTML = Path(__file__).resolve().parents[1] / "fixtures" / "rakuten_elect_del_top.html"
 
 
 @pytest.fixture(scope="module")

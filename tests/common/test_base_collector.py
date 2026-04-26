@@ -7,7 +7,7 @@ import pytest
 from money_ops.collector.base import BaseCollector
 
 
-SITE_JSON = Path(__file__).parent.parent / "skills" / "tax-collect" / "sites" / "rakuten" / "site.json"
+SITE_JSON = Path(__file__).resolve().parents[2] / "skills" / "tax-collect" / "sites" / "rakuten" / "site.json"
 
 
 def test_load_config():
