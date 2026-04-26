@@ -2,7 +2,7 @@
   "name": "SMBC日興証券",
   "code": "smbcnikko",
   "target_year": 2025,
-  "output_dir": "data/income/securities/smbcnikko/2025/raw/",
+  "output_dir": "data/incomes/securities/smbcnikko/{year}/raw/",
   "documents": [
     {
       "type": "特定口座年間取引報告書"

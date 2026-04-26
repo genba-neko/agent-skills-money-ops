@@ -22,7 +22,7 @@ python skills/tax-collect/run.py --year <YEAR> --sites sbi rakuten nomura
 python skills/tax-collect/run.py --year <YEAR> --fail-fast
 ```
 
-収集済み判定: `data/income/securities/<code>/<YEAR>/nenkantorihikihokokusho.json` の存在。
+収集済み判定: `data/incomes/securities/<code>/<YEAR>/nenkantorihikihokokusho.json` の存在。
 
 ## 個別実行
 
@@ -40,4 +40,4 @@ python skills/tax-collect/sites/webull/collect.py --year <YEAR>
 
 ## 出力先
 
-`data/income/securities/<code>/<YEAR>/`
+`data/incomes/securities/<code>/<YEAR>/`

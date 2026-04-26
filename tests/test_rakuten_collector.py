@@ -61,6 +61,7 @@ def test_init_override_year(tmp_path):
 def test_wait_for_login(tmp_path):
     collector = _make_collector(tmp_path)
     page = MagicMock()
+    page.url = "https://member.rakuten-sec.co.jp/app/Home.do"  # ログイン済みダッシュボード
 
     with patch.object(_mod, "_wait"), patch.object(collector, "prompt", return_value=""):
         collector._wait_for_login(page)

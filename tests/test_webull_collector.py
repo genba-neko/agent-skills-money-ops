@@ -33,17 +33,17 @@ def test_find_adb_serial_found(tmp_path):
 def test_find_adb_serial_not_found(tmp_path):
     c = _make(tmp_path)
     adb_output = "List of devices attached\n"
-    with patch.object(_mod, "_adb", return_value=adb_output):
-        with pytest.raises(RuntimeError, match="ADB デバイスが見つかりません"):
-            c._find_adb_serial()
+    with patch.object(_mod, "_adb", return_value=adb_output), patch.object(_mod.time, "sleep"):
+        with pytest.raises(RuntimeError, match="タイムアウト"):
+            c._find_adb_serial(max_wait_sec=0)
 
 
 def test_find_adb_serial_unauthorized(tmp_path):
     c = _make(tmp_path)
     adb_output = "List of devices attached\nabc123\tunauthorized\n"
-    with patch.object(_mod, "_adb", return_value=adb_output):
-        with pytest.raises(RuntimeError, match="ADB デバイスが見つかりません"):
-            c._find_adb_serial()
+    with patch.object(_mod, "_adb", return_value=adb_output), patch.object(_mod.time, "sleep"):
+        with pytest.raises(RuntimeError, match="タイムアウト"):
+            c._find_adb_serial(max_wait_sec=0)
 
 
 def test_snapshot_combines_dirs(tmp_path):

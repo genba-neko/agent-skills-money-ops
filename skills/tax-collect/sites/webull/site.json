@@ -2,7 +2,7 @@
   "name": "ウィブル証券",
   "code": "webull",
   "target_year": 2025,
-  "output_dir": "data/income/securities/webull/2025/raw/",
+  "output_dir": "data/incomes/securities/webull/{year}/raw/",
   "documents": [
     {
       "type": "特定口座年間取引報告書"

@@ -32,6 +32,7 @@ def test_year_month_patterns():
 def test_wait_for_login(tmp_path):
     c = _make(tmp_path)
     page = MagicMock()
+    page.locator.return_value.count.return_value = 1  # ログイン済み (frame[name='GM'] 検出)
     with patch.object(_mod, "_wait"), patch.object(c, "prompt", return_value=""):
         c._wait_for_login(page)
     page.goto.assert_called_once_with(c.config["login_url"])

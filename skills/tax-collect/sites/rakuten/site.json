@@ -2,7 +2,7 @@
   "name": "楽天証券",
   "code": "rakuten",
   "target_year": 2025,
-  "output_dir": "data/income/securities/rakuten/2025/raw/",
+  "output_dir": "data/incomes/securities/rakuten/{year}/raw/",
   "documents": [
     {
       "type": "特定口座年間取引報告書"

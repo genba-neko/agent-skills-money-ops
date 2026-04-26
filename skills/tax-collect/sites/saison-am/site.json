@@ -2,7 +2,7 @@
   "name": "セゾン投信",
   "code": "saison-am",
   "target_year": 2025,
-  "output_dir": "data/income/securities/saison-am/2025/raw/",
+  "output_dir": "data/incomes/securities/saison-am/{year}/raw/",
   "documents": [
     {
       "type": "特定口座年間取引報告書"
