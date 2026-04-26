@@ -1,4 +1,4 @@
-# #41 expense-collect スキル新設 + SBI 入出金明細 CSV 自動収集
+# #41 expense-collect スキル新設 + SBI 入出金明細 CSV 自動収集 [完了 PR#42 2026-04-27]
 
 ## 対象 issue
 
