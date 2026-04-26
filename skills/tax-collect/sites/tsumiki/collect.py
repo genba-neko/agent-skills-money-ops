@@ -26,6 +26,7 @@ PDF取得方式:
 from __future__ import annotations
 
 import argparse
+import sys
 import os
 import re
 from pathlib import Path
@@ -124,14 +125,14 @@ class TsumikiCollector(BaseCollector):
     def _find_report_button(self, page1, target_year: int):
         """特定口座年間取引報告書ボタンを年度で検索。
 
-        HAR 確認済み: ボタン名 = 「特定口座年間取引報告書 作成日 YYYY/MM/DD」
+        HAR 確認済み: 実 DOM は <div role="button" aria-label="特定口座年間取引報告書　作成日　YYYY/MM/DD　既読　報告書を新しいタブで開く">
+        → locator("a, button") では拾えない。get_by_role("button") なら role=button の div もマッチ。
+        作成年度 = target_year+1 （例: 2025年度の報告書は 2026/01/01 作成）。
         """
-        base = page1.locator("a, button")
-        btn = base.filter(has_text=re.compile(r"特定口座年間取引報告書")).filter(
-            has_text=re.compile(str(target_year + 1))
-        )
+        # まず作成年度 (target_year+1) で絞り込み、無ければ年度なしで検索
+        btn = page1.get_by_role("button", name=re.compile(rf"特定口座年間取引報告書.*{target_year + 1}"))
         if btn.count() == 0:
-            btn = base.filter(has_text=re.compile(r"特定口座年間取引報告書"))
+            btn = page1.get_by_role("button", name=re.compile(r"特定口座年間取引報告書"))
         return btn.first if btn.count() > 0 else None
 
     def _download_pdf_via_route(self, page1, target_year: int) -> str | None:
@@ -210,7 +211,6 @@ def main() -> None:
     parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
     collector = TsumikiCollector(year=args.year, headless=args.headless, debug=args.debug)
-    collector.run()
-
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

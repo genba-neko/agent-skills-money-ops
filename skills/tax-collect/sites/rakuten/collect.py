@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -193,7 +194,6 @@ def main() -> None:
     parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
     collector = RakutenCollector(year=args.year, headless=args.headless, debug=args.debug)
-    collector.run()
-
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

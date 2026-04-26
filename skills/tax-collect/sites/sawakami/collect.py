@@ -36,6 +36,7 @@ e-delivery フィルター:
 from __future__ import annotations
 
 import argparse
+import sys
 import json
 import os
 from pathlib import Path
@@ -222,7 +223,6 @@ def main() -> None:
     parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
     collector = SawakamiCollector(year=args.year, headless=args.headless, debug=args.debug)
-    collector.run()
-
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

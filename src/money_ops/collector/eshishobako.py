@@ -6,6 +6,7 @@ SBI・GMOクリック・野村・ひふみ投信で共通利用。
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from money_ops.utils import extract_filename, wait as _wait
@@ -14,20 +15,31 @@ _DPAW_URL_PATTERN = "**/DPAW010501020"
 
 
 def capture_dpaw_pdf(
-    popup, output_dir: Path, fallback_name: str, *, label: str = "eshishobako"
+    popup,
+    output_dir: Path,
+    fallback_name: str,
+    *,
+    label: str = "eshishobako",
+    button_name_pattern: re.Pattern[str] | str | None = None,
 ) -> str | None:
-    """「PDFファイル」ボタンをクリックし DPAW010501020 レスポンスを捕捉して保存する。
+    """指定ボタンをクリックし DPAW010501020 レスポンスを捕捉して保存する。
 
     Args:
         popup: e-shishobako SPA の Playwright Page オブジェクト
         output_dir: 保存先ディレクトリ（既に存在すること）
         fallback_name: Content-Disposition が取得できない場合のファイル名
         label: ログ出力用プレフィックス（呼び出し元の self.name を渡す）
+        button_name_pattern: クリック対象ボタンの role-name パターン。
+            None の場合は has_text="PDFファイル" でフィルタ（SBI/GMO/野村互換）。
+            同画面に複数 PDF ボタンが並ぶサイト（hifumi 等）は厳密パターン指定必須。
 
     Returns:
         保存したファイルパス（str）。失敗時は None。
     """
-    pdf_btn = popup.locator("button, a").filter(has_text="PDFファイル")
+    if button_name_pattern is not None:
+        pdf_btn = popup.get_by_role("button", name=button_name_pattern)
+    else:
+        pdf_btn = popup.locator("button, a").filter(has_text="PDFファイル")
     if pdf_btn.count() == 0:
         print(f"[{label}] PDF ボタンが見つかりません")
         return None
@@ -45,6 +57,7 @@ def capture_dpaw_pdf(
 
     popup.context.route(_DPAW_URL_PATTERN, _capture)
     try:
+        pdf_btn.first.scroll_into_view_if_needed()
         with popup.expect_popup() as pdf_popup_info:
             pdf_btn.first.click()
         pdf_popup = pdf_popup_info.value

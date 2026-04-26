@@ -38,6 +38,7 @@ class BaseCollector:
         self.headless: bool = headless if headless is not None else _is_headless()
         self.debug: bool = debug if debug is not None else _is_debug()
         self._debug_seq: int = 0  # HTML採取連番
+        self._final_status: str | None = None  # 最終 log_result の status を保持（exit code 判定用）
         if year is not None:
             self.config["target_year"] = year
             self.config["output_dir"] = f"data/income/securities/{self.code}/{year}/raw/"
@@ -193,6 +194,7 @@ class BaseCollector:
         with open(log_path, "w", encoding="utf-8") as f:
             json.dump(history, f, ensure_ascii=False, indent=2)
 
+        self._final_status = status
         print(f"[{self.name}] {status}: {message or ', '.join(files)}")
 
     def _save_session_state(self, page) -> None:
@@ -277,7 +279,11 @@ class BaseCollector:
     def _collect_core(self, page) -> None:
         raise NotImplementedError("_collect_core() をサブクラスで実装してください")
 
-    def run(self) -> None:
+    def run(self) -> int:
+        """ブラウザ起動 → _collect_core 実行 → 結果から exit code 返す。
+        success/skip → 0、error/interrupted → 1（run.py 一括ランナーで判定）。
+        skip は「対象書類なし」等の正常系（取引なし等）として 0 扱い。
+        """
         page = self.launch_browser()
         try:
             self._collect_core(page)
@@ -287,6 +293,8 @@ class BaseCollector:
         except Exception as e:
             print(f"[{self.name}] エラー: {e}")
             self.log_result("error", [], str(e))
+            self.close_browser()
             raise
         finally:
             self.close_browser()
+        return 0 if self._final_status in ("success", "skip") else 1

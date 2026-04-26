@@ -29,6 +29,7 @@ PDF取得方式（T-13方式: context.request 直接フェッチ）:
 from __future__ import annotations
 
 import argparse
+import sys
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -192,7 +193,6 @@ def main() -> None:
     parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
     collector = NomuraMochikabuCollector(year=args.year, headless=args.headless, debug=args.debug)
-    collector.run()
-
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()

@@ -27,6 +27,7 @@ PDF取得方式:
 from __future__ import annotations
 
 import argparse
+import sys
 import re
 from pathlib import Path
 
@@ -67,9 +68,10 @@ class HifumiCollector(BaseCollector):
         self.dlog(f"page1 URL: {page1.url}")
 
         print(f"[{self.name}] page1 でログインしてください（loginId・パスワード・取引パスワード）（最大5分）")
-        # login.jsp → login.do への URL 変化でダッシュボード到達を検出
-        # a:has-text('残高照会') は DOM に複数存在し visible=false のため使用不可
-        page1.wait_for_url("**/wsys/login.do**", timeout=300_000)
+        # ダッシュボード描画完了を「各種資料（報告書）」link visible で検出（5分タイムアウト）。
+        # URL 変化（login.jsp→login.do）はセッション cookie 残存時に手動入力前に発火して
+        # しまう（=login.do に自動遷移しても再ログイン画面の場合あり）→ URL 待機は使わない。
+        page1.get_by_role("link", name="各種資料（報告書）").first.wait_for(state="visible", timeout=300_000)
         _wait(2.0, 3.0)
 
         # session cookie 明示保存（persistent profile だけでは session cookie が消える）
@@ -95,17 +97,19 @@ class HifumiCollector(BaseCollector):
             page1.wait_for_load_state("domcontentloaded")
             _wait(1.5, 2.5)
             self.save_html(page1, "after_kakushu_shiryo")
-            with page1.expect_popup() as popup2_info:
-                page1.get_by_role("link", name="閲覧する").nth(1).click()
         else:
-            # 各種資料リンクが見つからない場合は shishyobakoRedirect へ直接
-            print(f"[{self.name}] 各種資料リンク未検出 → shishyobakoRedirect を直接クリック")
-            with page1.expect_popup() as popup2_info:
-                page1.locator("a[href*='shishyobakoRedirect']").first.click()
+            print(f"[{self.name}] 各種資料リンク未検出 → 直接 shishyobakoRedirect を試行")
+
+        # 「閲覧する」は nth(1) で順序依存 → href ロケートに統一
+        # （HAR 確認: target="_blank" rel="noopener" で popup 開く設計）
+        shishobako_link = page1.locator("a[href*='shishyobakoRedirect']")
+        shishobako_link.first.wait_for(state="visible", timeout=15000)
+        with page1.expect_popup() as popup2_info:
+            shishobako_link.first.click()
         page2 = popup2_info.value
 
-        # shishyobakoRedirect.do → e-shishobako Angular SPA へのリダイレクト完了待機
-        page2.wait_for_url("**/dp_apl/usr/**", timeout=30000)
+        # 4段リダイレクト（shishyobakoRedirect → SSO → DPAW010501000 → /dp_apl/usr/）+ Angular SPA 初期化 → 60s
+        page2.wait_for_url("**/dp_apl/usr/**", timeout=60000)
         page2.wait_for_selector("input, button", timeout=30000)
         _wait(2.0, 3.0)
         self.dlog(f"page2 URL: {page2.url}")
@@ -141,20 +145,17 @@ class HifumiCollector(BaseCollector):
         _wait(1.5, 2.5)
         self.save_html(page2, "after_report_button")
 
-        # Angular ルーター遷移後、「PDFファイル」ボタンが visible になるまで待機
+        # Angular ルーター遷移後、「特定口座年間取引報告書...PDFファイル」ボタン visible 待機。
+        # 詳細画面には PDF ボタン複数（投資信託等）並ぶため、has_text="PDFファイル" のみだと
+        # .first が hidden な別 PDF ボタンを掴む可能性 → 厳密パターンで一意特定。
+        target_pdf_pattern = re.compile(r"特定口座年間取引報告書.*PDFファイル")
         try:
-            page2.get_by_role("button").filter(has_text="PDFファイル").first.wait_for(
+            page2.get_by_role("button", name=target_pdf_pattern).first.wait_for(
                 state="visible", timeout=15000
             )
         except Exception:
-            # fallback: link として存在する場合
-            try:
-                page2.get_by_role("link").filter(has_text="PDFファイル").first.wait_for(
-                    state="visible", timeout=10000
-                )
-            except Exception:
-                self.dlog("「PDFファイル」ボタンが visible になりませんでした")
-                return False
+            self.dlog("「特定口座年間取引報告書...PDFファイル」ボタンが visible になりませんでした")
+            return False
         _wait()
         return True
 
@@ -174,8 +175,11 @@ class HifumiCollector(BaseCollector):
             return
 
         self.prepare_directory()
+        # hifumi の詳細画面には PDF ボタン複数（投資信託・特定口座等）並ぶ →
+        # 「特定口座年間取引報告書...PDFファイル」を厳密マッチ（has_text のみだと .first が誤選択）
         pdf_path = capture_dpaw_pdf(
-            page2, self.output_dir, f"{year}_hifumi_nentori.pdf", label=self.name
+            page2, self.output_dir, f"{year}_hifumi_nentori.pdf", label=self.name,
+            button_name_pattern=re.compile(r"特定口座年間取引報告書.*PDFファイル"),
         )
         if pdf_path is None:
             self.log_result("error", [], "PDF 捕捉失敗")
@@ -191,7 +195,6 @@ def main() -> None:
     parser.add_argument("--debug", action=argparse.BooleanOptionalAction, default=None)
     args = parser.parse_args()
     collector = HifumiCollector(year=args.year, headless=args.headless, debug=args.debug)
-    collector.run()
-
+    sys.exit(collector.run())
 if __name__ == "__main__":
     main()
