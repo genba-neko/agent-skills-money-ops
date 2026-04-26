@@ -240,41 +240,18 @@ if year is not None:
 
 ## 実装タスク
 
-- [ ] **コミット 1**: `docs/` 作成 + README_*.md 移動・改名
-  - [ ] `README_ADB.md` → `docs/adb-setup.md`
-  - [ ] `README_PDFCONV.md` → `docs/pdf-extraction-benchmark.md`
-- [ ] **コミット 2**: `docs/naming-rules.md` 作成
-- [ ] **コミット 3**: data/expense → expenses
-  - [ ] 実データ mv（既存 data/expenses/cards/ と統合）
-  - [ ] `expense-collect` 配下 path 一括置換
-- [ ] **コミット 4**: data/browser → browser-backups
-  - [ ] 実データ mv
-  - [ ] `tools/browser_profile.py` の `_BACKUP_DIR` 修正
-- [ ] **コミット 5**: data/income → incomes + base.py hardcode 適正化
-  - [ ] 実データ mv
-  - [ ] `src/money_ops/collector/base.py` の output_dir 解決を `{year}` placeholder format 化
-  - [ ] `skills/tax-collect/sites/*/site.json` 全15サイト: output_dir を `data/incomes/.../{year}/raw/` に変更
-  - [ ] `skills/expense-collect/sites/sbi/site.json`: output_dir を `data/expenses/.../{year}/raw/` に変更
-  - [ ] `skills/expense-collect/sites/sbi/collect.py`: subclass override 削除
-  - [ ] `skills/tax-collect/{convert_worker.py,SKILL.md,README.md}` path 修正
-- [ ] **事前確認 (コミット 6 前)**: 全 `tests/test_*.py` の import / class 参照確認（プロジェクト内 module 名に影響あるか grep）
-- [ ] **コミット 6**: tests/ スキル単位サブディレクトリ化
-  - [ ] `tests/{common,tax_collect,expense_collect}/__init__.py` 作成
-  - [ ] 共通テスト 5件 → `tests/common/` に `git mv`
-  - [ ] tax-collect サイトテスト 16件 → `tests/tax_collect/` に `git mv` + `_collector` suffix 削除 + ハイフンくっつけ統一
-  - [ ] `pytest tests/` で全テスト discovery 確認
-- [ ] **コミット 7**: tax-recorder → browser-recorder
-  - [ ] `skills/tax-collect/recorder.py` → `tools/browser_recorder.py`
-  - [ ] `parents[2]` → `parents[1]` 修正
-  - [ ] docstring 修正:
-    - line 1: `tax-collect サイト追加用` → `サイト追加用`
-    - line 4: `python skills/tax-collect/recorder.py` → `python tools/browser_recorder.py`
-  - [ ] `.workbench/alias_rules`: `tax-recorder` → `browser-recorder`
-- [ ] 動作確認
-  - [ ] `python tools/browser_profile.py backup --code sbi --yes` → `data/browser-backups/sbi_*.zip`
-  - [ ] `python tools/browser_recorder.py --code dummy --start-url about:blank`（起動確認）
-  - [ ] `pytest tests/`（全テスト通過）
-  - [ ] **必須**: `python skills/expense-collect/run.py --year 2025 --sites sbi --force` → `data/expenses/sbi/2025/raw/` に CSV 出力確認
+- [x] **コミット 1**: `docs/` 作成 + README_*.md 移動・改名
+- [x] **コミット 2**: `docs/naming-rules.md` 作成
+- [x] **コミット 3**: data/expense → expenses
+- [x] **コミット 4**: data/browser → browser-backups
+- [x] **コミット 5**: data/income → incomes + base.py hardcode 適正化（既存テスト 6件 修正含む）
+- [x] **コミット 6**: tests/ スキル単位サブディレクトリ化（rename 21件・path 解決 4件修正）
+- [x] **コミット 7**: tax-recorder → browser-recorder
+- 動作確認
+  - [x] `python tools/browser_profile.py backup --code sbi --yes` → `data/browser-backups/sbi_*.zip`
+  - [x] `python tools/browser_recorder.py --help` 起動確認
+  - [x] `pytest tests/` → 294 passed
+  - [ ] expense-collect 実機収集確認（要ブラウザログイン、後ほどユーザー実施）
 
 ---
 
