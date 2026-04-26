@@ -3,11 +3,11 @@
 使い方:
     # 全 code バックアップ
     python tools/browser_profile.py backup
-    # → data/browser/all_YYYY-MM-DD.zip
+    # → data/browser-backups/all_YYYY-MM-DD.zip
 
     # 特定 code バックアップ
     python tools/browser_profile.py backup --code sbi
-    # → data/browser/sbi_YYYY-MM-DD.zip
+    # → data/browser-backups/sbi_YYYY-MM-DD.zip
 
     # 全 code リストア（最新 all_*.zip 自動選択）
     python tools/browser_profile.py restore
@@ -16,13 +16,13 @@
     python tools/browser_profile.py restore --code sbi
 
     # ファイル明示指定
-    python tools/browser_profile.py restore --file data/browser/sbi_2026-04-27.zip
+    python tools/browser_profile.py restore --file data/browser-backups/sbi_2026-04-27.zip
 
     # 確認スキップ
     python tools/browser_profile.py restore --yes
 
 profile 保存先: ~/.money-ops-browser/<code>/
-backup 保存先: <project>/data/browser/
+backup 保存先: <project>/data/browser-backups/
 """
 
 from __future__ import annotations
@@ -37,7 +37,7 @@ from pathlib import Path
 
 _PROJECT_ROOT = Path(__file__).resolve().parents[1]
 _PROFILE_ROOT = Path.home() / ".money-ops-browser"
-_BACKUP_DIR = _PROJECT_ROOT / "data" / "browser"
+_BACKUP_DIR = _PROJECT_ROOT / "data" / "browser-backups"
 _LOCK_FILES = ("SingletonLock", "SingletonCookie", "SingletonSocket", "lockfile")
 _CODE_RE = re.compile(r"^[a-z0-9-]+$")
 
