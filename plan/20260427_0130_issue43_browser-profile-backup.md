@@ -73,13 +73,13 @@ browser-restore  $VENV_PYTHON $PROJECT_ROOT/tools/browser_profile.py restore @ar
 
 ## 実装タスク
 
-- [ ] `tools/browser_profile.py` 新設
+- [x] `tools/browser_profile.py` 新設
   - argparse で backup / restore サブコマンド
-  - backup: 全 or 単一 code を zip 化
+  - backup: 全 or 単一 code を zip 化（空ディレクトリも entry 記録）
   - restore: 最新 zip 自動選択 or --file 指定
   - 上書き確認プロンプト + `--yes` オプション
-- [ ] `.workbench/alias_rules` に browser-backup / browser-restore 追加
-- [ ] 動作確認: backup → 一旦 profile 削除 → restore で復元
+- [x] `.workbench/alias_rules` に browser-backup / browser-restore 追加
+- [x] 動作確認: backup → profile 削除 → restore で復元（diff -rq 完全一致確認済）
 
 ---
 
