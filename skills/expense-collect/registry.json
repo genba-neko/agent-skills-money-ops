@@ -1,0 +1,14 @@
+{
+  "accounts": [
+    {
+      "code": "sbi",
+      "name": "SBI証券（入出金明細）",
+      "document_type": "入出金明細",
+      "site_url": "https://www.sbisec.co.jp/",
+      "login_url": "https://www.sbisec.co.jp/ETGate/",
+      "dashboard_url": "https://site2.sbisec.co.jp/ETGate/",
+      "history_url": "https://member.c.sbisec.co.jp/banking/yen/detail-history",
+      "collection": "auto"
+    }
+  ]
+}
