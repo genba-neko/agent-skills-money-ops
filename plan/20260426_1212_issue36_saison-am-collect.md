@@ -1,8 +1,8 @@
-# #36 セゾン投信 特定口座年間取引報告書 自動収集スクリプト実装
+# #36 セゾン投信 特定口座年間取引報告書 自動収集スクリプト実装 [完了 PR#38 2026-04-27]
 
 ## 対象 issue
 
-[#36](https://github.com/genba-neko/agent-skills-money-ops/issues/35)
+[#36](https://github.com/genba-neko/agent-skills-money-ops/issues/36)
 
 ---
 
