@@ -23,6 +23,11 @@ def _is_debug() -> bool:
     return os.environ.get("DEBUG", "false").lower() == "true"
 
 
+def _is_trace() -> bool:
+    """TRACE=true で Playwright trace.zip + network.har を採取（診断用）"""
+    return os.environ.get("TRACE", "false").lower() == "true"
+
+
 class BaseCollector:
     def __init__(
         self,
@@ -39,6 +44,8 @@ class BaseCollector:
         self.debug: bool = debug if debug is not None else _is_debug()
         self._debug_seq: int = 0  # HTML採取連番
         self._final_status: str | None = None  # 最終 log_result の status を保持（exit code 判定用）
+        self.trace: bool = _is_trace()
+        self._trace_dir: Path | None = None
         if year is not None:
             self.config["target_year"] = year
             self.config["output_dir"] = f"data/income/securities/{self.code}/{year}/raw/"
@@ -115,19 +122,31 @@ class BaseCollector:
         if any(profile_dir.iterdir()):
             print(f"[{self.name}] ブラウザプロファイル復元: {profile_dir}")
 
+        # TRACE=true で診断用に trace.zip + HAR 採取
+        launch_kwargs: dict = {
+            "headless": self.headless,
+            "args": [
+                "--disable-blink-features=AutomationControlled",
+                "--use-angle=d3d11",
+            ],
+            "ignore_default_args": ["--enable-automation"],
+        }
+        if self.trace:
+            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+            self._trace_dir = Path("output") / "trace" / self.code / ts
+            self._trace_dir.mkdir(parents=True, exist_ok=True)
+            launch_kwargs["record_har_path"] = str(self._trace_dir / "network.har")
+            print(f"[{self.name}] TRACE 有効: {self._trace_dir}")
+
         # persistent context でブラウザ全状態（cookies・IndexedDB・端末登録等）を永続化
         # --use-angle=d3d11 で実機 GPU（DirectX11）を使い Canvas/WebGL フィンガープリントを実機 Chrome と一致させる
         # （デフォルトの SwiftShader はソフトウェアレンダラーのためフィンガープリントが毎回異なり
         #   金融サイトのデバイス認識が通らない）
         self._context = self._playwright.chromium.launch_persistent_context(
-            str(profile_dir),
-            headless=self.headless,
-            args=[
-                "--disable-blink-features=AutomationControlled",
-                "--use-angle=d3d11",
-            ],
-            ignore_default_args=["--enable-automation"],
+            str(profile_dir), **launch_kwargs
         )
+        if self.trace:
+            self._context.tracing.start(screenshots=True, snapshots=True, sources=True)
         self._page = self._context.new_page()
         self._restore_session_cookies()
         # 全ページのナビゲーションをアクセスログに記録
@@ -165,6 +184,15 @@ class BaseCollector:
         print(f"[{self.name}] cookie {len(cookies)}件を復元しました")
 
     def close_browser(self) -> None:
+        # tracing 停止（context.close() より前に呼ぶ必要あり）
+        if self.trace and hasattr(self, "_context") and self._trace_dir is not None:
+            try:
+                trace_path = self._trace_dir / "trace.zip"
+                self._context.tracing.stop(path=str(trace_path))
+                print(f"[{self.name}] trace.zip 保存: {trace_path}")
+                print(f"[{self.name}] 再生: npx playwright show-trace {trace_path}")
+            except Exception as e:
+                print(f"[{self.name}] tracing 停止失敗: {e}")
         if hasattr(self, "_context"):
             self._context.close()
         if hasattr(self, "_playwright"):
