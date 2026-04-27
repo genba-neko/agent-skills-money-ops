@@ -4,7 +4,7 @@
 
 | 対象 | 規則 | 例 |
 |------|------|-----|
-| ディレクトリ（データ置き場） | **複数形基準** | `data/expenses/`, `data/incomes/`, `data/screenshots/` |
+| ディレクトリ（データ置き場） | **複数形基準** + カテゴリ階層 | `data/{expenses,incomes}/<category>/<code>/<year>/raw/` |
 | ディレクトリ（不可算 / 内容名） | 単数 OK（内容を表す名前） | `data/browser-backups/`（zip 置き場） |
 | スキル名 | 単数（動作主体表現） | `tax-collect`, `expense-collect`, `tax-etax` |
 | サイトコード | 小文字 + ハイフン区切り | `gmo-click`, `nomura-mochikabu`, `daiwa-connect` |
@@ -23,9 +23,24 @@
 
 スキルは「動作主体」を表す。`expense-collect` = 「支出を収集する」という動詞句で、対象データの単複は問わない。
 
-### データ置き場は複数
+### データ置き場は複数 + カテゴリ階層
 
 `data/expenses/` は「複数の支出データの集合」を保管する場所。REST API endpoint（`/users`, `/orders`）と同じ慣習。
+
+直下に `<code>/` を置かず、必ず `<category>/<code>/<year>/raw/` の階層を取る:
+
+```
+data/
+├── incomes/
+│   ├── securities/<code>/<year>/raw/        # 証券会社
+│   ├── crowdfunding/<code>/<year>/raw/      # クラウドファンディング
+│   └── fx/<code>/<year>/raw/                # FX
+└── expenses/
+    ├── securities/<code>/<year>/raw/        # 証券会社の入出金明細
+    └── cards/<code>/<year>/raw/             # クレジットカード（将来）
+```
+
+カテゴリ名は `incomes/`/`expenses/` 双方で統一。新規 code 追加時は `registry.json` に `category` field を持たせ、各 collector の `site.json` で `output_dir` に `<category>` を含める。
 
 ### 不可算名詞・内容名は単数
 

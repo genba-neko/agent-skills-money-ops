@@ -257,6 +257,23 @@ if year is not None:
   - [x] base.py {year} placeholder 展開テスト追加
   - [x] conftest skill 引数対応 + expense_collect/test_sbi.py 追加
   - [x] expense-collect/sbi __init__ 復活 (site_json_path デフォルト)
+- 追加検証・追加対応（コミット 12-14）
+  - [x] tax-collect 他社実機検証: rakuten (PDF+XML) / hifumi (PDF only) 両パターン正常収集
+  - [x] browser_recorder 実 record session 検証 (nomura): event 捕捉・出力 OK
+    - 副次修正: `input()` EOFError 即停止 → `stop_event.wait()` 待機継続
+      （background/パイプ起動でも q+Enter なしで動作可、ブラウザ閉じ or Ctrl+C で停止）
+  - [x] **expenses/ カテゴリ階層化** (incomes 構造との不整合解消)
+    - `data/expenses/sbi/` → `data/expenses/securities/sbi/`
+    - registry.json に `category` field、run.py `is_collected(category, code, year)` 拡張
+    - 実機確認: `data/expenses/securities/sbi/2025/raw/CSV` 出力 OK
+
+---
+
+## 既知の残課題（別 issue / 別 PR）
+
+- **#47**: browser_recorder のブラウザ × 閉じ時 trace.zip 救済
+  - `tracing.start(live=True)` + `traces_dir` で対応予定
+  - 本 PR 範囲外、PR #46 マージ後に着手
 
 ---
 
