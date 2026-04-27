@@ -32,6 +32,10 @@ _SITE_JSON = Path(__file__).parent / "site.json"
 
 
 class SBIExpenseCollector(BaseCollector):
+    def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None,
+                 headless: bool | None = None, debug: bool | None = None):
+        super().__init__(site_json_path, year, headless=headless, debug=debug)
+
     def _build_date_range(self) -> tuple[str, str]:
         """target_year に応じた検索期間を返す（過去年=1/1〜12/31、当年=1/1〜今日 試行）。
         当年の場合、まず 12/31 試行 → サイト拒否時は今日にフォールバック（呼び出し側で再試行）。
