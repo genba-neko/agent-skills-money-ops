@@ -1,0 +1,14 @@
+{
+  "name": "野村證券（取引履歴）",
+  "code": "nomura",
+  "target_year": 2025,
+  "output_dir": "data/expenses/securities/nomura/{year}/raw/",
+  "documents": [
+    {
+      "type": "取引履歴"
+    }
+  ],
+  "login_url": "https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do",
+  "history_url": "https://hometrade.nomura.co.jp/web/rmfAstTrhTrhLstInitAction.do",
+  "converter_type": "csv"
+}

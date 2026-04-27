@@ -121,13 +121,11 @@ recorder ではダッシュボード経由「資産状況/履歴」→「取引/
 
 ## 実装タスク
 
-- [ ] `skills/expense-collect/sites/nomura/site.json` 作成
-- [ ] `skills/expense-collect/sites/nomura/collect.py` 作成
-  - SBIExpenseCollector 参考、ログイン検出は tax-collect/nomura 参考
-- [ ] `skills/expense-collect/registry.json` に nomura entry 追加
-- [ ] 実機収集テスト (`python skills/expense-collect/run.py --year 2025 --sites nomura --force`)
-- [ ] `data/expenses/securities/nomura/2025/raw/*.csv` 出力確認
-- [ ] PR 作成・マージ
+- [x] `skills/expense-collect/sites/nomura/site.json` 作成
+- [x] `skills/expense-collect/sites/nomura/collect.py` 作成
+- [x] `skills/expense-collect/registry.json` に nomura entry 追加
+- [x] 実機収集テスト → `data/expenses/securities/nomura/2025/raw/New_file.csv` 保存 OK
+- [x] PR 作成・マージ
 
 ---
 
