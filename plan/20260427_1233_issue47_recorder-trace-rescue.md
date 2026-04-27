@@ -99,7 +99,11 @@ trace データ救済可能を明示:
   - [x] Trace Viewer (`npx playwright show-trace trace.zip`) で再生 OK
     （22秒分スクショ・network 233件・操作 timeline 完全再現）
   - [x] 自動 zip 化後の trace.zip 4.9MB 生成
-- [ ] HAR の挙動調査（× 閉じで network.har は flush されないが trace.zip 内 network 情報で代替可能）
+- [x] HAR の挙動調査済
+  - × 閉じ時 `network.har` ファイル自体作成されない（Playwright が close 時 flush するため）
+  - 代替: trace.zip 内 network 情報で完全代替可能
+    （Trace Viewer の Network タブで実機 233 件のリクエスト確認済）
+  - HAR ファイル独立救済は Playwright API 制約により不可、対応見送り
 - [x] プラン完了マーク
 
 ---
