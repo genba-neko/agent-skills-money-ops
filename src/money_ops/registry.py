@@ -11,7 +11,7 @@ def load_registry() -> dict:
 
 def get_company(code: str) -> dict:
     registry = load_registry()
-    for company in registry["securities"]:
+    for company in registry["accounts"]:
         if company["code"] == code:
             return company
     raise KeyError(f"会社コード '{code}' が registry.json に見つかりません")
@@ -19,4 +19,4 @@ def get_company(code: str) -> dict:
 
 def list_auto_companies() -> list[dict]:
     registry = load_registry()
-    return [c for c in registry["securities"] if c["collection"] == "auto"]
+    return [c for c in registry["accounts"] if c["collection"] == "auto"]

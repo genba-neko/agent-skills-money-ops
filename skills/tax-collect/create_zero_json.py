@@ -26,12 +26,12 @@ _CURRENT_YEAR = datetime.now().year
 
 def load_registry() -> list[dict]:
     data = json.loads(_REGISTRY.read_text(encoding="utf-8"))
-    return data["securities"]
+    return data["accounts"]
 
 
-def json_path(code: str, year: int) -> Path:
+def json_path(category: str, code: str, year: int) -> Path:
     return (
-        _PROJECT_ROOT / "data" / "incomes" / "securities"
+        _PROJECT_ROOT / "data" / "incomes" / category
         / code / str(year) / "nenkantorihikihokokusho.json"
     )
 
@@ -169,7 +169,7 @@ def main() -> None:
         targets = [
             s for s in sites
             if s.get("document_type") == _TOKUTEI
-            and not json_path(s["code"], args.year).exists()
+            and not json_path(s.get("category", "securities"), s["code"], args.year).exists()
         ]
 
     if not targets:
@@ -179,7 +179,8 @@ def main() -> None:
     created, skipped = [], []
     for site in targets:
         code = site["code"]
-        out = json_path(code, args.year)
+        category = site.get("category", "securities")
+        out = json_path(category, code, args.year)
 
         if out.exists() and not args.force:
             print(f"[SKIP] {code}: 既存 ({out})")

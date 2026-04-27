@@ -30,21 +30,21 @@ _VALID_CODE = re.compile(r"^[a-z0-9-]+$")
 _CURRENT_YEAR = datetime.now().year
 
 
-def load_sites() -> list[dict]:
+def load_accounts() -> list[dict]:
     try:
         data = json.loads(_REGISTRY.read_text(encoding="utf-8"))
-        sites = data["securities"]
-        if not isinstance(sites, list):
-            raise TypeError("securities が list でない")
-        return sites
+        accounts = data["accounts"]
+        if not isinstance(accounts, list):
+            raise TypeError("accounts が list でない")
+        return accounts
     except (json.JSONDecodeError, KeyError, TypeError) as e:
         print(f"[ERROR] registry.json 読み込み失敗: {e}")
         sys.exit(1)
 
 
-def is_collected(code: str, year: int) -> bool:
+def is_collected(category: str, code: str, year: int) -> bool:
     json_path = (
-        _PROJECT_ROOT / "data" / "incomes" / "securities"
+        _PROJECT_ROOT / "data" / "incomes" / category
         / code / str(year) / "nenkantorihikihokokusho.json"
     )
     return json_path.exists() and json_path.stat().st_size > 0
@@ -106,7 +106,7 @@ def main() -> None:
         print(f"[ERROR] 年度が範囲外: {args.year}")
         sys.exit(1)
 
-    sites = load_sites()
+    accounts = load_accounts()
 
     if args.sites:
         for code in args.sites:
@@ -114,14 +114,14 @@ def main() -> None:
                 print(f"[ERROR] 不正なコード: {code}")
                 sys.exit(1)
         codes = list(dict.fromkeys(args.sites))  # 重複除去・順序保持
-        unknown = set(codes) - {s["code"] for s in sites}
+        unknown = set(codes) - {a["code"] for a in accounts}
         if unknown:
             print(f"[ERROR] 不明な会社コード: {', '.join(sorted(unknown))}")
             sys.exit(1)
-        site_map = {s["code"]: s for s in sites}
-        sites = [site_map[c] for c in codes]
+        account_map = {a["code"]: a for a in accounts}
+        accounts = [account_map[c] for c in codes]
 
-    if not sites:
+    if not accounts:
         print("[WARN] 実行対象サイトなし")
         sys.exit(0)
 
@@ -129,19 +129,20 @@ def main() -> None:
     stop = False
 
     try:
-        for site in sites:
+        for account in accounts:
             if stop:
                 break
-            code = site["code"]
-            name = site["name"]
-            collection = site.get("collection")
+            code = account["code"]
+            name = account["name"]
+            category = account.get("category", "securities")
+            collection = account.get("collection")
 
             if collection not in ("auto", "android"):
                 print(f"\n[SKIP] {code} ({name}): 未対応の収集方式 ({collection!r})")
                 results["skip"].append(code)
                 continue
 
-            if not args.force and is_collected(code, args.year):
+            if not args.force and is_collected(category, code, args.year):
                 print(f"\n[DONE] {code} ({name}): 収集済み（スキップ）")
                 results["done"].append(code)
                 continue
