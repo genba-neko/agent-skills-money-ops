@@ -1,0 +1,1598 @@
+{
+  "_meta": {
+    "form_code": "KOA130",
+    "source_ver": "Ver9",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOA130-1",
+      "KOA130-2"
+    ]
+  },
+  "fields": {
+    "AKR00000": {
+      "label": "有限責任事業組合",
+      "path": [
+        "有限責任事業組合"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AKA00000": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "AKB00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "AKB00020": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKB00030": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "AKB00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "AKB00050": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "AKB00060": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "AKC00000": {
+      "label": "依頼税理士等",
+      "path": [
+        "依頼税理士等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKC00010": {
+      "label": "事務所所在地",
+      "path": [
+        "事務所所在地"
+      ],
+      "type": "address",
+      "enum": "DAIRI_ADR"
+    },
+    "AKC00020": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "AKC00030": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "AKE00000": {
+      "label": "提出年月日",
+      "path": [
+        "提出年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "TEISYUTSU_DAY"
+    },
+    "AKF00000": {
+      "label": "事業期間",
+      "path": [
+        "事業期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKF00010": {
+      "label": "事業期間（自）",
+      "path": [
+        "事業期間（自）"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "AKF00020": {
+      "label": "事業期間（至）",
+      "path": [
+        "事業期間（至）"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "AKG00000": {
+      "label": "収支内訳",
+      "path": [
+        "収支内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKG00010": {
+      "label": "追加科目名",
+      "path": [
+        "追加科目名"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AKG00020": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKG00030": {
+      "label": "賃貸料",
+      "path": [
+        "賃貸料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00040": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKG00050": {
+      "label": "礼金・権利金・更新料",
+      "path": [
+        "礼金・権利金・更新料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00060": {
+      "label": "名義書換料その他",
+      "path": [
+        "名義書換料その他"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00070": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00080": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00090": {
+      "label": "経費",
+      "path": [
+        "経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKG00100": {
+      "label": "給料賃金",
+      "path": [
+        "給料賃金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00110": {
+      "label": "減価償却費",
+      "path": [
+        "減価償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00120": {
+      "label": "貸倒金",
+      "path": [
+        "貸倒金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00130": {
+      "label": "地代家賃",
+      "path": [
+        "地代家賃"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00140": {
+      "label": "借入金利子",
+      "path": [
+        "借入金利子"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00150": {
+      "label": "その他の経費",
+      "path": [
+        "その他の経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKG00160": {
+      "label": "租税公課",
+      "path": [
+        "租税公課"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00170": {
+      "label": "損害保険料",
+      "path": [
+        "損害保険料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00180": {
+      "label": "修繕費",
+      "path": [
+        "修繕費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00190": {
+      "label": "追加科目の金額",
+      "path": [
+        "追加科目の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00200": {
+      "label": "雑費",
+      "path": [
+        "雑費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00210": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00220": {
+      "label": "経費計",
+      "path": [
+        "経費計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00230": {
+      "label": "専従者控除前の所得金額",
+      "path": [
+        "専従者控除前の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00240": {
+      "label": "専従者控除",
+      "path": [
+        "専従者控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00250": {
+      "label": "所得金額（上段）",
+      "path": [
+        "所得金額（上段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00255": {
+      "label": "所得金額（下段）",
+      "path": [
+        "所得金額（下段）"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AKG00260": {
+      "label": "土地等を取得するために要した負債の利子の額",
+      "path": [
+        "土地等を取得するために要した負債の利子の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKG00270": {
+      "label": "必要経費不算入損失額",
+      "path": [
+        "必要経費不算入損失額"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "AKH00000": {
+      "label": "不動産所得の収入の内訳",
+      "path": [
+        "不動産所得の収入の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKH00010": {
+      "label": "不動産所得の収入の内訳明細　繰り返し",
+      "path": [
+        "不動産所得の収入の内訳明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKH00020": {
+      "label": "貸家貸地等の別",
+      "path": [
+        "貸家貸地等の別"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AKH00025": {
+      "label": "用途(住宅用、住宅用以外等の別)",
+      "path": [
+        "用途(住宅用、住宅用以外等の別)"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AKH00030": {
+      "label": "不動産の所在地",
+      "path": [
+        "不動産の所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AKH00040": {
+      "label": "賃借人の住所・氏名",
+      "path": [
+        "賃借人の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKH00050": {
+      "label": "賃借人の住所",
+      "path": [
+        "賃借人の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AKH00060": {
+      "label": "賃借人の氏名",
+      "path": [
+        "賃借人の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AKH00070": {
+      "label": "賃貸契約期間",
+      "path": [
+        "賃貸契約期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKH00080": {
+      "label": "賃貸契約期間（自）",
+      "path": [
+        "賃貸契約期間（自）"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "AKH00090": {
+      "label": "賃貸契約期間（至）",
+      "path": [
+        "賃貸契約期間（至）"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "AKH00100": {
+      "label": "貸付面積",
+      "path": [
+        "貸付面積"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "AKH00110": {
+      "label": "本年中の収入金額",
+      "path": [
+        "本年中の収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKH00120": {
+      "label": "賃貸料",
+      "path": [
+        "賃貸料"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKH00130": {
+      "label": "月額、__月分まで（上段）",
+      "path": [
+        "月額、__月分まで（上段）"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "AKH00140": {
+      "label": "月額（上段）",
+      "path": [
+        "月額（上段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00150": {
+      "label": "月額、__月分から（下段）",
+      "path": [
+        "月額、__月分から（下段）"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "AKH00160": {
+      "label": "月額（下段）",
+      "path": [
+        "月額（下段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00170": {
+      "label": "年額",
+      "path": [
+        "年額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00180": {
+      "label": "礼金",
+      "path": [
+        "礼金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00190": {
+      "label": "権利金",
+      "path": [
+        "権利金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00200": {
+      "label": "更新料",
+      "path": [
+        "更新料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00210": {
+      "label": "名義書換料その他",
+      "path": [
+        "名義書換料その他"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00220": {
+      "label": "保証金・敷金（期末残高）",
+      "path": [
+        "保証金・敷金（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00221": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKH00222": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AKH00223": {
+      "label": "賃貸料の年額",
+      "path": [
+        "賃貸料の年額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00224": {
+      "label": "礼金・権利金・更新料",
+      "path": [
+        "礼金・権利金・更新料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00225": {
+      "label": "名義書換料その他",
+      "path": [
+        "名義書換料その他"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00226": {
+      "label": "保証金・敷金（期末残高）",
+      "path": [
+        "保証金・敷金（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00230": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKH00240": {
+      "label": "賃貸料の年額",
+      "path": [
+        "賃貸料の年額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00250": {
+      "label": "礼金・権利金・更新料",
+      "path": [
+        "礼金・権利金・更新料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00260": {
+      "label": "名義書換料その他",
+      "path": [
+        "名義書換料その他"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKH00270": {
+      "label": "保証金・敷金（期末残高）",
+      "path": [
+        "保証金・敷金（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00000": {
+      "label": "給料賃金の内訳",
+      "path": [
+        "給料賃金の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKI00010": {
+      "label": "給料賃金明細行",
+      "path": [
+        "給料賃金明細行"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKI00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AKI00030": {
+      "label": "年齢",
+      "path": [
+        "年齢"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKI00040": {
+      "label": "従事月数",
+      "path": [
+        "従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AKI00050": {
+      "label": "給料賃金",
+      "path": [
+        "給料賃金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00060": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00070": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00080": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00090": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKI00100": {
+      "label": "人数",
+      "path": [
+        "人数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKI00110": {
+      "label": "従事月数",
+      "path": [
+        "従事月数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "AKI00120": {
+      "label": "給料賃金",
+      "path": [
+        "給料賃金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00130": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00140": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00150": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00160": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKI00170": {
+      "label": "延べ従事月数",
+      "path": [
+        "延べ従事月数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "AKI00180": {
+      "label": "給料賃金",
+      "path": [
+        "給料賃金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00190": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00200": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKI00210": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKJ00000": {
+      "label": "事業専従者の氏名等",
+      "path": [
+        "事業専従者の氏名等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKJ00010": {
+      "label": "事業専従者明細　繰り返し",
+      "path": [
+        "事業専従者明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKJ00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AKJ00030": {
+      "label": "年齢",
+      "path": [
+        "年齢"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKJ00040": {
+      "label": "続柄",
+      "path": [
+        "続柄"
+      ],
+      "type": "zokugara",
+      "enum": ""
+    },
+    "AKJ00050": {
+      "label": "従事月数",
+      "path": [
+        "従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AKJ00052": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKJ00054": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AKJ00056": {
+      "label": "月数",
+      "path": [
+        "月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AKJ00060": {
+      "label": "延べ従事月数",
+      "path": [
+        "延べ従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AKK00000": {
+      "label": "減価償却費の計算",
+      "path": [
+        "減価償却費の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKK00010": {
+      "label": "減価償却費の明細　繰り返し",
+      "path": [
+        "減価償却費の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKK00020": {
+      "label": "減価償却資産の名称等（繰延資産を含む）",
+      "path": [
+        "減価償却資産の名称等（繰延資産を含む）"
+      ],
+      "type": "string(16)",
+      "enum": ""
+    },
+    "AKK00030": {
+      "label": "面積又は数量",
+      "path": [
+        "面積又は数量"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AKK00050": {
+      "label": "取得年月",
+      "path": [
+        "取得年月"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "AKK00060": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00065": {
+      "label": "（償却保証額）",
+      "path": [
+        "（償却保証額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00070": {
+      "label": "償却の基礎になる金額",
+      "path": [
+        "償却の基礎になる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00080": {
+      "label": "償却方法",
+      "path": [
+        "償却方法"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AKK00090": {
+      "label": "耐用年数",
+      "path": [
+        "耐用年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKK00100": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKK00110": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "decimal(1.3)",
+      "enum": ""
+    },
+    "AKK00140": {
+      "label": "本年中の償却期間",
+      "path": [
+        "本年中の償却期間"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AKK00150": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00160": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00170": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00180": {
+      "label": "貸付割合",
+      "path": [
+        "貸付割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "AKK00190": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00200": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00210": {
+      "label": "摘要",
+      "path": [
+        "摘要"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AKK00211": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKK00212": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AKK00213": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00214": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00215": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00216": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00217": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00220": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKK00230": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00240": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00250": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00260": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00270": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKK00280": {
+      "label": "摘要",
+      "path": [
+        "摘要"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AKL00000": {
+      "label": "借入金利子の内訳　繰り返し",
+      "path": [
+        "借入金利子の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKL00010": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKL00020": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AKL00030": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AKL00040": {
+      "label": "期末現在の借入金等の金額",
+      "path": [
+        "期末現在の借入金等の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKL00050": {
+      "label": "本年中の借入金利子",
+      "path": [
+        "本年中の借入金利子"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKL00060": {
+      "label": "左のうち必要経費算入額",
+      "path": [
+        "左のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKM00000": {
+      "label": "修繕費の内訳　繰り返し",
+      "path": [
+        "修繕費の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKM00010": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKM00020": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AKM00030": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AKM00040": {
+      "label": "工事名又は資材の品名",
+      "path": [
+        "工事名又は資材の品名"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AKM00050": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AKM00060": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKM00070": {
+      "label": "左のうち必要経費算入額",
+      "path": [
+        "左のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKN00000": {
+      "label": "貸付不動産の保有状況",
+      "path": [
+        "貸付不動産の保有状況"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKN00010": {
+      "label": "住宅用",
+      "path": [
+        "住宅用"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKN00020": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKN00030": {
+      "label": "一戸建",
+      "path": [
+        "一戸建"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKN00040": {
+      "label": "一戸建以外",
+      "path": [
+        "一戸建以外"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKN00050": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKN00060": {
+      "label": "契約件数",
+      "path": [
+        "契約件数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKN00070": {
+      "label": "総面積",
+      "path": [
+        "総面積"
+      ],
+      "type": "decimal(7.2)",
+      "enum": ""
+    },
+    "AKN00080": {
+      "label": "住宅用以外（事務所店舗等）",
+      "path": [
+        "住宅用以外（事務所店舗等）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKN00090": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKN00100": {
+      "label": "一戸建",
+      "path": [
+        "一戸建"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKN00110": {
+      "label": "一戸建以外",
+      "path": [
+        "一戸建以外"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKN00120": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKN00130": {
+      "label": "契約件数",
+      "path": [
+        "契約件数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKN00140": {
+      "label": "総面積",
+      "path": [
+        "総面積"
+      ],
+      "type": "decimal(7.2)",
+      "enum": ""
+    },
+    "AKN00150": {
+      "label": "駐車場",
+      "path": [
+        "駐車場"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKN00160": {
+      "label": "屋根付",
+      "path": [
+        "屋根付"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKN00170": {
+      "label": "青空",
+      "path": [
+        "青空"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AKO00000": {
+      "label": "地代家賃の内訳　繰り返し",
+      "path": [
+        "地代家賃の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKO00010": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKO00020": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AKO00030": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AKO00040": {
+      "label": "賃借物件",
+      "path": [
+        "賃借物件"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "AKO00050": {
+      "label": "本年中の賃借料・権利金等",
+      "path": [
+        "本年中の賃借料・権利金等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKO00060": {
+      "label": "権利金",
+      "path": [
+        "権利金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKO00070": {
+      "label": "更新料",
+      "path": [
+        "更新料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKO00080": {
+      "label": "賃借料",
+      "path": [
+        "賃借料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKO00090": {
+      "label": "左の賃借料のうち必要経費算入額",
+      "path": [
+        "左の賃借料のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKP00000": {
+      "label": "税理士・弁護士等の報酬・料金の内訳　繰り返し",
+      "path": [
+        "税理士・弁護士等の報酬・料金の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKP00010": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AKP00020": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AKP00030": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AKP00040": {
+      "label": "本年中の報酬等の金額",
+      "path": [
+        "本年中の報酬等の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKP00050": {
+      "label": "左のうち必要経費算入額",
+      "path": [
+        "左のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKP00060": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AKQ00000": {
+      "label": "本年中における特殊事情・保証金等の運用状況",
+      "path": [
+        "本年中における特殊事情・保証金等の運用状況"
+      ],
+      "type": "string(350)",
+      "enum": ""
+    }
+  }
+}

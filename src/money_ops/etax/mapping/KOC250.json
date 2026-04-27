@@ -1,0 +1,163 @@
+{
+  "_meta": {
+    "form_code": "KOC250",
+    "source_ver": "Ver1",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "DBB00010": {
+      "label": "住所（又は居所）",
+      "path": [
+        "住所（又は居所）"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "DBB00020": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DBB00030": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "DBB00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "DBB00050": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "DBE00010": {
+      "label": "発行会社の名称",
+      "path": [
+        "発行会社の名称"
+      ],
+      "type": "string(50)",
+      "enum": ""
+    },
+    "DBE00020": {
+      "label": "取得見込額",
+      "path": [
+        "取得見込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DBE00030": {
+      "label": "取得予定年月日",
+      "path": [
+        "取得予定年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "DBE00040": {
+      "label": "【新株予約権の行使により取得する見込みである場合】",
+      "path": [
+        "【新株予約権の行使により取得する見込みである場合】"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DBE00050": {
+      "label": "新株予約権の取得（見込）額",
+      "path": [
+        "新株予約権の取得（見込）額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DBE00060": {
+      "label": "権利行使の予定年月日",
+      "path": [
+        "権利行使の予定年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "DBE00070": {
+      "label": "【認定投資事業有限責任組合（認定ＬＰＳ）を通じて取得見込みである場合】",
+      "path": [
+        "【認定投資事業有限責任組合（認定ＬＰＳ）を通じて取得見込みである場合】"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DBE00080": {
+      "label": "認定ＬＰＳの名称",
+      "path": [
+        "認定ＬＰＳの名称"
+      ],
+      "type": "string(45)",
+      "enum": ""
+    },
+    "DBE00090": {
+      "label": "出資額",
+      "path": [
+        "出資額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DBE00100": {
+      "label": "出資年月日",
+      "path": [
+        "出資年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "DBE00110": {
+      "label": "【認定少額電子募集取扱業者（認定ＥＣＦ）を通じて取得見込みである場合】　認定ＥＣＦの名称",
+      "path": [
+        "【認定少額電子募集取扱業者（認定ＥＣＦ）を通じて取得見込みである場合】　認定ＥＣＦの名称"
+      ],
+      "type": "string(50)",
+      "enum": ""
+    },
+    "DBF00010": {
+      "label": "発行会社の名称",
+      "path": [
+        "発行会社の名称"
+      ],
+      "type": "string(45)",
+      "enum": ""
+    },
+    "DBF00020": {
+      "label": "取得見込額",
+      "path": [
+        "取得見込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DBF00030": {
+      "label": "取得予定年月日",
+      "path": [
+        "取得予定年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    }
+  }
+}

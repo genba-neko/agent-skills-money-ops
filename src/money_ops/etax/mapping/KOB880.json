@@ -1,0 +1,315 @@
+{
+  "_meta": {
+    "form_code": "KOB880",
+    "source_ver": "Ver4",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "ILC00010": {
+      "label": "資産区分",
+      "path": [
+        "資産区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILC00020": {
+      "label": "租税特別措置法第10条の２第１項各号の該当号",
+      "path": [
+        "租税特別措置法第10条の２第１項各号の該当号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ILC00030": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ILC00040": {
+      "label": "構造、設備の種類又は区分",
+      "path": [
+        "構造、設備の種類又は区分"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ILC00050": {
+      "label": "細目",
+      "path": [
+        "細目"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ILC00060": {
+      "label": "取得年月日",
+      "path": [
+        "取得年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ILC00070": {
+      "label": "事業の用に供した年月日",
+      "path": [
+        "事業の用に供した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ILC00080": {
+      "label": "取得価額又は製作価額",
+      "path": [
+        "取得価額又は製作価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00010": {
+      "label": "本年分",
+      "path": [
+        "本年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILD00020": {
+      "label": "取得価額の合計額",
+      "path": [
+        "取得価額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00030": {
+      "label": "税額控除限度額",
+      "path": [
+        "税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00040": {
+      "label": "調整前事業所得税額",
+      "path": [
+        "調整前事業所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00050": {
+      "label": "本年税額基準額",
+      "path": [
+        "本年税額基準額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00060": {
+      "label": "本年税額控除可能額",
+      "path": [
+        "本年税額控除可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00070": {
+      "label": "所得税額超過構成額",
+      "path": [
+        "所得税額超過構成額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00080": {
+      "label": "本年税額控除額",
+      "path": [
+        "本年税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00090": {
+      "label": "前年繰越分",
+      "path": [
+        "前年繰越分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILD00100": {
+      "label": "差引本年税額基準額残額",
+      "path": [
+        "差引本年税額基準額残額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00110": {
+      "label": "繰越税額控除限度超過額",
+      "path": [
+        "繰越税額控除限度超過額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILD00120": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ILD00130": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00140": {
+      "label": "同上のうち本年繰越税額控除可能額",
+      "path": [
+        "同上のうち本年繰越税額控除可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00150": {
+      "label": "所得税額超過構成額",
+      "path": [
+        "所得税額超過構成額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00160": {
+      "label": "本年繰越税額控除額",
+      "path": [
+        "本年繰越税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILD00170": {
+      "label": "所得税額の特別控除額",
+      "path": [
+        "所得税額の特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILE00010": {
+      "label": "前年分",
+      "path": [
+        "前年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILE00020": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ILE00030": {
+      "label": "前年繰越額又は本年税額控除限度額",
+      "path": [
+        "前年繰越額又は本年税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILE00040": {
+      "label": "本年控除可能額等",
+      "path": [
+        "本年控除可能額等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILE00060": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILE00070": {
+      "label": "本年分",
+      "path": [
+        "本年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILE00080": {
+      "label": "前年繰越額又は本年税額控除限度額",
+      "path": [
+        "前年繰越額又は本年税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILE00090": {
+      "label": "本年控除可能額等",
+      "path": [
+        "本年控除可能額等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILE00100": {
+      "label": "翌年繰越額",
+      "path": [
+        "翌年繰越額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILE00110": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILE00120": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ILE00130": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ILE00140": {
+      "label": "翌年繰越額",
+      "path": [
+        "翌年繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

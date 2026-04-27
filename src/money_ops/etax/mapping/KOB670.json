@@ -1,0 +1,915 @@
+{
+  "_meta": {
+    "form_code": "KOB670",
+    "source_ver": "Ver4",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "BBC00010": {
+      "label": "A　公的年金等に係る雑所得以外の経常所得",
+      "path": [
+        "A　公的年金等に係る雑所得以外の経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00020": {
+      "label": "B",
+      "path": [
+        "B"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00030": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00040": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00050": {
+      "label": "分離譲渡",
+      "path": [
+        "分離譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00060": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00070": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00080": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00090": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00100": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00110": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00120": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00130": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00140": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00150": {
+      "label": "分離譲渡",
+      "path": [
+        "分離譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00160": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00170": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00180": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00190": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00200": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00210": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00220": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00230": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00240": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00250": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00260": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00270": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00280": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00290": {
+      "label": "C　山林",
+      "path": [
+        "C　山林"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00300": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00310": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00320": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00330": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00340": {
+      "label": "D　退職",
+      "path": [
+        "D　退職"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00350": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00360": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00370": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00380": {
+      "label": "E",
+      "path": [
+        "E"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00390": {
+      "label": "一般株式等の譲渡",
+      "path": [
+        "一般株式等の譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00400": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00410": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00420": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00430": {
+      "label": "上場株式等の譲渡",
+      "path": [
+        "上場株式等の譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00440": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00450": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00460": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00470": {
+      "label": "上場株式等の配当等",
+      "path": [
+        "上場株式等の配当等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00480": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00490": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00500": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00510": {
+      "label": "F　先物取引等",
+      "path": [
+        "F　先物取引等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBC00520": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00530": {
+      "label": "「譲渡」の通算後",
+      "path": [
+        "「譲渡」の通算後"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBC00540": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00010": {
+      "label": "通算前",
+      "path": [
+        "通算前"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00020": {
+      "label": "A　公的年金等に係る雑所得以外の経常所得",
+      "path": [
+        "A　公的年金等に係る雑所得以外の経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00030": {
+      "label": "B",
+      "path": [
+        "B"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00040": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00050": {
+      "label": "短期　総合譲渡",
+      "path": [
+        "短期　総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00060": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00070": {
+      "label": "分離譲渡(特定損失額)",
+      "path": [
+        "分離譲渡(特定損失額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00080": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00090": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00100": {
+      "label": "第1次通算後",
+      "path": [
+        "第1次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00110": {
+      "label": "A　公的年金等に係る雑所得以外の経常所得",
+      "path": [
+        "A　公的年金等に係る雑所得以外の経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00120": {
+      "label": "B",
+      "path": [
+        "B"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00130": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00140": {
+      "label": "短期　総合譲渡",
+      "path": [
+        "短期　総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00150": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00160": {
+      "label": "分離譲渡(特定損失額)",
+      "path": [
+        "分離譲渡(特定損失額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00170": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00180": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00190": {
+      "label": "C　山林",
+      "path": [
+        "C　山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00200": {
+      "label": "第2次通算後",
+      "path": [
+        "第2次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00210": {
+      "label": "A　公的年金等に係る雑所得以外の経常所得",
+      "path": [
+        "A　公的年金等に係る雑所得以外の経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00220": {
+      "label": "B",
+      "path": [
+        "B"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00230": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00240": {
+      "label": "短期　総合譲渡",
+      "path": [
+        "短期　総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00250": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00260": {
+      "label": "分離譲渡(特定損失額)",
+      "path": [
+        "分離譲渡(特定損失額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00270": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00280": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00290": {
+      "label": "C　山林",
+      "path": [
+        "C　山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00300": {
+      "label": "D　退職",
+      "path": [
+        "D　退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00310": {
+      "label": "第3次通算後",
+      "path": [
+        "第3次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00320": {
+      "label": "A　公的年金等に係る雑所得以外の経常所得",
+      "path": [
+        "A　公的年金等に係る雑所得以外の経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00330": {
+      "label": "B",
+      "path": [
+        "B"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00340": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00350": {
+      "label": "短期　総合譲渡",
+      "path": [
+        "短期　総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00360": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00370": {
+      "label": "分離譲渡(特定損失額)",
+      "path": [
+        "分離譲渡(特定損失額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00380": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00390": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00400": {
+      "label": "C　山林",
+      "path": [
+        "C　山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00410": {
+      "label": "D　退職",
+      "path": [
+        "D　退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00420": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00430": {
+      "label": "A　公的年金等に係る雑所得以外の経常所得",
+      "path": [
+        "A　公的年金等に係る雑所得以外の経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00440": {
+      "label": "B",
+      "path": [
+        "B"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00450": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BBD00460": {
+      "label": "短期　総合譲渡",
+      "path": [
+        "短期　総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00470": {
+      "label": "長期　分離譲渡(特定損失額)",
+      "path": [
+        "長期　分離譲渡(特定損失額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00480": {
+      "label": "総合譲渡・一時",
+      "path": [
+        "総合譲渡・一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00490": {
+      "label": "C　山林",
+      "path": [
+        "C　山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00500": {
+      "label": "D　退職",
+      "path": [
+        "D　退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBD00510": {
+      "label": "損失額又は所得金額の合計額",
+      "path": [
+        "損失額又は所得金額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBE00010": {
+      "label": "(2)欄の金額",
+      "path": [
+        "(2)欄の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBE00020": {
+      "label": "(4)欄の金額",
+      "path": [
+        "(4)欄の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBE00030": {
+      "label": "(9)欄の金額",
+      "path": [
+        "(9)欄の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBE00040": {
+      "label": "(10)欄の金額",
+      "path": [
+        "(10)欄の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBE00050": {
+      "label": "(11)欄の金額",
+      "path": [
+        "(11)欄の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBE00060": {
+      "label": "(12)欄の金額",
+      "path": [
+        "(12)欄の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBE00070": {
+      "label": "(13)欄の金額",
+      "path": [
+        "(13)欄の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BBE00080": {
+      "label": "公的年金等に係る雑所得以外の合計所得金額",
+      "path": [
+        "公的年金等に係る雑所得以外の合計所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

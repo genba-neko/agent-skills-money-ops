@@ -1,0 +1,483 @@
+{
+  "_meta": {
+    "form_code": "KOC150",
+    "source_ver": "Ver8",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "BPC00010": {
+      "label": "納税地区分",
+      "path": [
+        "納税地区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "BPC00020": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "BPC00030": {
+      "label": "住所以外の居所又は事業所等",
+      "path": [
+        "住所以外の居所又は事業所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BPC00040": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "BPC00050": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "BPC00060": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "BPC00070": {
+      "label": "関与税理士名",
+      "path": [
+        "関与税理士名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPC00080": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "BPC00090": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "BPD00010": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00020": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00030": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00040": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00050": {
+      "label": "償却費相当額",
+      "path": [
+        "償却費相当額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00060": {
+      "label": "差引",
+      "path": [
+        "差引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00070": {
+      "label": "譲渡に要した費用",
+      "path": [
+        "譲渡に要した費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00080": {
+      "label": "特定居住用財産の譲渡損失の金額",
+      "path": [
+        "特定居住用財産の譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00090": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00100": {
+      "label": "資産の所在地番",
+      "path": [
+        "資産の所在地番"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BPD00110": {
+      "label": "資産の利用状況",
+      "path": [
+        "資産の利用状況"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "BPD00120": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "BPD00123": {
+      "label": "居住期間",
+      "path": [
+        "居住期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00125": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "BPD00127": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "BPD00130": {
+      "label": "譲渡先",
+      "path": [
+        "譲渡先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00140": {
+      "label": "住所又は所在地",
+      "path": [
+        "住所又は所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BPD00150": {
+      "label": "氏名又は名称",
+      "path": [
+        "氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "BPD00160": {
+      "label": "譲渡契約締結日",
+      "path": [
+        "譲渡契約締結日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BPD00170": {
+      "label": "譲渡契約締結日の前日における住宅借入金等の金額及びその借入先",
+      "path": [
+        "譲渡契約締結日の前日における住宅借入金等の金額及びその借入先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00180": {
+      "label": "借入先",
+      "path": [
+        "借入先"
+      ],
+      "type": "string(25)",
+      "enum": ""
+    },
+    "BPD00190": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00200": {
+      "label": "譲渡した年月日",
+      "path": [
+        "譲渡した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BPD00210": {
+      "label": "資産を取得した時期",
+      "path": [
+        "資産を取得した時期"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BPD00220": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00230": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00240": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00250": {
+      "label": "償却費相当額",
+      "path": [
+        "償却費相当額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00260": {
+      "label": "差引",
+      "path": [
+        "差引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00270": {
+      "label": "譲渡に要した費用",
+      "path": [
+        "譲渡に要した費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00280": {
+      "label": "特定居住用財産の譲渡損失の金額",
+      "path": [
+        "特定居住用財産の譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00290": {
+      "label": "土地・借地権",
+      "path": [
+        "土地・借地権"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00300": {
+      "label": "土地・借地権の区分",
+      "path": [
+        "土地・借地権の区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00310": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "BPD00320": {
+      "label": "借地権",
+      "path": [
+        "借地権"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "BPD00330": {
+      "label": "資産の所在地番",
+      "path": [
+        "資産の所在地番"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BPD00340": {
+      "label": "資産の利用状況",
+      "path": [
+        "資産の利用状況"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "BPD00350": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "BPD00360": {
+      "label": "譲渡先",
+      "path": [
+        "譲渡先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00370": {
+      "label": "住所又は所在地",
+      "path": [
+        "住所又は所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BPD00380": {
+      "label": "氏名又は名称",
+      "path": [
+        "氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "BPD00390": {
+      "label": "譲渡契約締結日",
+      "path": [
+        "譲渡契約締結日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BPD00400": {
+      "label": "譲渡した年月日",
+      "path": [
+        "譲渡した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BPD00410": {
+      "label": "資産を取得した時期",
+      "path": [
+        "資産を取得した時期"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BPD00420": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00430": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BPD00440": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00450": {
+      "label": "差引",
+      "path": [
+        "差引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00460": {
+      "label": "譲渡に要した費用",
+      "path": [
+        "譲渡に要した費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BPD00470": {
+      "label": "特定居住用財産の譲渡損失の金額",
+      "path": [
+        "特定居住用財産の譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

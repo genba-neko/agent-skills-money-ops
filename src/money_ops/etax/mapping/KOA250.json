@@ -1,0 +1,1438 @@
+{
+  "_meta": {
+    "form_code": "KOA250",
+    "source_ver": "Ver6",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOA250-1",
+      "KOA250-2"
+    ]
+  },
+  "fields": {
+    "AQZ00000": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "AQA00000": {
+      "label": "診療科目",
+      "path": [
+        "診療科目"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AQB00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "AQB00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "AQC00000": {
+      "label": "１．収入金額の内訳",
+      "path": [
+        "１．収入金額の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00010": {
+      "label": "社会保険診療報酬",
+      "path": [
+        "社会保険診療報酬"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00020": {
+      "label": "基金事務所から支払を受ける社会保険診療報酬",
+      "path": [
+        "基金事務所から支払を受ける社会保険診療報酬"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00030": {
+      "label": "一般社会保険",
+      "path": [
+        "一般社会保険"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00040": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00050": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00060": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00070": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00080": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00150": {
+      "label": "生活保護法",
+      "path": [
+        "生活保護法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00160": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00170": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00180": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00190": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00200": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00270": {
+      "label": "精神保健福祉法",
+      "path": [
+        "精神保健福祉法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00280": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00290": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00300": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00310": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00320": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00330": {
+      "label": "診療報酬の種類　繰り返し",
+      "path": [
+        "診療報酬の種類　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00340": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AQC00350": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00360": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00370": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00380": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00390": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00395": {
+      "label": "基金事務所から支払を受ける社会保険診療報酬　小計",
+      "path": [
+        "基金事務所から支払を受ける社会保険診療報酬　小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00400": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00405": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00410": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00415": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00420": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00430": {
+      "label": "国民健康保険診療報酬",
+      "path": [
+        "国民健康保険診療報酬"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00980": {
+      "label": "国民健康保険法",
+      "path": [
+        "国民健康保険法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00990": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC01000": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01010": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01020": {
+      "label": "収入金額　診療報酬当座口払込額",
+      "path": [
+        "収入金額　診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC01030": {
+      "label": "高齢者医療確保法",
+      "path": [
+        "高齢者医療確保法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC01040": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC01050": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01060": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01070": {
+      "label": "収入金額　診療報酬当座口払込額",
+      "path": [
+        "収入金額　診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00440": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AQC00450": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00460": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00470": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00480": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00490": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00492": {
+      "label": "国民健康保険診療報酬　小計",
+      "path": [
+        "国民健康保険診療報酬　小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00493": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00494": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00495": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00496": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00497": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00500": {
+      "label": "介護報酬　追加項目　繰り返し",
+      "path": [
+        "介護報酬　追加項目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00510": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AQC00520": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00530": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00540": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00550": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00560": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00562": {
+      "label": "介護報酬　小計",
+      "path": [
+        "介護報酬　小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00563": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00564": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00565": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00566": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00567": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC01080": {
+      "label": "その他　追加項目　繰り返し",
+      "path": [
+        "その他　追加項目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC01090": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AQC01100": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC01110": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01120": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01130": {
+      "label": "収入金額　診療報酬当座口払込額",
+      "path": [
+        "収入金額　診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC01140": {
+      "label": "その他　小計",
+      "path": [
+        "その他　小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC01150": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC01160": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01170": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01180": {
+      "label": "収入金額　診療報酬当座口払込額",
+      "path": [
+        "収入金額　診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00570": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00580": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00590": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00600": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00610": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00620": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00630": {
+      "label": "診療報酬窓口収入金額",
+      "path": [
+        "診療報酬窓口収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00640": {
+      "label": "自由診療の収入等",
+      "path": [
+        "自由診療の収入等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00650": {
+      "label": "一般の自由診療",
+      "path": [
+        "一般の自由診療"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00660": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00670": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00680": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00690": {
+      "label": "労働者災害補償保険診療",
+      "path": [
+        "労働者災害補償保険診療"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00700": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00710": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00720": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00730": {
+      "label": "公害健康被害補償診療",
+      "path": [
+        "公害健康被害補償診療"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00740": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00750": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00760": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00762": {
+      "label": "自動車損害賠償責任保険診療",
+      "path": [
+        "自動車損害賠償責任保険診療"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00764": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00766": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00768": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC01190": {
+      "label": "高齢者医療確保法",
+      "path": [
+        "高齢者医療確保法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC01200": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC01210": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC01220": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00770": {
+      "label": "診療報酬の種類　追加項目",
+      "path": [
+        "診療報酬の種類　追加項目"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00780": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AQC00790": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00800": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00810": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00820": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00830": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AQC00840": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00850": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00860": {
+      "label": "雑収入",
+      "path": [
+        "雑収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00870": {
+      "label": "２．自由診療割合の計算",
+      "path": [
+        "２．自由診療割合の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00880": {
+      "label": "診療実日数による割合",
+      "path": [
+        "診療実日数による割合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00890": {
+      "label": "自由診療実日数",
+      "path": [
+        "自由診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00900": {
+      "label": "総診療実日数",
+      "path": [
+        "総診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "AQC00910": {
+      "label": "診療実日数の割合",
+      "path": [
+        "診療実日数の割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "AQC00920": {
+      "label": "収入による割合",
+      "path": [
+        "収入による割合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQC00930": {
+      "label": "自由診療収入",
+      "path": [
+        "自由診療収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00940": {
+      "label": "総診療収入",
+      "path": [
+        "総診療収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQC00960": {
+      "label": "調整率",
+      "path": [
+        "調整率"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AQC00970": {
+      "label": "自由診療の収入等の割合",
+      "path": [
+        "自由診療の収入等の割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "AQD00000": {
+      "label": "３．必要経費の内訳",
+      "path": [
+        "３．必要経費の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00010": {
+      "label": "自由診療分",
+      "path": [
+        "自由診療分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00020": {
+      "label": "一般経費分",
+      "path": [
+        "一般経費分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00030": {
+      "label": "原価及び経費の総額",
+      "path": [
+        "原価及び経費の総額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00040": {
+      "label": "自由診療分と社会保険診療分とに明確に区分できる経費の総額",
+      "path": [
+        "自由診療分と社会保険診療分とに明確に区分できる経費の総額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00050": {
+      "label": "自由診療割合",
+      "path": [
+        "自由診療割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "AQD00060": {
+      "label": "左の（ａ）のうち自由診療分に係る経費の金額",
+      "path": [
+        "左の（ａ）のうち自由診療分に係る経費の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00070": {
+      "label": "自由診療分の原価及び経費の合計額",
+      "path": [
+        "自由診療分の原価及び経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00080": {
+      "label": "特典経費分",
+      "path": [
+        "特典経費分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00090": {
+      "label": "専従者給与",
+      "path": [
+        "専従者給与"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00100": {
+      "label": "専従者給与の金額",
+      "path": [
+        "専従者給与の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00110": {
+      "label": "自由診療割合",
+      "path": [
+        "自由診療割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "AQD00120": {
+      "label": "自由診療分の専従者給与の金額",
+      "path": [
+        "自由診療分の専従者給与の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00130": {
+      "label": "一括評価による貸倒引当金繰入額",
+      "path": [
+        "一括評価による貸倒引当金繰入額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00140": {
+      "label": "12月31日現在の自由診療分の一括評価に係る貸金額の合計額",
+      "path": [
+        "12月31日現在の自由診療分の一括評価に係る貸金額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00150": {
+      "label": "自由診療分の一括評価による貸倒引当金繰入額",
+      "path": [
+        "自由診療分の一括評価による貸倒引当金繰入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00160": {
+      "label": "退職給与引当金勘定への繰入額",
+      "path": [
+        "退職給与引当金勘定への繰入額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00170": {
+      "label": "退職給与引当金勘定への繰入額",
+      "path": [
+        "退職給与引当金勘定への繰入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00180": {
+      "label": "自由診療割合",
+      "path": [
+        "自由診療割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "AQD00190": {
+      "label": "自由診療分の退職給与引当金勘定への繰入額",
+      "path": [
+        "自由診療分の退職給与引当金勘定への繰入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00200": {
+      "label": "保険診療分",
+      "path": [
+        "保険診療分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00210": {
+      "label": "一般経費分",
+      "path": [
+        "一般経費分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00220": {
+      "label": "原価及び経費の総額",
+      "path": [
+        "原価及び経費の総額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00230": {
+      "label": "自由診療分の原価及び経費の合計額",
+      "path": [
+        "自由診療分の原価及び経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00240": {
+      "label": "社会保険診療分の原価及び経費の合計額",
+      "path": [
+        "社会保険診療分の原価及び経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00250": {
+      "label": "特典経費分",
+      "path": [
+        "特典経費分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00260": {
+      "label": "専従者給与の金額",
+      "path": [
+        "専従者給与の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00270": {
+      "label": "（Ｂ）の金額",
+      "path": [
+        "（Ｂ）の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00280": {
+      "label": "退職給与引当金繰入額",
+      "path": [
+        "退職給与引当金繰入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00290": {
+      "label": "（Ｄ）の金額",
+      "path": [
+        "（Ｄ）の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00300": {
+      "label": "一括評価による貸倒引当金繰入額",
+      "path": [
+        "一括評価による貸倒引当金繰入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00310": {
+      "label": "（Ｃ）の金額",
+      "path": [
+        "（Ｃ）の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00320": {
+      "label": "一括評価による貸倒引当金繰戻額",
+      "path": [
+        "一括評価による貸倒引当金繰戻額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00330": {
+      "label": "自由診療分の一括評価による貸倒引当金繰戻額",
+      "path": [
+        "自由診療分の一括評価による貸倒引当金繰戻額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00340": {
+      "label": "社会保険診療分の特典経費の合計額",
+      "path": [
+        "社会保険診療分の特典経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00350": {
+      "label": "租税特別措置法第26条の規定による社会保険診療分の経費の額",
+      "path": [
+        "租税特別措置法第26条の規定による社会保険診療分の経費の額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00360": {
+      "label": "社会保険診療報酬",
+      "path": [
+        "社会保険診療報酬"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00370": {
+      "label": "速算表の（ｂ）率",
+      "path": [
+        "速算表の（ｂ）率"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AQD00380": {
+      "label": "速算表の（ｃ）加算額",
+      "path": [
+        "速算表の（ｃ）加算額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00390": {
+      "label": "租税特別措置法第26条の規定による必要経費の金額",
+      "path": [
+        "租税特別措置法第26条の規定による必要経費の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00400": {
+      "label": "社会保険診療分の経費と租税特別措置法第26条による金額との差額",
+      "path": [
+        "社会保険診療分の経費と租税特別措置法第26条による金額との差額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AQD00410": {
+      "label": "租税特別措置法第26条の規定による必要経費の金額",
+      "path": [
+        "租税特別措置法第26条の規定による必要経費の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00420": {
+      "label": "社会保険診療分の原価及び経費と特典経費の合計額",
+      "path": [
+        "社会保険診療分の原価及び経費と特典経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AQD00430": {
+      "label": "差額",
+      "path": [
+        "差額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

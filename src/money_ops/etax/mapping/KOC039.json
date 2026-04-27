@@ -1,0 +1,379 @@
+{
+  "_meta": {
+    "form_code": "KOC039",
+    "source_ver": "Ver1",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "KIH00010": {
+      "label": "明細繰り返し",
+      "path": [
+        "明細繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KIH00020": {
+      "label": "譲渡した相続財産",
+      "path": [
+        "譲渡した相続財産"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KIH00030": {
+      "label": "所在地",
+      "path": [
+        "所在地"
+      ],
+      "type": "string(60)",
+      "enum": ""
+    },
+    "KIH00040": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "KIH00050": {
+      "label": "利用状況",
+      "path": [
+        "利用状況"
+      ],
+      "type": "string(7)",
+      "enum": ""
+    },
+    "KIH00060": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KIH00070": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "KIH00080": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KIH00090": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "KIH00100": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KIH00110": {
+      "label": "単位",
+      "path": [
+        "単位"
+      ],
+      "type": "string(6)",
+      "enum": ""
+    },
+    "KIH00120": {
+      "label": "譲渡した年月日",
+      "path": [
+        "譲渡した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KIH00130": {
+      "label": "相続税評価額",
+      "path": [
+        "相続税評価額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KIH00140": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "KIH00150": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KIH00160": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "KIH00170": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KIH00180": {
+      "label": "取得費に加算される相続税額",
+      "path": [
+        "取得費に加算される相続税額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KIH00190": {
+      "label": "相続税額",
+      "path": [
+        "相続税額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KIH00200": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "KIH00210": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KIH00220": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "KIH00230": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KIH00240": {
+      "label": "相続税の課税価格",
+      "path": [
+        "相続税の課税価格"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KIH00250": {
+      "label": "相続税額",
+      "path": [
+        "相続税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00010": {
+      "label": "２　相続税の申告書第１表の（19）の小計の額がある場合",
+      "path": [
+        "２　相続税の申告書第１表の（19）の小計の額がある場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KII00020": {
+      "label": "暦年課税分の贈与税額控除額",
+      "path": [
+        "暦年課税分の贈与税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00030": {
+      "label": "相次相続控除額",
+      "path": [
+        "相次相続控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00040": {
+      "label": "相続時精算課税分の贈与税額控除",
+      "path": [
+        "相続時精算課税分の贈与税額控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00050": {
+      "label": "小計の額",
+      "path": [
+        "小計の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00060": {
+      "label": "相続税額",
+      "path": [
+        "相続税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00070": {
+      "label": "３　相続税の申告書第１表の（19）の小計の額がない場合",
+      "path": [
+        "３　相続税の申告書第１表の（19）の小計の額がない場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KII00080": {
+      "label": "算出税額",
+      "path": [
+        "算出税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00090": {
+      "label": "相続税額の2割加算が行われる場合の加算金額",
+      "path": [
+        "相続税額の2割加算が行われる場合の加算金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00100": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00110": {
+      "label": "税額控除等",
+      "path": [
+        "税額控除等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KII00120": {
+      "label": "配偶者の税額軽減額",
+      "path": [
+        "配偶者の税額軽減額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00130": {
+      "label": "未成年者控除額",
+      "path": [
+        "未成年者控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00140": {
+      "label": "障害者控除額",
+      "path": [
+        "障害者控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00150": {
+      "label": "外国税額控除額",
+      "path": [
+        "外国税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00160": {
+      "label": "医療法人持分税額控除額",
+      "path": [
+        "医療法人持分税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00170": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00180": {
+      "label": "相続税額",
+      "path": [
+        "相続税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KII00190": {
+      "label": "関与税理士",
+      "path": [
+        "関与税理士"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KII00200": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "KII00210": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    }
+  }
+}

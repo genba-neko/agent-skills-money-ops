@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "form_code": "KOB976",
+    "source_ver": "Ver1",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "DWC00010": {
+      "label": "試験研究費の額",
+      "path": [
+        "試験研究費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00020": {
+      "label": "平均売上金額",
+      "path": [
+        "平均売上金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00030": {
+      "label": "平均売上金額の10％相当額",
+      "path": [
+        "平均売上金額の10％相当額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00040": {
+      "label": "平均売上金額の10％相当額を超える試験研究費の額",
+      "path": [
+        "平均売上金額の10％相当額を超える試験研究費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00050": {
+      "label": "試験研究費割合",
+      "path": [
+        "試験研究費割合"
+      ],
+      "type": "decimal(3.3)",
+      "enum": ""
+    },
+    "DWC00060": {
+      "label": "超過税額控除割合",
+      "path": [
+        "超過税額控除割合"
+      ],
+      "type": "decimal(3.3)",
+      "enum": ""
+    },
+    "DWC00070": {
+      "label": "税額控除限度額",
+      "path": [
+        "税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00080": {
+      "label": "調整前事業所得税額",
+      "path": [
+        "調整前事業所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00090": {
+      "label": "本年税額基準額",
+      "path": [
+        "本年税額基準額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00100": {
+      "label": "本年税額控除可能額",
+      "path": [
+        "本年税額控除可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00110": {
+      "label": "調整前事業所得税額超過構成額",
+      "path": [
+        "調整前事業所得税額超過構成額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DWC00120": {
+      "label": "所得税額の特別控除額",
+      "path": [
+        "所得税額の特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

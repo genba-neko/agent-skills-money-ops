@@ -1,0 +1,203 @@
+{
+  "_meta": {
+    "form_code": "KOC140",
+    "source_ver": "Ver11",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "BOD00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "BOD00020": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "BOD00030": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "BOD00040": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "BOE00010": {
+      "label": "条1",
+      "path": [
+        "条1"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "BOE00020": {
+      "label": "条2",
+      "path": [
+        "条2"
+      ],
+      "type": "string(3)",
+      "enum": ""
+    },
+    "BOE00030": {
+      "label": "項",
+      "path": [
+        "項"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "BOF00010": {
+      "label": "所在地",
+      "path": [
+        "所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BOF00020": {
+      "label": "資産の種類",
+      "path": [
+        "資産の種類"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "BOF00030": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "BOF00040": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BOF00050": {
+      "label": "譲渡年月日",
+      "path": [
+        "譲渡年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BOG00010": {
+      "label": "資産の種類",
+      "path": [
+        "資産の種類"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "BOG00020": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "BOG00030": {
+      "label": "取得資産の該当条項（第３７条第１項）",
+      "path": [
+        "取得資産の該当条項（第３７条第１項）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "BOG00040": {
+      "label": "第３７条第１項の表の該当する号",
+      "path": [
+        "第３７条第１項の表の該当する号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "BOG00044": {
+      "label": "第３７条第１項の表の該当する区分",
+      "path": [
+        "第３７条第１項の表の該当する区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "BOG00050": {
+      "label": "取得資産の該当条項（第３７条の５第１項）",
+      "path": [
+        "取得資産の該当条項（第３７条の５第１項）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "BOG00058": {
+      "label": "第３７条の５第１項の表の該当する区分",
+      "path": [
+        "第３７条の５第１項の表の該当する区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "BOG00070": {
+      "label": "取得価額の見積額",
+      "path": [
+        "取得価額の見積額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BOG00080": {
+      "label": "取得予定年月日",
+      "path": [
+        "取得予定年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BOG00090": {
+      "label": "付記事項",
+      "path": [
+        "付記事項"
+      ],
+      "type": "string(400)",
+      "enum": ""
+    },
+    "BOH00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "BOH00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "_meta": {
+    "form_code": "KOA060",
+    "source_ver": "Ver6",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "AFD00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "AFD00015": {
+      "label": "郵便番号",
+      "path": [
+        "郵便番号"
+      ],
+      "type": "zipcode",
+      "enum": "NOZEISHA_ZIP"
+    },
+    "AFD00020": {
+      "label": "住所又は居所",
+      "path": [
+        "住所又は居所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "AFD00030": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "AFD00040": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AFD00050": {
+      "label": "性別",
+      "path": [
+        "性別"
+      ],
+      "type": "kubun",
+      "enum": "SEIBETSU"
+    },
+    "AFD00060": {
+      "label": "国籍",
+      "path": [
+        "国籍"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AFE00010": {
+      "label": "当初の入国許可年月日",
+      "path": [
+        "当初の入国許可年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AFE00020": {
+      "label": "在留資格",
+      "path": [
+        "在留資格"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AFE00030": {
+      "label": "在留期間",
+      "path": [
+        "在留期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AFE00040": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AFE00050": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AFE00060": {
+      "label": "この申告に係る非居住者期間",
+      "path": [
+        "この申告に係る非居住者期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AFE00070": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AFE00080": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AFE00090": {
+      "label": "日本における勤務、人的役務の内容",
+      "path": [
+        "日本における勤務、人的役務の内容"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "AFF00010": {
+      "label": "所得の種類",
+      "path": [
+        "所得の種類"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AFF00020": {
+      "label": "給与所得",
+      "path": [
+        "給与所得"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AFF00030": {
+      "label": "退職所得",
+      "path": [
+        "退職所得"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AFF00040": {
+      "label": "人的役務の提供による所得",
+      "path": [
+        "人的役務の提供による所得"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AFF00050": {
+      "label": "給与・報酬の明細　繰り返し",
+      "path": [
+        "給与・報酬の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AFF00060": {
+      "label": "支払者の氏名又は名称",
+      "path": [
+        "支払者の氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AFF00070": {
+      "label": "支払者の住所若しくは居所又は本店若しくは主たる事務所の所在地",
+      "path": [
+        "支払者の住所若しくは居所又は本店若しくは主たる事務所の所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AFF00080": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AFF00090": {
+      "label": "課税所得金額",
+      "path": [
+        "課税所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AFG00010": {
+      "label": "課税所得金額",
+      "path": [
+        "課税所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AFG00013": {
+      "label": "所得税額",
+      "path": [
+        "所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AFG00016": {
+      "label": "基準所得税額",
+      "path": [
+        "基準所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AFG00019": {
+      "label": "復興特別所得税の額",
+      "path": [
+        "復興特別所得税の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AFG00020": {
+      "label": "所得税及び復興特別所得税の申告納税額",
+      "path": [
+        "所得税及び復興特別所得税の申告納税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AFI00010": {
+      "label": "関与税理士名",
+      "path": [
+        "関与税理士名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "AFI00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    }
+  }
+}

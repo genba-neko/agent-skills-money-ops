@@ -1,0 +1,131 @@
+{
+  "_meta": {
+    "form_code": "KOB810",
+    "source_ver": "Ver2",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "JIC00010": {
+      "label": "売上調整年分　繰り返し",
+      "path": [
+        "売上調整年分　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JIC00020": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "JIC00030": {
+      "label": "売上金額",
+      "path": [
+        "売上金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JIC00040": {
+      "label": "事業を営んでいた月数",
+      "path": [
+        "事業を営んでいた月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "JIC00050": {
+      "label": "改定売上金額",
+      "path": [
+        "改定売上金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JIC00060": {
+      "label": "本年",
+      "path": [
+        "本年"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JIC00070": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JIC00080": {
+      "label": "平均売上金額",
+      "path": [
+        "平均売上金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JID00010": {
+      "label": "調整対象年分　繰り返し",
+      "path": [
+        "調整対象年分　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JID00020": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "JID00030": {
+      "label": "試験研究費の額",
+      "path": [
+        "試験研究費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JID00040": {
+      "label": "事業を営んでいた月数",
+      "path": [
+        "事業を営んでいた月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "JID00050": {
+      "label": "改定試験研究費の額",
+      "path": [
+        "改定試験研究費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JID00060": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JID00070": {
+      "label": "比較試験研究費の額",
+      "path": [
+        "比較試験研究費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "form_code": "KOE050",
+    "source_ver": "Ver4",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "IEF00010": {
+      "label": "証明年月日",
+      "path": [
+        "証明年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IEF00020": {
+      "label": "証明書の名称",
+      "path": [
+        "証明書の名称"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "IEF00030": {
+      "label": "証明者の名称（医療機関名等）",
+      "path": [
+        "証明者の名称（医療機関名等）"
+      ],
+      "type": "name",
+      "enum": ""
+    }
+  }
+}

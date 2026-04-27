@@ -1,0 +1,2054 @@
+{
+  "_meta": {
+    "form_code": "KOC020",
+    "source_ver": "Ver8",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOC020-1",
+      "KOC020-2"
+    ]
+  },
+  "fields": {
+    "EBA00000": {
+      "label": "申告等対象年分",
+      "path": [
+        "申告等対象年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "EBA00010": {
+      "label": "提出税務署",
+      "path": [
+        "提出税務署"
+      ],
+      "type": "zeimusho",
+      "enum": "ZEIMUSHO"
+    },
+    "EBB00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBB00030": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "EBB00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBB00050": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "EBB00060": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "EBB00070": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "EBB00080": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "EBC00000": {
+      "label": "関与税理士",
+      "path": [
+        "関与税理士"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBC00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "EBC00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "EBD00000": {
+      "label": "譲渡（売却）された資産について",
+      "path": [
+        "譲渡（売却）された資産について"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBD00010": {
+      "label": "譲渡された資産",
+      "path": [
+        "譲渡された資産"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBD00020": {
+      "label": "名称",
+      "path": [
+        "名称"
+      ],
+      "type": "string(60)",
+      "enum": ""
+    },
+    "EBD00030": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(18)",
+      "enum": ""
+    },
+    "EBD00040": {
+      "label": "利用状況",
+      "path": [
+        "利用状況"
+      ],
+      "type": "string(18)",
+      "enum": ""
+    },
+    "EBD00410": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBD00420": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "string(18)",
+      "enum": ""
+    },
+    "EBD00430": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBD00050": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(18)",
+      "enum": ""
+    },
+    "EBD00060": {
+      "label": "所在地等",
+      "path": [
+        "所在地等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EBD00100": {
+      "label": "譲渡先（買主）",
+      "path": [
+        "譲渡先（買主）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBD00110": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EBD00120": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EBD00130": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": ""
+    },
+    "EBD00140": {
+      "label": "売買契約の日",
+      "path": [
+        "売買契約の日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBD00150": {
+      "label": "引き渡した日",
+      "path": [
+        "引き渡した日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBD00160": {
+      "label": "登記、登録等の日",
+      "path": [
+        "登記、登録等の日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBD00200": {
+      "label": "参考事項",
+      "path": [
+        "参考事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBD00210": {
+      "label": "売却理由",
+      "path": [
+        "売却理由"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBD00220": {
+      "label": "買主から頼まれたため",
+      "path": [
+        "買主から頼まれたため"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBD00230": {
+      "label": "他の資産を購入するため",
+      "path": [
+        "他の資産を購入するため"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBD00240": {
+      "label": "事業資金を捻出するため",
+      "path": [
+        "事業資金を捻出するため"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBD00250": {
+      "label": "借入金を返済するため",
+      "path": [
+        "借入金を返済するため"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBD00260": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBD00300": {
+      "label": "その他（理由）",
+      "path": [
+        "その他（理由）"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "EBD00310": {
+      "label": "代金の受領状況",
+      "path": [
+        "代金の受領状況"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBD00320": {
+      "label": "代金の受領　繰り返し",
+      "path": [
+        "代金の受領　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBD00330": {
+      "label": "年月日",
+      "path": [
+        "年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBD00340": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBD00350": {
+      "label": "未収金",
+      "path": [
+        "未収金"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBD00360": {
+      "label": "年月日",
+      "path": [
+        "年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBD00370": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBD00440": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBD00450": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBD00460": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBD00400": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00000": {
+      "label": "譲渡（売却）された資産の購入代金などについて",
+      "path": [
+        "譲渡（売却）された資産の購入代金などについて"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBE00010": {
+      "label": "購入に要した費用",
+      "path": [
+        "購入に要した費用"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBE00020": {
+      "label": "購入に要した費用（譲渡資産の購入代金）",
+      "path": [
+        "購入に要した費用（譲渡資産の購入代金）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBE00030": {
+      "label": "購入先・支払先等",
+      "path": [
+        "購入先・支払先等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBE00040": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EBE00050": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EBE00060": {
+      "label": "購入・支払年月日",
+      "path": [
+        "購入・支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBE00260": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBE00270": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00280": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBE00070": {
+      "label": "購入・支払価額",
+      "path": [
+        "購入・支払価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00080": {
+      "label": "購入に要した費用（追加項目分）　繰り返し",
+      "path": [
+        "購入に要した費用（追加項目分）　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBE00090": {
+      "label": "費用の種類",
+      "path": [
+        "費用の種類"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBE00100": {
+      "label": "購入先・支払先等",
+      "path": [
+        "購入先・支払先等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBE00110": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EBE00120": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EBE00130": {
+      "label": "購入・支払年月日",
+      "path": [
+        "購入・支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBE00290": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBE00300": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00310": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBE00140": {
+      "label": "購入・支払価額",
+      "path": [
+        "購入・支払価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00320": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBE00330": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00340": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBE00150": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00200": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBE00210": {
+      "label": "資産の購入価額",
+      "path": [
+        "資産の購入価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00220": {
+      "label": "償却費相当額",
+      "path": [
+        "償却費相当額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00230": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBE00240": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBE00350": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBE00360": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBE00370": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBE00250": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBF00000": {
+      "label": "譲渡（売却）するために支払った費用について",
+      "path": [
+        "譲渡（売却）するために支払った費用について"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBF00010": {
+      "label": "譲渡に要した費用　繰り返し",
+      "path": [
+        "譲渡に要した費用　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBF00020": {
+      "label": "費用の種類",
+      "path": [
+        "費用の種類"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBF00030": {
+      "label": "支払先",
+      "path": [
+        "支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBF00040": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EBF00050": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EBF00060": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBF00090": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBF00100": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBF00110": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBF00070": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBF00120": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBF00130": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBF00140": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBF00080": {
+      "label": "譲渡費用",
+      "path": [
+        "譲渡費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00000": {
+      "label": "譲渡所得金額の計算",
+      "path": [
+        "譲渡所得金額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00010": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00020": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00030": {
+      "label": "特例適用条文の区分（所法）",
+      "path": [
+        "特例適用条文の区分（所法）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBG00040": {
+      "label": "特例適用条文の区分（措法）",
+      "path": [
+        "特例適用条文の区分（措法）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBG00050": {
+      "label": "上段　条1",
+      "path": [
+        "上段　条1"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EBG00060": {
+      "label": "上段　条2",
+      "path": [
+        "上段　条2"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EBG00070": {
+      "label": "下段　条1",
+      "path": [
+        "下段　条1"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EBG00080": {
+      "label": "下段　条2",
+      "path": [
+        "下段　条2"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EBG00090": {
+      "label": "譲渡所得金額",
+      "path": [
+        "譲渡所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00440": {
+      "label": "収入金額　開始括弧",
+      "path": [
+        "収入金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00450": {
+      "label": "収入金額　外書き",
+      "path": [
+        "収入金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00460": {
+      "label": "収入金額　終了括弧",
+      "path": [
+        "収入金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00100": {
+      "label": "収入金額　本書き",
+      "path": [
+        "収入金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00110": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00120": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBG00470": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00480": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00490": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00130": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00500": {
+      "label": "差引金額　開始括弧",
+      "path": [
+        "差引金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00510": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00520": {
+      "label": "差引金額　終了括弧",
+      "path": [
+        "差引金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00140": {
+      "label": "差引金額　本書き",
+      "path": [
+        "差引金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00530": {
+      "label": "特別控除額　開始括弧",
+      "path": [
+        "特別控除額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00540": {
+      "label": "特別控除額　外書き",
+      "path": [
+        "特別控除額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00550": {
+      "label": "特別控除額　終了括弧",
+      "path": [
+        "特別控除額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00150": {
+      "label": "特別控除額　本書き",
+      "path": [
+        "特別控除額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00560": {
+      "label": "譲渡所得金額　開始括弧",
+      "path": [
+        "譲渡所得金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00570": {
+      "label": "譲渡所得金額　外書き",
+      "path": [
+        "譲渡所得金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00580": {
+      "label": "譲渡所得金額　終了括弧",
+      "path": [
+        "譲渡所得金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00160": {
+      "label": "譲渡所得金額　本書き",
+      "path": [
+        "譲渡所得金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00165": {
+      "label": "譲渡所得金額　上段合計額",
+      "path": [
+        "譲渡所得金額　上段合計額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00590": {
+      "label": "収入金額　開始括弧",
+      "path": [
+        "収入金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00600": {
+      "label": "収入金額　外書き",
+      "path": [
+        "収入金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00610": {
+      "label": "収入金額　終了括弧",
+      "path": [
+        "収入金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00170": {
+      "label": "収入金額　本書き",
+      "path": [
+        "収入金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00175": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00178": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBG00620": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00630": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00640": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00180": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00650": {
+      "label": "差引金額　開始括弧",
+      "path": [
+        "差引金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00660": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00670": {
+      "label": "差引金額　終了括弧",
+      "path": [
+        "差引金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00185": {
+      "label": "差引金額　本書き",
+      "path": [
+        "差引金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00680": {
+      "label": "特別控除額　開始括弧",
+      "path": [
+        "特別控除額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00690": {
+      "label": "特別控除額　外書き",
+      "path": [
+        "特別控除額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00700": {
+      "label": "特別控除額　終了括弧",
+      "path": [
+        "特別控除額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00190": {
+      "label": "特別控除額　本書き",
+      "path": [
+        "特別控除額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00710": {
+      "label": "譲渡所得金額　開始括弧",
+      "path": [
+        "譲渡所得金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00720": {
+      "label": "譲渡所得金額　外書き",
+      "path": [
+        "譲渡所得金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00730": {
+      "label": "譲渡所得金額　終了括弧",
+      "path": [
+        "譲渡所得金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00195": {
+      "label": "譲渡所得金額　本書き",
+      "path": [
+        "譲渡所得金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00200": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00210": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00220": {
+      "label": "特例適用条文の区分（所法）",
+      "path": [
+        "特例適用条文の区分（所法）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBG00230": {
+      "label": "特例適用条文の区分（措法）",
+      "path": [
+        "特例適用条文の区分（措法）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBG00240": {
+      "label": "上段　条1",
+      "path": [
+        "上段　条1"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EBG00250": {
+      "label": "上段　条2",
+      "path": [
+        "上段　条2"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EBG00260": {
+      "label": "下段　条1",
+      "path": [
+        "下段　条1"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EBG00270": {
+      "label": "下段　条2",
+      "path": [
+        "下段　条2"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EBG00280": {
+      "label": "譲渡所得金額",
+      "path": [
+        "譲渡所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00740": {
+      "label": "収入金額　開始括弧",
+      "path": [
+        "収入金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00750": {
+      "label": "収入金額　外書き",
+      "path": [
+        "収入金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00760": {
+      "label": "収入金額　終了括弧",
+      "path": [
+        "収入金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00290": {
+      "label": "収入金額　本書き",
+      "path": [
+        "収入金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00300": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00310": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBG00770": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00780": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00790": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00320": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00800": {
+      "label": "差引金額　開始括弧",
+      "path": [
+        "差引金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00810": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00820": {
+      "label": "差引金額　終了括弧",
+      "path": [
+        "差引金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00330": {
+      "label": "差引金額　本書き",
+      "path": [
+        "差引金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00830": {
+      "label": "特別控除額　開始括弧",
+      "path": [
+        "特別控除額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00840": {
+      "label": "特別控除額　外書き",
+      "path": [
+        "特別控除額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00850": {
+      "label": "特別控除額　終了括弧",
+      "path": [
+        "特別控除額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00340": {
+      "label": "特別控除額　本書き",
+      "path": [
+        "特別控除額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00860": {
+      "label": "譲渡所得金額　開始括弧",
+      "path": [
+        "譲渡所得金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00870": {
+      "label": "譲渡所得金額　外書き",
+      "path": [
+        "譲渡所得金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00880": {
+      "label": "譲渡所得金額　終了括弧",
+      "path": [
+        "譲渡所得金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00350": {
+      "label": "譲渡所得金額　本書き",
+      "path": [
+        "譲渡所得金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00360": {
+      "label": "譲渡所得金額　上段合計額",
+      "path": [
+        "譲渡所得金額　上段合計額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00890": {
+      "label": "収入金額　開始括弧",
+      "path": [
+        "収入金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00900": {
+      "label": "収入金額　外書き",
+      "path": [
+        "収入金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00910": {
+      "label": "収入金額　終了括弧",
+      "path": [
+        "収入金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00370": {
+      "label": "収入金額　本書き",
+      "path": [
+        "収入金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00380": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBG00390": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBG00920": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00930": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00940": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00400": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00950": {
+      "label": "差引金額　開始括弧",
+      "path": [
+        "差引金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00960": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00970": {
+      "label": "差引金額　終了括弧",
+      "path": [
+        "差引金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00410": {
+      "label": "差引金額　本書き",
+      "path": [
+        "差引金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG00980": {
+      "label": "特別控除額　開始括弧",
+      "path": [
+        "特別控除額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00990": {
+      "label": "特別控除額　外書き",
+      "path": [
+        "特別控除額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG01000": {
+      "label": "特別控除額　終了括弧",
+      "path": [
+        "特別控除額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00420": {
+      "label": "特別控除額　本書き",
+      "path": [
+        "特別控除額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG01010": {
+      "label": "譲渡所得金額　開始括弧",
+      "path": [
+        "譲渡所得金額　開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG01020": {
+      "label": "譲渡所得金額　外書き",
+      "path": [
+        "譲渡所得金額　外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBG01030": {
+      "label": "譲渡所得金額　終了括弧",
+      "path": [
+        "譲渡所得金額　終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EBG00430": {
+      "label": "譲渡所得金額　本書き",
+      "path": [
+        "譲渡所得金額　本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBH00000": {
+      "label": "買換（交換・代替）資産として取得された（される）資産について",
+      "path": [
+        "買換（交換・代替）資産として取得された（される）資産について"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBH00010": {
+      "label": "買換資産等",
+      "path": [
+        "買換資産等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBH00020": {
+      "label": "買換資産等　繰り返し",
+      "path": [
+        "買換資産等　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBH00030": {
+      "label": "所在地等",
+      "path": [
+        "所在地等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EBH00040": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "EBH00050": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "EBH00060": {
+      "label": "用途",
+      "path": [
+        "用途"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "EBH00070": {
+      "label": "契約（予定）年月日",
+      "path": [
+        "契約（予定）年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBH00080": {
+      "label": "取得（予定）年月日",
+      "path": [
+        "取得（予定）年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBH00090": {
+      "label": "使用開始（予定）日",
+      "path": [
+        "使用開始（予定）日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBH00200": {
+      "label": "取得された（される）資産の購入代金などについて",
+      "path": [
+        "取得された（される）資産の購入代金などについて"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBH00210": {
+      "label": "取得された（される）資産の購入代金等　繰り返し",
+      "path": [
+        "取得された（される）資産の購入代金等　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBH00220": {
+      "label": "費用の内容",
+      "path": [
+        "費用の内容"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBH00230": {
+      "label": "支払先",
+      "path": [
+        "支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBH00240": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EBH00250": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EBH00260": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EBH00270": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBH00280": {
+      "label": "買換（交換取得・代替）資産の取得価額の合計額",
+      "path": [
+        "買換（交換取得・代替）資産の取得価額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00000": {
+      "label": "譲渡所得金額の計算",
+      "path": [
+        "譲渡所得金額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBI00010": {
+      "label": "特定の事業用資産の買換え（交換）の場合",
+      "path": [
+        "特定の事業用資産の買換え（交換）の場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBI00020": {
+      "label": "短期・長期の区分",
+      "path": [
+        "短期・長期の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBI00030": {
+      "label": "上段　条1",
+      "path": [
+        "上段　条1"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EBI00040": {
+      "label": "上段　条2",
+      "path": [
+        "上段　条2"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EBI00050": {
+      "label": "下段　条1",
+      "path": [
+        "下段　条1"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EBI00060": {
+      "label": "下段　条2",
+      "path": [
+        "下段　条2"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EBI00070": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00080": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBI00090": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBI00100": {
+      "label": "中段",
+      "path": [
+        "中段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBI00110": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00120": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00130": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00140": {
+      "label": "譲渡所得金額",
+      "path": [
+        "譲渡所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00200": {
+      "label": "固定資産の交換・収用代替の場合",
+      "path": [
+        "固定資産の交換・収用代替の場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBI00210": {
+      "label": "短期・長期の区分",
+      "path": [
+        "短期・長期の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBI00220": {
+      "label": "特例適用条文の区分（所法）",
+      "path": [
+        "特例適用条文の区分（所法）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBI00230": {
+      "label": "特例適用条文の区分（措法）",
+      "path": [
+        "特例適用条文の区分（措法）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EBI00240": {
+      "label": "上段　条１",
+      "path": [
+        "上段　条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EBI00250": {
+      "label": "下段　条１",
+      "path": [
+        "下段　条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EBI00260": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00270": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EBI00280": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBI00290": {
+      "label": "中段",
+      "path": [
+        "中段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EBI00300": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00310": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00320": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EBI00330": {
+      "label": "譲渡所得金額",
+      "path": [
+        "譲渡所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

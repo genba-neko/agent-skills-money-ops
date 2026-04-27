@@ -1,0 +1,163 @@
+{
+  "_meta": {
+    "form_code": "KOB920",
+    "source_ver": "Ver9",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "IPD00010": {
+      "label": "寄附金の区分等",
+      "path": [
+        "寄附金の区分等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IPD00020": {
+      "label": "認定NPO法人等寄附金の額",
+      "path": [
+        "認定NPO法人等寄附金の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPD00030": {
+      "label": "(1)以外の寄附金の額",
+      "path": [
+        "(1)以外の寄附金の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPD00040": {
+      "label": "(1)+(2)",
+      "path": [
+        "(1)+(2)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPD00050": {
+      "label": "所得金額の合計額",
+      "path": [
+        "所得金額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPD00060": {
+      "label": "(4)*40%",
+      "path": [
+        "(4)*40%"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPD00070": {
+      "label": "認定NPO法人等寄附金の内訳　繰り返し",
+      "path": [
+        "認定NPO法人等寄附金の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IPD00080": {
+      "label": "寄附先の名称",
+      "path": [
+        "寄附先の名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "IPD00090": {
+      "label": "寄附年月日",
+      "path": [
+        "寄附年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IPD00100": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPE00010": {
+      "label": "(5)-(2)",
+      "path": [
+        "(5)-(2)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPE00020": {
+      "label": "(1)と(6)のいずれか少ない方の金額",
+      "path": [
+        "(1)と(6)のいずれか少ない方の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPE00030": {
+      "label": "2千円-(2)",
+      "path": [
+        "2千円-(2)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPE00040": {
+      "label": "((7)-(8))*40%",
+      "path": [
+        "((7)-(8))*40%"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPE00050": {
+      "label": "年分2",
+      "path": [
+        "年分2"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "IPE00060": {
+      "label": "本年分の所得税の額",
+      "path": [
+        "本年分の所得税の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPE00070": {
+      "label": "(10)*25%",
+      "path": [
+        "(10)*25%"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPE00080": {
+      "label": "(11)-公益社団法人等寄附金特別控除額",
+      "path": [
+        "(11)-公益社団法人等寄附金特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IPE00090": {
+      "label": "認定NPO法人等寄附金特別控除額",
+      "path": [
+        "認定NPO法人等寄附金特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

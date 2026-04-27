@@ -1,0 +1,1310 @@
+{
+  "_meta": {
+    "form_code": "KOA230",
+    "source_ver": "Ver10",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOA230-1",
+      "KOA230-2"
+    ]
+  },
+  "fields": {
+    "AOA00000": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "AOB00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AOB00020": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOB00030": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "AOB00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "AOB00050": {
+      "label": "事業所所在地",
+      "path": [
+        "事業所所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AOB00060": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOB00070": {
+      "label": "自宅",
+      "path": [
+        "自宅"
+      ],
+      "type": "tel-number",
+      "enum": ""
+    },
+    "AOB00080": {
+      "label": "事業所",
+      "path": [
+        "事業所"
+      ],
+      "type": "tel-number",
+      "enum": ""
+    },
+    "AOB00090": {
+      "label": "業種名",
+      "path": [
+        "業種名"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "AOB00100": {
+      "label": "屋号",
+      "path": [
+        "屋号"
+      ],
+      "type": "yago",
+      "enum": "NOZEISHA_YAGO"
+    },
+    "AOB00110": {
+      "label": "加入団体名",
+      "path": [
+        "加入団体名"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AOC00000": {
+      "label": "依頼税理士等",
+      "path": [
+        "依頼税理士等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOC00010": {
+      "label": "事務所所在地",
+      "path": [
+        "事務所所在地"
+      ],
+      "type": "address",
+      "enum": "DAIRI_ADR"
+    },
+    "AOC00020": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "AOC00030": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "AOE00000": {
+      "label": "提出年月日",
+      "path": [
+        "提出年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "TEISYUTSU_DAY"
+    },
+    "AOF00000": {
+      "label": "収支計算書",
+      "path": [
+        "収支計算書"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOF00010": {
+      "label": "事業期間",
+      "path": [
+        "事業期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOF00020": {
+      "label": "事業期間（自）",
+      "path": [
+        "事業期間（自）"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "AOF00030": {
+      "label": "事業期間（至）",
+      "path": [
+        "事業期間（至）"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "AOF00040": {
+      "label": "科目",
+      "path": [
+        "科目"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOF00050": {
+      "label": "必要経費（追加科目名）",
+      "path": [
+        "必要経費（追加科目名）"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AOF00060": {
+      "label": "専従者給与等（追加科目名）",
+      "path": [
+        "専従者給与等（追加科目名）"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AOF00070": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOF00080": {
+      "label": "売上",
+      "path": [
+        "売上"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00090": {
+      "label": "家事消費等",
+      "path": [
+        "家事消費等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00100": {
+      "label": "雑収入",
+      "path": [
+        "雑収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00110": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00120": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOF00130": {
+      "label": "仕入",
+      "path": [
+        "仕入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00140": {
+      "label": "給料賃金",
+      "path": [
+        "給料賃金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00150": {
+      "label": "利子割引料",
+      "path": [
+        "利子割引料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00160": {
+      "label": "地代家賃",
+      "path": [
+        "地代家賃"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00170": {
+      "label": "減価償却費",
+      "path": [
+        "減価償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00180": {
+      "label": "追加科目の金額",
+      "path": [
+        "追加科目の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00190": {
+      "label": "その他の経費",
+      "path": [
+        "その他の経費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00200": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00210": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00220": {
+      "label": "専従者給与等",
+      "path": [
+        "専従者給与等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOF00230": {
+      "label": "専従者給与",
+      "path": [
+        "専従者給与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00240": {
+      "label": "追加科目の金額",
+      "path": [
+        "追加科目の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00250": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00260": {
+      "label": "青色申告特別控除前の所得金額",
+      "path": [
+        "青色申告特別控除前の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00270": {
+      "label": "青色申告特別控除額",
+      "path": [
+        "青色申告特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOF00280": {
+      "label": "所得金額（特例表示）",
+      "path": [
+        "所得金額（特例表示）"
+      ],
+      "type": "string(3)",
+      "enum": ""
+    },
+    "AOF00290": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOG00000": {
+      "label": "青色申告特別控除額の計算",
+      "path": [
+        "青色申告特別控除額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOG00010": {
+      "label": "本年分の不動産所得の金額",
+      "path": [
+        "本年分の不動産所得の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOG00020": {
+      "label": "10万円と（２０）のいずれか少ない方の金額",
+      "path": [
+        "10万円と（２０）のいずれか少ない方の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOG00030": {
+      "label": "青色申告特別控除前の所得金額",
+      "path": [
+        "青色申告特別控除前の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOG00040": {
+      "label": "青色申告特別控除額",
+      "path": [
+        "青色申告特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00000": {
+      "label": "専従者給与の内訳",
+      "path": [
+        "専従者給与の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOH00010": {
+      "label": "専従者給与の明細　繰り返し",
+      "path": [
+        "専従者給与の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOH00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AOH00030": {
+      "label": "続柄",
+      "path": [
+        "続柄"
+      ],
+      "type": "zokugara",
+      "enum": ""
+    },
+    "AOH00040": {
+      "label": "年齢",
+      "path": [
+        "年齢"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AOH00050": {
+      "label": "従事月数",
+      "path": [
+        "従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AOH00060": {
+      "label": "本年中に支給した金額",
+      "path": [
+        "本年中に支給した金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOH00070": {
+      "label": "給料",
+      "path": [
+        "給料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00080": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00090": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00100": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00101": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOH00102": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AOH00103": {
+      "label": "延べ従事月数",
+      "path": [
+        "延べ従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AOH00104": {
+      "label": "本年中に支給した金額",
+      "path": [
+        "本年中に支給した金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOH00105": {
+      "label": "給料",
+      "path": [
+        "給料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00106": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00107": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00108": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00110": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOH00120": {
+      "label": "延べ従事月数",
+      "path": [
+        "延べ従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AOH00130": {
+      "label": "本年中に支給した金額",
+      "path": [
+        "本年中に支給した金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOH00140": {
+      "label": "給料",
+      "path": [
+        "給料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00150": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00160": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOH00170": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00000": {
+      "label": "給料賃金の内訳",
+      "path": [
+        "給料賃金の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOI00010": {
+      "label": "給料賃金明細　繰り返し",
+      "path": [
+        "給料賃金明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOI00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AOI00030": {
+      "label": "年齢",
+      "path": [
+        "年齢"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AOI00040": {
+      "label": "従事月数",
+      "path": [
+        "従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AOI00050": {
+      "label": "本年中に支給した金額",
+      "path": [
+        "本年中に支給した金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOI00060": {
+      "label": "給料賃金",
+      "path": [
+        "給料賃金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00070": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00080": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00090": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00100": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOI00110": {
+      "label": "人数",
+      "path": [
+        "人数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AOI00120": {
+      "label": "従事月数",
+      "path": [
+        "従事月数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "AOI00130": {
+      "label": "給料賃金",
+      "path": [
+        "給料賃金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00140": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00150": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00160": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00170": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOI00180": {
+      "label": "延べ従事月数",
+      "path": [
+        "延べ従事月数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "AOI00190": {
+      "label": "本年中に支給した金額",
+      "path": [
+        "本年中に支給した金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOI00200": {
+      "label": "給料賃金",
+      "path": [
+        "給料賃金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00210": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00220": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOI00230": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00000": {
+      "label": "減価償却費の計算",
+      "path": [
+        "減価償却費の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOJ00010": {
+      "label": "減価償却費の明細　繰り返し",
+      "path": [
+        "減価償却費の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOJ00020": {
+      "label": "減価償却資産の名称等（繰延資産を含む）",
+      "path": [
+        "減価償却資産の名称等（繰延資産を含む）"
+      ],
+      "type": "string(16)",
+      "enum": ""
+    },
+    "AOJ00030": {
+      "label": "面積又は数量",
+      "path": [
+        "面積又は数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "AOJ00040": {
+      "label": "取得年月",
+      "path": [
+        "取得年月"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "AOJ00050": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00055": {
+      "label": "（償却保証額）",
+      "path": [
+        "（償却保証額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00060": {
+      "label": "償却の基礎になる金額",
+      "path": [
+        "償却の基礎になる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00070": {
+      "label": "償却方法",
+      "path": [
+        "償却方法"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AOJ00080": {
+      "label": "耐用年数",
+      "path": [
+        "耐用年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AOJ00090": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOJ00100": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "decimal(1.3)",
+      "enum": ""
+    },
+    "AOJ00130": {
+      "label": "本年中の償却期間",
+      "path": [
+        "本年中の償却期間"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AOJ00140": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00150": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00160": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00170": {
+      "label": "事業専用割合",
+      "path": [
+        "事業専用割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "AOJ00180": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00190": {
+      "label": "未償却残高（年末残高）",
+      "path": [
+        "未償却残高（年末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00200": {
+      "label": "摘要",
+      "path": [
+        "摘要"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AOJ00201": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOJ00202": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AOJ00203": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00204": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00205": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00206": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00207": {
+      "label": "未償却残高（年末残高）",
+      "path": [
+        "未償却残高（年末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00210": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOJ00220": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00230": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00240": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00250": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00260": {
+      "label": "未償却残高（年末残高）",
+      "path": [
+        "未償却残高（年末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOJ00270": {
+      "label": "摘要",
+      "path": [
+        "摘要"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AOK00000": {
+      "label": "利子割引料の内訳　繰り返し",
+      "path": [
+        "利子割引料の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOK00010": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOK00020": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AOK00030": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AOK00040": {
+      "label": "年末現在の借入金等の金額",
+      "path": [
+        "年末現在の借入金等の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOK00050": {
+      "label": "本年中に支出した利子割引料",
+      "path": [
+        "本年中に支出した利子割引料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOK00060": {
+      "label": "左のうち必要経費算入額",
+      "path": [
+        "左のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOL00000": {
+      "label": "地代家賃の内訳　繰り返し",
+      "path": [
+        "地代家賃の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOL00010": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOL00020": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AOL00030": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AOL00040": {
+      "label": "賃借物件",
+      "path": [
+        "賃借物件"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "AOL00050": {
+      "label": "本年中に支出した賃借料・権利金等",
+      "path": [
+        "本年中に支出した賃借料・権利金等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOL00060": {
+      "label": "権利金",
+      "path": [
+        "権利金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOL00070": {
+      "label": "更新料",
+      "path": [
+        "更新料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOL00080": {
+      "label": "賃借料",
+      "path": [
+        "賃借料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOL00090": {
+      "label": "左の賃借料のうち必要経費算入額",
+      "path": [
+        "左の賃借料のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOM00000": {
+      "label": "税理士・弁護士等の報酬・料金の内訳　繰り返し",
+      "path": [
+        "税理士・弁護士等の報酬・料金の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOM00010": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AOM00020": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AOM00030": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AOM00040": {
+      "label": "本年中に支出した報酬等の金額",
+      "path": [
+        "本年中に支出した報酬等の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOM00050": {
+      "label": "左のうち必要経費算入額",
+      "path": [
+        "左のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AOM00060": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AON00000": {
+      "label": "本年中における特殊事情",
+      "path": [
+        "本年中における特殊事情"
+      ],
+      "type": "string(300)",
+      "enum": ""
+    }
+  }
+}

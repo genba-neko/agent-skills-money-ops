@@ -1,0 +1,299 @@
+{
+  "_meta": {
+    "form_code": "KOB985",
+    "source_ver": "Ver4",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "AYC00010": {
+      "label": "経営の改善に関する指導及び助言を受けた認定経営革新等支援機関等の名称",
+      "path": [
+        "経営の改善に関する指導及び助言を受けた認定経営革新等支援機関等の名称"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "AYC00020": {
+      "label": "事業名",
+      "path": [
+        "事業名"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "AYC00030": {
+      "label": "資産区分",
+      "path": [
+        "資産区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AYC00040": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "AYC00050": {
+      "label": "設備の名称",
+      "path": [
+        "設備の名称"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "AYC00060": {
+      "label": "取得年月日",
+      "path": [
+        "取得年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AYC00070": {
+      "label": "指定事業の用に供した年月日",
+      "path": [
+        "指定事業の用に供した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AYC00080": {
+      "label": "取得価額又は製作価額",
+      "path": [
+        "取得価額又は製作価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00010": {
+      "label": "本年分",
+      "path": [
+        "本年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AYD00020": {
+      "label": "取得価額の合計額",
+      "path": [
+        "取得価額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00030": {
+      "label": "税額控除限度額",
+      "path": [
+        "税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00040": {
+      "label": "調整前事業所得税額",
+      "path": [
+        "調整前事業所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00050": {
+      "label": "本年税額基準額",
+      "path": [
+        "本年税額基準額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00060": {
+      "label": "本年税額控除可能額",
+      "path": [
+        "本年税額控除可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00070": {
+      "label": "所得税額超過構成額",
+      "path": [
+        "所得税額超過構成額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00080": {
+      "label": "本年税額控除額",
+      "path": [
+        "本年税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00090": {
+      "label": "前年繰越分",
+      "path": [
+        "前年繰越分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AYD00100": {
+      "label": "差引本年税額基準額残額",
+      "path": [
+        "差引本年税額基準額残額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00110": {
+      "label": "繰越税額控除限度超過額",
+      "path": [
+        "繰越税額控除限度超過額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AYD00120": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "AYD00130": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00140": {
+      "label": "同上のうち本年繰越税額控除可能額",
+      "path": [
+        "同上のうち本年繰越税額控除可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00150": {
+      "label": "所得税額超過構成額",
+      "path": [
+        "所得税額超過構成額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00160": {
+      "label": "本年繰越税額控除額",
+      "path": [
+        "本年繰越税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYD00170": {
+      "label": "所得税額の特別控除額",
+      "path": [
+        "所得税額の特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYE00010": {
+      "label": "前年分",
+      "path": [
+        "前年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AYE00020": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "AYE00030": {
+      "label": "前年繰越額又は本年税額控除限度額",
+      "path": [
+        "前年繰越額又は本年税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYE00040": {
+      "label": "本年控除可能額等",
+      "path": [
+        "本年控除可能額等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYE00050": {
+      "label": "本年分",
+      "path": [
+        "本年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AYE00060": {
+      "label": "前年繰越額又は本年税額控除限度額",
+      "path": [
+        "前年繰越額又は本年税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYE00070": {
+      "label": "本年控除可能額等",
+      "path": [
+        "本年控除可能額等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYE00080": {
+      "label": "翌年繰越額",
+      "path": [
+        "翌年繰越額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AYE00090": {
+      "label": "外書き",
+      "path": [
+        "外書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYE00100": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AYE00110": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "_meta": {
+    "form_code": "KOC010",
+    "source_ver": "Ver11",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "EAC00010": {
+      "label": "郵便番号",
+      "path": [
+        "郵便番号"
+      ],
+      "type": "zipcode",
+      "enum": "NOZEISHA_ZIP"
+    },
+    "EAC00020": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "EAC00025": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "EAC00030": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "EAC00040": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "EAD00010": {
+      "label": "所在地",
+      "path": [
+        "所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EAD00020": {
+      "label": "資産の種類",
+      "path": [
+        "資産の種類"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EAD00030": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EAD00040": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EAD00050": {
+      "label": "譲渡年月日",
+      "path": [
+        "譲渡年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EAE00010": {
+      "label": "資産の種類",
+      "path": [
+        "資産の種類"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EAE00020": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EAE00025": {
+      "label": "取得資産の該当条項（第３７条第１項）",
+      "path": [
+        "取得資産の該当条項（第３７条第１項）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EAE00030": {
+      "label": "第３７条第１項の表の該当する号",
+      "path": [
+        "第３７条第１項の表の該当する号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EAE00034": {
+      "label": "第３７条第１項の表の該当する区分",
+      "path": [
+        "第３７条第１項の表の該当する区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EAE00035": {
+      "label": "取得資産の該当条項（第３７条の５第１項）",
+      "path": [
+        "取得資産の該当条項（第３７条の５第１項）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EAE00043": {
+      "label": "第３７条の５第１項の表の該当する区分",
+      "path": [
+        "第３７条の５第１項の表の該当する区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EAE00044": {
+      "label": "取得資産の該当条項（第１２条第１項）",
+      "path": [
+        "取得資産の該当条項（第１２条第１項）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EAE00045": {
+      "label": "第１２条第１項の表の該当する号",
+      "path": [
+        "第１２条第１項の表の該当する号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EAE00047": {
+      "label": "第１２条第１項の表の該当する号（＿）",
+      "path": [
+        "第１２条第１項の表の該当する号（＿）"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EAE00050": {
+      "label": "取得価額の見積額",
+      "path": [
+        "取得価額の見積額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EAE00060": {
+      "label": "取得予定年月日",
+      "path": [
+        "取得予定年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EAE00065": {
+      "label": "認定を受けようとする年月日",
+      "path": [
+        "認定を受けようとする年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EAE00070": {
+      "label": "やむを得ない事情の詳細",
+      "path": [
+        "やむを得ない事情の詳細"
+      ],
+      "type": "string(400)",
+      "enum": ""
+    },
+    "EAE00080": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EAE00085": {
+      "label": "法名区分",
+      "path": [
+        "法名区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EAE00090": {
+      "label": "条1",
+      "path": [
+        "条1"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EAE00100": {
+      "label": "条2",
+      "path": [
+        "条2"
+      ],
+      "type": "string(3)",
+      "enum": ""
+    },
+    "EAE00110": {
+      "label": "項",
+      "path": [
+        "項"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EAG00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "EAG00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    }
+  }
+}

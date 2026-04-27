@@ -1,0 +1,8604 @@
+{
+  "_meta": {
+    "form_code": "KOA020",
+    "source_ver": "Ver23",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOA020-1",
+      "KOA020-2",
+      "KOA020-3",
+      "KOA020-4",
+      "KOA020-5",
+      "KOA020-6",
+      "KOA020-7",
+      "KOA020-8"
+    ]
+  },
+  "fields": {
+    "ABA00000": {
+      "label": "申告書見出し部（第一表）",
+      "path": [
+        "申告書見出し部（第一表）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABA00010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ABA00020": {
+      "label": "申告の種類",
+      "path": [
+        "申告の種類"
+      ],
+      "type": "kubun2",
+      "enum": "SHINKOKU_KBN"
+    },
+    "ABA00030": {
+      "label": "税務署名",
+      "path": [
+        "税務署名"
+      ],
+      "type": "zeimusho",
+      "enum": "ZEIMUSHO"
+    },
+    "ABA00040": {
+      "label": "提出年月日",
+      "path": [
+        "提出年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "TEISYUTSU_DAY"
+    },
+    "ABA00050": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABA00060": {
+      "label": "現在の住所（又は居所・事業所等）",
+      "path": [
+        "現在の住所（又は居所・事業所等）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABA00070": {
+      "label": "納税地区分",
+      "path": [
+        "納税地区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABA00080": {
+      "label": "郵便番号",
+      "path": [
+        "郵便番号"
+      ],
+      "type": "zipcode",
+      "enum": "NOZEISHA_ZIP"
+    },
+    "ABA00090": {
+      "label": "住所（上段）",
+      "path": [
+        "住所（上段）"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "ABA00095": {
+      "label": "住所（下段）",
+      "path": [
+        "住所（下段）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABA00100": {
+      "label": "１月１日の住所",
+      "path": [
+        "１月１日の住所"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABA00110": {
+      "label": "年",
+      "path": [
+        "年"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABA00120": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "ICHIGATSUIPPI_ADR"
+    },
+    "ABA00125": {
+      "label": "個人番号（マイナンバー）",
+      "path": [
+        "個人番号（マイナンバー）"
+      ],
+      "type": "bango",
+      "enum": "NOZEISHA_BANGO"
+    },
+    "ABA00130": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "ABA00140": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "ABA00160": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "ABA00170": {
+      "label": "屋号・雅号",
+      "path": [
+        "屋号・雅号"
+      ],
+      "type": "yago",
+      "enum": "NOZEISHA_YAGO"
+    },
+    "ABA00180": {
+      "label": "世帯主の氏名",
+      "path": [
+        "世帯主の氏名"
+      ],
+      "type": "name",
+      "enum": "SETAINUSHI_NM"
+    },
+    "ABA00190": {
+      "label": "世帯主との続柄",
+      "path": [
+        "世帯主との続柄"
+      ],
+      "type": "zokugara",
+      "enum": "SETAINUSHI_ZOKU"
+    },
+    "ABA00200": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "BIRTHDAY"
+    },
+    "ABA00220": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "ABA00225": {
+      "label": "振替継続希望区分",
+      "path": [
+        "振替継続希望区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABA00230": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABA00240": {
+      "label": "青色区分",
+      "path": [
+        "青色区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABA00250": {
+      "label": "分離区分",
+      "path": [
+        "分離区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABA00252": {
+      "label": "国出区分",
+      "path": [
+        "国出区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABA00253": {
+      "label": "損失区分",
+      "path": [
+        "損失区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABA00256": {
+      "label": "修正区分",
+      "path": [
+        "修正区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABA00260": {
+      "label": "特農の表示区分",
+      "path": [
+        "特農の表示区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABB00000": {
+      "label": "申告内容（第一表）",
+      "path": [
+        "申告内容（第一表）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00010": {
+      "label": "収入金額等",
+      "path": [
+        "収入金額等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00020": {
+      "label": "事業",
+      "path": [
+        "事業"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00025": {
+      "label": "営業等　区分",
+      "path": [
+        "営業等　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00030": {
+      "label": "営業等　金額",
+      "path": [
+        "営業等　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00035": {
+      "label": "農業　区分",
+      "path": [
+        "農業　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00040": {
+      "label": "農業　金額",
+      "path": [
+        "農業　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00043": {
+      "label": "不動産　区分１",
+      "path": [
+        "不動産　区分１"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00046": {
+      "label": "不動産　区分２",
+      "path": [
+        "不動産　区分２"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00050": {
+      "label": "不動産　金額",
+      "path": [
+        "不動産　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00070": {
+      "label": "配当",
+      "path": [
+        "配当"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00075": {
+      "label": "給与　区分",
+      "path": [
+        "給与　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00080": {
+      "label": "給与　金額",
+      "path": [
+        "給与　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00090": {
+      "label": "雑",
+      "path": [
+        "雑"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00100": {
+      "label": "公的年金等",
+      "path": [
+        "公的年金等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00103": {
+      "label": "業務　区分",
+      "path": [
+        "業務　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00105": {
+      "label": "業務　金額",
+      "path": [
+        "業務　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00107": {
+      "label": "その他　区分",
+      "path": [
+        "その他　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00110": {
+      "label": "その他　金額",
+      "path": [
+        "その他　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00120": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00130": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00180": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00230": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00270": {
+      "label": "所得金額等",
+      "path": [
+        "所得金額等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00280": {
+      "label": "事業",
+      "path": [
+        "事業"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00300": {
+      "label": "営業等",
+      "path": [
+        "営業等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00320": {
+      "label": "農業",
+      "path": [
+        "農業"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00330": {
+      "label": "不動産（特例表示）",
+      "path": [
+        "不動産（特例表示）"
+      ],
+      "type": "string(3)",
+      "enum": ""
+    },
+    "ABB00340": {
+      "label": "不動産",
+      "path": [
+        "不動産"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00350": {
+      "label": "利子",
+      "path": [
+        "利子"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00360": {
+      "label": "配当",
+      "path": [
+        "配当"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00365": {
+      "label": "給与　区分",
+      "path": [
+        "給与　区分"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "ABB00370": {
+      "label": "給与　金額",
+      "path": [
+        "給与　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB01050": {
+      "label": "雑",
+      "path": [
+        "雑"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB01060": {
+      "label": "公的年金等",
+      "path": [
+        "公的年金等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB01070": {
+      "label": "業務",
+      "path": [
+        "業務"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB01090": {
+      "label": "業務",
+      "path": [
+        "業務"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB01100": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB01120": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB01130": {
+      "label": "（７）から（９）までの計",
+      "path": [
+        "（７）から（９）までの計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00400": {
+      "label": "総合譲渡・一時",
+      "path": [
+        "総合譲渡・一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00410": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00420": {
+      "label": "所得から差し引かれる金額",
+      "path": [
+        "所得から差し引かれる金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00430": {
+      "label": "雑損控除",
+      "path": [
+        "雑損控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00435": {
+      "label": "医療費控除　区分",
+      "path": [
+        "医療費控除　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00440": {
+      "label": "医療費控除　控除額",
+      "path": [
+        "医療費控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00450": {
+      "label": "社会保険料控除",
+      "path": [
+        "社会保険料控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00460": {
+      "label": "小規模企業共済等掛金控除",
+      "path": [
+        "小規模企業共済等掛金控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00470": {
+      "label": "生命保険料控除",
+      "path": [
+        "生命保険料控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00480": {
+      "label": "地震保険料控除",
+      "path": [
+        "地震保険料控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00490": {
+      "label": "寄附金控除",
+      "path": [
+        "寄附金控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00495": {
+      "label": "寡婦、ひとり親控除　区分",
+      "path": [
+        "寡婦、ひとり親控除　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00500": {
+      "label": "寡婦、ひとり親控除　控除額",
+      "path": [
+        "寡婦、ひとり親控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00510": {
+      "label": "勤労学生、障害者控除",
+      "path": [
+        "勤労学生、障害者控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00515": {
+      "label": "配偶者(特別)控除　区分１",
+      "path": [
+        "配偶者(特別)控除　区分１"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00517": {
+      "label": "配偶者(特別)控除　区分２",
+      "path": [
+        "配偶者(特別)控除　区分２"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00520": {
+      "label": "配偶者(特別)控除　控除額",
+      "path": [
+        "配偶者(特別)控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00535": {
+      "label": "扶養控除　区分",
+      "path": [
+        "扶養控除　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00540": {
+      "label": "扶養控除　控除額",
+      "path": [
+        "扶養控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00542": {
+      "label": "特定親族特別控除",
+      "path": [
+        "特定親族特別控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00544": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00546": {
+      "label": "人数",
+      "path": [
+        "人数"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00548": {
+      "label": "控除額",
+      "path": [
+        "控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00550": {
+      "label": "基礎控除",
+      "path": [
+        "基礎控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00555": {
+      "label": "（１３）から（２５）までの計",
+      "path": [
+        "（１３）から（２５）までの計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00560": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00570": {
+      "label": "税金の計算",
+      "path": [
+        "税金の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00580": {
+      "label": "課税される所得金額又は第三表",
+      "path": [
+        "課税される所得金額又は第三表"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00590": {
+      "label": "上の（３１）に対する税額又は第三表の（９４）",
+      "path": [
+        "上の（３１）に対する税額又は第三表の（９４）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00600": {
+      "label": "配当控除",
+      "path": [
+        "配当控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00610": {
+      "label": "その他の税額控除",
+      "path": [
+        "その他の税額控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00620": {
+      "label": "税額控除の名称",
+      "path": [
+        "税額控除の名称"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "ABB00630": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00640": {
+      "label": "控除額",
+      "path": [
+        "控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00645": {
+      "label": "住借金等特別控除　区分１",
+      "path": [
+        "住借金等特別控除　区分１"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00647": {
+      "label": "住借金等特別控除　区分２",
+      "path": [
+        "住借金等特別控除　区分２"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00650": {
+      "label": "住借金等特別控除　控除額",
+      "path": [
+        "住借金等特別控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00660": {
+      "label": "政党等寄附金等特別控除",
+      "path": [
+        "政党等寄附金等特別控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00960": {
+      "label": "住宅耐震改修特別控除等　区分",
+      "path": [
+        "住宅耐震改修特別控除等　区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB01000": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00663": {
+      "label": "住宅耐震改修特別控除等　控除額",
+      "path": [
+        "住宅耐震改修特別控除等　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00670": {
+      "label": "差引所得税額",
+      "path": [
+        "差引所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00676": {
+      "label": "外国税額控除等　区分",
+      "path": [
+        "外国税額控除等　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00680": {
+      "label": "災害減免額",
+      "path": [
+        "災害減免額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB01010": {
+      "label": "再差引所得税額",
+      "path": [
+        "再差引所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB01020": {
+      "label": "復興特別所得税額",
+      "path": [
+        "復興特別所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB01030": {
+      "label": "所得税等の額",
+      "path": [
+        "所得税等の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB01040": {
+      "label": "外国税額控除等　控除額",
+      "path": [
+        "外国税額控除等　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00710": {
+      "label": "源泉徴収税額",
+      "path": [
+        "源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00720": {
+      "label": "申告納税額",
+      "path": [
+        "申告納税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00730": {
+      "label": "予定納税額",
+      "path": [
+        "予定納税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00740": {
+      "label": "第３期分の税額",
+      "path": [
+        "第３期分の税額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00750": {
+      "label": "納める税金",
+      "path": [
+        "納める税金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00760": {
+      "label": "還付される税金",
+      "path": [
+        "還付される税金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00763": {
+      "label": "修正申告",
+      "path": [
+        "修正申告"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00765": {
+      "label": "修正前の第３期分の税額",
+      "path": [
+        "修正前の第３期分の税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00767": {
+      "label": "第３期分の税額の増加額",
+      "path": [
+        "第３期分の税額の増加額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00770": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00775": {
+      "label": "公的年金等以外の合計所得金額",
+      "path": [
+        "公的年金等以外の合計所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00780": {
+      "label": "配偶者の合計所得金額",
+      "path": [
+        "配偶者の合計所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00790": {
+      "label": "専従者給与（控除）額の合計額",
+      "path": [
+        "専従者給与（控除）額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00800": {
+      "label": "青色申告特別控除額",
+      "path": [
+        "青色申告特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00810": {
+      "label": "雑所得・一時所得等の源泉徴収税額の合計額",
+      "path": [
+        "雑所得・一時所得等の源泉徴収税額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00820": {
+      "label": "未納付の源泉徴収税額",
+      "path": [
+        "未納付の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00830": {
+      "label": "本年分で差し引く繰越損失額",
+      "path": [
+        "本年分で差し引く繰越損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00840": {
+      "label": "平均課税対象金額",
+      "path": [
+        "平均課税対象金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00850": {
+      "label": "変動・臨時所得金額",
+      "path": [
+        "変動・臨時所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00860": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABB00870": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00880": {
+      "label": "延納の届出",
+      "path": [
+        "延納の届出"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00890": {
+      "label": "申告期限までに納付する金額",
+      "path": [
+        "申告期限までに納付する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00900": {
+      "label": "延納届出額",
+      "path": [
+        "延納届出額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABB00940": {
+      "label": "還付される税金の受取場所",
+      "path": [
+        "還付される税金の受取場所"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABB00950": {
+      "label": "口座",
+      "path": [
+        "口座"
+      ],
+      "type": "account",
+      "enum": "KANPU_KINYUKIKAN"
+    },
+    "ABZ00000": {
+      "label": "口座情報提供同意区分",
+      "path": [
+        "口座情報提供同意区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABZ40000": {
+      "label": "口座情報利用同意区分",
+      "path": [
+        "口座情報利用同意区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABZ10000": {
+      "label": "通知希望区分（加算税）",
+      "path": [
+        "通知希望区分（加算税）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABZ20000": {
+      "label": "通知希望区分（予定納税）",
+      "path": [
+        "通知希望区分（予定納税）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABZ30000": {
+      "label": "通知希望区分（還付金振込）",
+      "path": [
+        "通知希望区分（還付金振込）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABC00000": {
+      "label": "申告書見出し部（第二表）",
+      "path": [
+        "申告書見出し部（第二表）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABC00010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ABC00015": {
+      "label": "申告の種類",
+      "path": [
+        "申告の種類"
+      ],
+      "type": "kubun2",
+      "enum": "SHINKOKU_KBN"
+    },
+    "ABC00020": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABC00040": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "ABC00045": {
+      "label": "住所以外の居所又は事業所等",
+      "path": [
+        "住所以外の居所又は事業所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABC00050": {
+      "label": "屋号",
+      "path": [
+        "屋号"
+      ],
+      "type": "yago",
+      "enum": "NOZEISHA_YAGO"
+    },
+    "ABC00060": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "ABC00070": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "ABD00000": {
+      "label": "所得の内訳（所得税及び復興特別所得税の源泉徴収税額）",
+      "path": [
+        "所得の内訳（所得税及び復興特別所得税の源泉徴収税額）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABD00010": {
+      "label": "所得の内訳　繰り返し",
+      "path": [
+        "所得の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABD00020": {
+      "label": "所得の種類",
+      "path": [
+        "所得の種類"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "ABD00025": {
+      "label": "種目",
+      "path": [
+        "種目"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "ABD00030": {
+      "label": "給与などの支払者の「法人番号又は所在地」等",
+      "path": [
+        "給与などの支払者の「法人番号又は所在地」等"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "ABD00040": {
+      "label": "給与などの支払者の「名称」",
+      "path": [
+        "給与などの支払者の「名称」"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ABD00050": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABD00060": {
+      "label": "源泉徴収税額",
+      "path": [
+        "源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABD00062": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABD00064": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "ABD00066": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABD00070": {
+      "label": "源泉徴収税額の合計額",
+      "path": [
+        "源泉徴収税額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABX00000": {
+      "label": "総合課税の譲渡所得、一時所得に関する事項　繰り返し",
+      "path": [
+        "総合課税の譲渡所得、一時所得に関する事項　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABX00250": {
+      "label": "所得の種類",
+      "path": [
+        "所得の種類"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "ABX00260": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABX00270": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABX00280": {
+      "label": "必要経費等（上段）",
+      "path": [
+        "必要経費等（上段）"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABX00290": {
+      "label": "必要経費等（下段）",
+      "path": [
+        "必要経費等（下段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABX00300": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABX00310": {
+      "label": "差引金額（上段）",
+      "path": [
+        "差引金額（上段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABX00320": {
+      "label": "差引金額（下段）",
+      "path": [
+        "差引金額（下段）"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABE00000": {
+      "label": "事業専従者に関する事項",
+      "path": [
+        "事業専従者に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABE00010": {
+      "label": "事業専従者の明細　繰り返し",
+      "path": [
+        "事業専従者の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABE00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ABE00025": {
+      "label": "個人番号",
+      "path": [
+        "個人番号"
+      ],
+      "type": "bango",
+      "enum": ""
+    },
+    "ABE00030": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABE00040": {
+      "label": "続柄",
+      "path": [
+        "続柄"
+      ],
+      "type": "zokugara",
+      "enum": ""
+    },
+    "ABE00060": {
+      "label": "従事月数・程度・仕事の内容",
+      "path": [
+        "従事月数・程度・仕事の内容"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "ABE00070": {
+      "label": "専従者給与（控除）額",
+      "path": [
+        "専従者給与（控除）額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABF00000": {
+      "label": "特例適用条文等",
+      "path": [
+        "特例適用条文等"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "ABH00000": {
+      "label": "明細",
+      "path": [
+        "明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00010": {
+      "label": "雑損控除に関する事項",
+      "path": [
+        "雑損控除に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00020": {
+      "label": "損害の原因",
+      "path": [
+        "損害の原因"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00030": {
+      "label": "損害年月日",
+      "path": [
+        "損害年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABH00040": {
+      "label": "損害を受けた資産の種類など",
+      "path": [
+        "損害を受けた資産の種類など"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ABH00050": {
+      "label": "損害金額",
+      "path": [
+        "損害金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABH00060": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABH00070": {
+      "label": "差引損失額のうち災害関連支出の金額",
+      "path": [
+        "差引損失額のうち災害関連支出の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABH00110": {
+      "label": "（１３）社会保険料控除・（１４）小規模企業共済等掛金控除",
+      "path": [
+        "（１３）社会保険料控除・（１４）小規模企業共済等掛金控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00120": {
+      "label": "明細　繰り返し",
+      "path": [
+        "明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00130": {
+      "label": "保険料等の種類",
+      "path": [
+        "保険料等の種類"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "ABH00140": {
+      "label": "支払保険料等の計",
+      "path": [
+        "支払保険料等の計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABH00580": {
+      "label": "うち年末調整等以外",
+      "path": [
+        "うち年末調整等以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABH00210": {
+      "label": "（１５）生命保険料控除",
+      "path": [
+        "（１５）生命保険料控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00215": {
+      "label": "新生命保険料　支払保険料等の計",
+      "path": [
+        "新生命保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00217": {
+      "label": "新生命保険料　うち年末調整等以外",
+      "path": [
+        "新生命保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00220": {
+      "label": "旧生命保険料　支払保険料等の計",
+      "path": [
+        "旧生命保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00222": {
+      "label": "旧生命保険料　うち年末調整等以外",
+      "path": [
+        "旧生命保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00225": {
+      "label": "新個人年金保険料　支払保険料等の計",
+      "path": [
+        "新個人年金保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00227": {
+      "label": "新個人年金保険料　うち年末調整等以外",
+      "path": [
+        "新個人年金保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00230": {
+      "label": "旧個人年金保険料　支払保険料等の計",
+      "path": [
+        "旧個人年金保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00232": {
+      "label": "旧個人年金保険料　うち年末調整等以外",
+      "path": [
+        "旧個人年金保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00235": {
+      "label": "介護医療保険料　支払保険料等の計",
+      "path": [
+        "介護医療保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00237": {
+      "label": "介護医療保険料　うち年末調整等以外",
+      "path": [
+        "介護医療保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00240": {
+      "label": "（１６）地震保険料控除",
+      "path": [
+        "（１６）地震保険料控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00250": {
+      "label": "地震保険料　支払保険料等の計",
+      "path": [
+        "地震保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00255": {
+      "label": "地震保険料　うち年末調整等以外",
+      "path": [
+        "地震保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00260": {
+      "label": "旧長期損害保険料　支払保険料等の計",
+      "path": [
+        "旧長期損害保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00265": {
+      "label": "旧長期損害保険料　うち年末調整等以外",
+      "path": [
+        "旧長期損害保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABH00270": {
+      "label": "寄附金控除に関する事項",
+      "path": [
+        "寄附金控除に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00280": {
+      "label": "寄附先の名称等　所在地",
+      "path": [
+        "寄附先の名称等　所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABH00290": {
+      "label": "寄附先の名称等　名称",
+      "path": [
+        "寄附先の名称等　名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ABH00300": {
+      "label": "寄附金",
+      "path": [
+        "寄附金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABH00320": {
+      "label": "本人に関する事項",
+      "path": [
+        "本人に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00340": {
+      "label": "寡婦",
+      "path": [
+        "寡婦"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00350": {
+      "label": "控除区分",
+      "path": [
+        "控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABH00360": {
+      "label": "原因区分",
+      "path": [
+        "原因区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABH00365": {
+      "label": "ひとり親　控除区分",
+      "path": [
+        "ひとり親　控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABH00370": {
+      "label": "勤労学生",
+      "path": [
+        "勤労学生"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABH00380": {
+      "label": "控除区分",
+      "path": [
+        "控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABH00600": {
+      "label": "年調以外かつ専修学校等区分",
+      "path": [
+        "年調以外かつ専修学校等区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABH00610": {
+      "label": "障害者　控除区分",
+      "path": [
+        "障害者　控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABH00620": {
+      "label": "特別障害者　控除区分",
+      "path": [
+        "特別障害者　控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00000": {
+      "label": "配偶者や親族に関する事項",
+      "path": [
+        "配偶者や親族に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00010": {
+      "label": "配偶者",
+      "path": [
+        "配偶者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ABY00030": {
+      "label": "個人番号",
+      "path": [
+        "個人番号"
+      ],
+      "type": "bango",
+      "enum": ""
+    },
+    "ABY00040": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABY00050": {
+      "label": "障害者",
+      "path": [
+        "障害者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00060": {
+      "label": "障",
+      "path": [
+        "障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00070": {
+      "label": "特障",
+      "path": [
+        "特障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00080": {
+      "label": "国外居住",
+      "path": [
+        "国外居住"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00090": {
+      "label": "国外",
+      "path": [
+        "国外"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00100": {
+      "label": "年調",
+      "path": [
+        "年調"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00105": {
+      "label": "住宅　特個",
+      "path": [
+        "住宅　特個"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00110": {
+      "label": "住民税",
+      "path": [
+        "住民税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00120": {
+      "label": "同一",
+      "path": [
+        "同一"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00130": {
+      "label": "別居",
+      "path": [
+        "別居"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00133": {
+      "label": "その他　調整",
+      "path": [
+        "その他　調整"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00150": {
+      "label": "親族　繰り返し",
+      "path": [
+        "親族　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00160": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ABY00170": {
+      "label": "個人番号",
+      "path": [
+        "個人番号"
+      ],
+      "type": "bango",
+      "enum": ""
+    },
+    "ABY00180": {
+      "label": "続柄",
+      "path": [
+        "続柄"
+      ],
+      "type": "zokugara",
+      "enum": ""
+    },
+    "ABY00190": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABY00200": {
+      "label": "障害者",
+      "path": [
+        "障害者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00210": {
+      "label": "障",
+      "path": [
+        "障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00220": {
+      "label": "特障",
+      "path": [
+        "特障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00230": {
+      "label": "国外居住",
+      "path": [
+        "国外居住"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00235": {
+      "label": "国外",
+      "path": [
+        "国外"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "ABY00250": {
+      "label": "年調",
+      "path": [
+        "年調"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00253": {
+      "label": "特親",
+      "path": [
+        "特親"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ABY00255": {
+      "label": "住宅　特個",
+      "path": [
+        "住宅　特個"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00260": {
+      "label": "住民税",
+      "path": [
+        "住民税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABY00270": {
+      "label": "１６",
+      "path": [
+        "１６"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00280": {
+      "label": "別居",
+      "path": [
+        "別居"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABY00283": {
+      "label": "その他　調整",
+      "path": [
+        "その他　調整"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00000": {
+      "label": "住民税・事業税に関する事項",
+      "path": [
+        "住民税・事業税に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00010": {
+      "label": "住民税　給与、公的年金等以外の所得に係る住民税の徴収方法",
+      "path": [
+        "住民税　給与、公的年金等以外の所得に係る住民税の徴収方法"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00020": {
+      "label": "上記の配偶者・親族・事業専従者のうち別居の者の氏名・住所",
+      "path": [
+        "上記の配偶者・親族・事業専従者のうち別居の者の氏名・住所"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00030": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ABI00040": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABI00045": {
+      "label": "国外",
+      "path": [
+        "国外"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00050": {
+      "label": "所得税で控除対象配偶者などとした専従者",
+      "path": [
+        "所得税で控除対象配偶者などとした専従者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00060": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ABI00070": {
+      "label": "給与",
+      "path": [
+        "給与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00080": {
+      "label": "住民税",
+      "path": [
+        "住民税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00090": {
+      "label": "非上場株式の少額配当等",
+      "path": [
+        "非上場株式の少額配当等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00100": {
+      "label": "非居住者の特例",
+      "path": [
+        "非居住者の特例"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00104": {
+      "label": "配当割額控除額",
+      "path": [
+        "配当割額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00106": {
+      "label": "株式等譲渡所得割額控除額",
+      "path": [
+        "株式等譲渡所得割額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00230": {
+      "label": "明細１",
+      "path": [
+        "明細１"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00240": {
+      "label": "都道府県、市区町村への寄附（特例控除対象）",
+      "path": [
+        "都道府県、市区町村への寄附（特例控除対象）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00250": {
+      "label": "共同募金、日赤その他の寄附",
+      "path": [
+        "共同募金、日赤その他の寄附"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00260": {
+      "label": "明細２",
+      "path": [
+        "明細２"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00270": {
+      "label": "都道府県条例指定寄附",
+      "path": [
+        "都道府県条例指定寄附"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00280": {
+      "label": "市区町村条例指定寄附",
+      "path": [
+        "市区町村条例指定寄附"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00400": {
+      "label": "退職所得のある配偶者・親族",
+      "path": [
+        "退職所得のある配偶者・親族"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00410": {
+      "label": "退職所得のある配偶者・親族の氏名",
+      "path": [
+        "退職所得のある配偶者・親族の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ABI00420": {
+      "label": "個人番号",
+      "path": [
+        "個人番号"
+      ],
+      "type": "bango",
+      "enum": ""
+    },
+    "ABI00430": {
+      "label": "続柄",
+      "path": [
+        "続柄"
+      ],
+      "type": "zokugara",
+      "enum": ""
+    },
+    "ABI00440": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABI00450": {
+      "label": "退職所得を除く所得金額",
+      "path": [
+        "退職所得を除く所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00460": {
+      "label": "障害者",
+      "path": [
+        "障害者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00470": {
+      "label": "障",
+      "path": [
+        "障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00480": {
+      "label": "特障",
+      "path": [
+        "特障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00490": {
+      "label": "その他　調整",
+      "path": [
+        "その他　調整"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00500": {
+      "label": "寡婦・ひとり親",
+      "path": [
+        "寡婦・ひとり親"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00510": {
+      "label": "寡婦",
+      "path": [
+        "寡婦"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00520": {
+      "label": "ひとり親",
+      "path": [
+        "ひとり親"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00110": {
+      "label": "事業税",
+      "path": [
+        "事業税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00120": {
+      "label": "非課税所得など",
+      "path": [
+        "非課税所得など"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00130": {
+      "label": "番号",
+      "path": [
+        "番号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ABI00140": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00150": {
+      "label": "損益通算の特例適用前の不動産所得",
+      "path": [
+        "損益通算の特例適用前の不動産所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00170": {
+      "label": "不動産所得から差し引いた青色申告特別控除額",
+      "path": [
+        "不動産所得から差し引いた青色申告特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00180": {
+      "label": "事業用資産の譲渡損失など",
+      "path": [
+        "事業用資産の譲渡損失など"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABI00190": {
+      "label": "前年中の開（廃）業",
+      "path": [
+        "前年中の開（廃）業"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABI00200": {
+      "label": "開始・廃止の区分",
+      "path": [
+        "開始・廃止の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABI00210": {
+      "label": "開始（廃止）月日",
+      "path": [
+        "開始（廃止）月日"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "ABI00220": {
+      "label": "他都道府県の事務所等区分",
+      "path": [
+        "他都道府県の事務所等区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABS10000": {
+      "label": "税理士署名欄",
+      "path": [
+        "税理士署名欄"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABS10010": {
+      "label": "税理士法書面提出",
+      "path": [
+        "税理士法書面提出"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABS10020": {
+      "label": "３０条",
+      "path": [
+        "３０条"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABS10030": {
+      "label": "３３条の２",
+      "path": [
+        "３３条の２"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABS10040": {
+      "label": "税理士署名・電話番号",
+      "path": [
+        "税理士署名・電話番号"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABS10050": {
+      "label": "税理士署名",
+      "path": [
+        "税理士署名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "ABS10060": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "ABK00000": {
+      "label": "申告書見出し部（第三表）",
+      "path": [
+        "申告書見出し部（第三表）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABK00010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ABK00020": {
+      "label": "申告の種類",
+      "path": [
+        "申告の種類"
+      ],
+      "type": "kubun2",
+      "enum": "SHINKOKU_KBN"
+    },
+    "ABK00030": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABK00040": {
+      "label": "住所（又は居所・事業所等）",
+      "path": [
+        "住所（又は居所・事業所等）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABK00060": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "ABK00065": {
+      "label": "住所以外の居所又は事業所等",
+      "path": [
+        "住所以外の居所又は事業所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABK00066": {
+      "label": "屋号",
+      "path": [
+        "屋号"
+      ],
+      "type": "yago",
+      "enum": "NOZEISHA_YAGO"
+    },
+    "ABK00070": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "ABK00080": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "ABL00000": {
+      "label": "分離課税用（第三表）",
+      "path": [
+        "分離課税用（第三表）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00010": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00020": {
+      "label": "分離課税",
+      "path": [
+        "分離課税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00030": {
+      "label": "短期譲渡",
+      "path": [
+        "短期譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00040": {
+      "label": "一般分",
+      "path": [
+        "一般分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00050": {
+      "label": "軽減分",
+      "path": [
+        "軽減分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00060": {
+      "label": "長期譲渡",
+      "path": [
+        "長期譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00070": {
+      "label": "一般分",
+      "path": [
+        "一般分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00080": {
+      "label": "特定分",
+      "path": [
+        "特定分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00090": {
+      "label": "軽課分",
+      "path": [
+        "軽課分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00100": {
+      "label": "明細",
+      "path": [
+        "明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00125": {
+      "label": "一般株式等の譲渡",
+      "path": [
+        "一般株式等の譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00130": {
+      "label": "上場株式等の譲渡",
+      "path": [
+        "上場株式等の譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00134": {
+      "label": "上場株式等の配当等",
+      "path": [
+        "上場株式等の配当等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00137": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00140": {
+      "label": "先物取引",
+      "path": [
+        "先物取引"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00160": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00170": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00180": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00190": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00200": {
+      "label": "分離課税",
+      "path": [
+        "分離課税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00210": {
+      "label": "短期譲渡",
+      "path": [
+        "短期譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00220": {
+      "label": "一般分",
+      "path": [
+        "一般分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00230": {
+      "label": "軽減分",
+      "path": [
+        "軽減分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00240": {
+      "label": "長期譲渡",
+      "path": [
+        "長期譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00250": {
+      "label": "一般分",
+      "path": [
+        "一般分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00260": {
+      "label": "特定分",
+      "path": [
+        "特定分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00270": {
+      "label": "軽課分",
+      "path": [
+        "軽課分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00280": {
+      "label": "明細",
+      "path": [
+        "明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00305": {
+      "label": "一般株式等の譲渡",
+      "path": [
+        "一般株式等の譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00310": {
+      "label": "上場株式等の譲渡",
+      "path": [
+        "上場株式等の譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00320": {
+      "label": "上場株式等の配当等",
+      "path": [
+        "上場株式等の配当等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00325": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00330": {
+      "label": "先物取引",
+      "path": [
+        "先物取引"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00350": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00360": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00410": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00430": {
+      "label": "税金の計算",
+      "path": [
+        "税金の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00440": {
+      "label": "総合課税の合計額",
+      "path": [
+        "総合課税の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00450": {
+      "label": "所得から差し引かれる金額",
+      "path": [
+        "所得から差し引かれる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00460": {
+      "label": "課税される所得金額",
+      "path": [
+        "課税される所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00470": {
+      "label": "（１２）対応分",
+      "path": [
+        "（１２）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00480": {
+      "label": "（６７）（６８）対応分",
+      "path": [
+        "（６７）（６８）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00490": {
+      "label": "（６９）（７０）（７１）対応分",
+      "path": [
+        "（６９）（７０）（７１）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00500": {
+      "label": "（７２）（７３）対応分",
+      "path": [
+        "（７２）（７３）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00505": {
+      "label": "（７４）対応分",
+      "path": [
+        "（７４）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00510": {
+      "label": "（７５）対応分",
+      "path": [
+        "（７５）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00520": {
+      "label": "（７６）対応分",
+      "path": [
+        "（７６）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00530": {
+      "label": "（７７）対応分",
+      "path": [
+        "（７７）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00540": {
+      "label": "税額",
+      "path": [
+        "税額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00550": {
+      "label": "（７８）対応分",
+      "path": [
+        "（７８）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00560": {
+      "label": "（７９）対応分",
+      "path": [
+        "（７９）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00570": {
+      "label": "（８０）対応分",
+      "path": [
+        "（８０）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00580": {
+      "label": "（８１）対応分",
+      "path": [
+        "（８１）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00585": {
+      "label": "（８２）対応分",
+      "path": [
+        "（８２）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00590": {
+      "label": "（８３）対応分",
+      "path": [
+        "（８３）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00600": {
+      "label": "（８４）対応分",
+      "path": [
+        "（８４）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00610": {
+      "label": "（８５）対応分",
+      "path": [
+        "（８５）対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00620": {
+      "label": "（８６）から（９３）までの合計",
+      "path": [
+        "（８６）から（９３）までの合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00900": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00910": {
+      "label": "株式等",
+      "path": [
+        "株式等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00920": {
+      "label": "本年分の（７２）、（７３）から差し引く繰越損失額",
+      "path": [
+        "本年分の（７２）、（７３）から差し引く繰越損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00930": {
+      "label": "翌年以後に繰り越される損失の金額",
+      "path": [
+        "翌年以後に繰り越される損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00934": {
+      "label": "配当等",
+      "path": [
+        "配当等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00937": {
+      "label": "本年分の（７４）から差し引く繰越損失額",
+      "path": [
+        "本年分の（７４）から差し引く繰越損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00940": {
+      "label": "先物取引",
+      "path": [
+        "先物取引"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00950": {
+      "label": "本年分の（７５）から差し引く繰越損失額",
+      "path": [
+        "本年分の（７５）から差し引く繰越損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00960": {
+      "label": "翌年以後に繰り越される損失の金額",
+      "path": [
+        "翌年以後に繰り越される損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00640": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00650": {
+      "label": "条文　繰り返し",
+      "path": [
+        "条文　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00660": {
+      "label": "法区分",
+      "path": [
+        "法区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABL00670": {
+      "label": "条１",
+      "path": [
+        "条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "ABL00680": {
+      "label": "条２",
+      "path": [
+        "条２"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ABL00690": {
+      "label": "条３",
+      "path": [
+        "条３"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ABL00700": {
+      "label": "項",
+      "path": [
+        "項"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ABL00710": {
+      "label": "号",
+      "path": [
+        "号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ABL00720": {
+      "label": "分離課税の短期・長期譲渡所得に関する事項",
+      "path": [
+        "分離課税の短期・長期譲渡所得に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00730": {
+      "label": "分離課税の譲渡所得の明細　繰り返し",
+      "path": [
+        "分離課税の譲渡所得の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00740": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "ABL00750": {
+      "label": "所得の生ずる場所",
+      "path": [
+        "所得の生ずる場所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABL00770": {
+      "label": "必要経費(上段)",
+      "path": [
+        "必要経費(上段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABL00780": {
+      "label": "必要経費(下段)",
+      "path": [
+        "必要経費(下段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00790": {
+      "label": "差引金額（上段）",
+      "path": [
+        "差引金額（上段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00800": {
+      "label": "差引金額（下段）",
+      "path": [
+        "差引金額（下段）"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABL00850": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00852": {
+      "label": "差引金額（上段）　次葉合計",
+      "path": [
+        "差引金額（上段）　次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL00855": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "ABL00857": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00860": {
+      "label": "差引金額の合計額",
+      "path": [
+        "差引金額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL01020": {
+      "label": "特別控除額　次葉合計",
+      "path": [
+        "特別控除額　次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL01030": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "ABL01040": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00863": {
+      "label": "特別控除額の合計額",
+      "path": [
+        "特別控除額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00867": {
+      "label": "上場株式等の譲渡所得等に関する事項　上場株式等の譲渡所得等の源泉徴収税額の合計額",
+      "path": [
+        "上場株式等の譲渡所得等に関する事項　上場株式等の譲渡所得等の源泉徴収税額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL00870": {
+      "label": "退職所得に関する事項",
+      "path": [
+        "退職所得に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL01050": {
+      "label": "一般",
+      "path": [
+        "一般"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL01060": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL01070": {
+      "label": "退職所得控除額",
+      "path": [
+        "退職所得控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL01080": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL01090": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL01100": {
+      "label": "退職所得控除額",
+      "path": [
+        "退職所得控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL01110": {
+      "label": "特定役員",
+      "path": [
+        "特定役員"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABL01120": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABL01130": {
+      "label": "退職所得控除額",
+      "path": [
+        "退職所得控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABM00000": {
+      "label": "申告書見出し部（第四表（一））",
+      "path": [
+        "申告書見出し部（第四表（一））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABM00010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ABM00020": {
+      "label": "申告の種類",
+      "path": [
+        "申告の種類"
+      ],
+      "type": "kubun2",
+      "enum": "SHINKOKU_KBN"
+    },
+    "ABM00030": {
+      "label": "納税者等部（第四表（一））",
+      "path": [
+        "納税者等部（第四表（一））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABM00040": {
+      "label": "住所（又は居所・事業所等）",
+      "path": [
+        "住所（又は居所・事業所等）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABM00050": {
+      "label": "納税地区分",
+      "path": [
+        "納税地区分"
+      ],
+      "type": "kubun",
+      "enum": "ABA00070"
+    },
+    "ABM00060": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "ABM00065": {
+      "label": "住所以外の居所又は事業所等",
+      "path": [
+        "住所以外の居所又は事業所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABM00070": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "ABM00080": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "ABN00000": {
+      "label": "損失申告用（第四表（一））",
+      "path": [
+        "損失申告用（第四表（一））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00010": {
+      "label": "１．損失額又は所得金額",
+      "path": [
+        "１．損失額又は所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00020": {
+      "label": "Ａ",
+      "path": [
+        "Ａ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00030": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00040": {
+      "label": "Ｂ",
+      "path": [
+        "Ｂ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00050": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00060": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00070": {
+      "label": "分離譲渡",
+      "path": [
+        "分離譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00083": {
+      "label": "区分等",
+      "path": [
+        "区分等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00086": {
+      "label": "一般分",
+      "path": [
+        "一般分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABN00089": {
+      "label": "軽減分",
+      "path": [
+        "軽減分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABN00090": {
+      "label": "所得の生ずる場所等",
+      "path": [
+        "所得の生ずる場所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABN00100": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00110": {
+      "label": "必要経費等（上段）",
+      "path": [
+        "必要経費等（上段）"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00115": {
+      "label": "必要経費等（下段）",
+      "path": [
+        "必要経費等（下段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00120": {
+      "label": "差引金額(上段)",
+      "path": [
+        "差引金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00130": {
+      "label": "差引金額(下段)",
+      "path": [
+        "差引金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00140": {
+      "label": "損失額又は所得金額(上段)",
+      "path": [
+        "損失額又は所得金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00150": {
+      "label": "損失額又は所得金額(下段)",
+      "path": [
+        "損失額又は所得金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00160": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00170": {
+      "label": "差引金額(上段)",
+      "path": [
+        "差引金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00180": {
+      "label": "差引金額(下段)",
+      "path": [
+        "差引金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00190": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00200": {
+      "label": "損失額又は所得金額(上段)",
+      "path": [
+        "損失額又は所得金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00210": {
+      "label": "損失額又は所得金額(下段)",
+      "path": [
+        "損失額又は所得金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00220": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00230": {
+      "label": "分離譲渡",
+      "path": [
+        "分離譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00242": {
+      "label": "区分等",
+      "path": [
+        "区分等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00244": {
+      "label": "一般分",
+      "path": [
+        "一般分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABN00246": {
+      "label": "特定分",
+      "path": [
+        "特定分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABN00248": {
+      "label": "軽課分",
+      "path": [
+        "軽課分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABN00250": {
+      "label": "所得の生ずる場所等",
+      "path": [
+        "所得の生ずる場所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABN00260": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00270": {
+      "label": "必要経費等（上段）",
+      "path": [
+        "必要経費等（上段）"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00275": {
+      "label": "必要経費等（下段）",
+      "path": [
+        "必要経費等（下段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00280": {
+      "label": "差引金額(上段)",
+      "path": [
+        "差引金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00290": {
+      "label": "差引金額(下段)",
+      "path": [
+        "差引金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00300": {
+      "label": "損失額又は所得金額(上段)",
+      "path": [
+        "損失額又は所得金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00310": {
+      "label": "損失額又は所得金額(下段)",
+      "path": [
+        "損失額又は所得金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00320": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00330": {
+      "label": "差引金額(上段)",
+      "path": [
+        "差引金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00340": {
+      "label": "差引金額(下段)",
+      "path": [
+        "差引金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00350": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00360": {
+      "label": "損失額又は所得金額(上段)",
+      "path": [
+        "損失額又は所得金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00370": {
+      "label": "損失額又は所得金額(下段)",
+      "path": [
+        "損失額又は所得金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00380": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00390": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00400": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00410": {
+      "label": "損失額又は所得金額(上段)",
+      "path": [
+        "損失額又は所得金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00420": {
+      "label": "損失額又は所得金額(下段)",
+      "path": [
+        "損失額又は所得金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ABN00430": {
+      "label": "Ｃ",
+      "path": [
+        "Ｃ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00440": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00450": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00460": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00470": {
+      "label": "D",
+      "path": [
+        "D"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00480": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01630": {
+      "label": "一般",
+      "path": [
+        "一般"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01640": {
+      "label": "所得の生ずる場所等",
+      "path": [
+        "所得の生ずる場所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABN01650": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01660": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01670": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01680": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01690": {
+      "label": "所得の生ずる場所等",
+      "path": [
+        "所得の生ずる場所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABN01700": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01710": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01720": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01730": {
+      "label": "特定役員",
+      "path": [
+        "特定役員"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01740": {
+      "label": "所得の生ずる場所等",
+      "path": [
+        "所得の生ずる場所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABN01750": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01760": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01770": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00540": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00550": {
+      "label": "E",
+      "path": [
+        "E"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00560": {
+      "label": "明細",
+      "path": [
+        "明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01600": {
+      "label": "一般株式等の譲渡",
+      "path": [
+        "一般株式等の譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01610": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01620": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00610": {
+      "label": "上場株式等の譲渡",
+      "path": [
+        "上場株式等の譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00620": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00630": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01530": {
+      "label": "上場株式等の配当等",
+      "path": [
+        "上場株式等の配当等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01540": {
+      "label": "区分等",
+      "path": [
+        "区分等"
+      ],
+      "type": "string(6)",
+      "enum": ""
+    },
+    "ABN01550": {
+      "label": "所得の生ずる場所等",
+      "path": [
+        "所得の生ずる場所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABN01560": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01570": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01580": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01590": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00650": {
+      "label": "Ｆ",
+      "path": [
+        "Ｆ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00660": {
+      "label": "先物取引",
+      "path": [
+        "先物取引"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00680": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00690": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00693": {
+      "label": "分離課税の譲渡所得の特別控除額の合計額",
+      "path": [
+        "分離課税の譲渡所得の特別控除額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00696": {
+      "label": "上場株式等の譲渡所得等の源泉徴収税額の合計額",
+      "path": [
+        "上場株式等の譲渡所得等の源泉徴収税額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00700": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "ABN00780": {
+      "label": "２．損益の通算",
+      "path": [
+        "２．損益の通算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00790": {
+      "label": "通算前",
+      "path": [
+        "通算前"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00800": {
+      "label": "Ａ",
+      "path": [
+        "Ａ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00810": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00820": {
+      "label": "Ｂ",
+      "path": [
+        "Ｂ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00830": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00840": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00860": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00870": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00880": {
+      "label": "分離譲渡（特定損失額）",
+      "path": [
+        "分離譲渡（特定損失額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00890": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00900": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00910": {
+      "label": "第１次通算後",
+      "path": [
+        "第１次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00920": {
+      "label": "Ａ",
+      "path": [
+        "Ａ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00930": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00940": {
+      "label": "Ｂ",
+      "path": [
+        "Ｂ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00950": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00960": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN00980": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN00990": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01000": {
+      "label": "分離譲渡（特定損失額）",
+      "path": [
+        "分離譲渡（特定損失額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01010": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01020": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01030": {
+      "label": "Ｃ",
+      "path": [
+        "Ｃ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01040": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01050": {
+      "label": "第２次通算後",
+      "path": [
+        "第２次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01060": {
+      "label": "Ａ",
+      "path": [
+        "Ａ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01070": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01080": {
+      "label": "Ｂ",
+      "path": [
+        "Ｂ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01090": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01100": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01120": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01130": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01140": {
+      "label": "分離譲渡（特定損失額）",
+      "path": [
+        "分離譲渡（特定損失額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01150": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01160": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01170": {
+      "label": "Ｃ",
+      "path": [
+        "Ｃ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01180": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01190": {
+      "label": "D",
+      "path": [
+        "D"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01200": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01210": {
+      "label": "第３次通算後",
+      "path": [
+        "第３次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01220": {
+      "label": "Ａ",
+      "path": [
+        "Ａ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01230": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01240": {
+      "label": "Ｂ",
+      "path": [
+        "Ｂ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01250": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01260": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01280": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01290": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01300": {
+      "label": "分離譲渡（特定損失額）",
+      "path": [
+        "分離譲渡（特定損失額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01310": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01320": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01330": {
+      "label": "Ｃ",
+      "path": [
+        "Ｃ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01340": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01350": {
+      "label": "D",
+      "path": [
+        "D"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01360": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01370": {
+      "label": "損失額又は所得金額",
+      "path": [
+        "損失額又は所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01380": {
+      "label": "Ａ",
+      "path": [
+        "Ａ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01390": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01400": {
+      "label": "Ｂ",
+      "path": [
+        "Ｂ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01410": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01420": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01440": {
+      "label": "総合譲渡",
+      "path": [
+        "総合譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01450": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01460": {
+      "label": "分離譲渡（特定損失額）",
+      "path": [
+        "分離譲渡（特定損失額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01470": {
+      "label": "総合譲渡・一時",
+      "path": [
+        "総合譲渡・一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01480": {
+      "label": "Ｃ",
+      "path": [
+        "Ｃ"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01490": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01500": {
+      "label": "D",
+      "path": [
+        "D"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABN01510": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABN01520": {
+      "label": "損失額又は所得金額の合計額",
+      "path": [
+        "損失額又は所得金額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABO00000": {
+      "label": "申告書見出し部（第四表（二））",
+      "path": [
+        "申告書見出し部（第四表（二））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABO00010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ABO00020": {
+      "label": "申告の種類",
+      "path": [
+        "申告の種類"
+      ],
+      "type": "kubun2",
+      "enum": "SHINKOKU_KBN"
+    },
+    "ABP00000": {
+      "label": "損失申告用（第四表（二））",
+      "path": [
+        "損失申告用（第四表（二））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00010": {
+      "label": "３．翌年以後に繰り越す損失額",
+      "path": [
+        "３．翌年以後に繰り越す損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00020": {
+      "label": "青色申告者の損失の金額",
+      "path": [
+        "青色申告者の損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00030": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00040": {
+      "label": "変動所得の損失額",
+      "path": [
+        "変動所得の損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00050": {
+      "label": "被災事業用資産の損失額",
+      "path": [
+        "被災事業用資産の損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00060": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00070": {
+      "label": "営業等・農業",
+      "path": [
+        "営業等・農業"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00080": {
+      "label": "被災事業用資産の種類など",
+      "path": [
+        "被災事業用資産の種類など"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ABP00090": {
+      "label": "損害の原因",
+      "path": [
+        "損害の原因"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABP00100": {
+      "label": "損害年月日",
+      "path": [
+        "損害年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABP00110": {
+      "label": "損害金額",
+      "path": [
+        "損害金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00120": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00130": {
+      "label": "差引損失額",
+      "path": [
+        "差引損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00140": {
+      "label": "不動産",
+      "path": [
+        "不動産"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00150": {
+      "label": "被災事業用資産の種類など",
+      "path": [
+        "被災事業用資産の種類など"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ABP00160": {
+      "label": "損害の原因",
+      "path": [
+        "損害の原因"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABP00170": {
+      "label": "損害年月日",
+      "path": [
+        "損害年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABP00180": {
+      "label": "損害金額",
+      "path": [
+        "損害金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00190": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00200": {
+      "label": "差引損失額",
+      "path": [
+        "差引損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00210": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00220": {
+      "label": "被災事業用資産の種類など",
+      "path": [
+        "被災事業用資産の種類など"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ABP00230": {
+      "label": "損害の原因",
+      "path": [
+        "損害の原因"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABP00240": {
+      "label": "損害年月日",
+      "path": [
+        "損害年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABP00250": {
+      "label": "損害金額",
+      "path": [
+        "損害金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00260": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00270": {
+      "label": "差引損失額",
+      "path": [
+        "差引損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00290": {
+      "label": "山林以外の所得に係る被災事業用資産の損失額",
+      "path": [
+        "山林以外の所得に係る被災事業用資産の損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00300": {
+      "label": "山林所得に係る被災事業用資産の損失額",
+      "path": [
+        "山林所得に係る被災事業用資産の損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00310": {
+      "label": "４．繰越損失を差し引く計算",
+      "path": [
+        "４．繰越損失を差し引く計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00320": {
+      "label": "年分（Ａ）",
+      "path": [
+        "年分（Ａ）"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00330": {
+      "label": "３年前（Ａ）",
+      "path": [
+        "３年前（Ａ）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00340": {
+      "label": "青色の場合",
+      "path": [
+        "青色の場合"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00350": {
+      "label": "白色の場合",
+      "path": [
+        "白色の場合"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00360": {
+      "label": "年分（Ｂ）",
+      "path": [
+        "年分（Ｂ）"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00370": {
+      "label": "２年前（Ｂ）",
+      "path": [
+        "２年前（Ｂ）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00380": {
+      "label": "青色の場合",
+      "path": [
+        "青色の場合"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00390": {
+      "label": "白色の場合",
+      "path": [
+        "白色の場合"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00400": {
+      "label": "年分（Ｃ）",
+      "path": [
+        "年分（Ｃ）"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00410": {
+      "label": "前年（Ｃ）",
+      "path": [
+        "前年（Ｃ）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00420": {
+      "label": "青色の場合",
+      "path": [
+        "青色の場合"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00430": {
+      "label": "白色の場合",
+      "path": [
+        "白色の場合"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "ABP00460": {
+      "label": "前年分までに引ききれなかった損失額",
+      "path": [
+        "前年分までに引ききれなかった損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00470": {
+      "label": "Ａ年分",
+      "path": [
+        "Ａ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00480": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00490": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00500": {
+      "label": "山林以外の所得の損失",
+      "path": [
+        "山林以外の所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00510": {
+      "label": "山林所得の損失",
+      "path": [
+        "山林所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00520": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00530": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00540": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00550": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00560": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00570": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00580": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00590": {
+      "label": "Ｂ年分",
+      "path": [
+        "Ｂ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00600": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00610": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00620": {
+      "label": "山林以外の所得の損失",
+      "path": [
+        "山林以外の所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00630": {
+      "label": "山林所得の損失",
+      "path": [
+        "山林所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00640": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00650": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00660": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00670": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00680": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00690": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00700": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00710": {
+      "label": "Ｃ年分",
+      "path": [
+        "Ｃ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00720": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00730": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00740": {
+      "label": "山林以外の所得の損失",
+      "path": [
+        "山林以外の所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00750": {
+      "label": "山林所得の損失",
+      "path": [
+        "山林所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00760": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00770": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00780": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00790": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00800": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00810": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00820": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00830": {
+      "label": "本年分で差し引く損失額",
+      "path": [
+        "本年分で差し引く損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00840": {
+      "label": "Ａ年分",
+      "path": [
+        "Ａ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00850": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00860": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00870": {
+      "label": "山林以外の所得の損失",
+      "path": [
+        "山林以外の所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00880": {
+      "label": "山林所得の損失",
+      "path": [
+        "山林所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00890": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00900": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00910": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00920": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00930": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00940": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00950": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP00960": {
+      "label": "Ｂ年分",
+      "path": [
+        "Ｂ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00970": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00980": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP00990": {
+      "label": "山林以外の所得の損失",
+      "path": [
+        "山林以外の所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01000": {
+      "label": "山林所得の損失",
+      "path": [
+        "山林所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01010": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01020": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01030": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01040": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01050": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01060": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01070": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01080": {
+      "label": "Ｃ年分",
+      "path": [
+        "Ｃ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01090": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01100": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01110": {
+      "label": "山林以外の所得の損失",
+      "path": [
+        "山林以外の所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01120": {
+      "label": "山林所得の損失",
+      "path": [
+        "山林所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01130": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01140": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01150": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01160": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01170": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01180": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01190": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01194": {
+      "label": "本年分の一般株式等及び上場株式等に係る譲渡所得等から差し引く損失額",
+      "path": [
+        "本年分の一般株式等及び上場株式等に係る譲渡所得等から差し引く損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01195": {
+      "label": "本年分の上場株式等に係る配当所得等から差し引く損失額",
+      "path": [
+        "本年分の上場株式等に係る配当所得等から差し引く損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01197": {
+      "label": "本年分の先物取引に係る雑所得等から差し引く損失額",
+      "path": [
+        "本年分の先物取引に係る雑所得等から差し引く損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01200": {
+      "label": "翌年分以後に繰り越して差し引かれる損失額",
+      "path": [
+        "翌年分以後に繰り越して差し引かれる損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01210": {
+      "label": "Ｂ年分",
+      "path": [
+        "Ｂ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01220": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01230": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01240": {
+      "label": "山林以外の所得の損失",
+      "path": [
+        "山林以外の所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01250": {
+      "label": "山林所得の損失",
+      "path": [
+        "山林所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01260": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01270": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01280": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01290": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01300": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01310": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01320": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01330": {
+      "label": "Ｃ年分",
+      "path": [
+        "Ｃ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01340": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01350": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01360": {
+      "label": "山林以外の所得の損失",
+      "path": [
+        "山林以外の所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01370": {
+      "label": "山林所得の損失",
+      "path": [
+        "山林所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01380": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01390": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01400": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABP01410": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01420": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01430": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01440": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01445": {
+      "label": "雑損控除、医療費控除及び寄附金控除の計算で使用する所得金額の合計額",
+      "path": [
+        "雑損控除、医療費控除及び寄附金控除の計算で使用する所得金額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01520": {
+      "label": "５．翌年以後に繰り越される本年分の雑損失の金額",
+      "path": [
+        "５．翌年以後に繰り越される本年分の雑損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01530": {
+      "label": "６．翌年以後に繰り越される株式等に係る譲渡損失の金額",
+      "path": [
+        "６．翌年以後に繰り越される株式等に係る譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABP01540": {
+      "label": "７．翌年以後に繰り越される先物取引に係る損失の金額",
+      "path": [
+        "７．翌年以後に繰り越される先物取引に係る損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABT10000": {
+      "label": "申告書見出し部（第四表付表（一））",
+      "path": [
+        "申告書見出し部（第四表付表（一））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABT10010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ABT10020": {
+      "label": "申告の種類",
+      "path": [
+        "申告の種類"
+      ],
+      "type": "kubun2",
+      "enum": "SHINKOKU_KBN"
+    },
+    "ABT10030": {
+      "label": "納税者等部（第四表付表（一））",
+      "path": [
+        "納税者等部（第四表付表（一））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABT10040": {
+      "label": "住所（又は居所・事業所等）",
+      "path": [
+        "住所（又は居所・事業所等）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABT10050": {
+      "label": "納税地区分",
+      "path": [
+        "納税地区分"
+      ],
+      "type": "kubun",
+      "enum": "ABA00070"
+    },
+    "ABT10060": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "ABT10070": {
+      "label": "住所以外の居所又は事業所等",
+      "path": [
+        "住所以外の居所又は事業所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ABT10080": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "ABT10090": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "ABU10000": {
+      "label": "損失申告用（第四表付表（一））",
+      "path": [
+        "損失申告用（第四表付表（一））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10010": {
+      "label": "３．翌年以後に繰り越す損失額",
+      "path": [
+        "３．翌年以後に繰り越す損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10610": {
+      "label": "純損失の繰越控除期間の特例の該当判定",
+      "path": [
+        "純損失の繰越控除期間の特例の該当判定"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10620": {
+      "label": "事業所得",
+      "path": [
+        "事業所得"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10630": {
+      "label": "事業資産特定災害損失額",
+      "path": [
+        "事業資産特定災害損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10640": {
+      "label": "事業所得に係る事業用固定資産の価額の合計額",
+      "path": [
+        "事業所得に係る事業用固定資産の価額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10650": {
+      "label": "（イ）／（ロ）＞＝0.1のときは、「該当」",
+      "path": [
+        "（イ）／（ロ）＞＝0.1のときは、「該当」"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABU10660": {
+      "label": "不動産所得等",
+      "path": [
+        "不動産所得等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10670": {
+      "label": "不動産等特定災害損失額",
+      "path": [
+        "不動産等特定災害損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10680": {
+      "label": "不動産所得又は山林所得に係る事業用固定資産の価額の合計額",
+      "path": [
+        "不動産所得又は山林所得に係る事業用固定資産の価額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10690": {
+      "label": "（ハ）／（ニ）＞＝0.1のときは、「該当」",
+      "path": [
+        "（ハ）／（ニ）＞＝0.1のときは、「該当」"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ABU10130": {
+      "label": "翌年以後に繰り越す損失額",
+      "path": [
+        "翌年以後に繰り越す損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10140": {
+      "label": "青色申告者の損失の金額",
+      "path": [
+        "青色申告者の損失の金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10150": {
+      "label": "要件非該当",
+      "path": [
+        "要件非該当"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10160": {
+      "label": "被災純損失以外の純損失金額",
+      "path": [
+        "被災純損失以外の純損失金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10165": {
+      "label": "被災純損失金額（所得税法）",
+      "path": [
+        "被災純損失金額（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10170": {
+      "label": "被災純損失金額（震災特例法）",
+      "path": [
+        "被災純損失金額（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10175": {
+      "label": "要件該当　特定非常災害発生年純損失金額",
+      "path": [
+        "要件該当　特定非常災害発生年純損失金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10200": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10210": {
+      "label": "変動所得の損失額",
+      "path": [
+        "変動所得の損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10220": {
+      "label": "被災事業用資産の損失額",
+      "path": [
+        "被災事業用資産の損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10230": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10240": {
+      "label": "営業等・農業",
+      "path": [
+        "営業等・農業"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10250": {
+      "label": "被災事業用資産の種類など",
+      "path": [
+        "被災事業用資産の種類など"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ABU10260": {
+      "label": "損害の原因",
+      "path": [
+        "損害の原因"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABU10270": {
+      "label": "損害年月日",
+      "path": [
+        "損害年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABU10280": {
+      "label": "損害金額",
+      "path": [
+        "損害金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10290": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10300": {
+      "label": "差引損失額",
+      "path": [
+        "差引損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10303": {
+      "label": "うち棚卸資産特定災害損失額",
+      "path": [
+        "うち棚卸資産特定災害損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10306": {
+      "label": "うち固定資産特定災害損失額",
+      "path": [
+        "うち固定資産特定災害損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10310": {
+      "label": "うち棚卸資産震災損失額",
+      "path": [
+        "うち棚卸資産震災損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10320": {
+      "label": "うち固定資産震災損失額",
+      "path": [
+        "うち固定資産震災損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10330": {
+      "label": "不動産",
+      "path": [
+        "不動産"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10340": {
+      "label": "被災事業用資産の種類など",
+      "path": [
+        "被災事業用資産の種類など"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ABU10350": {
+      "label": "損害の原因",
+      "path": [
+        "損害の原因"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABU10360": {
+      "label": "損害年月日",
+      "path": [
+        "損害年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABU10370": {
+      "label": "損害金額",
+      "path": [
+        "損害金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10380": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10390": {
+      "label": "差引損失額",
+      "path": [
+        "差引損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10395": {
+      "label": "うち固定資産特定災害損失額",
+      "path": [
+        "うち固定資産特定災害損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10400": {
+      "label": "うち固定資産震災損失額",
+      "path": [
+        "うち固定資産震災損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10410": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10420": {
+      "label": "被災事業用資産の種類など",
+      "path": [
+        "被災事業用資産の種類など"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "ABU10430": {
+      "label": "損害の原因",
+      "path": [
+        "損害の原因"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ABU10440": {
+      "label": "損害年月日",
+      "path": [
+        "損害年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ABU10450": {
+      "label": "損害金額",
+      "path": [
+        "損害金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10460": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10470": {
+      "label": "差引損失額",
+      "path": [
+        "差引損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10475": {
+      "label": "うち固定資産特定災害損失額",
+      "path": [
+        "うち固定資産特定災害損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10480": {
+      "label": "うち固定資産震災損失額",
+      "path": [
+        "うち固定資産震災損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10490": {
+      "label": "山林所得に係る被災事業用資産の損失額",
+      "path": [
+        "山林所得に係る被災事業用資産の損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10500": {
+      "label": "要件非該当",
+      "path": [
+        "要件非該当"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10510": {
+      "label": "被災純損失以外の純損失金額",
+      "path": [
+        "被災純損失以外の純損失金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10520": {
+      "label": "被災純損失金額（所得税法）",
+      "path": [
+        "被災純損失金額（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10523": {
+      "label": "被災純損失金額（震災特例法）",
+      "path": [
+        "被災純損失金額（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10526": {
+      "label": "要件該当　特定非常災害発生年特定純損失金額",
+      "path": [
+        "要件該当　特定非常災害発生年特定純損失金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10550": {
+      "label": "山林以外の所得に係る被災事業用資産の損失額",
+      "path": [
+        "山林以外の所得に係る被災事業用資産の損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10560": {
+      "label": "要件非該当",
+      "path": [
+        "要件非該当"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABU10570": {
+      "label": "被災純損失以外の純損失金額",
+      "path": [
+        "被災純損失以外の純損失金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10580": {
+      "label": "被災純損失金額（所得税法）",
+      "path": [
+        "被災純損失金額（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10590": {
+      "label": "被災純損失金額（震災特例法）",
+      "path": [
+        "被災純損失金額（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABU10600": {
+      "label": "要件該当　特定非常災害発生年特定純損失金額",
+      "path": [
+        "要件該当　特定非常災害発生年特定純損失金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABV10000": {
+      "label": "申告書見出し部（第四表付表（二））",
+      "path": [
+        "申告書見出し部（第四表付表（二））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABV10010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ABV10020": {
+      "label": "申告の種類",
+      "path": [
+        "申告の種類"
+      ],
+      "type": "kubun2",
+      "enum": "SHINKOKU_KBN"
+    },
+    "ABW10000": {
+      "label": "損失申告用（第四表付表（二））",
+      "path": [
+        "損失申告用（第四表付表（二））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW10010": {
+      "label": "４．繰越損失を差し引く計算（５年前、４年前及び３年前に生じた損失）",
+      "path": [
+        "４．繰越損失を差し引く計算（５年前、４年前及び３年前に生じた損失）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW10020": {
+      "label": "前年分までに引ききれなかった損失額",
+      "path": [
+        "前年分までに引ききれなかった損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14290": {
+      "label": "Ａ年分",
+      "path": [
+        "Ａ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14300": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14310": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14320": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14330": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14340": {
+      "label": "B年分",
+      "path": [
+        "B年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14350": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14360": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14370": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14380": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14390": {
+      "label": "Ｃ年分",
+      "path": [
+        "Ｃ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14400": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14410": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14420": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14430": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14440": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14450": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14460": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14470": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14480": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14490": {
+      "label": "被災純損失（青・白）",
+      "path": [
+        "被災純損失（青・白）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14500": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14510": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14520": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14530": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14540": {
+      "label": "特定雑損失以外の雑損失",
+      "path": [
+        "特定雑損失以外の雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14550": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW10450": {
+      "label": "本年分で差し引く損失額",
+      "path": [
+        "本年分で差し引く損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14900": {
+      "label": "Ａ年分",
+      "path": [
+        "Ａ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14910": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14920": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14930": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14940": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14950": {
+      "label": "B年分",
+      "path": [
+        "B年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14960": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW14970": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14980": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW14990": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15000": {
+      "label": "Ｃ年分",
+      "path": [
+        "Ｃ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15010": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15020": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15030": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15040": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15050": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15060": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15070": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15080": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15090": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15100": {
+      "label": "被災純損失（青・白）",
+      "path": [
+        "被災純損失（青・白）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15110": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15120": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15130": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15140": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15150": {
+      "label": "特定雑損失以外の雑損失",
+      "path": [
+        "特定雑損失以外の雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15160": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW10910": {
+      "label": "翌年分以後に繰り越して差し引かれる損失額",
+      "path": [
+        "翌年分以後に繰り越して差し引かれる損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15510": {
+      "label": "B年分",
+      "path": [
+        "B年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15520": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15530": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15540": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15550": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15560": {
+      "label": "Ｃ年分",
+      "path": [
+        "Ｃ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15570": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW15580": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15590": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW15600": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABV20000": {
+      "label": "申告書見出し部（第四表付表（三））",
+      "path": [
+        "申告書見出し部（第四表付表（三））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABV20010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ABV20020": {
+      "label": "申告の種類",
+      "path": [
+        "申告の種類"
+      ],
+      "type": "kubun2",
+      "enum": "SHINKOKU_KBN"
+    },
+    "ABW20000": {
+      "label": "損失申告用（第四表付表（三））",
+      "path": [
+        "損失申告用（第四表付表（三））"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20010": {
+      "label": "４．繰越損失を差し引く計算（２年前及び前年に生じた損失）",
+      "path": [
+        "４．繰越損失を差し引く計算（２年前及び前年に生じた損失）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20020": {
+      "label": "前年分までに引ききれなかった損失額",
+      "path": [
+        "前年分までに引ききれなかった損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20030": {
+      "label": "Ｄ年分",
+      "path": [
+        "Ｄ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20040": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20050": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20060": {
+      "label": "被災純損失以外の損失",
+      "path": [
+        "被災純損失以外の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20070": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20080": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20090": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20100": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20110": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20120": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20130": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20140": {
+      "label": "被災純損失（青・白）",
+      "path": [
+        "被災純損失（青・白）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20142": {
+      "label": "被災純損失（所得税法）",
+      "path": [
+        "被災純損失（所得税法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20144": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20146": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20150": {
+      "label": "被災純損失（震災特例法）",
+      "path": [
+        "被災純損失（震災特例法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20160": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20170": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20180": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20190": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20200": {
+      "label": "特定雑損失以外の雑損失",
+      "path": [
+        "特定雑損失以外の雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20205": {
+      "label": "特定雑損失（所得税法）",
+      "path": [
+        "特定雑損失（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20210": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20220": {
+      "label": "Ｅ年分",
+      "path": [
+        "Ｅ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20230": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20240": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20250": {
+      "label": "被災純損失以外の損失",
+      "path": [
+        "被災純損失以外の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20260": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20270": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20272": {
+      "label": "特定非常災害発生年純損失",
+      "path": [
+        "特定非常災害発生年純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20274": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20276": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20280": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20290": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20300": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20310": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20320": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20322": {
+      "label": "特定非常災害発生年特定純損失",
+      "path": [
+        "特定非常災害発生年特定純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20324": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20326": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20330": {
+      "label": "被災純損失（青・白）",
+      "path": [
+        "被災純損失（青・白）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20332": {
+      "label": "被災純損失（所得税法）",
+      "path": [
+        "被災純損失（所得税法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20334": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20336": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20340": {
+      "label": "被災純損失（震災特例法）",
+      "path": [
+        "被災純損失（震災特例法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20350": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20360": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20370": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20380": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20390": {
+      "label": "特定雑損失以外の雑損失",
+      "path": [
+        "特定雑損失以外の雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20395": {
+      "label": "特定雑損失（所得税法）",
+      "path": [
+        "特定雑損失（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20400": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20410": {
+      "label": "本年分で差し引く損失額",
+      "path": [
+        "本年分で差し引く損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20420": {
+      "label": "Ｄ年分",
+      "path": [
+        "Ｄ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20430": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20440": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20450": {
+      "label": "被災純損失以外の損失",
+      "path": [
+        "被災純損失以外の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20460": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20470": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20480": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20490": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20500": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20510": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20520": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20530": {
+      "label": "被災純損失（青・白）",
+      "path": [
+        "被災純損失（青・白）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20532": {
+      "label": "被災純損失（所得税法）",
+      "path": [
+        "被災純損失（所得税法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20534": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20536": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20540": {
+      "label": "被災純損失（震災特例法）",
+      "path": [
+        "被災純損失（震災特例法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20550": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20560": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20570": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20580": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20590": {
+      "label": "特定雑損失以外の雑損失",
+      "path": [
+        "特定雑損失以外の雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20595": {
+      "label": "特定雑損失（所得税法）",
+      "path": [
+        "特定雑損失（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20600": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20610": {
+      "label": "Ｅ年分",
+      "path": [
+        "Ｅ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20620": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20630": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20640": {
+      "label": "被災純損失以外の損失",
+      "path": [
+        "被災純損失以外の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20650": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20660": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20662": {
+      "label": "特定非常災害発生年純損失",
+      "path": [
+        "特定非常災害発生年純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20664": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20666": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20670": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20680": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20690": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20700": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20710": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20712": {
+      "label": "特定非常災害発生年特定純損失",
+      "path": [
+        "特定非常災害発生年特定純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20714": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20716": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20720": {
+      "label": "被災純損失（青・白）",
+      "path": [
+        "被災純損失（青・白）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20722": {
+      "label": "被災純損失（所得税法）",
+      "path": [
+        "被災純損失（所得税法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20724": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20726": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20730": {
+      "label": "被災純損失（震災特例法）",
+      "path": [
+        "被災純損失（震災特例法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20740": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20750": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20760": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20770": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20780": {
+      "label": "特定雑損失以外の雑損失",
+      "path": [
+        "特定雑損失以外の雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20785": {
+      "label": "特定雑損失（所得税法）",
+      "path": [
+        "特定雑損失（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20790": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20800": {
+      "label": "本年分の一般株式等及び上場株式等に係る譲渡所得等から差し引く損失額",
+      "path": [
+        "本年分の一般株式等及び上場株式等に係る譲渡所得等から差し引く損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20810": {
+      "label": "本年分の上場株式等に係る配当所得等から差し引く損失額",
+      "path": [
+        "本年分の上場株式等に係る配当所得等から差し引く損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20820": {
+      "label": "本年分の先物取引に係る雑所得等から差し引く損失額",
+      "path": [
+        "本年分の先物取引に係る雑所得等から差し引く損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20830": {
+      "label": "翌年分以後に繰り越して差し引かれる損失額",
+      "path": [
+        "翌年分以後に繰り越して差し引かれる損失額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20840": {
+      "label": "Ｄ年分",
+      "path": [
+        "Ｄ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20850": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20860": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20870": {
+      "label": "被災純損失以外の損失",
+      "path": [
+        "被災純損失以外の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20880": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20890": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20900": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20910": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20920": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20930": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20940": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20950": {
+      "label": "被災純損失（青・白）",
+      "path": [
+        "被災純損失（青・白）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20952": {
+      "label": "被災純損失（所得税法）",
+      "path": [
+        "被災純損失（所得税法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20954": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20956": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20960": {
+      "label": "被災純損失（震災特例法）",
+      "path": [
+        "被災純損失（震災特例法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW20970": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20980": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW20990": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21000": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21010": {
+      "label": "特定雑損失以外の雑損失",
+      "path": [
+        "特定雑損失以外の雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21015": {
+      "label": "特定雑損失（所得税法）",
+      "path": [
+        "特定雑損失（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21020": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21030": {
+      "label": "Ｅ年分",
+      "path": [
+        "Ｅ年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21040": {
+      "label": "純損失",
+      "path": [
+        "純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21050": {
+      "label": "青色",
+      "path": [
+        "青色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21060": {
+      "label": "被災純損失以外の損失",
+      "path": [
+        "被災純損失以外の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21070": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21080": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21082": {
+      "label": "特定非常災害発生年純損失",
+      "path": [
+        "特定非常災害発生年純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21084": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21086": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21090": {
+      "label": "白色",
+      "path": [
+        "白色"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21100": {
+      "label": "変動所得の損失",
+      "path": [
+        "変動所得の損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21110": {
+      "label": "被災事業用資産の損失",
+      "path": [
+        "被災事業用資産の損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21120": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21130": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21132": {
+      "label": "特定非常災害発生年特定純損失",
+      "path": [
+        "特定非常災害発生年特定純損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21134": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21136": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21140": {
+      "label": "被災純損失（青・白）",
+      "path": [
+        "被災純損失（青・白）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21142": {
+      "label": "被災純損失（所得税法）",
+      "path": [
+        "被災純損失（所得税法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21144": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21146": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21150": {
+      "label": "被災純損失（震災特例法）",
+      "path": [
+        "被災純損失（震災特例法）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21160": {
+      "label": "山林以外",
+      "path": [
+        "山林以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21170": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21180": {
+      "label": "居住用財産に係る通算後譲渡損失の金額",
+      "path": [
+        "居住用財産に係る通算後譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21190": {
+      "label": "雑損失",
+      "path": [
+        "雑損失"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21200": {
+      "label": "特定雑損失以外の雑損失",
+      "path": [
+        "特定雑損失以外の雑損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21205": {
+      "label": "特定雑損失（所得税法）",
+      "path": [
+        "特定雑損失（所得税法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21210": {
+      "label": "特定雑損失（震災特例法）",
+      "path": [
+        "特定雑損失（震災特例法）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21220": {
+      "label": "雑損控除、医療費控除及び寄附金控除の計算で使用する所得金額の合計額",
+      "path": [
+        "雑損控除、医療費控除及び寄附金控除の計算で使用する所得金額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21230": {
+      "label": "５．翌年以後に繰り越される本年分の雑損失の金額",
+      "path": [
+        "５．翌年以後に繰り越される本年分の雑損失の金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ABW21240": {
+      "label": "特定雑損失以外の雑損失の金額",
+      "path": [
+        "特定雑損失以外の雑損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21250": {
+      "label": "特定雑損失（所得税法）の金額",
+      "path": [
+        "特定雑損失（所得税法）の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ABW21260": {
+      "label": "特定雑損失（震災特例法）の金額",
+      "path": [
+        "特定雑損失（震災特例法）の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

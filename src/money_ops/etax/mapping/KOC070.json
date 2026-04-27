@@ -1,0 +1,675 @@
+{
+  "_meta": {
+    "form_code": "KOC070",
+    "source_ver": "Ver9",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "EGA00005": {
+      "label": "納税地区分",
+      "path": [
+        "納税地区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EGA00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "EGA00014": {
+      "label": "住所以外の居所又は事業所等",
+      "path": [
+        "住所以外の居所又は事業所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGA00016": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "EGA00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "EGA00030": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "EGA00040": {
+      "label": "関与税理士名",
+      "path": [
+        "関与税理士名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGA00050": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "EGA00060": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "EGC00010": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00020": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00030": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00055": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00065": {
+      "label": "償却費相当額",
+      "path": [
+        "償却費相当額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00075": {
+      "label": "差引",
+      "path": [
+        "差引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00090": {
+      "label": "譲渡に要した費用",
+      "path": [
+        "譲渡に要した費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00100": {
+      "label": "居住用財産の譲渡損失の金額",
+      "path": [
+        "居住用財産の譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00110": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00120": {
+      "label": "資産の所在地番",
+      "path": [
+        "資産の所在地番"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGC00130": {
+      "label": "資産の利用状況",
+      "path": [
+        "資産の利用状況"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "EGC00140": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EGC00143": {
+      "label": "居住期間",
+      "path": [
+        "居住期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00145": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "EGC00147": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "EGC00150": {
+      "label": "譲渡先",
+      "path": [
+        "譲渡先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00160": {
+      "label": "住所又は所在地",
+      "path": [
+        "住所又は所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGC00170": {
+      "label": "氏名又は名称",
+      "path": [
+        "氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EGC00180": {
+      "label": "譲渡契約締結日",
+      "path": [
+        "譲渡契約締結日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGC00220": {
+      "label": "譲渡した年月日",
+      "path": [
+        "譲渡した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGC00230": {
+      "label": "資産を取得した時期",
+      "path": [
+        "資産を取得した時期"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGC00240": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00250": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00275": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00285": {
+      "label": "償却費相当額",
+      "path": [
+        "償却費相当額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00295": {
+      "label": "差引",
+      "path": [
+        "差引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00310": {
+      "label": "譲渡に要した費用",
+      "path": [
+        "譲渡に要した費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00320": {
+      "label": "居住用財産の譲渡損失の金額",
+      "path": [
+        "居住用財産の譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00330": {
+      "label": "土地・借地権",
+      "path": [
+        "土地・借地権"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00332": {
+      "label": "土地・借地権の区分",
+      "path": [
+        "土地・借地権の区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00334": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EGC00336": {
+      "label": "借地権",
+      "path": [
+        "借地権"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EGC00340": {
+      "label": "資産の所在地番",
+      "path": [
+        "資産の所在地番"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGC00350": {
+      "label": "資産の利用状況",
+      "path": [
+        "資産の利用状況"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "EGC00360": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "EGC00370": {
+      "label": "譲渡先",
+      "path": [
+        "譲渡先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00380": {
+      "label": "住所又は所在地",
+      "path": [
+        "住所又は所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGC00390": {
+      "label": "氏名又は名称",
+      "path": [
+        "氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EGC00400": {
+      "label": "譲渡契約締結日",
+      "path": [
+        "譲渡契約締結日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGC00410": {
+      "label": "譲渡した年月日",
+      "path": [
+        "譲渡した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGC00420": {
+      "label": "資産を取得した時期",
+      "path": [
+        "資産を取得した時期"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGC00430": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00440": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGC00465": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00475": {
+      "label": "差引",
+      "path": [
+        "差引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00490": {
+      "label": "譲渡に要した費用",
+      "path": [
+        "譲渡に要した費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGC00500": {
+      "label": "居住用財産の譲渡損失の金額",
+      "path": [
+        "居住用財産の譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGD00010": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGD00020": {
+      "label": "買換資産の取得（予定）価額",
+      "path": [
+        "買換資産の取得（予定）価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGD00030": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGD00040": {
+      "label": "資産の所在地番",
+      "path": [
+        "資産の所在地番"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGD00050": {
+      "label": "資産の利用状況・利用目的",
+      "path": [
+        "資産の利用状況・利用目的"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "EGD00060": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EGD00070": {
+      "label": "買換資産の取得（予定）日",
+      "path": [
+        "買換資産の取得（予定）日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGD00080": {
+      "label": "居住の用に供した（供する見込）日",
+      "path": [
+        "居住の用に供した（供する見込）日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGD00090": {
+      "label": "買換資産の取得（予定）価額",
+      "path": [
+        "買換資産の取得（予定）価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGD00100": {
+      "label": "買入れ先",
+      "path": [
+        "買入れ先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGD00110": {
+      "label": "住所又は所在地",
+      "path": [
+        "住所又は所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGD00120": {
+      "label": "氏名又は名称",
+      "path": [
+        "氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EGD00130": {
+      "label": "住宅の取得等に要した住宅借入金等の金額及びその借入先",
+      "path": [
+        "住宅の取得等に要した住宅借入金等の金額及びその借入先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGD00140": {
+      "label": "借入先",
+      "path": [
+        "借入先"
+      ],
+      "type": "string(25)",
+      "enum": ""
+    },
+    "EGD00150": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGD00160": {
+      "label": "土地・借地権",
+      "path": [
+        "土地・借地権"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGD00162": {
+      "label": "土地・借地権の区分",
+      "path": [
+        "土地・借地権の区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGD00164": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EGD00166": {
+      "label": "借地権",
+      "path": [
+        "借地権"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EGD00170": {
+      "label": "資産の所在地番",
+      "path": [
+        "資産の所在地番"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGD00180": {
+      "label": "資産の利用状況・利用目的",
+      "path": [
+        "資産の利用状況・利用目的"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "EGD00190": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "EGD00200": {
+      "label": "買換資産の取得（予定）日",
+      "path": [
+        "買換資産の取得（予定）日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EGD00210": {
+      "label": "買換資産の取得（予定）価額",
+      "path": [
+        "買換資産の取得（予定）価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EGD00220": {
+      "label": "買入れ先",
+      "path": [
+        "買入れ先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EGD00230": {
+      "label": "住所又は所在地",
+      "path": [
+        "住所又は所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EGD00240": {
+      "label": "氏名又は名称",
+      "path": [
+        "氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    }
+  }
+}

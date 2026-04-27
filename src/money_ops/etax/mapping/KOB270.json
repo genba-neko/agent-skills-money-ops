@@ -1,0 +1,211 @@
+{
+  "_meta": {
+    "form_code": "KOB270",
+    "source_ver": "Ver3",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "CAC00010": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "CAC00020": {
+      "label": "構造",
+      "path": [
+        "構造"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "CAC00030": {
+      "label": "細目",
+      "path": [
+        "細目"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "CAC00040": {
+      "label": "取得年月日",
+      "path": [
+        "取得年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "CAC00050": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00055": {
+      "label": "（償却保証額）",
+      "path": [
+        "（償却保証額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00060": {
+      "label": "償却の基礎となる金額",
+      "path": [
+        "償却の基礎となる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00070": {
+      "label": "耐用年数",
+      "path": [
+        "耐用年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "CAC00080": {
+      "label": "償却方法",
+      "path": [
+        "償却方法"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "CAC00090": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "decimal(1.3)",
+      "enum": ""
+    },
+    "CAC00100": {
+      "label": "償却期間",
+      "path": [
+        "償却期間"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "CAC00110": {
+      "label": "普通償却費",
+      "path": [
+        "普通償却費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "CAC00120": {
+      "label": "算出償却費",
+      "path": [
+        "算出償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00130": {
+      "label": "増加償却費",
+      "path": [
+        "増加償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00140": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00150": {
+      "label": "割増償却費",
+      "path": [
+        "割増償却費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "CAC00160": {
+      "label": "割増償却可能額",
+      "path": [
+        "割増償却可能額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "CAC00170": {
+      "label": "割増償却率",
+      "path": [
+        "割増償却率"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "CAC00180": {
+      "label": "償却可能額",
+      "path": [
+        "償却可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00220": {
+      "label": "前年から繰り越された割増償却可能額",
+      "path": [
+        "前年から繰り越された割増償却可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00230": {
+      "label": "本年分割増償却可能額計",
+      "path": [
+        "本年分割増償却可能額計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00240": {
+      "label": "本年必要経費に算入した割増償却費",
+      "path": [
+        "本年必要経費に算入した割増償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00250": {
+      "label": "翌年に繰り越した割増償却可能額",
+      "path": [
+        "翌年に繰り越した割増償却可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00260": {
+      "label": "償却費合計額",
+      "path": [
+        "償却費合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CAC00270": {
+      "label": "未償却残高",
+      "path": [
+        "未償却残高"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

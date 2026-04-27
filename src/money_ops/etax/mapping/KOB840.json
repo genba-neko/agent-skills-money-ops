@@ -1,0 +1,459 @@
+{
+  "_meta": {
+    "form_code": "KOB840",
+    "source_ver": "Ver3",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "JLA00010": {
+      "label": "保険料を支払った場合等の課税の特例の届出書",
+      "path": [
+        "保険料を支払った場合等の課税の特例の届出書"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "JLA00020": {
+      "label": "保険料を支払った場合等の課税の特例の還付請求書",
+      "path": [
+        "保険料を支払った場合等の課税の特例の還付請求書"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "JLD00010": {
+      "label": "郵便番号",
+      "path": [
+        "郵便番号"
+      ],
+      "type": "zipcode",
+      "enum": "NOZEISHA_ZIP"
+    },
+    "JLD00020": {
+      "label": "住(居)所",
+      "path": [
+        "住(居)所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "JLD00030": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "JLD00040": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLD00050": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "JLD00060": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "JLD00070": {
+      "label": "性別",
+      "path": [
+        "性別"
+      ],
+      "type": "kubun",
+      "enum": "SEIBETSU"
+    },
+    "JLD00080": {
+      "label": "国籍",
+      "path": [
+        "国籍"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "JLD00090": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "BIRTHDAY"
+    },
+    "JLE00010": {
+      "label": "国内において役務の提供を開始した日",
+      "path": [
+        "国内において役務の提供を開始した日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLE00020": {
+      "label": "居住形態",
+      "path": [
+        "居住形態"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLE00030": {
+      "label": "居住者　居住者となった日",
+      "path": [
+        "居住者　居住者となった日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLE00040": {
+      "label": "非居住者",
+      "path": [
+        "非居住者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLE00050": {
+      "label": "当初入国年月日",
+      "path": [
+        "当初入国年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLE00060": {
+      "label": "在留期間",
+      "path": [
+        "在留期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLE00070": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLE00080": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLE00090": {
+      "label": "在留資格",
+      "path": [
+        "在留資格"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "JLE00100": {
+      "label": "相手国の納税者番号",
+      "path": [
+        "相手国の納税者番号"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "JLE00110": {
+      "label": "相手国の納税地",
+      "path": [
+        "相手国の納税地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "JLE00120": {
+      "label": "納税管理人",
+      "path": [
+        "納税管理人"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLE00130": {
+      "label": "住(居)所",
+      "path": [
+        "住(居)所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "JLE00140": {
+      "label": "(フリガナ)氏名",
+      "path": [
+        "(フリガナ)氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLE00150": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": ""
+    },
+    "JLE00160": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "JLE00170": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": ""
+    },
+    "JLF00010": {
+      "label": "相手国法人との雇用契約",
+      "path": [
+        "相手国法人との雇用契約"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLF00020": {
+      "label": "有",
+      "path": [
+        "有"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "JLF00030": {
+      "label": "無",
+      "path": [
+        "無"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "JLF00040": {
+      "label": "日本での就労期間",
+      "path": [
+        "日本での就労期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLF00050": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLF00060": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLF00070": {
+      "label": "課税の特例を受けることができる事情の詳細",
+      "path": [
+        "課税の特例を受けることができる事情の詳細"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "JLF00080": {
+      "label": "(特定社会)保険料",
+      "path": [
+        "(特定社会)保険料"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLF00090": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "JLF00100": {
+      "label": "支払(控除)年月日",
+      "path": [
+        "支払(控除)年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLF00110": {
+      "label": "(特定社会)保険料の支払(控除)金額",
+      "path": [
+        "(特定社会)保険料の支払(控除)金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JLF00120": {
+      "label": "(特定社会)保険料の上限",
+      "path": [
+        "(特定社会)保険料の上限"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JLF00130": {
+      "label": "特例の対象となる(特定社会)保険料の額",
+      "path": [
+        "特例の対象となる(特定社会)保険料の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JLF00140": {
+      "label": "(特定社会)保険料の金額の計算の基礎となった所得",
+      "path": [
+        "(特定社会)保険料の金額の計算の基礎となった所得"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLF00150": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "JLF00160": {
+      "label": "期間",
+      "path": [
+        "期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLF00170": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLF00180": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JLF00190": {
+      "label": "所得の金額",
+      "path": [
+        "所得の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JLF00200": {
+      "label": "(4)に対する所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "(4)に対する所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JLF00210": {
+      "label": "支払者",
+      "path": [
+        "支払者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JLF00220": {
+      "label": "住(居)所又は所在地",
+      "path": [
+        "住(居)所又は所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "JLF00230": {
+      "label": "氏名又は名称",
+      "path": [
+        "氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "JLG00010": {
+      "label": "２(3)*20.42％",
+      "path": [
+        "２(3)*20.42％"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JLG00020": {
+      "label": "還付請求金額",
+      "path": [
+        "還付請求金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JLG00030": {
+      "label": "還付される税金の受取場所",
+      "path": [
+        "還付される税金の受取場所"
+      ],
+      "type": "account",
+      "enum": "KANPU_KINYUKIKAN"
+    },
+    "JLH00010": {
+      "label": "関与税理士名",
+      "path": [
+        "関与税理士名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "JLH00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    }
+  }
+}

@@ -1,0 +1,635 @@
+{
+  "_meta": {
+    "form_code": "KOA080",
+    "source_ver": "Ver5",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "ARB00010": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00010": {
+      "label": "(A)差引金額",
+      "path": [
+        "(A)差引金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00020": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00030": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00060": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00070": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00080": {
+      "label": "分離　特定損失額",
+      "path": [
+        "分離　特定損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00110": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00300": {
+      "label": "(B)通算後",
+      "path": [
+        "(B)通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00310": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00320": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00350": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00360": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00370": {
+      "label": "分離　特定損失額",
+      "path": [
+        "分離　特定損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00400": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00410": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00450": {
+      "label": "(C)特別控除額",
+      "path": [
+        "(C)特別控除額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00460": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00470": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00480": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00490": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00500": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00510": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00520": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00600": {
+      "label": "(D)譲渡・一時所得の通算後",
+      "path": [
+        "(D)譲渡・一時所得の通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARC00630": {
+      "label": "短期　総合",
+      "path": [
+        "短期　総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00640": {
+      "label": "長期　分離　特定損失",
+      "path": [
+        "長期　分離　特定損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00670": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARC00680": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00010": {
+      "label": "(A)通算前",
+      "path": [
+        "(A)通算前"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00020": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00030": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00040": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00070": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00080": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00090": {
+      "label": "分離　特定損失額",
+      "path": [
+        "分離　特定損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00120": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00130": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00150": {
+      "label": "(B)第１次通算後",
+      "path": [
+        "(B)第１次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00160": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00170": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00180": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00210": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00220": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00230": {
+      "label": "分離　特定損失額",
+      "path": [
+        "分離　特定損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00260": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00270": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00280": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00300": {
+      "label": "(C)第２次通算後",
+      "path": [
+        "(C)第２次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00310": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00320": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00330": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00360": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00370": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00380": {
+      "label": "分離　特定損失額",
+      "path": [
+        "分離　特定損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00410": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00420": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00430": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00440": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00500": {
+      "label": "(D)第３次通算後",
+      "path": [
+        "(D)第３次通算後"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00510": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00520": {
+      "label": "譲渡",
+      "path": [
+        "譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00530": {
+      "label": "短期",
+      "path": [
+        "短期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00560": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00570": {
+      "label": "長期",
+      "path": [
+        "長期"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00580": {
+      "label": "分離　特定損失額",
+      "path": [
+        "分離　特定損失額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00610": {
+      "label": "総合",
+      "path": [
+        "総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00620": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00630": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00640": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00700": {
+      "label": "(E)所得金額",
+      "path": [
+        "(E)所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ARD00710": {
+      "label": "経常所得",
+      "path": [
+        "経常所得"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00740": {
+      "label": "譲渡　短期　総合",
+      "path": [
+        "譲渡　短期　総合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00750": {
+      "label": "長期　分離　特定損失",
+      "path": [
+        "長期　分離　特定損失"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00780": {
+      "label": "総合　一時",
+      "path": [
+        "総合　一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00790": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00800": {
+      "label": "退職",
+      "path": [
+        "退職"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ARD00810": {
+      "label": "所得金額の合計額",
+      "path": [
+        "所得金額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

@@ -1,0 +1,1902 @@
+{
+  "_meta": {
+    "form_code": "KOA010",
+    "source_ver": "Ver19",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOA010-1",
+      "KOA010-2"
+    ]
+  },
+  "fields": {
+    "AAA00000": {
+      "label": "申告書見出し部（第一表）",
+      "path": [
+        "申告書見出し部（第一表）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAA00010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "AAA00020": {
+      "label": "税務署名",
+      "path": [
+        "税務署名"
+      ],
+      "type": "zeimusho",
+      "enum": "ZEIMUSHO"
+    },
+    "AAA00030": {
+      "label": "提出年月日",
+      "path": [
+        "提出年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "TEISYUTSU_DAY"
+    },
+    "AAA00040": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAA00050": {
+      "label": "住所（又は居所）",
+      "path": [
+        "住所（又は居所）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAA00060": {
+      "label": "納税地区分",
+      "path": [
+        "納税地区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAA00070": {
+      "label": "郵便番号",
+      "path": [
+        "郵便番号"
+      ],
+      "type": "zipcode",
+      "enum": "NOZEISHA_ZIP"
+    },
+    "AAA00080": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "AAA00090": {
+      "label": "１月１日の住所",
+      "path": [
+        "１月１日の住所"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAA00100": {
+      "label": "年",
+      "path": [
+        "年"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "AAA00110": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "ICHIGATSUIPPI_ADR"
+    },
+    "AAA00115": {
+      "label": "個人番号（マイナンバー）",
+      "path": [
+        "個人番号（マイナンバー）"
+      ],
+      "type": "bango",
+      "enum": "NOZEISHA_BANGO"
+    },
+    "AAA00120": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "AAA00130": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "AAA00150": {
+      "label": "世帯主の氏名",
+      "path": [
+        "世帯主の氏名"
+      ],
+      "type": "name",
+      "enum": "SETAINUSHI_NM"
+    },
+    "AAA00160": {
+      "label": "世帯主との続柄",
+      "path": [
+        "世帯主との続柄"
+      ],
+      "type": "zokugara",
+      "enum": "SETAINUSHI_ZOKU"
+    },
+    "AAA00170": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "BIRTHDAY"
+    },
+    "AAA00190": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "AAB00000": {
+      "label": "申告内容（第一表）",
+      "path": [
+        "申告内容（第一表）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00010": {
+      "label": "収入金額等",
+      "path": [
+        "収入金額等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00015": {
+      "label": "給与　区分",
+      "path": [
+        "給与　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00020": {
+      "label": "給与　金額",
+      "path": [
+        "給与　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00030": {
+      "label": "雑",
+      "path": [
+        "雑"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00040": {
+      "label": "公的年金等",
+      "path": [
+        "公的年金等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00045": {
+      "label": "業務",
+      "path": [
+        "業務"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00047": {
+      "label": "その他　区分",
+      "path": [
+        "その他　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00050": {
+      "label": "その他　金額",
+      "path": [
+        "その他　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00060": {
+      "label": "配当",
+      "path": [
+        "配当"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00070": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00080": {
+      "label": "所得金額等",
+      "path": [
+        "所得金額等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00085": {
+      "label": "給与　区分",
+      "path": [
+        "給与　区分"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AAB00090": {
+      "label": "給与　金額",
+      "path": [
+        "給与　金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00630": {
+      "label": "雑",
+      "path": [
+        "雑"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00640": {
+      "label": "公的年金等",
+      "path": [
+        "公的年金等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00650": {
+      "label": "業務",
+      "path": [
+        "業務"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00660": {
+      "label": "業務（特例表示）",
+      "path": [
+        "業務（特例表示）"
+      ],
+      "type": "string(3)",
+      "enum": ""
+    },
+    "AAB00670": {
+      "label": "業務",
+      "path": [
+        "業務"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00680": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00690": {
+      "label": "その他（特例表示）",
+      "path": [
+        "その他（特例表示）"
+      ],
+      "type": "string(3)",
+      "enum": ""
+    },
+    "AAB00700": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00710": {
+      "label": "（２）から（４）までの計",
+      "path": [
+        "（２）から（４）までの計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00120": {
+      "label": "配当",
+      "path": [
+        "配当"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00130": {
+      "label": "一時",
+      "path": [
+        "一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00140": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00150": {
+      "label": "所得から差し引かれる金額",
+      "path": [
+        "所得から差し引かれる金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00160": {
+      "label": "社会保険料控除",
+      "path": [
+        "社会保険料控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00170": {
+      "label": "小規模企業共済等掛金控除",
+      "path": [
+        "小規模企業共済等掛金控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00180": {
+      "label": "生命保険料控除",
+      "path": [
+        "生命保険料控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00190": {
+      "label": "地震保険料控除",
+      "path": [
+        "地震保険料控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00195": {
+      "label": "寡婦、ひとり親控除　区分",
+      "path": [
+        "寡婦、ひとり親控除　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00200": {
+      "label": "寡婦、ひとり親控除　控除額",
+      "path": [
+        "寡婦、ひとり親控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00210": {
+      "label": "勤労学生、障害者控除",
+      "path": [
+        "勤労学生、障害者控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00215": {
+      "label": "配偶者(特別)控除　区分１",
+      "path": [
+        "配偶者(特別)控除　区分１"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00217": {
+      "label": "配偶者(特別)控除　区分２",
+      "path": [
+        "配偶者(特別)控除　区分２"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00220": {
+      "label": "配偶者(特別)控除　控除額",
+      "path": [
+        "配偶者(特別)控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00235": {
+      "label": "扶養控除　区分",
+      "path": [
+        "扶養控除　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00240": {
+      "label": "扶養控除　控除額",
+      "path": [
+        "扶養控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00250": {
+      "label": "基礎控除",
+      "path": [
+        "基礎控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00265": {
+      "label": "（９）から（２０）までの計",
+      "path": [
+        "（９）から（２０）までの計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00270": {
+      "label": "雑損控除",
+      "path": [
+        "雑損控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00275": {
+      "label": "医療費控除　区分",
+      "path": [
+        "医療費控除　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00280": {
+      "label": "医療費控除　控除額",
+      "path": [
+        "医療費控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00290": {
+      "label": "寄附金控除",
+      "path": [
+        "寄附金控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00300": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00310": {
+      "label": "税金の計算",
+      "path": [
+        "税金の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00320": {
+      "label": "課税される所得金額",
+      "path": [
+        "課税される所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00330": {
+      "label": "上の（２６）に対する税額",
+      "path": [
+        "上の（２６）に対する税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00340": {
+      "label": "配当控除",
+      "path": [
+        "配当控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00345": {
+      "label": "住借金等特別控除　区分１",
+      "path": [
+        "住借金等特別控除　区分１"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00347": {
+      "label": "住借金等特別控除　区分２",
+      "path": [
+        "住借金等特別控除　区分２"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00350": {
+      "label": "住借金等特別控除　控除額",
+      "path": [
+        "住借金等特別控除　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00360": {
+      "label": "政党等寄附金等特別控除",
+      "path": [
+        "政党等寄附金等特別控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00540": {
+      "label": "住宅耐震改修特別控除等　区分",
+      "path": [
+        "住宅耐震改修特別控除等　区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00580": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00365": {
+      "label": "住宅耐震改修特別控除等　控除額",
+      "path": [
+        "住宅耐震改修特別控除等　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00370": {
+      "label": "差引所得税額",
+      "path": [
+        "差引所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00376": {
+      "label": "外国税額控除等　区分",
+      "path": [
+        "外国税額控除等　区分"
+      ],
+      "type": "nonNegativeInteger(1)",
+      "enum": ""
+    },
+    "AAB00380": {
+      "label": "災害減免額",
+      "path": [
+        "災害減免額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00590": {
+      "label": "再差引所得税額",
+      "path": [
+        "再差引所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00600": {
+      "label": "復興特別所得税額",
+      "path": [
+        "復興特別所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00610": {
+      "label": "所得税等の額",
+      "path": [
+        "所得税等の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00620": {
+      "label": "外国税額控除等　控除額",
+      "path": [
+        "外国税額控除等　控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00410": {
+      "label": "源泉徴収税額",
+      "path": [
+        "源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00420": {
+      "label": "申告納税額",
+      "path": [
+        "申告納税額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00430": {
+      "label": "納める税金",
+      "path": [
+        "納める税金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00440": {
+      "label": "還付される税金",
+      "path": [
+        "還付される税金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00450": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00455": {
+      "label": "公的年金等以外の合計所得金額",
+      "path": [
+        "公的年金等以外の合計所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00460": {
+      "label": "配偶者の合計所得金額",
+      "path": [
+        "配偶者の合計所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00470": {
+      "label": "雑所得・一時所得の源泉徴収税額の合計額",
+      "path": [
+        "雑所得・一時所得の源泉徴収税額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00480": {
+      "label": "未納付の源泉徴収税額",
+      "path": [
+        "未納付の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00490": {
+      "label": "延納の届出",
+      "path": [
+        "延納の届出"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00500": {
+      "label": "申告期限までに納付する金額",
+      "path": [
+        "申告期限までに納付する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00510": {
+      "label": "延納届出額",
+      "path": [
+        "延納届出額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAB00520": {
+      "label": "還付される税金の受取場所",
+      "path": [
+        "還付される税金の受取場所"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAB00530": {
+      "label": "口座",
+      "path": [
+        "口座"
+      ],
+      "type": "account",
+      "enum": "KANPU_KINYUKIKAN"
+    },
+    "AAL00000": {
+      "label": "口座情報提供同意区分",
+      "path": [
+        "口座情報提供同意区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAJ00000": {
+      "label": "税理士署名欄",
+      "path": [
+        "税理士署名欄"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAJ00010": {
+      "label": "税理士名",
+      "path": [
+        "税理士名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "AAJ00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "AAJ00030": {
+      "label": "税理士法第３０条の書面提出有",
+      "path": [
+        "税理士法第３０条の書面提出有"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAJ00040": {
+      "label": "税理士法第３３条の２の書面提出有",
+      "path": [
+        "税理士法第３３条の２の書面提出有"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAM00000": {
+      "label": "通知希望区分（加算税）",
+      "path": [
+        "通知希望区分（加算税）"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAC00000": {
+      "label": "申告書見出し部（第二表）",
+      "path": [
+        "申告書見出し部（第二表）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAC00010": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "AAC00020": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAC00030": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "AAC00040": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "AAC00050": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "AAD00000": {
+      "label": "所得の内訳（所得税及び復興特別所得税の源泉徴収税額）",
+      "path": [
+        "所得の内訳（所得税及び復興特別所得税の源泉徴収税額）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAD00010": {
+      "label": "所得の内訳　繰り返し",
+      "path": [
+        "所得の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAD00020": {
+      "label": "所得の種類",
+      "path": [
+        "所得の種類"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AAD00025": {
+      "label": "種目",
+      "path": [
+        "種目"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AAD00030": {
+      "label": "給与などの支払者の「法人番号又は所在地」等",
+      "path": [
+        "給与などの支払者の「法人番号又は所在地」等"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "AAD00040": {
+      "label": "給与などの支払者の「名称」",
+      "path": [
+        "給与などの支払者の「名称」"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AAD00050": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAD00060": {
+      "label": "源泉徴収税額",
+      "path": [
+        "源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAD00062": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAD00064": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AAD00066": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAD00070": {
+      "label": "源泉徴収税額の合計額",
+      "path": [
+        "源泉徴収税額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAE00000": {
+      "label": "一時所得に関する事項",
+      "path": [
+        "一時所得に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAE00030": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAE00040": {
+      "label": "支出金額",
+      "path": [
+        "支出金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAE00050": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAF00000": {
+      "label": "特例適用条文等",
+      "path": [
+        "特例適用条文等"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "AAG00000": {
+      "label": "住民税に関する事項",
+      "path": [
+        "住民税に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAG00010": {
+      "label": "給与、公的年金等以外の所得に係る住民税の徴収方法",
+      "path": [
+        "給与、公的年金等以外の所得に係る住民税の徴収方法"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAG00020": {
+      "label": "非上場株式の少額配当等",
+      "path": [
+        "非上場株式の少額配当等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAG00030": {
+      "label": "非居住者の特例",
+      "path": [
+        "非居住者の特例"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAG00032": {
+      "label": "配当割額控除額",
+      "path": [
+        "配当割額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAG00035": {
+      "label": "特定配当等の全部の申告不要",
+      "path": [
+        "特定配当等の全部の申告不要"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAG00040": {
+      "label": "上記の配偶者・親族のうち別居の者の氏名・住所",
+      "path": [
+        "上記の配偶者・親族のうち別居の者の氏名・住所"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAG00050": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AAG00060": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AAG00062": {
+      "label": "明細１",
+      "path": [
+        "明細１"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAG00063": {
+      "label": "都道府県、市区町村への寄附（特例控除対象）",
+      "path": [
+        "都道府県、市区町村への寄附（特例控除対象）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAG00064": {
+      "label": "共同募金、日赤その他の寄附",
+      "path": [
+        "共同募金、日赤その他の寄附"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAG00066": {
+      "label": "明細２",
+      "path": [
+        "明細２"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAG00067": {
+      "label": "都道府県条例指定寄附",
+      "path": [
+        "都道府県条例指定寄附"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAG00068": {
+      "label": "市区町村条例指定寄附",
+      "path": [
+        "市区町村条例指定寄附"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00000": {
+      "label": "明細",
+      "path": [
+        "明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00010": {
+      "label": "（９）社会保険料控除",
+      "path": [
+        "（９）社会保険料控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00020": {
+      "label": "社会保険料の明細　繰り返し",
+      "path": [
+        "社会保険料の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00030": {
+      "label": "保険料等の種類",
+      "path": [
+        "保険料等の種類"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AAH00040": {
+      "label": "支払保険料等の計",
+      "path": [
+        "支払保険料等の計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00570": {
+      "label": "うち年末調整等以外",
+      "path": [
+        "うち年末調整等以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00042": {
+      "label": "支払保険料等の計　次葉合計",
+      "path": [
+        "支払保険料等の計　次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00044": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AAH00046": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00580": {
+      "label": "うち年末調整等以外　次葉合計",
+      "path": [
+        "うち年末調整等以外　次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00590": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AAH00600": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00050": {
+      "label": "支払保険料等の計　合計",
+      "path": [
+        "支払保険料等の計　合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00055": {
+      "label": "うち年末調整等以外　合計",
+      "path": [
+        "うち年末調整等以外　合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00060": {
+      "label": "（１０）小規模企業共済等掛金控除",
+      "path": [
+        "（１０）小規模企業共済等掛金控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00070": {
+      "label": "小規模企業共済の明細　繰り返し",
+      "path": [
+        "小規模企業共済の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00080": {
+      "label": "保険料等の種類",
+      "path": [
+        "保険料等の種類"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AAH00090": {
+      "label": "支払保険料等の計",
+      "path": [
+        "支払保険料等の計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00610": {
+      "label": "うち年末調整等以外",
+      "path": [
+        "うち年末調整等以外"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00092": {
+      "label": "支払保険料等の計　次葉合計",
+      "path": [
+        "支払保険料等の計　次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00094": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AAH00096": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00620": {
+      "label": "うち年末調整等以外　次葉合計",
+      "path": [
+        "うち年末調整等以外　次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00630": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AAH00640": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00100": {
+      "label": "支払保険料等の計　合計",
+      "path": [
+        "支払保険料等の計　合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00105": {
+      "label": "うち年末調整等以外　合計",
+      "path": [
+        "うち年末調整等以外　合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00110": {
+      "label": "（１１）生命保険料控除",
+      "path": [
+        "（１１）生命保険料控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00115": {
+      "label": "新生命保険料　支払保険料等の計",
+      "path": [
+        "新生命保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00117": {
+      "label": "新生命保険料　うち年末調整等以外",
+      "path": [
+        "新生命保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00120": {
+      "label": "旧生命保険料　支払保険料等の計",
+      "path": [
+        "旧生命保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00122": {
+      "label": "旧生命保険料　うち年末調整等以外",
+      "path": [
+        "旧生命保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00125": {
+      "label": "新個人年金保険料　支払保険料等の計",
+      "path": [
+        "新個人年金保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00127": {
+      "label": "新個人年金保険料　うち年末調整等以外",
+      "path": [
+        "新個人年金保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00130": {
+      "label": "旧個人年金保険料　支払保険料等の計",
+      "path": [
+        "旧個人年金保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00132": {
+      "label": "旧個人年金保険料　うち年末調整等以外",
+      "path": [
+        "旧個人年金保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00135": {
+      "label": "介護医療保険料　支払保険料等の計",
+      "path": [
+        "介護医療保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00137": {
+      "label": "介護医療保険料　うち年末調整等以外",
+      "path": [
+        "介護医療保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00140": {
+      "label": "（１２）地震保険料控除",
+      "path": [
+        "（１２）地震保険料控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00150": {
+      "label": "地震保険料　支払保険料等の計",
+      "path": [
+        "地震保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00155": {
+      "label": "地震保険料　うち年末調整等以外",
+      "path": [
+        "地震保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00160": {
+      "label": "旧長期損害保険料　支払保険料等の計",
+      "path": [
+        "旧長期損害保険料　支払保険料等の計"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00165": {
+      "label": "旧長期損害保険料　うち年末調整等以外",
+      "path": [
+        "旧長期損害保険料　うち年末調整等以外"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00170": {
+      "label": "本人に関する事項",
+      "path": [
+        "本人に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00190": {
+      "label": "寡婦",
+      "path": [
+        "寡婦"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00200": {
+      "label": "控除区分",
+      "path": [
+        "控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAH00210": {
+      "label": "原因区分",
+      "path": [
+        "原因区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAH00215": {
+      "label": "ひとり親　控除区分",
+      "path": [
+        "ひとり親　控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAH00220": {
+      "label": "勤労学生",
+      "path": [
+        "勤労学生"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00230": {
+      "label": "控除区分",
+      "path": [
+        "控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAH00650": {
+      "label": "年調以外かつ専修学校等区分",
+      "path": [
+        "年調以外かつ専修学校等区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAH00660": {
+      "label": "障害者　控除区分",
+      "path": [
+        "障害者　控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAH00670": {
+      "label": "特別障害者　控除区分",
+      "path": [
+        "特別障害者　控除区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAH00400": {
+      "label": "雑損控除に関する事項",
+      "path": [
+        "雑損控除に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00410": {
+      "label": "損害の原因",
+      "path": [
+        "損害の原因"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AAH00420": {
+      "label": "損害年月日",
+      "path": [
+        "損害年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AAH00430": {
+      "label": "損害を受けた資産の種類など",
+      "path": [
+        "損害を受けた資産の種類など"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "AAH00440": {
+      "label": "損害金額",
+      "path": [
+        "損害金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00450": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00460": {
+      "label": "差引損失額のうち災害関連支出の金額",
+      "path": [
+        "差引損失額のうち災害関連支出の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAH00500": {
+      "label": "寄附金控除に関する事項",
+      "path": [
+        "寄附金控除に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAH00510": {
+      "label": "寄附先の名称等　所在地",
+      "path": [
+        "寄附先の名称等　所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AAH00515": {
+      "label": "寄附先の名称等　名称",
+      "path": [
+        "寄附先の名称等　名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AAH00520": {
+      "label": "寄附金",
+      "path": [
+        "寄附金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AAK00000": {
+      "label": "配偶者や親族に関する事項",
+      "path": [
+        "配偶者や親族に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00010": {
+      "label": "配偶者",
+      "path": [
+        "配偶者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AAK00030": {
+      "label": "個人番号",
+      "path": [
+        "個人番号"
+      ],
+      "type": "bango",
+      "enum": ""
+    },
+    "AAK00040": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AAK00050": {
+      "label": "障害者",
+      "path": [
+        "障害者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00060": {
+      "label": "障",
+      "path": [
+        "障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00070": {
+      "label": "特障",
+      "path": [
+        "特障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00080": {
+      "label": "国外居住",
+      "path": [
+        "国外居住"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00090": {
+      "label": "国外",
+      "path": [
+        "国外"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00100": {
+      "label": "年調",
+      "path": [
+        "年調"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00110": {
+      "label": "住民税",
+      "path": [
+        "住民税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00120": {
+      "label": "同一",
+      "path": [
+        "同一"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00130": {
+      "label": "別居",
+      "path": [
+        "別居"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00140": {
+      "label": "その他　調整",
+      "path": [
+        "その他　調整"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00150": {
+      "label": "親族　繰り返し",
+      "path": [
+        "親族　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00160": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AAK00170": {
+      "label": "個人番号",
+      "path": [
+        "個人番号"
+      ],
+      "type": "bango",
+      "enum": ""
+    },
+    "AAK00180": {
+      "label": "続柄",
+      "path": [
+        "続柄"
+      ],
+      "type": "zokugara",
+      "enum": ""
+    },
+    "AAK00190": {
+      "label": "生年月日",
+      "path": [
+        "生年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AAK00200": {
+      "label": "障害者",
+      "path": [
+        "障害者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00210": {
+      "label": "障",
+      "path": [
+        "障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00220": {
+      "label": "特障",
+      "path": [
+        "特障"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00230": {
+      "label": "国外居住",
+      "path": [
+        "国外居住"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00240": {
+      "label": "国外",
+      "path": [
+        "国外"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00250": {
+      "label": "年調",
+      "path": [
+        "年調"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00260": {
+      "label": "住民税",
+      "path": [
+        "住民税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AAK00270": {
+      "label": "１６",
+      "path": [
+        "１６"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00280": {
+      "label": "別居",
+      "path": [
+        "別居"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "AAK00290": {
+      "label": "その他　調整",
+      "path": [
+        "その他　調整"
+      ],
+      "type": "kubun",
+      "enum": ""
+    }
+  }
+}

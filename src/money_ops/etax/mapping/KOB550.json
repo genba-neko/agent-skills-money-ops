@@ -1,0 +1,2315 @@
+{
+  "_meta": {
+    "form_code": "KOB550",
+    "source_ver": "Ver14",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "DGB00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "DGD00010": {
+      "label": "その他の経費項目名",
+      "path": [
+        "その他の経費項目名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00040": {
+      "label": "項目（７）",
+      "path": [
+        "項目（７）"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "DGD00050": {
+      "label": "項目（８）",
+      "path": [
+        "項目（８）"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "DGD00060": {
+      "label": "項目（９）",
+      "path": [
+        "項目（９）"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "DGD00070": {
+      "label": "（A）",
+      "path": [
+        "（A）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00080": {
+      "label": "取引の内容",
+      "path": [
+        "取引の内容"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00090": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(18)",
+      "enum": ""
+    },
+    "DGD00100": {
+      "label": "決済年月日",
+      "path": [
+        "決済年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "DGD00102": {
+      "label": "数量　外書き",
+      "path": [
+        "数量　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00104": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00106": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "nonNegativeInteger(13)",
+      "enum": ""
+    },
+    "DGD00108": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00110": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "nonNegativeInteger(13)",
+      "enum": ""
+    },
+    "DGD00120": {
+      "label": "決済の方法",
+      "path": [
+        "決済の方法"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "DGD00130": {
+      "label": "総収入金額",
+      "path": [
+        "総収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00132": {
+      "label": "差金等決済に係る利益又は損失の額　外書き",
+      "path": [
+        "差金等決済に係る利益又は損失の額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00134": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00136": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00138": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00140": {
+      "label": "差金等決済に係る利益又は損失の額",
+      "path": [
+        "差金等決済に係る利益又は損失の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00141": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00142": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00143": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00144": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00145": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00146": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00147": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00148": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00149": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00150": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00152": {
+      "label": "計　外書き",
+      "path": [
+        "計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00154": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00156": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00158": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00160": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00170": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00172": {
+      "label": "手数料等　外書き",
+      "path": [
+        "手数料等　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00174": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00176": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00178": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00180": {
+      "label": "手数料等",
+      "path": [
+        "手数料等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00181": {
+      "label": "（２）に係る取得費　外書き",
+      "path": [
+        "（２）に係る取得費　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00182": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00183": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00184": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00185": {
+      "label": "（２）に係る取得費",
+      "path": [
+        "（２）に係る取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00190": {
+      "label": "その他の経費",
+      "path": [
+        "その他の経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00196": {
+      "label": "金額（７）　外書き",
+      "path": [
+        "金額（７）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00202": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00208": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00214": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00220": {
+      "label": "金額（７）",
+      "path": [
+        "金額（７）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00222": {
+      "label": "金額（８）　外書き",
+      "path": [
+        "金額（８）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00224": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00226": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00228": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00230": {
+      "label": "金額（８）",
+      "path": [
+        "金額（８）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00232": {
+      "label": "金額（９）　外書き",
+      "path": [
+        "金額（９）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00234": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00236": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00238": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00240": {
+      "label": "金額（９）",
+      "path": [
+        "金額（９）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00242": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00244": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00246": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00248": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00250": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00252": {
+      "label": "計　外書き",
+      "path": [
+        "計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00254": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00256": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00258": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00260": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00262": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00264": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00266": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00268": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00270": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00280": {
+      "label": "（B）",
+      "path": [
+        "（B）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00290": {
+      "label": "取引の内容",
+      "path": [
+        "取引の内容"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00300": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(18)",
+      "enum": ""
+    },
+    "DGD00310": {
+      "label": "決済年月日",
+      "path": [
+        "決済年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "DGD00312": {
+      "label": "数量　外書き",
+      "path": [
+        "数量　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00314": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00316": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "nonNegativeInteger(13)",
+      "enum": ""
+    },
+    "DGD00318": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00320": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "nonNegativeInteger(13)",
+      "enum": ""
+    },
+    "DGD00330": {
+      "label": "決済の方法",
+      "path": [
+        "決済の方法"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "DGD00340": {
+      "label": "総収入金額",
+      "path": [
+        "総収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00342": {
+      "label": "差金等決済に係る利益又は損失の額　外書き",
+      "path": [
+        "差金等決済に係る利益又は損失の額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00344": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00346": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00348": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00350": {
+      "label": "差金等決済に係る利益又は損失の額",
+      "path": [
+        "差金等決済に係る利益又は損失の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00351": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00352": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00353": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00354": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00355": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00356": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00357": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00358": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00359": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00360": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00362": {
+      "label": "計　外書き",
+      "path": [
+        "計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00364": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00366": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00368": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00370": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00380": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00382": {
+      "label": "手数料等　外書き",
+      "path": [
+        "手数料等　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00384": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00386": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00388": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00390": {
+      "label": "手数料等",
+      "path": [
+        "手数料等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00391": {
+      "label": "（２）に係る取得費　外書き",
+      "path": [
+        "（２）に係る取得費　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00392": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00393": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00394": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00395": {
+      "label": "（２）に係る取得費",
+      "path": [
+        "（２）に係る取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00400": {
+      "label": "その他の経費",
+      "path": [
+        "その他の経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00406": {
+      "label": "金額（７）　外書き",
+      "path": [
+        "金額（７）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00412": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00418": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00424": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00430": {
+      "label": "金額（７）",
+      "path": [
+        "金額（７）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00432": {
+      "label": "金額（８）　外書き",
+      "path": [
+        "金額（８）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00434": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00436": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00438": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00440": {
+      "label": "金額（８）",
+      "path": [
+        "金額（８）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00442": {
+      "label": "金額（９）　外書き",
+      "path": [
+        "金額（９）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00444": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00446": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00448": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00450": {
+      "label": "金額（９）",
+      "path": [
+        "金額（９）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00452": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00454": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00456": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00458": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00460": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00462": {
+      "label": "計　外書き",
+      "path": [
+        "計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00464": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00466": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00468": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00470": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00472": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00474": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00476": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00478": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00480": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00490": {
+      "label": "（C）",
+      "path": [
+        "（C）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00500": {
+      "label": "取引の内容",
+      "path": [
+        "取引の内容"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00510": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(18)",
+      "enum": ""
+    },
+    "DGD00520": {
+      "label": "決済年月日",
+      "path": [
+        "決済年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "DGD00522": {
+      "label": "数量　外書き",
+      "path": [
+        "数量　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00524": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00526": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "nonNegativeInteger(13)",
+      "enum": ""
+    },
+    "DGD00528": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00530": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "nonNegativeInteger(13)",
+      "enum": ""
+    },
+    "DGD00540": {
+      "label": "決済の方法",
+      "path": [
+        "決済の方法"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "DGD00550": {
+      "label": "総収入金額",
+      "path": [
+        "総収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00552": {
+      "label": "差金等決済に係る利益又は損失の額　外書き",
+      "path": [
+        "差金等決済に係る利益又は損失の額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00554": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00556": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00558": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00560": {
+      "label": "差金等決済に係る利益又は損失の額",
+      "path": [
+        "差金等決済に係る利益又は損失の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00561": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00562": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00563": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00564": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00565": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00566": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00567": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00568": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00569": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00570": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00572": {
+      "label": "計　外書き",
+      "path": [
+        "計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00574": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00576": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00578": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00580": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00590": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00592": {
+      "label": "手数料等　外書き",
+      "path": [
+        "手数料等　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00594": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00596": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00598": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00600": {
+      "label": "手数料等",
+      "path": [
+        "手数料等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00601": {
+      "label": "（２）に係る取得費　外書き",
+      "path": [
+        "（２）に係る取得費　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00602": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00603": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00604": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00605": {
+      "label": "（２）に係る取得費",
+      "path": [
+        "（２）に係る取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00610": {
+      "label": "その他の経費",
+      "path": [
+        "その他の経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00616": {
+      "label": "金額（７）　外書き",
+      "path": [
+        "金額（７）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00622": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00628": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00634": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00640": {
+      "label": "金額（７）",
+      "path": [
+        "金額（７）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00642": {
+      "label": "金額（８）　外書き",
+      "path": [
+        "金額（８）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00644": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00646": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00648": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00650": {
+      "label": "金額（８）",
+      "path": [
+        "金額（８）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00652": {
+      "label": "金額（９）　外書き",
+      "path": [
+        "金額（９）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00654": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00656": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00658": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00660": {
+      "label": "金額（９）",
+      "path": [
+        "金額（９）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00662": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00664": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00666": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00668": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00670": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00672": {
+      "label": "計　外書き",
+      "path": [
+        "計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00674": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00676": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00678": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00680": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00682": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00684": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00686": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00688": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00690": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00700": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00710": {
+      "label": "総収入金額",
+      "path": [
+        "総収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00712": {
+      "label": "差金等決済に係る利益又は損失の額　外書き",
+      "path": [
+        "差金等決済に係る利益又は損失の額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00714": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00716": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00718": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00720": {
+      "label": "差金等決済に係る利益又は損失の額",
+      "path": [
+        "差金等決済に係る利益又は損失の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00721": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00722": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00723": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00724": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00725": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00726": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00727": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00728": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00729": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00730": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00732": {
+      "label": "計　外書き",
+      "path": [
+        "計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00734": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00736": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00738": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00740": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00750": {
+      "label": "必要経費等",
+      "path": [
+        "必要経費等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00752": {
+      "label": "手数料等　外書き",
+      "path": [
+        "手数料等　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00754": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00756": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00758": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00760": {
+      "label": "手数料等",
+      "path": [
+        "手数料等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00761": {
+      "label": "（２）に係る取得費　外書き",
+      "path": [
+        "（２）に係る取得費　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00762": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00763": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00764": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00765": {
+      "label": "（２）に係る取得費",
+      "path": [
+        "（２）に係る取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00770": {
+      "label": "その他の経費",
+      "path": [
+        "その他の経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00776": {
+      "label": "金額（７）　外書き",
+      "path": [
+        "金額（７）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00782": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00788": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00794": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00800": {
+      "label": "金額（７）",
+      "path": [
+        "金額（７）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00802": {
+      "label": "金額（８）　外書き",
+      "path": [
+        "金額（８）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00804": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00806": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00808": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00810": {
+      "label": "金額（８）",
+      "path": [
+        "金額（８）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00812": {
+      "label": "金額（９）　外書き",
+      "path": [
+        "金額（９）　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00814": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00816": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00818": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00820": {
+      "label": "金額（９）",
+      "path": [
+        "金額（９）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00822": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00824": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00826": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00828": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00830": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00832": {
+      "label": "計　外書き",
+      "path": [
+        "計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00834": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00836": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00838": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00840": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00842": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DGD00844": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00846": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DGD00848": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "DGD00850": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

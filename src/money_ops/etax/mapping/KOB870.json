@@ -1,0 +1,179 @@
+{
+  "_meta": {
+    "form_code": "KOB870",
+    "source_ver": "Ver2",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "JOB00010": {
+      "label": "高齢者向け優良賃貸住宅の種類",
+      "path": [
+        "高齢者向け優良賃貸住宅の種類"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "JOB00020": {
+      "label": "家屋の構造又は設備の名称",
+      "path": [
+        "家屋の構造又は設備の名称"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "JOB00030": {
+      "label": "細目及び耐用年数",
+      "path": [
+        "細目及び耐用年数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JOB00040": {
+      "label": "耐用年数",
+      "path": [
+        "耐用年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "JOB00050": {
+      "label": "細目",
+      "path": [
+        "細目"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "JOB00060": {
+      "label": "同上の所在地",
+      "path": [
+        "同上の所在地"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "JOB00070": {
+      "label": "取得等年月日",
+      "path": [
+        "取得等年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JOB00080": {
+      "label": "事業の用に供した年月日",
+      "path": [
+        "事業の用に供した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JOB00090": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JOB00100": {
+      "label": "同上のうち対象となる部分の取得価額",
+      "path": [
+        "同上のうち対象となる部分の取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JOB00110": {
+      "label": "同上に係る普通償却額",
+      "path": [
+        "同上に係る普通償却額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JOB00120": {
+      "label": "割増償却率",
+      "path": [
+        "割増償却率"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "JOB00130": {
+      "label": "割増償却額",
+      "path": [
+        "割増償却額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "JOB00140": {
+      "label": "適用要件等",
+      "path": [
+        "適用要件等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JOB00150": {
+      "label": "家屋及び建築物の区分",
+      "path": [
+        "家屋及び建築物の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "JOB00160": {
+      "label": "各独立部分ごとの専用床面積(長屋にあってはその床面積)　繰り返し",
+      "path": [
+        "各独立部分ごとの専用床面積(長屋にあってはその床面積)　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "JOB00170": {
+      "label": "＿平方メートル",
+      "path": [
+        "＿平方メートル"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "JOB00180": {
+      "label": "＿戸",
+      "path": [
+        "＿戸"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "JOB00190": {
+      "label": "該当する各独立部分の戸数",
+      "path": [
+        "該当する各独立部分の戸数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "JOB00200": {
+      "label": "地方公共団体の長の証明年月日",
+      "path": [
+        "地方公共団体の長の証明年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "JOB00210": {
+      "label": "その他参考となる事項",
+      "path": [
+        "その他参考となる事項"
+      ],
+      "type": "string(200)",
+      "enum": ""
+    }
+  }
+}

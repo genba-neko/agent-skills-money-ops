@@ -1,0 +1,187 @@
+{
+  "_meta": {
+    "form_code": "KOB940",
+    "source_ver": "Ver2",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "IRC00010": {
+      "label": "賃貸した資産の明細",
+      "path": [
+        "賃貸した資産の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IRC00070": {
+      "label": "共同住宅又は長屋の所在地",
+      "path": [
+        "共同住宅又は長屋の所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "IRC00080": {
+      "label": "共同住宅又は長屋の建物番号",
+      "path": [
+        "共同住宅又は長屋の建物番号"
+      ],
+      "type": "string(12)",
+      "enum": ""
+    },
+    "IRC00090": {
+      "label": "共同住宅又は長屋の名称",
+      "path": [
+        "共同住宅又は長屋の名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "IRC00100": {
+      "label": "共同住宅又は長屋の全体の戸数",
+      "path": [
+        "共同住宅又は長屋の全体の戸数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "IRC00110": {
+      "label": "公募の対象とした独立部分",
+      "path": [
+        "公募の対象とした独立部分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IRC00120": {
+      "label": "戸",
+      "path": [
+        "戸"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "IRC00130": {
+      "label": "号室　繰り返し",
+      "path": [
+        "号室　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IRC00140": {
+      "label": "号室",
+      "path": [
+        "号室"
+      ],
+      "type": "string(6)",
+      "enum": ""
+    },
+    "IRC00150": {
+      "label": "公募要件に該当する事実の明細",
+      "path": [
+        "公募要件に該当する事実の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IRC00160": {
+      "label": "公募の方法",
+      "path": [
+        "公募の方法"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "IRC00170": {
+      "label": "公募年月日又は期間",
+      "path": [
+        "公募年月日又は期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IRC00280": {
+      "label": "年月日",
+      "path": [
+        "年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IRC00290": {
+      "label": "期間",
+      "path": [
+        "期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IRC00300": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IRC00310": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IRC00200": {
+      "label": "公募を実施した地域",
+      "path": [
+        "公募を実施した地域"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "IRC00210": {
+      "label": "募集期間",
+      "path": [
+        "募集期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IRC00220": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IRC00230": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IRC00240": {
+      "label": "応募者の範囲",
+      "path": [
+        "応募者の範囲"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "IRC00250": {
+      "label": "賃借人の選定方法",
+      "path": [
+        "賃借人の選定方法"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    }
+  }
+}
