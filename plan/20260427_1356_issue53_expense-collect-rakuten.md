@@ -84,12 +84,23 @@ recorder データ `output/recorder/rakuten/20260427_134019/` ベース。
 
 ## 実装タスク
 
-- [ ] `skills/expense-collect/sites/rakuten/site.json` 作成
-- [ ] `skills/expense-collect/sites/rakuten/collect.py` 作成
-- [ ] `skills/expense-collect/registry.json` に rakuten entry 追加
-- [ ] 実機収集テスト → `data/expenses/securities/rakuten/2025/raw/Withdrawallist_*.csv` 出力確認
-- [ ] CSV 行数確認（1515 行に近い数値か）
-- [ ] PR 作成・マージ
+- [x] `skills/expense-collect/sites/rakuten/site.json` 作成
+- [x] `skills/expense-collect/sites/rakuten/collect.py` 作成
+- [x] `skills/expense-collect/registry.json` に rakuten entry 追加
+- [x] 実機収集テスト → `data/expenses/securities/rakuten/2025/raw/Withdrawallist_20260427.csv` (1515 行) 出力確認
+- [x] PR 作成・マージ
+
+## 実装中の修正履歴
+
+1. login_url を `MhLogin.do?login_type=1` → `https://www.rakuten-sec.co.jp/` (top) に変更
+   （直接 MhLogin.do は session 切れで session_error.html に redirect されるため）
+2. ログイン状態判定 `_is_dashboard` を URL path ベースに変更
+   （query の `login_type=1` を誤検出して dashboard 判定 False になる問題）
+3. 履歴ページ遷移を nav click 経由に変更
+   （直接 goto では BV_SessionID 不足で form 表示されない）
+4. form selector を `form#AssMoneyTransLstForm` (id) → `form[name='AssMoneyTransLstForm']` に変更
+   （HTML 実態は name 属性のみ、id なし。recorder の sel 表記 `form#...` は誤読しやすかった）
+5. login タイムアウト 5分 → 10分に延長
 
 ---
 
