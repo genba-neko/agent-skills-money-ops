@@ -1,0 +1,267 @@
+{
+  "_meta": {
+    "form_code": "KOC100",
+    "source_ver": "Ver11",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "EMB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "EMB00020": {
+      "label": "（前住所）",
+      "path": [
+        "（前住所）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EMB00030": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EMB00040": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "EMB00050": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "EMB00060": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "EMB00070": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "EMC00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "EMC00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "EMH00005": {
+      "label": "措置法第37条の13第1項第＿号＿を適用する場合",
+      "path": [
+        "措置法第37条の13第1項第＿号＿を適用する場合"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EMH00010": {
+      "label": "措置法第37条の13第1項第＿号",
+      "path": [
+        "措置法第37条の13第1項第＿号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EMH00012": {
+      "label": "措置法第37条の13第1項第＿号＿",
+      "path": [
+        "措置法第37条の13第1項第＿号＿"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EMH00040": {
+      "label": "措置法第37条の13の2第1項",
+      "path": [
+        "措置法第37条の13の2第1項"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EMH00015": {
+      "label": "措置法第41条の18の4を適用する場合",
+      "path": [
+        "措置法第41条の18の4を適用する場合"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EMH00020": {
+      "label": "措置法第41条の18の4第1項第＿号",
+      "path": [
+        "措置法第41条の18の4第1項第＿号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EMH00030": {
+      "label": "旧震災特例法第13条の3の規定により適用される旧措置法第41条の19",
+      "path": [
+        "旧震災特例法第13条の3の規定により適用される旧措置法第41条の19"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EMD00010": {
+      "label": "銘柄",
+      "path": [
+        "銘柄"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "EMD00020": {
+      "label": "その年中の払込みによる取得の状況",
+      "path": [
+        "その年中の払込みによる取得の状況"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EMD00030": {
+      "label": "明細　繰り返し",
+      "path": [
+        "明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EMD00040": {
+      "label": "年月日",
+      "path": [
+        "年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EMD00050": {
+      "label": "株数",
+      "path": [
+        "株数"
+      ],
+      "type": "decimal(9.2)",
+      "enum": ""
+    },
+    "EMD00060": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EMD00070": {
+      "label": "その年中の譲渡又は贈与による異動の状況",
+      "path": [
+        "その年中の譲渡又は贈与による異動の状況"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EMD00080": {
+      "label": "明細　繰り返し",
+      "path": [
+        "明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EMD00090": {
+      "label": "年月日",
+      "path": [
+        "年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EMD00100": {
+      "label": "株数",
+      "path": [
+        "株数"
+      ],
+      "type": "decimal(9.2)",
+      "enum": ""
+    },
+    "EMD00110": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EME00010": {
+      "label": "その年中に払込みにより取得をした特定株式の数",
+      "path": [
+        "その年中に払込みにより取得をした特定株式の数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EME00020": {
+      "label": "その年中に譲渡又は贈与した(1)の特定株式と同一銘柄株式の数",
+      "path": [
+        "その年中に譲渡又は贈与した(1)の特定株式と同一銘柄株式の数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EME00030": {
+      "label": "控除対象特定株式の数",
+      "path": [
+        "控除対象特定株式の数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EME00040": {
+      "label": "(1)の特定株式の取得に要した金額",
+      "path": [
+        "(1)の特定株式の取得に要した金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EME00050": {
+      "label": "控除対象特定株式の取得に要した金額",
+      "path": [
+        "控除対象特定株式の取得に要した金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

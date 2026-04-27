@@ -1,0 +1,171 @@
+{
+  "_meta": {
+    "form_code": "KOC090",
+    "source_ver": "Ver4",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "BIB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "BIB00020": {
+      "label": "（前住所）",
+      "path": [
+        "（前住所）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BIB00030": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BIB00040": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "BIB00050": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "BIB00060": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "BIB00070": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "BIC00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "BIC00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "BIF00010": {
+      "label": "異動年月日",
+      "path": [
+        "異動年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "BIF00020": {
+      "label": "異動事由",
+      "path": [
+        "異動事由"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "BIF00030": {
+      "label": "相手方の氏名・名称",
+      "path": [
+        "相手方の氏名・名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "BIF00040": {
+      "label": "相手方の住所・所在地",
+      "path": [
+        "相手方の住所・所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BIF00050": {
+      "label": "相手方との関係",
+      "path": [
+        "相手方との関係"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "BIF00060": {
+      "label": "異動した株数",
+      "path": [
+        "異動した株数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "BIF00070": {
+      "label": "取得又は譲渡の単価",
+      "path": [
+        "取得又は譲渡の単価"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "BIF00080": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BIF00090": {
+      "label": "異動後の株式の総数",
+      "path": [
+        "異動後の株式の総数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "BIF00100": {
+      "label": "特定残株数",
+      "path": [
+        "特定残株数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "BIF00110": {
+      "label": "１株当たりの取得費",
+      "path": [
+        "１株当たりの取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

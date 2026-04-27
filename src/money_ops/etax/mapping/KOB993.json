@@ -1,0 +1,171 @@
+{
+  "_meta": {
+    "form_code": "KOB993",
+    "source_ver": "Ver5",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "KCC00010": {
+      "label": "地方活力向上地域等特定業務施設整備計画の認定を受けた日",
+      "path": [
+        "地方活力向上地域等特定業務施設整備計画の認定を受けた日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KCC00020": {
+      "label": "計画の区分及び事業実施地域",
+      "path": [
+        "計画の区分及び事業実施地域"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KCC00030": {
+      "label": "計画の区分",
+      "path": [
+        "計画の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KCC00040": {
+      "label": "事業実施地域",
+      "path": [
+        "事業実施地域"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "KCC00050": {
+      "label": "資産区分",
+      "path": [
+        "資産区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KCC00060": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "KCC00070": {
+      "label": "構造又は区分",
+      "path": [
+        "構造又は区分"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "KCC00080": {
+      "label": "細目",
+      "path": [
+        "細目"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "KCC00090": {
+      "label": "取得年月日",
+      "path": [
+        "取得年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KCC00100": {
+      "label": "事業の用に供した年月日",
+      "path": [
+        "事業の用に供した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KCC00110": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KCD00010": {
+      "label": "明細",
+      "path": [
+        "明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KCD00020": {
+      "label": "取得価額の合計額",
+      "path": [
+        "取得価額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KCD00030": {
+      "label": "同上のうち移転型計画に係る額",
+      "path": [
+        "同上のうち移転型計画に係る額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KCD00130": {
+      "label": "税額控除限度額",
+      "path": [
+        "税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KCD00140": {
+      "label": "調整前事業所得税額",
+      "path": [
+        "調整前事業所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KCD00150": {
+      "label": "本年税額基準額",
+      "path": [
+        "本年税額基準額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KCD00160": {
+      "label": "本年税額控除可能額",
+      "path": [
+        "本年税額控除可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KCD00170": {
+      "label": "調整前事業所得税額超過構成額",
+      "path": [
+        "調整前事業所得税額超過構成額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KCD00180": {
+      "label": "所得税額の特別控除額",
+      "path": [
+        "所得税額の特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

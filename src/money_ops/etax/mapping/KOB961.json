@@ -1,0 +1,315 @@
+{
+  "_meta": {
+    "form_code": "KOB961",
+    "source_ver": "Ver1",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "KVC00010": {
+      "label": "資産の種類",
+      "path": [
+        "資産の種類"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KVC00020": {
+      "label": "(耐用年数表の番号)対象資産の種類",
+      "path": [
+        "(耐用年数表の番号)対象資産の種類"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KVC00030": {
+      "label": "(耐用年数表の番号)",
+      "path": [
+        "(耐用年数表の番号)"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "KVC00040": {
+      "label": "対象資産の種類",
+      "path": [
+        "対象資産の種類"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "KVC00050": {
+      "label": "対象資産の構造又は名称",
+      "path": [
+        "対象資産の構造又は名称"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "KVC00060": {
+      "label": "取得等年月日",
+      "path": [
+        "取得等年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KVC00070": {
+      "label": "事業の用に供した年月日",
+      "path": [
+        "事業の用に供した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KVC00080": {
+      "label": "滅失等をした資産の用途",
+      "path": [
+        "滅失等をした資産の用途"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KVC00090": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "KVC00100": {
+      "label": "用途",
+      "path": [
+        "用途"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "KVC00110": {
+      "label": "被災代替資産の用途",
+      "path": [
+        "被災代替資産の用途"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KVC00120": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "KVC00130": {
+      "label": "用途",
+      "path": [
+        "用途"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "KVC00140": {
+      "label": "取得価額(償却保証額)",
+      "path": [
+        "取得価額(償却保証額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00150": {
+      "label": "償却の基礎になる金額",
+      "path": [
+        "償却の基礎になる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00160": {
+      "label": "耐用年数",
+      "path": [
+        "耐用年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "KVC00170": {
+      "label": "償却方法",
+      "path": [
+        "償却方法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KVC00180": {
+      "label": "償却方法区分",
+      "path": [
+        "償却方法区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KVC00190": {
+      "label": "その他償却方法区分(＿)",
+      "path": [
+        "その他償却方法区分(＿)"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "KVC00200": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "decimal(1.3)",
+      "enum": ""
+    },
+    "KVC00210": {
+      "label": "償却期間",
+      "path": [
+        "償却期間"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "KVC00220": {
+      "label": "普通償却費",
+      "path": [
+        "普通償却費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KVC00230": {
+      "label": "算出償却費",
+      "path": [
+        "算出償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00240": {
+      "label": "増加償却費",
+      "path": [
+        "増加償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00250": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00260": {
+      "label": "特別償却費",
+      "path": [
+        "特別償却費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KVC00270": {
+      "label": "事業の用に供した年",
+      "path": [
+        "事業の用に供した年"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KVC00280": {
+      "label": "特別償却の対象となる部分の取得価額",
+      "path": [
+        "特別償却の対象となる部分の取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00290": {
+      "label": "特別償却率",
+      "path": [
+        "特別償却率"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "KVC00300": {
+      "label": "特別償却限度額",
+      "path": [
+        "特別償却限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00310": {
+      "label": "必要経費に算入した特別償却額",
+      "path": [
+        "必要経費に算入した特別償却額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00320": {
+      "label": "翌年への繰越額",
+      "path": [
+        "翌年への繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00330": {
+      "label": "事業の用に供した年の翌年",
+      "path": [
+        "事業の用に供した年の翌年"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KVC00340": {
+      "label": "前年からの繰越額",
+      "path": [
+        "前年からの繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00350": {
+      "label": "必要経費に算入した特別償却額",
+      "path": [
+        "必要経費に算入した特別償却額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00360": {
+      "label": "償却費合計額",
+      "path": [
+        "償却費合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00370": {
+      "label": "未償却残高",
+      "path": [
+        "未償却残高"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KVC00380": {
+      "label": "その他参考となるべき事項",
+      "path": [
+        "その他参考となるべき事項"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    }
+  }
+}

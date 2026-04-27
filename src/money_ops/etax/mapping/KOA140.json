@@ -1,0 +1,1246 @@
+{
+  "_meta": {
+    "form_code": "KOA140",
+    "source_ver": "Ver6",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOA140-1",
+      "KOA140-2"
+    ]
+  },
+  "fields": {
+    "ALZ00000": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ALA00000": {
+      "label": "診療科目",
+      "path": [
+        "診療科目"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "ALB00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "ALB00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "ALC00000": {
+      "label": "１．収入金額の内訳",
+      "path": [
+        "１．収入金額の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00010": {
+      "label": "社会保険診療報酬",
+      "path": [
+        "社会保険診療報酬"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00020": {
+      "label": "基金事務所から支払を受ける社会保険診療報酬",
+      "path": [
+        "基金事務所から支払を受ける社会保険診療報酬"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00030": {
+      "label": "一般社会保険",
+      "path": [
+        "一般社会保険"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00040": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00050": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00060": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00070": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00080": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00150": {
+      "label": "生活保護法",
+      "path": [
+        "生活保護法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00160": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00170": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00180": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00190": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00200": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00270": {
+      "label": "精神保健福祉法",
+      "path": [
+        "精神保健福祉法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00280": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00290": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00300": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00310": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00320": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00330": {
+      "label": "診療報酬の種類　繰り返し",
+      "path": [
+        "診療報酬の種類　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00340": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ALC00350": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00360": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00370": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00380": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00390": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00395": {
+      "label": "基金事務所から支払を受ける社会保険診療報酬　小計",
+      "path": [
+        "基金事務所から支払を受ける社会保険診療報酬　小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00400": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00405": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00410": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00415": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00420": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00430": {
+      "label": "国民健康保険診療報酬",
+      "path": [
+        "国民健康保険診療報酬"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC01000": {
+      "label": "国民健康保険法",
+      "path": [
+        "国民健康保険法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC01010": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC01020": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01030": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01040": {
+      "label": "収入金額　診療報酬当座口払込額",
+      "path": [
+        "収入金額　診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC01050": {
+      "label": "高齢者医療確保法",
+      "path": [
+        "高齢者医療確保法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC01060": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC01070": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01080": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01090": {
+      "label": "収入金額　診療報酬当座口払込額",
+      "path": [
+        "収入金額　診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00440": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ALC00450": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00460": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00470": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00480": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00490": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00492": {
+      "label": "国民健康保険診療報酬　小計",
+      "path": [
+        "国民健康保険診療報酬　小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00493": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00494": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00495": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00496": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00497": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00500": {
+      "label": "介護報酬　追加項目　繰り返し",
+      "path": [
+        "介護報酬　追加項目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00510": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ALC00520": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00530": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00540": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00550": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00560": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00562": {
+      "label": "介護報酬　小計",
+      "path": [
+        "介護報酬　小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00563": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00564": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00565": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00566": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00567": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC01100": {
+      "label": "その他　追加項目　繰り返し",
+      "path": [
+        "その他　追加項目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC01110": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ALC01120": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC01130": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01140": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01150": {
+      "label": "収入金額　診療報酬当座口払込額",
+      "path": [
+        "収入金額　診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC01160": {
+      "label": "その他　小計",
+      "path": [
+        "その他　小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC01170": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC01180": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01190": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01200": {
+      "label": "収入金額　診療報酬当座口払込額",
+      "path": [
+        "収入金額　診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00570": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00580": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00590": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00600": {
+      "label": "決定点数",
+      "path": [
+        "決定点数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00610": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00620": {
+      "label": "診療報酬当座口払込額",
+      "path": [
+        "診療報酬当座口払込額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00630": {
+      "label": "診療報酬窓口収入金額",
+      "path": [
+        "診療報酬窓口収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00640": {
+      "label": "自由診療の収入等",
+      "path": [
+        "自由診療の収入等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00650": {
+      "label": "一般の自由診療",
+      "path": [
+        "一般の自由診療"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00660": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00670": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00680": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00690": {
+      "label": "労働者災害補償保険診療",
+      "path": [
+        "労働者災害補償保険診療"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00700": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00710": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00720": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00730": {
+      "label": "公害健康被害補償診療",
+      "path": [
+        "公害健康被害補償診療"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00740": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00750": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00760": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00762": {
+      "label": "自動車損害賠償責任保険診療",
+      "path": [
+        "自動車損害賠償責任保険診療"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00764": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00766": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00768": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC01300": {
+      "label": "高齢者医療確保法",
+      "path": [
+        "高齢者医療確保法"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC01310": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC01320": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC01330": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00770": {
+      "label": "診療報酬の種類　追加項目",
+      "path": [
+        "診療報酬の種類　追加項目"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00780": {
+      "label": "診療報酬の種類",
+      "path": [
+        "診療報酬の種類"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "ALC00790": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00800": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00810": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00820": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00830": {
+      "label": "診療件数",
+      "path": [
+        "診療件数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ALC00840": {
+      "label": "診療実日数",
+      "path": [
+        "診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00850": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00860": {
+      "label": "雑収入",
+      "path": [
+        "雑収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00870": {
+      "label": "２．自由診療割合の計算",
+      "path": [
+        "２．自由診療割合の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00880": {
+      "label": "診療実日数による割合",
+      "path": [
+        "診療実日数による割合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00890": {
+      "label": "自由診療実日数",
+      "path": [
+        "自由診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00900": {
+      "label": "総診療実日数",
+      "path": [
+        "総診療実日数"
+      ],
+      "type": "nonNegativeInteger(9)",
+      "enum": ""
+    },
+    "ALC00910": {
+      "label": "診療実日数の割合",
+      "path": [
+        "診療実日数の割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "ALC00920": {
+      "label": "収入による割合",
+      "path": [
+        "収入による割合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALC00930": {
+      "label": "自由診療収入",
+      "path": [
+        "自由診療収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00940": {
+      "label": "総診療収入",
+      "path": [
+        "総診療収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALC00960": {
+      "label": "調整率",
+      "path": [
+        "調整率"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ALC00970": {
+      "label": "自由診療の収入等の割合",
+      "path": [
+        "自由診療の収入等の割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "ALD00000": {
+      "label": "３．必要経費の内訳",
+      "path": [
+        "３．必要経費の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALD00130": {
+      "label": "自由診療分",
+      "path": [
+        "自由診療分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALD00140": {
+      "label": "原価及び経費の総額",
+      "path": [
+        "原価及び経費の総額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00150": {
+      "label": "自由診療分と社会保険診療分とに明確に区分できる経費の総額",
+      "path": [
+        "自由診療分と社会保険診療分とに明確に区分できる経費の総額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00160": {
+      "label": "自由診療割合",
+      "path": [
+        "自由診療割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "ALD00170": {
+      "label": "左の（ａ）のうち自由診療分に係る経費の金額",
+      "path": [
+        "左の（ａ）のうち自由診療分に係る経費の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00180": {
+      "label": "自由診療分の原価及び経費の合計額",
+      "path": [
+        "自由診療分の原価及び経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00190": {
+      "label": "保険診療分",
+      "path": [
+        "保険診療分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALD00200": {
+      "label": "原価及び経費の総額",
+      "path": [
+        "原価及び経費の総額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00210": {
+      "label": "自由診療分の原価及び経費の合計額",
+      "path": [
+        "自由診療分の原価及び経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00220": {
+      "label": "社会保険診療分の原価及び経費の合計額",
+      "path": [
+        "社会保険診療分の原価及び経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00230": {
+      "label": "租税特別措置法第26条の規定による社会保険診療分の経費の額",
+      "path": [
+        "租税特別措置法第26条の規定による社会保険診療分の経費の額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALD00240": {
+      "label": "社会保険診療報酬",
+      "path": [
+        "社会保険診療報酬"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00250": {
+      "label": "速算表の（ｂ）率",
+      "path": [
+        "速算表の（ｂ）率"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "ALD00260": {
+      "label": "速算表の（ｃ）加算額",
+      "path": [
+        "速算表の（ｃ）加算額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00270": {
+      "label": "措置法第26条の規定による必要経費の金額",
+      "path": [
+        "措置法第26条の規定による必要経費の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00280": {
+      "label": "社会保険診療分の経費と租税特別措置法第26条による金額との差額",
+      "path": [
+        "社会保険診療分の経費と租税特別措置法第26条による金額との差額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ALD00290": {
+      "label": "租税特別措置法第26条の規定による必要経費の金額",
+      "path": [
+        "租税特別措置法第26条の規定による必要経費の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00300": {
+      "label": "社会保険診療分の原価及び経費の合計額",
+      "path": [
+        "社会保険診療分の原価及び経費の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ALD00310": {
+      "label": "差額",
+      "path": [
+        "差額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

@@ -1,0 +1,2030 @@
+{
+  "_meta": {
+    "form_code": "KOA120",
+    "source_ver": "Ver9",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOA120-1",
+      "KOA120-2"
+    ]
+  },
+  "fields": {
+    "AJO00000": {
+      "label": "有限責任事業組合",
+      "path": [
+        "有限責任事業組合"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AJA00000": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "AJB00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "AJB00020": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJB00030": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "AJB00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "AJB00050": {
+      "label": "業種名",
+      "path": [
+        "業種名"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "AJB00060": {
+      "label": "農園名",
+      "path": [
+        "農園名"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "AJB00070": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "AJC00000": {
+      "label": "依頼税理士等",
+      "path": [
+        "依頼税理士等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJC00010": {
+      "label": "事務所所在地",
+      "path": [
+        "事務所所在地"
+      ],
+      "type": "address",
+      "enum": "DAIRI_ADR"
+    },
+    "AJC00020": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "AJC00030": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "AJE00000": {
+      "label": "提出年月日",
+      "path": [
+        "提出年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "TEISYUTSU_DAY"
+    },
+    "AJF00000": {
+      "label": "事業期間",
+      "path": [
+        "事業期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJF00010": {
+      "label": "事業期間（自）",
+      "path": [
+        "事業期間（自）"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "AJF00020": {
+      "label": "事業期間（至）",
+      "path": [
+        "事業期間（至）"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "AJG00000": {
+      "label": "収支内訳",
+      "path": [
+        "収支内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJG00020": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJG00030": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00040": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00050": {
+      "label": "雑収入",
+      "path": [
+        "雑収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00060": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00070": {
+      "label": "農産物の棚卸高",
+      "path": [
+        "農産物の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJG00080": {
+      "label": "期首",
+      "path": [
+        "期首"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00090": {
+      "label": "期末",
+      "path": [
+        "期末"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00100": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00110": {
+      "label": "経費",
+      "path": [
+        "経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJG00120": {
+      "label": "雇人費",
+      "path": [
+        "雇人費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00130": {
+      "label": "小作料・賃借料",
+      "path": [
+        "小作料・賃借料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00140": {
+      "label": "減価償却費",
+      "path": [
+        "減価償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00150": {
+      "label": "貸倒金",
+      "path": [
+        "貸倒金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00160": {
+      "label": "利子割引料",
+      "path": [
+        "利子割引料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00170": {
+      "label": "その他の経費",
+      "path": [
+        "その他の経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJG00180": {
+      "label": "租税公課",
+      "path": [
+        "租税公課"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00190": {
+      "label": "種苗費",
+      "path": [
+        "種苗費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00200": {
+      "label": "素畜費",
+      "path": [
+        "素畜費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00210": {
+      "label": "肥料費",
+      "path": [
+        "肥料費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00220": {
+      "label": "飼料費",
+      "path": [
+        "飼料費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00230": {
+      "label": "農具費",
+      "path": [
+        "農具費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00240": {
+      "label": "農薬・衛生費",
+      "path": [
+        "農薬・衛生費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00250": {
+      "label": "諸材料費",
+      "path": [
+        "諸材料費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00260": {
+      "label": "修繕費",
+      "path": [
+        "修繕費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00270": {
+      "label": "動力光熱費",
+      "path": [
+        "動力光熱費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00280": {
+      "label": "作業用衣料費",
+      "path": [
+        "作業用衣料費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00290": {
+      "label": "農業共済掛金",
+      "path": [
+        "農業共済掛金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00300": {
+      "label": "荷造運賃手数料",
+      "path": [
+        "荷造運賃手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00310": {
+      "label": "土地改良費",
+      "path": [
+        "土地改良費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00315": {
+      "label": "追加科目　繰り返し",
+      "path": [
+        "追加科目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJG00010": {
+      "label": "科目名",
+      "path": [
+        "科目名"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AJG00320": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00330": {
+      "label": "雑費",
+      "path": [
+        "雑費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00340": {
+      "label": "農産物以外の棚卸高",
+      "path": [
+        "農産物以外の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJG00350": {
+      "label": "期首",
+      "path": [
+        "期首"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00360": {
+      "label": "期末",
+      "path": [
+        "期末"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00370": {
+      "label": "経費から差し引く果樹牛馬等の育成費用",
+      "path": [
+        "経費から差し引く果樹牛馬等の育成費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00380": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00390": {
+      "label": "経費計",
+      "path": [
+        "経費計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00400": {
+      "label": "専従者控除前の所得金額",
+      "path": [
+        "専従者控除前の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00410": {
+      "label": "専従者控除",
+      "path": [
+        "専従者控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00420": {
+      "label": "所得金額（特例表示）",
+      "path": [
+        "所得金額（特例表示）"
+      ],
+      "type": "string(3)",
+      "enum": ""
+    },
+    "AJG00430": {
+      "label": "所得金額（上段）",
+      "path": [
+        "所得金額（上段）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00435": {
+      "label": "所得金額（下段）",
+      "path": [
+        "所得金額（下段）"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AJG00440": {
+      "label": "(17)のうち、肉用牛について特例の適用を受ける金額",
+      "path": [
+        "(17)のうち、肉用牛について特例の適用を受ける金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJG00450": {
+      "label": "必要経費不算入損失額",
+      "path": [
+        "必要経費不算入損失額"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "AJH00000": {
+      "label": "雇人費の内訳",
+      "path": [
+        "雇人費の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJH00010": {
+      "label": "雇人費の内訳明細　繰り返し",
+      "path": [
+        "雇人費の内訳明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJH00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AJH00030": {
+      "label": "住所又は作業名",
+      "path": [
+        "住所又は作業名"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "AJH00040": {
+      "label": "日数",
+      "path": [
+        "日数"
+      ],
+      "type": "nonNegativeInteger(5)",
+      "enum": ""
+    },
+    "AJH00050": {
+      "label": "現金",
+      "path": [
+        "現金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00060": {
+      "label": "現物",
+      "path": [
+        "現物"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00070": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00080": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00090": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJH00100": {
+      "label": "人数",
+      "path": [
+        "人数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AJH00110": {
+      "label": "日数",
+      "path": [
+        "日数"
+      ],
+      "type": "nonNegativeInteger(5)",
+      "enum": ""
+    },
+    "AJH00120": {
+      "label": "現金",
+      "path": [
+        "現金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00130": {
+      "label": "現物",
+      "path": [
+        "現物"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00140": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00150": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00160": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJH00170": {
+      "label": "日数",
+      "path": [
+        "日数"
+      ],
+      "type": "nonNegativeInteger(5)",
+      "enum": ""
+    },
+    "AJH00180": {
+      "label": "現金",
+      "path": [
+        "現金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00190": {
+      "label": "現物",
+      "path": [
+        "現物"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00200": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJH00210": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJI00000": {
+      "label": "小作料・賃借料の内訳　繰り返し",
+      "path": [
+        "小作料・賃借料の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJI00010": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJI00020": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "AJI00030": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AJI00040": {
+      "label": "小作料、賃耕料等の別",
+      "path": [
+        "小作料、賃耕料等の別"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AJI00050": {
+      "label": "面積・数量",
+      "path": [
+        "面積・数量"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AJI00070": {
+      "label": "支払額",
+      "path": [
+        "支払額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJJ00000": {
+      "label": "事業専従者の氏名等",
+      "path": [
+        "事業専従者の氏名等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJJ00010": {
+      "label": "事業専従者明細　繰り返し",
+      "path": [
+        "事業専従者明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJJ00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "AJJ00030": {
+      "label": "年齢",
+      "path": [
+        "年齢"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AJJ00040": {
+      "label": "続柄",
+      "path": [
+        "続柄"
+      ],
+      "type": "zokugara",
+      "enum": ""
+    },
+    "AJJ00050": {
+      "label": "従事月数",
+      "path": [
+        "従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AJJ00052": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJJ00054": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AJJ00056": {
+      "label": "月数",
+      "path": [
+        "月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AJJ00060": {
+      "label": "延べ従事月数",
+      "path": [
+        "延べ従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AJK00000": {
+      "label": "収入金額の明細",
+      "path": [
+        "収入金額の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00010": {
+      "label": "田畑",
+      "path": [
+        "田畑"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00020": {
+      "label": "田畑　繰り返し",
+      "path": [
+        "田畑　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00030": {
+      "label": "農産物等の種類品名等",
+      "path": [
+        "農産物等の種類品名等"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AJK00040": {
+      "label": "作付面積（飼育頭羽数）",
+      "path": [
+        "作付面積（飼育頭羽数）"
+      ],
+      "type": "decimal(7.2)",
+      "enum": ""
+    },
+    "AJK00050": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00060": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00070": {
+      "label": "農産物の棚卸高",
+      "path": [
+        "農産物の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00080": {
+      "label": "期首",
+      "path": [
+        "期首"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00090": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "AJK00100": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00110": {
+      "label": "期末",
+      "path": [
+        "期末"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00120": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "AJK00130": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00140": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00150": {
+      "label": "作付面積（飼育頭羽数）",
+      "path": [
+        "作付面積（飼育頭羽数）"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "AJK00160": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00170": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00180": {
+      "label": "農産物の棚卸高",
+      "path": [
+        "農産物の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00190": {
+      "label": "期首金額",
+      "path": [
+        "期首金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00200": {
+      "label": "期末金額",
+      "path": [
+        "期末金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00210": {
+      "label": "特殊施設",
+      "path": [
+        "特殊施設"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00220": {
+      "label": "特殊施設　繰り返し",
+      "path": [
+        "特殊施設　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00230": {
+      "label": "農産物等の種類品名等",
+      "path": [
+        "農産物等の種類品名等"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AJK00240": {
+      "label": "作付面積（飼育頭羽数）",
+      "path": [
+        "作付面積（飼育頭羽数）"
+      ],
+      "type": "decimal(7.2)",
+      "enum": ""
+    },
+    "AJK00250": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00260": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00270": {
+      "label": "農産物の棚卸高",
+      "path": [
+        "農産物の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00280": {
+      "label": "期首",
+      "path": [
+        "期首"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00290": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "AJK00300": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00310": {
+      "label": "期末",
+      "path": [
+        "期末"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00320": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "AJK00330": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00340": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00350": {
+      "label": "作付面積（飼育頭羽数）",
+      "path": [
+        "作付面積（飼育頭羽数）"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "AJK00360": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00370": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00380": {
+      "label": "農産物の棚卸高",
+      "path": [
+        "農産物の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00390": {
+      "label": "期首金額",
+      "path": [
+        "期首金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00400": {
+      "label": "期末金額",
+      "path": [
+        "期末金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00401": {
+      "label": "次葉合計(農産物計)",
+      "path": [
+        "次葉合計(農産物計)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00402": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AJK00406": {
+      "label": "農産物の棚卸高",
+      "path": [
+        "農産物の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00407": {
+      "label": "期首金額",
+      "path": [
+        "期首金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00408": {
+      "label": "期末金額",
+      "path": [
+        "期末金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00410": {
+      "label": "農産物計",
+      "path": [
+        "農産物計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00420": {
+      "label": "作付面積（飼育頭羽数）",
+      "path": [
+        "作付面積（飼育頭羽数）"
+      ],
+      "type": "decimal(9.2)",
+      "enum": ""
+    },
+    "AJK00430": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00440": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00450": {
+      "label": "農産物の棚卸高",
+      "path": [
+        "農産物の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00460": {
+      "label": "期首金額",
+      "path": [
+        "期首金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00470": {
+      "label": "期末金額",
+      "path": [
+        "期末金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00480": {
+      "label": "畜産物その他",
+      "path": [
+        "畜産物その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00490": {
+      "label": "畜産物その他　繰り返し",
+      "path": [
+        "畜産物その他　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00500": {
+      "label": "農産物等の種類品名等",
+      "path": [
+        "農産物等の種類品名等"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AJK00510": {
+      "label": "作付面積（飼育頭羽数）",
+      "path": [
+        "作付面積（飼育頭羽数）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "AJK00520": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00530": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00540": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00550": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00560": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00562": {
+      "label": "次葉合計(合計)",
+      "path": [
+        "次葉合計(合計)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00564": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AJK00566": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00568": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00570": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00580": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00590": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00600": {
+      "label": "雑収入の内訳",
+      "path": [
+        "雑収入の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00610": {
+      "label": "雑収入の内訳明細　繰り返し",
+      "path": [
+        "雑収入の内訳明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00620": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AJK00630": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00632": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJK00634": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AJK00636": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJK00640": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00000": {
+      "label": "減価償却費の計算",
+      "path": [
+        "減価償却費の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJL00010": {
+      "label": "減価償却費の計算明細　繰り返し",
+      "path": [
+        "減価償却費の計算明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJL00020": {
+      "label": "減価償却資産の名称等（繰延資産を含む）",
+      "path": [
+        "減価償却資産の名称等（繰延資産を含む）"
+      ],
+      "type": "string(16)",
+      "enum": ""
+    },
+    "AJL00030": {
+      "label": "面積又は数量",
+      "path": [
+        "面積又は数量"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "AJL00050": {
+      "label": "取得（成熟）年月",
+      "path": [
+        "取得（成熟）年月"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "AJL00060": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00065": {
+      "label": "（償却保証額）",
+      "path": [
+        "（償却保証額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00070": {
+      "label": "償却の基礎になる金額",
+      "path": [
+        "償却の基礎になる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00080": {
+      "label": "償却方法",
+      "path": [
+        "償却方法"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "AJL00090": {
+      "label": "耐用年数",
+      "path": [
+        "耐用年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "AJL00100": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJL00110": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "decimal(1.3)",
+      "enum": ""
+    },
+    "AJL00140": {
+      "label": "本年中の償却期間",
+      "path": [
+        "本年中の償却期間"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "AJL00150": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00160": {
+      "label": "特別償却費",
+      "path": [
+        "特別償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00170": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00180": {
+      "label": "事業専用割合",
+      "path": [
+        "事業専用割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "AJL00190": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00200": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00210": {
+      "label": "摘要",
+      "path": [
+        "摘要"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AJL00211": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJL00212": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AJL00213": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00214": {
+      "label": "特別償却費",
+      "path": [
+        "特別償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00215": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00216": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00217": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00220": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJL00230": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00240": {
+      "label": "特別償却費",
+      "path": [
+        "特別償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00250": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00260": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00270": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJL00280": {
+      "label": "摘要",
+      "path": [
+        "摘要"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AJM00000": {
+      "label": "果樹・牛馬等の育成費用の計算",
+      "path": [
+        "果樹・牛馬等の育成費用の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJM00010": {
+      "label": "果樹・牛馬等の育成費用の計算明細　繰り返し",
+      "path": [
+        "果樹・牛馬等の育成費用の計算明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJM00020": {
+      "label": "果樹・牛馬等の名称",
+      "path": [
+        "果樹・牛馬等の名称"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "AJM00030": {
+      "label": "取得・生産・定植等の年月日",
+      "path": [
+        "取得・生産・定植等の年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "AJM00040": {
+      "label": "前年からの繰越額",
+      "path": [
+        "前年からの繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00050": {
+      "label": "育成費用の明細",
+      "path": [
+        "育成費用の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJM00060": {
+      "label": "本年中の種苗費、種付料、素畜費",
+      "path": [
+        "本年中の種苗費、種付料、素畜費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00070": {
+      "label": "本年中の肥料、農薬等の投下費用",
+      "path": [
+        "本年中の肥料、農薬等の投下費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00080": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00090": {
+      "label": "育成中の果樹等から生じた収入金額",
+      "path": [
+        "育成中の果樹等から生じた収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00100": {
+      "label": "本年に取得価額に加算する金額",
+      "path": [
+        "本年に取得価額に加算する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00110": {
+      "label": "本年中に成熟したものの取得価額",
+      "path": [
+        "本年中に成熟したものの取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00120": {
+      "label": "翌年への繰越額",
+      "path": [
+        "翌年への繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00300": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJM00310": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "AJM00320": {
+      "label": "前年からの繰越額",
+      "path": [
+        "前年からの繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00330": {
+      "label": "育成費用の明細",
+      "path": [
+        "育成費用の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJM00340": {
+      "label": "本年中の種苗費、種付料、素畜費",
+      "path": [
+        "本年中の種苗費、種付料、素畜費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00350": {
+      "label": "本年中の肥料、農薬等の投下費用",
+      "path": [
+        "本年中の肥料、農薬等の投下費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00360": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00370": {
+      "label": "育成中の果樹等から生じた収入金額",
+      "path": [
+        "育成中の果樹等から生じた収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00380": {
+      "label": "本年に取得価額に加算する金額",
+      "path": [
+        "本年に取得価額に加算する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00390": {
+      "label": "本年中に成熟したものの取得価額",
+      "path": [
+        "本年中に成熟したものの取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00400": {
+      "label": "翌年への繰越額",
+      "path": [
+        "翌年への繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00130": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJM00140": {
+      "label": "前年からの繰越額",
+      "path": [
+        "前年からの繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00150": {
+      "label": "育成費用の明細",
+      "path": [
+        "育成費用の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "AJM00160": {
+      "label": "本年中の種苗費、種付料、素畜費",
+      "path": [
+        "本年中の種苗費、種付料、素畜費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00170": {
+      "label": "本年中の肥料、農薬等の投下費用",
+      "path": [
+        "本年中の肥料、農薬等の投下費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00180": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00190": {
+      "label": "育成中の果樹等から生じた収入金額",
+      "path": [
+        "育成中の果樹等から生じた収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00200": {
+      "label": "本年に取得価額に加算する金額",
+      "path": [
+        "本年に取得価額に加算する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00210": {
+      "label": "本年中に成熟したものの取得価額",
+      "path": [
+        "本年中に成熟したものの取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00220": {
+      "label": "翌年への繰越額",
+      "path": [
+        "翌年への繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "AJM00230": {
+      "label": "（ロ）、（ハ）、（ホ）の欄の金額の計算方法",
+      "path": [
+        "（ロ）、（ハ）、（ホ）の欄の金額の計算方法"
+      ],
+      "type": "string(50)",
+      "enum": ""
+    },
+    "AJN00000": {
+      "label": "本年中における特殊事情",
+      "path": [
+        "本年中における特殊事情"
+      ],
+      "type": "string(135)",
+      "enum": ""
+    }
+  }
+}

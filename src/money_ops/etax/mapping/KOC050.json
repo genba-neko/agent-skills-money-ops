@@ -1,0 +1,2112 @@
+{
+  "_meta": {
+    "form_code": "KOC050",
+    "source_ver": "Ver19",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOC050-1",
+      "KOC050-2",
+      "KOC050-3",
+      "KOC050-4"
+    ]
+  },
+  "fields": {
+    "EEK00000": {
+      "label": "申告等対象年分",
+      "path": [
+        "申告等対象年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "EEL00000": {
+      "label": "提出税務署",
+      "path": [
+        "提出税務署"
+      ],
+      "type": "zeimusho",
+      "enum": "ZEIMUSHO"
+    },
+    "EEA00000": {
+      "label": "提出枚数",
+      "path": [
+        "提出枚数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EEB00000": {
+      "label": "当明細数",
+      "path": [
+        "当明細数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EEC00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEC00010": {
+      "label": "現住所",
+      "path": [
+        "現住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "EEC00020": {
+      "label": "前住所",
+      "path": [
+        "前住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEC00030": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "EEC00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "EEC00050": {
+      "label": "電話番号（連絡先）",
+      "path": [
+        "電話番号（連絡先）"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "EEC00060": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "EED00000": {
+      "label": "関与税理士名",
+      "path": [
+        "関与税理士名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EED00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "EED00020": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "EEM00000": {
+      "label": "５面　区分",
+      "path": [
+        "５面　区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00000": {
+      "label": "譲渡（売却）された土地・建物について",
+      "path": [
+        "譲渡（売却）された土地・建物について"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00010": {
+      "label": "どこの土地・建物を譲渡（売却）されましたか。",
+      "path": [
+        "どこの土地・建物を譲渡（売却）されましたか。"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00020": {
+      "label": "所在地",
+      "path": [
+        "所在地"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00030": {
+      "label": "所在地番",
+      "path": [
+        "所在地番"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEE00040": {
+      "label": "（住居表示）",
+      "path": [
+        "（住居表示）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEE00050": {
+      "label": "どのような土地・建物をいつ譲渡（売却）されましたか。",
+      "path": [
+        "どのような土地・建物をいつ譲渡（売却）されましたか。"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00060": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00070": {
+      "label": "宅地",
+      "path": [
+        "宅地"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00080": {
+      "label": "田",
+      "path": [
+        "田"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00090": {
+      "label": "山林",
+      "path": [
+        "山林"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00100": {
+      "label": "畑",
+      "path": [
+        "畑"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00110": {
+      "label": "雑種地",
+      "path": [
+        "雑種地"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00120": {
+      "label": "借地権",
+      "path": [
+        "借地権"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00130": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00140": {
+      "label": "その他の内容",
+      "path": [
+        "その他の内容"
+      ],
+      "type": "string(8)",
+      "enum": ""
+    },
+    "EEE00150": {
+      "label": "（実測）",
+      "path": [
+        "（実測）"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "EEE00160": {
+      "label": "（公簿等）",
+      "path": [
+        "（公簿等）"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "EEE00170": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00180": {
+      "label": "居宅",
+      "path": [
+        "居宅"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00190": {
+      "label": "マンション",
+      "path": [
+        "マンション"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00200": {
+      "label": "店舗",
+      "path": [
+        "店舗"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00210": {
+      "label": "事務所",
+      "path": [
+        "事務所"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00220": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00230": {
+      "label": "その他の内容",
+      "path": [
+        "その他の内容"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEE00240": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EEE00250": {
+      "label": "利用状況",
+      "path": [
+        "利用状況"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00260": {
+      "label": "自己の居住用",
+      "path": [
+        "自己の居住用"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00263": {
+      "label": "居住期間(自)",
+      "path": [
+        "居住期間(自)"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "EEE00266": {
+      "label": "居住期間(至)",
+      "path": [
+        "居住期間(至)"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "EEE00270": {
+      "label": "自己の事業用",
+      "path": [
+        "自己の事業用"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00280": {
+      "label": "貸付用",
+      "path": [
+        "貸付用"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00290": {
+      "label": "未利用",
+      "path": [
+        "未利用"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00300": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00310": {
+      "label": "その他の内容",
+      "path": [
+        "その他の内容"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "EEE00320": {
+      "label": "売買契約日",
+      "path": [
+        "売買契約日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEE00330": {
+      "label": "引き渡した日",
+      "path": [
+        "引き渡した日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEE00340": {
+      "label": "あなたの持分",
+      "path": [
+        "あなたの持分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00350": {
+      "label": "土地等（分子）",
+      "path": [
+        "土地等（分子）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "EEE00355": {
+      "label": "土地等（分母）",
+      "path": [
+        "土地等（分母）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "EEE00360": {
+      "label": "建物（分子）",
+      "path": [
+        "建物（分子）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "EEE00365": {
+      "label": "建物（分母）",
+      "path": [
+        "建物（分母）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "EEE00370": {
+      "label": "共有者　繰り返し",
+      "path": [
+        "共有者　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00380": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEE00390": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEE00400": {
+      "label": "土地等（分子）",
+      "path": [
+        "土地等（分子）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "EEE00405": {
+      "label": "土地等（分母）",
+      "path": [
+        "土地等（分母）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "EEE00406": {
+      "label": "建物（分子）",
+      "path": [
+        "建物（分子）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "EEE00407": {
+      "label": "建物（分母）",
+      "path": [
+        "建物（分母）"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "EEE00410": {
+      "label": "どなたに譲渡（売却）されましたか。",
+      "path": [
+        "どなたに譲渡（売却）されましたか。"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00420": {
+      "label": "買主",
+      "path": [
+        "買主"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00430": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEE00440": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEE00450": {
+      "label": "職業（業種）",
+      "path": [
+        "職業（業種）"
+      ],
+      "type": "shokugyo",
+      "enum": ""
+    },
+    "EEE00460": {
+      "label": "いくらで譲渡（売却）されましたか。",
+      "path": [
+        "いくらで譲渡（売却）されましたか。"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00470": {
+      "label": "譲渡価額",
+      "path": [
+        "譲渡価額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00473": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(70)",
+      "enum": ""
+    },
+    "EEE00476": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEE00480": {
+      "label": "参考事項",
+      "path": [
+        "参考事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00490": {
+      "label": "代金の受領状況",
+      "path": [
+        "代金の受領状況"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00500": {
+      "label": "１回目",
+      "path": [
+        "１回目"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00510": {
+      "label": "受領年月日",
+      "path": [
+        "受領年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEE00520": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00523": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(70)",
+      "enum": ""
+    },
+    "EEE00526": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEE00530": {
+      "label": "２回目",
+      "path": [
+        "２回目"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00540": {
+      "label": "受領年月日",
+      "path": [
+        "受領年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEE00550": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00553": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(70)",
+      "enum": ""
+    },
+    "EEE00556": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEE00560": {
+      "label": "３回目",
+      "path": [
+        "３回目"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00570": {
+      "label": "受領年月日",
+      "path": [
+        "受領年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEE00580": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00583": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(70)",
+      "enum": ""
+    },
+    "EEE00586": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEE00590": {
+      "label": "未収金",
+      "path": [
+        "未収金"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00600": {
+      "label": "受領年月日",
+      "path": [
+        "受領年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEE00610": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00613": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(70)",
+      "enum": ""
+    },
+    "EEE00616": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEE00620": {
+      "label": "お売りになった理由",
+      "path": [
+        "お売りになった理由"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEE00630": {
+      "label": "買主から頼まれたため",
+      "path": [
+        "買主から頼まれたため"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00640": {
+      "label": "他の資産を購入するため",
+      "path": [
+        "他の資産を購入するため"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00650": {
+      "label": "事業資金を捻出するため",
+      "path": [
+        "事業資金を捻出するため"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00660": {
+      "label": "借入金を返済するため",
+      "path": [
+        "借入金を返済するため"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00670": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEE00680": {
+      "label": "その他の内容",
+      "path": [
+        "その他の内容"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "EEF00000": {
+      "label": "譲渡（売却）された土地・建物の購入（建築）代金などについて",
+      "path": [
+        "譲渡（売却）された土地・建物の購入（建築）代金などについて"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00010": {
+      "label": "譲渡（売却）された土地・建物は、どなたから、いつ、いくらで購入（建築）されましたか。",
+      "path": [
+        "譲渡（売却）された土地・建物は、どなたから、いつ、いくらで購入（建築）されましたか。"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00020": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00030": {
+      "label": "購入（建築）先・支払先",
+      "path": [
+        "購入（建築）先・支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00040": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEF00050": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEF00060": {
+      "label": "購入・建築年月日",
+      "path": [
+        "購入・建築年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEF00070": {
+      "label": "購入・建築代金又は譲渡価額の５％",
+      "path": [
+        "購入・建築代金又は譲渡価額の５％"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEF00080": {
+      "label": "その他土地　繰り返し",
+      "path": [
+        "その他土地　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00090": {
+      "label": "購入・建築価額の内訳",
+      "path": [
+        "購入・建築価額の内訳"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEF00100": {
+      "label": "購入（建築）先・支払先",
+      "path": [
+        "購入（建築）先・支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00110": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEF00120": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEF00130": {
+      "label": "購入・建築年月日",
+      "path": [
+        "購入・建築年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEF00140": {
+      "label": "購入・建築代金又は譲渡価額の５％",
+      "path": [
+        "購入・建築代金又は譲渡価額の５％"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEF00150": {
+      "label": "小計　（イ）",
+      "path": [
+        "小計　（イ）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEF00160": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00170": {
+      "label": "購入（建築）先・支払先",
+      "path": [
+        "購入（建築）先・支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00180": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEF00190": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEF00200": {
+      "label": "購入・建築年月日",
+      "path": [
+        "購入・建築年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEF00210": {
+      "label": "購入・建築代金又は譲渡価額の５％",
+      "path": [
+        "購入・建築代金又は譲渡価額の５％"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEF00220": {
+      "label": "その他建物　繰り返し",
+      "path": [
+        "その他建物　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00230": {
+      "label": "購入・建築価額の内訳",
+      "path": [
+        "購入・建築価額の内訳"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEF00240": {
+      "label": "購入（建築）先・支払先",
+      "path": [
+        "購入（建築）先・支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00250": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEF00260": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEF00270": {
+      "label": "購入・建築年月日",
+      "path": [
+        "購入・建築年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEF00280": {
+      "label": "購入・建築代金又は譲渡価額の５％",
+      "path": [
+        "購入・建築代金又は譲渡価額の５％"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEF00290": {
+      "label": "建物の構造",
+      "path": [
+        "建物の構造"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00300": {
+      "label": "木造",
+      "path": [
+        "木造"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEF00302": {
+      "label": "木骨モルタル",
+      "path": [
+        "木骨モルタル"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEF00304": {
+      "label": "（鉄骨）鉄筋",
+      "path": [
+        "（鉄骨）鉄筋"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEF00306": {
+      "label": "金属造",
+      "path": [
+        "金属造"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEF00308": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEF00310": {
+      "label": "小計　（ロ）",
+      "path": [
+        "小計　（ロ）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEF00320": {
+      "label": "建物の償却費相当額を計算します。",
+      "path": [
+        "建物の償却費相当額を計算します。"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00325": {
+      "label": "建物の購入・建築価額標準の区分",
+      "path": [
+        "建物の購入・建築価額標準の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEF00330": {
+      "label": "建物の購入・建築価額（ロ）",
+      "path": [
+        "建物の購入・建築価額（ロ）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEF00340": {
+      "label": "償却率",
+      "path": [
+        "償却率"
+      ],
+      "type": "decimal(1.4)",
+      "enum": ""
+    },
+    "EEF00350": {
+      "label": "経過年数",
+      "path": [
+        "経過年数"
+      ],
+      "type": "nonNegativeInteger(6)",
+      "enum": ""
+    },
+    "EEF00360": {
+      "label": "償却費相当額（ハ）",
+      "path": [
+        "償却費相当額（ハ）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEF00370": {
+      "label": "取得費を計算します。",
+      "path": [
+        "取得費を計算します。"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00380": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEF00383": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(70)",
+      "enum": ""
+    },
+    "EEF00384": {
+      "label": "中段",
+      "path": [
+        "中段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEF00386": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEG00000": {
+      "label": "譲渡（売却）するために支払った費用について",
+      "path": [
+        "譲渡（売却）するために支払った費用について"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEG00010": {
+      "label": "仲介手数料",
+      "path": [
+        "仲介手数料"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEG00020": {
+      "label": "支払先",
+      "path": [
+        "支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEG00030": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEG00040": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEG00050": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEG00060": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEG00070": {
+      "label": "収入印紙代",
+      "path": [
+        "収入印紙代"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEG00080": {
+      "label": "支払先",
+      "path": [
+        "支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEG00090": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEG00100": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEG00110": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEG00120": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEG00130": {
+      "label": "その他費用　繰り返し",
+      "path": [
+        "その他費用　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEG00140": {
+      "label": "費用の種類",
+      "path": [
+        "費用の種類"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEG00150": {
+      "label": "支払先",
+      "path": [
+        "支払先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEG00160": {
+      "label": "住所（所在地）",
+      "path": [
+        "住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEG00170": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEG00180": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEG00190": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEG00200": {
+      "label": "譲渡費用",
+      "path": [
+        "譲渡費用"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEG00203": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(70)",
+      "enum": ""
+    },
+    "EEG00206": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00000": {
+      "label": "譲渡所得金額の計算",
+      "path": [
+        "譲渡所得金額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEH00005": {
+      "label": "譲渡所得金額の計算　繰り返し",
+      "path": [
+        "譲渡所得金額の計算　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEH00010": {
+      "label": "短期・長期の区分",
+      "path": [
+        "短期・長期の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEH00012": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEH00014": {
+      "label": "特例適用条文の区分(所法)",
+      "path": [
+        "特例適用条文の区分(所法)"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEH00016": {
+      "label": "特例適用条文の区分(措法)",
+      "path": [
+        "特例適用条文の区分(措法)"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEH00017": {
+      "label": "特例適用条文の区分(震法)",
+      "path": [
+        "特例適用条文の区分(震法)"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEH00018": {
+      "label": "条文１",
+      "path": [
+        "条文１"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEH00020": {
+      "label": "条１",
+      "path": [
+        "条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EEH00024": {
+      "label": "条２",
+      "path": [
+        "条２"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EEH00028": {
+      "label": "条文２",
+      "path": [
+        "条文２"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEH00032": {
+      "label": "条１",
+      "path": [
+        "条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EEH00036": {
+      "label": "条２",
+      "path": [
+        "条２"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EEH00040": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00220": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEH00240": {
+      "label": "上段金額",
+      "path": [
+        "上段金額"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEH00250": {
+      "label": "下段金額",
+      "path": [
+        "下段金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00280": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00310": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00340": {
+      "label": "譲渡所得金額",
+      "path": [
+        "譲渡所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00030": {
+      "label": "収入金額（上段合計額）",
+      "path": [
+        "収入金額（上段合計額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00180": {
+      "label": "必要経費（上段合計額）",
+      "path": [
+        "必要経費（上段合計額）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEH00200": {
+      "label": "上段金額",
+      "path": [
+        "上段金額"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEH00210": {
+      "label": "下段金額",
+      "path": [
+        "下段金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00270": {
+      "label": "差引金額（上段合計額）",
+      "path": [
+        "差引金額（上段合計額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00300": {
+      "label": "特別控除額（上段合計額）",
+      "path": [
+        "特別控除額（上段合計額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEH00330": {
+      "label": "譲渡所得金額（上段合計額）",
+      "path": [
+        "譲渡所得金額（上段合計額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEI00000": {
+      "label": "交換・買換（代替）資産として取得された（される）資産について",
+      "path": [
+        "交換・買換（代替）資産として取得された（される）資産について"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00010": {
+      "label": "資産明細　繰り返し",
+      "path": [
+        "資産明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00020": {
+      "label": "物件の所在地",
+      "path": [
+        "物件の所在地"
+      ],
+      "type": "string(60)",
+      "enum": ""
+    },
+    "EEI00030": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEI00040": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "EEI00050": {
+      "label": "用途",
+      "path": [
+        "用途"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEI00060": {
+      "label": "契約（予定）年月日",
+      "path": [
+        "契約（予定）年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEI00070": {
+      "label": "取得（予定）日",
+      "path": [
+        "取得（予定）日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEI00080": {
+      "label": "使用開始（予定）日",
+      "path": [
+        "使用開始（予定）日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEI00090": {
+      "label": "取得された（される）資産の購入代金など（取得価額）についての明細",
+      "path": [
+        "取得された（される）資産の購入代金など（取得価額）についての明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00100": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00110": {
+      "label": "支払先住所（所在地）及び氏名（名称）",
+      "path": [
+        "支払先住所（所在地）及び氏名（名称）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00120": {
+      "label": "支払先住所（所在地）",
+      "path": [
+        "支払先住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEI00130": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEI00140": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEI00150": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEI00152": {
+      "label": "その他費用　繰り返し(1)",
+      "path": [
+        "その他費用　繰り返し(1)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00153": {
+      "label": "費用の内容",
+      "path": [
+        "費用の内容"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEI00154": {
+      "label": "支払先住所（所在地）及び氏名（名称）",
+      "path": [
+        "支払先住所（所在地）及び氏名（名称）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00155": {
+      "label": "支払先住所（所在地）",
+      "path": [
+        "支払先住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEI00156": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEI00157": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEI00158": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEI00160": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00170": {
+      "label": "支払先住所（所在地）及び氏名（名称）",
+      "path": [
+        "支払先住所（所在地）及び氏名（名称）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00180": {
+      "label": "支払先住所（所在地）",
+      "path": [
+        "支払先住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEI00190": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEI00200": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEI00210": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEI00220": {
+      "label": "その他費用　繰り返し(2)",
+      "path": [
+        "その他費用　繰り返し(2)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00230": {
+      "label": "費用の内容",
+      "path": [
+        "費用の内容"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEI00240": {
+      "label": "支払先住所（所在地）及び氏名（名称）",
+      "path": [
+        "支払先住所（所在地）及び氏名（名称）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEI00250": {
+      "label": "支払先住所（所在地）",
+      "path": [
+        "支払先住所（所在地）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EEI00260": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "EEI00270": {
+      "label": "支払年月日",
+      "path": [
+        "支払年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EEI00280": {
+      "label": "支払金額",
+      "path": [
+        "支払金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEI00290": {
+      "label": "買換（代替）資産・交換取得資産の取得価額の合計額",
+      "path": [
+        "買換（代替）資産・交換取得資産の取得価額の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEJ00000": {
+      "label": "譲渡所得金額の計算",
+      "path": [
+        "譲渡所得金額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEJ00010": {
+      "label": "（２）以外の交換・買換え（代替）の場合［交換（所法58）・収用代替（措法33）・居住用買換え（措法36の２）など］",
+      "path": [
+        "（２）以外の交換・買換え（代替）の場合［交換（所法58）・収用代替（措法33）・居住用買換え（措法36の２）など］"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEJ00022": {
+      "label": "短期・長期の区分",
+      "path": [
+        "短期・長期の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEJ00024": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEJ00025": {
+      "label": "特例適用条文の区分(所法)",
+      "path": [
+        "特例適用条文の区分(所法)"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEJ00026": {
+      "label": "特例適用条文の区分(措法)",
+      "path": [
+        "特例適用条文の区分(措法)"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEJ00240": {
+      "label": "特例適用条文の区分(震法)",
+      "path": [
+        "特例適用条文の区分(震法)"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEJ00027": {
+      "label": "特例適用条文　繰り返し",
+      "path": [
+        "特例適用条文　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEJ00028": {
+      "label": "条１",
+      "path": [
+        "条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EEJ00029": {
+      "label": "条２",
+      "path": [
+        "条２"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EEJ00030": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEJ00040": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEJ00050": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEJ00060": {
+      "label": "中段",
+      "path": [
+        "中段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEJ00070": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEJ00100": {
+      "label": "譲渡所得金額",
+      "path": [
+        "譲渡所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEJ00160": {
+      "label": "特定の事業用資産の買換え・交換　（措法３７・３７の４）などの場合",
+      "path": [
+        "特定の事業用資産の買換え・交換　（措法３７・３７の４）などの場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEJ00172": {
+      "label": "短期・長期の区分",
+      "path": [
+        "短期・長期の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EEJ00174": {
+      "label": "特例適用条文 繰り返し",
+      "path": [
+        "特例適用条文 繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEJ00176": {
+      "label": "条１",
+      "path": [
+        "条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EEJ00178": {
+      "label": "条２",
+      "path": [
+        "条２"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "EEJ00180": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEJ00190": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EEJ00200": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEJ00210": {
+      "label": "中段",
+      "path": [
+        "中段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EEJ00220": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EEJ00230": {
+      "label": "譲渡所得金額",
+      "path": [
+        "譲渡所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

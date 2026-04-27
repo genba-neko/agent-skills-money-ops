@@ -1,0 +1,747 @@
+{
+  "_meta": {
+    "form_code": "KOD020",
+    "source_ver": "Ver6",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "ELA00005": {
+      "label": "申告等対象年分",
+      "path": [
+        "申告等対象年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "ELA00007": {
+      "label": "提出税務署",
+      "path": [
+        "提出税務署"
+      ],
+      "type": "zeimusho",
+      "enum": "ZEIMUSHO"
+    },
+    "ELA00020": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "ELA00030": {
+      "label": "（フリガナ）",
+      "path": [
+        "（フリガナ）"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "ELA00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "ELA00050": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "ELB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "DAIRI_ADR"
+    },
+    "ELB00020": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "ELB00030": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "ELC00010": {
+      "label": "消費税等の経理方式",
+      "path": [
+        "消費税等の経理方式"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ELC00020": {
+      "label": "譲渡価額の総額（収入金額）",
+      "path": [
+        "譲渡価額の総額（収入金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00030": {
+      "label": "総収入金額に算入される消費税等の額",
+      "path": [
+        "総収入金額に算入される消費税等の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00040": {
+      "label": "計１",
+      "path": [
+        "計１"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00050": {
+      "label": "伐採費など",
+      "path": [
+        "伐採費など"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELC00060": {
+      "label": "伐採費、運搬費、譲渡費用の額",
+      "path": [
+        "伐採費、運搬費、譲渡費用の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00070": {
+      "label": "専従者控除額のうち（４）に相当する部分の金額",
+      "path": [
+        "専従者控除額のうち（４）に相当する部分の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00080": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00090": {
+      "label": "差引",
+      "path": [
+        "差引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00100": {
+      "label": "取得費、管理費など",
+      "path": [
+        "取得費、管理費など"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELC00110": {
+      "label": "概算経費率による場合",
+      "path": [
+        "概算経費率による場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELC00120": {
+      "label": "概算経費の額",
+      "path": [
+        "概算経費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00130": {
+      "label": "概算経費率によらない場合",
+      "path": [
+        "概算経費率によらない場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELC00140": {
+      "label": "植林費、取得に要した経費",
+      "path": [
+        "植林費、取得に要した経費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00150": {
+      "label": "管理費その他の育成費用",
+      "path": [
+        "管理費その他の育成費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00160": {
+      "label": "（５）以外の専従者控除額",
+      "path": [
+        "（５）以外の専従者控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00170": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00180": {
+      "label": "被災事業用資産の損失の金額",
+      "path": [
+        "被災事業用資産の損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00184": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELC00187": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ELC00190": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00200": {
+      "label": "必要経費に算入される消費税等の額",
+      "path": [
+        "必要経費に算入される消費税等の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00210": {
+      "label": "計２",
+      "path": [
+        "計２"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00220": {
+      "label": "森林計画特別控除",
+      "path": [
+        "森林計画特別控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELC00230": {
+      "label": "概算経費率の適用を受ける場合",
+      "path": [
+        "概算経費率の適用を受ける場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00240": {
+      "label": "概算経費率の適用を受けない場合",
+      "path": [
+        "概算経費率の適用を受けない場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELC00250": {
+      "label": "（１８）と（１９）のうち低い方の金額",
+      "path": [
+        "（１８）と（１９）のうち低い方の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00260": {
+      "label": "差引金額(上段)",
+      "path": [
+        "差引金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00263": {
+      "label": "差引金額(下段)",
+      "path": [
+        "差引金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ELC00265": {
+      "label": "特別控除額",
+      "path": [
+        "特別控除額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELC00270": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ELC00280": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELC00290": {
+      "label": "山林所得金額",
+      "path": [
+        "山林所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00010": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00020": {
+      "label": "条１",
+      "path": [
+        "条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "ELD00030": {
+      "label": "条２",
+      "path": [
+        "条２"
+      ],
+      "type": "string(6)",
+      "enum": ""
+    },
+    "ELD00040": {
+      "label": "譲渡した山林の明細",
+      "path": [
+        "譲渡した山林の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00050": {
+      "label": "山林の所在地番",
+      "path": [
+        "山林の所在地番"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ELD00060": {
+      "label": "面積",
+      "path": [
+        "面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "ELD00070": {
+      "label": "皆伐・間伐の区分",
+      "path": [
+        "皆伐・間伐の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "ELD00080": {
+      "label": "樹種",
+      "path": [
+        "樹種"
+      ],
+      "type": "string(14)",
+      "enum": ""
+    },
+    "ELD00090": {
+      "label": "樹齢",
+      "path": [
+        "樹齢"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "ELD00100": {
+      "label": "本数",
+      "path": [
+        "本数"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "ELD00110": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "ELD00120": {
+      "label": "譲渡先",
+      "path": [
+        "譲渡先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00130": {
+      "label": "住所又は所在地",
+      "path": [
+        "住所又は所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "ELD00140": {
+      "label": "氏名又は名称",
+      "path": [
+        "氏名又は名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "ELD00150": {
+      "label": "譲渡した年月日",
+      "path": [
+        "譲渡した年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ELD00160": {
+      "label": "譲渡山林を植林・購入した時期",
+      "path": [
+        "譲渡山林を植林・購入した時期"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "ELD00165": {
+      "label": "譲渡価額の総額（収入金額）",
+      "path": [
+        "譲渡価額の総額（収入金額）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00167": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ELD00170": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00180": {
+      "label": "総収入金額に算入される消費税等の額",
+      "path": [
+        "総収入金額に算入される消費税等の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00190": {
+      "label": "計１",
+      "path": [
+        "計１"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00200": {
+      "label": "伐採費など",
+      "path": [
+        "伐採費など"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00205": {
+      "label": "伐採費、運搬費、譲渡費用の額",
+      "path": [
+        "伐採費、運搬費、譲渡費用の額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00207": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ELD00210": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00220": {
+      "label": "専従者控除額のうち（４）に相当する部分の金額",
+      "path": [
+        "専従者控除額のうち（４）に相当する部分の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00230": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00240": {
+      "label": "差引",
+      "path": [
+        "差引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00250": {
+      "label": "取得費、管理費など",
+      "path": [
+        "取得費、管理費など"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00260": {
+      "label": "概算経費率による場合",
+      "path": [
+        "概算経費率による場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00270": {
+      "label": "概算経費の額",
+      "path": [
+        "概算経費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00280": {
+      "label": "概算経費率によらない場合",
+      "path": [
+        "概算経費率によらない場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00290": {
+      "label": "植林費、取得に要した経費",
+      "path": [
+        "植林費、取得に要した経費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00300": {
+      "label": "管理費その他の育成費用",
+      "path": [
+        "管理費その他の育成費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00310": {
+      "label": "（５）以外の専従者控除額",
+      "path": [
+        "（５）以外の専従者控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00320": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00330": {
+      "label": "被災事業用資産の損失の金額",
+      "path": [
+        "被災事業用資産の損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00334": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00337": {
+      "label": "上段",
+      "path": [
+        "上段"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "ELD00340": {
+      "label": "下段",
+      "path": [
+        "下段"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00350": {
+      "label": "必要経費に算入される消費税等の額",
+      "path": [
+        "必要経費に算入される消費税等の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00360": {
+      "label": "計２",
+      "path": [
+        "計２"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00370": {
+      "label": "森林計画特別控除",
+      "path": [
+        "森林計画特別控除"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00380": {
+      "label": "概算経費率の適用を受ける場合",
+      "path": [
+        "概算経費率の適用を受ける場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00390": {
+      "label": "概算経費率の適用を受けない場合",
+      "path": [
+        "概算経費率の適用を受けない場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "ELD00400": {
+      "label": "収入金額基準額",
+      "path": [
+        "収入金額基準額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00410": {
+      "label": "所得基準額",
+      "path": [
+        "所得基準額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00420": {
+      "label": "（１８）と（１９）のうち低い方の金額",
+      "path": [
+        "（１８）と（１９）のうち低い方の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00430": {
+      "label": "差引金額(上段)",
+      "path": [
+        "差引金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "ELD00440": {
+      "label": "差引金額(下段)",
+      "path": [
+        "差引金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    }
+  }
+}

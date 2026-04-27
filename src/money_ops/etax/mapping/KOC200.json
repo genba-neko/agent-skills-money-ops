@@ -1,0 +1,475 @@
+{
+  "_meta": {
+    "form_code": "KOC200",
+    "source_ver": "Ver8",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "KGB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "KGB00020": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGB00030": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "KGB00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "KGB00050": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "KGB00060": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "KGB00070": {
+      "label": "関与税理士名",
+      "path": [
+        "関与税理士名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGB00080": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "KGB00090": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "KGC00010": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGC00020": {
+      "label": "総合課税",
+      "path": [
+        "総合課税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGC00030": {
+      "label": "事業（営業等）",
+      "path": [
+        "事業（営業等）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00040": {
+      "label": "雑",
+      "path": [
+        "雑"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00050": {
+      "label": "総合譲渡・一時",
+      "path": [
+        "総合譲渡・一時"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00060": {
+      "label": "申告書第一表（２）から（６）　対応分　計",
+      "path": [
+        "申告書第一表（２）から（６）　対応分　計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00070": {
+      "label": "総合課税の所得金額　計",
+      "path": [
+        "総合課税の所得金額　計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00080": {
+      "label": "分離課税",
+      "path": [
+        "分離課税"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGC00090": {
+      "label": "申告書第三表（６７）から（７１）　対応分　計",
+      "path": [
+        "申告書第三表（６７）から（７１）　対応分　計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00100": {
+      "label": "明細",
+      "path": [
+        "明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGC00110": {
+      "label": "一般株式等の譲渡",
+      "path": [
+        "一般株式等の譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00120": {
+      "label": "上場株式等の譲渡",
+      "path": [
+        "上場株式等の譲渡"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00130": {
+      "label": "上場株式等の配当等",
+      "path": [
+        "上場株式等の配当等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00140": {
+      "label": "先物取引",
+      "path": [
+        "先物取引"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00150": {
+      "label": "申告書第三表（７６）（７７）　対応分　計",
+      "path": [
+        "申告書第三表（７６）（７７）　対応分　計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00160": {
+      "label": "所得から差し引かれる金額",
+      "path": [
+        "所得から差し引かれる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00170": {
+      "label": "課税される所得金額",
+      "path": [
+        "課税される所得金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGC00180": {
+      "label": "（５）　対応分",
+      "path": [
+        "（５）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00190": {
+      "label": "（６）　対応分",
+      "path": [
+        "（６）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00200": {
+      "label": "（７）（８）　対応分",
+      "path": [
+        "（７）（８）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00210": {
+      "label": "（９）　対応分",
+      "path": [
+        "（９）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00220": {
+      "label": "（１０）　対応分",
+      "path": [
+        "（１０）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00230": {
+      "label": "（１１）　対応分",
+      "path": [
+        "（１１）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00240": {
+      "label": "税金の計算",
+      "path": [
+        "税金の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGC00250": {
+      "label": "（１３）　対応分",
+      "path": [
+        "（１３）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00260": {
+      "label": "（１４）　対応分",
+      "path": [
+        "（１４）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00270": {
+      "label": "（１５）　対応分",
+      "path": [
+        "（１５）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00280": {
+      "label": "（１６）　対応分",
+      "path": [
+        "（１６）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00290": {
+      "label": "（１７）　対応分",
+      "path": [
+        "（１７）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00300": {
+      "label": "（１８）　対応分",
+      "path": [
+        "（１８）　対応分"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00310": {
+      "label": "（１９）から（２４）までの合計",
+      "path": [
+        "（１９）から（２４）までの合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00320": {
+      "label": "所得税額から差し引かれる金額",
+      "path": [
+        "所得税額から差し引かれる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00330": {
+      "label": "差引所得税額",
+      "path": [
+        "差引所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00340": {
+      "label": "災害減免額",
+      "path": [
+        "災害減免額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00350": {
+      "label": "再差引所得税額（基準所得税額）",
+      "path": [
+        "再差引所得税額（基準所得税額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00360": {
+      "label": "復興特別所得税額",
+      "path": [
+        "復興特別所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00370": {
+      "label": "所得税及び復興特別所得税の額",
+      "path": [
+        "所得税及び復興特別所得税の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGC00380": {
+      "label": "外国税額控除等",
+      "path": [
+        "外国税額控除等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGD00010": {
+      "label": "（申告書第一表（４６）－（４７）－（４８））の金額",
+      "path": [
+        "（申告書第一表（４６）－（４７）－（４８））の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGD00020": {
+      "label": "（（３１）－（３２））の金額",
+      "path": [
+        "（（３１）－（３２））の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGD00030": {
+      "label": "納税猶予分の所得税額等（（A）－（B））",
+      "path": [
+        "納税猶予分の所得税額等（（A）－（B））"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGD00040": {
+      "label": "申告書第一表（５２）欄の金額",
+      "path": [
+        "申告書第一表（５２）欄の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGD00050": {
+      "label": "納税猶予税額",
+      "path": [
+        "納税猶予税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGG00010": {
+      "label": "遺産分割等の事由",
+      "path": [
+        "遺産分割等の事由"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KGG00020": {
+      "label": "所法第151条の６第１項第＿号",
+      "path": [
+        "所法第151条の６第１項第＿号"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "KGG00030": {
+      "label": "（所令第273条の２第＿号）",
+      "path": [
+        "（所令第273条の２第＿号）"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "KGG00040": {
+      "label": "遺産分割等の事由が生じた年月日",
+      "path": [
+        "遺産分割等の事由が生じた年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KGG00050": {
+      "label": "確定申告における納税猶予税額",
+      "path": [
+        "確定申告における納税猶予税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KGG00060": {
+      "label": "増加する納税猶予税額",
+      "path": [
+        "増加する納税猶予税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

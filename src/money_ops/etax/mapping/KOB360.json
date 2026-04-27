@@ -1,0 +1,235 @@
+{
+  "_meta": {
+    "form_code": "KOB360",
+    "source_ver": "Ver6",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "CLD00010": {
+      "label": "種類",
+      "path": [
+        "種類"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "CLD00020": {
+      "label": "構造",
+      "path": [
+        "構造"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "CLD00030": {
+      "label": "細目",
+      "path": [
+        "細目"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "CLD00040": {
+      "label": "取得年月日",
+      "path": [
+        "取得年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "CLD00050": {
+      "label": "事業の用に供した日",
+      "path": [
+        "事業の用に供した日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "CLD00060": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00065": {
+      "label": "（償却保証額）",
+      "path": [
+        "（償却保証額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00070": {
+      "label": "償却の基礎となる金額",
+      "path": [
+        "償却の基礎となる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00080": {
+      "label": "耐用年数",
+      "path": [
+        "耐用年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "CLD00090": {
+      "label": "償却方法",
+      "path": [
+        "償却方法"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "CLD00100": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "decimal(1.3)",
+      "enum": ""
+    },
+    "CLD00110": {
+      "label": "償却期間",
+      "path": [
+        "償却期間"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "CLD00120": {
+      "label": "普通償却費",
+      "path": [
+        "普通償却費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "CLD00130": {
+      "label": "算出償却費",
+      "path": [
+        "算出償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00140": {
+      "label": "増加償却費",
+      "path": [
+        "増加償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00150": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00160": {
+      "label": "特別償却費",
+      "path": [
+        "特別償却費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "CLD00170": {
+      "label": "減価償却資産を事業の用に供した年",
+      "path": [
+        "減価償却資産を事業の用に供した年"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "CLD00180": {
+      "label": "特別償却限度額",
+      "path": [
+        "特別償却限度額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "CLD00190": {
+      "label": "特別償却率",
+      "path": [
+        "特別償却率"
+      ],
+      "type": "decimal(3)",
+      "enum": ""
+    },
+    "CLD00200": {
+      "label": "特別償却限度額",
+      "path": [
+        "特別償却限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00210": {
+      "label": "必要経費に算入した特別償却費",
+      "path": [
+        "必要経費に算入した特別償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00220": {
+      "label": "翌年への繰越額",
+      "path": [
+        "翌年への繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00230": {
+      "label": "減価償却資産を事業の用に供した年の翌年",
+      "path": [
+        "減価償却資産を事業の用に供した年の翌年"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "CLD00240": {
+      "label": "前年からの繰越額",
+      "path": [
+        "前年からの繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00250": {
+      "label": "必要経費に算入した特別償却費",
+      "path": [
+        "必要経費に算入した特別償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00260": {
+      "label": "償却費合計額",
+      "path": [
+        "償却費合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "CLD00270": {
+      "label": "未償却残高",
+      "path": [
+        "未償却残高"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

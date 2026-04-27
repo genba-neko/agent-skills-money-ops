@@ -1,0 +1,203 @@
+{
+  "_meta": {
+    "form_code": "KOC240",
+    "source_ver": "Ver1",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "KZD00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "KZD00020": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "KZD00030": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "KZD00040": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "KZD00050": {
+      "label": "関与税理士",
+      "path": [
+        "関与税理士"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KZD00060": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "KZD00070": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "KZE00010": {
+      "label": "不動産の種別",
+      "path": [
+        "不動産の種別"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KZE00020": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KZE00030": {
+      "label": "建物",
+      "path": [
+        "建物"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KZE00040": {
+      "label": "特例適用条文",
+      "path": [
+        "特例適用条文"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KZE00050": {
+      "label": "措",
+      "path": [
+        "措"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KZE00060": {
+      "label": "震",
+      "path": [
+        "震"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KZE00070": {
+      "label": "条文　繰り返し",
+      "path": [
+        "条文　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KZE00080": {
+      "label": "条１",
+      "path": [
+        "条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "KZE00090": {
+      "label": "条２",
+      "path": [
+        "条２"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "KZE00100": {
+      "label": "資産の区分",
+      "path": [
+        "資産の区分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KZE00110": {
+      "label": "譲渡資産",
+      "path": [
+        "譲渡資産"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KZE00120": {
+      "label": "買換(代替・交換取得)資産",
+      "path": [
+        "買換(代替・交換取得)資産"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KZE00130": {
+      "label": "所在及び地番又は家屋番号",
+      "path": [
+        "所在及び地番又は家屋番号"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "KZE00140": {
+      "label": "不動産番号",
+      "path": [
+        "不動産番号"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "KZF00010": {
+      "label": "提出先税務署",
+      "path": [
+        "提出先税務署"
+      ],
+      "type": "string(6)",
+      "enum": ""
+    },
+    "KZF00020": {
+      "label": "旧氏名",
+      "path": [
+        "旧氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "KZF00030": {
+      "label": "旧住所",
+      "path": [
+        "旧住所"
+      ],
+      "type": "address",
+      "enum": ""
+    }
+  }
+}

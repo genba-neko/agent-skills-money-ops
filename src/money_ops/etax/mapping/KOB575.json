@@ -1,0 +1,75 @@
+{
+  "_meta": {
+    "form_code": "KOB575",
+    "source_ver": "Ver6",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "KNC00010": {
+      "label": "明細　繰り返し",
+      "path": [
+        "明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KNC00020": {
+      "label": "薬局などの支払先の名称",
+      "path": [
+        "薬局などの支払先の名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "KNC00030": {
+      "label": "医薬品の名称",
+      "path": [
+        "医薬品の名称"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "KNC00040": {
+      "label": "支払った金額",
+      "path": [
+        "支払った金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KNC00050": {
+      "label": "（３）のうち生命保険や社会保険などで補填される金額",
+      "path": [
+        "（３）のうち生命保険や社会保険などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KNC00060": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KNC00070": {
+      "label": "支払った金額",
+      "path": [
+        "支払った金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KNC00080": {
+      "label": "（３）のうち生命保険や社会保険などで補填される金額",
+      "path": [
+        "（３）のうち生命保険や社会保険などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "_meta": {
+    "form_code": "KOB040",
+    "source_ver": "Ver17",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "BDC00010": {
+      "label": "農業所得",
+      "path": [
+        "農業所得"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BDC00020": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00030": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00040": {
+      "label": "専従者控除額（白色申告者のみ入力）",
+      "path": [
+        "専従者控除額（白色申告者のみ入力）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00050": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00060": {
+      "label": "（１）のうち、特定の肉用牛の売却による所得",
+      "path": [
+        "（１）のうち、特定の肉用牛の売却による所得"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BDC00070": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00080": {
+      "label": "収入金額（Ａ）（２）の内書",
+      "path": [
+        "収入金額（Ａ）（２）の内書"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00090": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00100": {
+      "label": "専従者控除額（白色申告者のみ入力）",
+      "path": [
+        "専従者控除額（白色申告者のみ入力）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00110": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00120": {
+      "label": "（１）－（２）",
+      "path": [
+        "（１）－（２）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BDC00130": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00140": {
+      "label": "必要経費",
+      "path": [
+        "必要経費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00150": {
+      "label": "専従者控除額（白色申告者のみ入力）",
+      "path": [
+        "専従者控除額（白色申告者のみ入力）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDC00160": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00010": {
+      "label": "課税総所得金額に対する税額",
+      "path": [
+        "課税総所得金額に対する税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00020": {
+      "label": "配当控除",
+      "path": [
+        "配当控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00030": {
+      "label": "投資税額等控除",
+      "path": [
+        "投資税額等控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00040": {
+      "label": "（特定増改築等）住宅借入金等特別控除",
+      "path": [
+        "（特定増改築等）住宅借入金等特別控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00050": {
+      "label": "政党等寄附金等特別控除",
+      "path": [
+        "政党等寄附金等特別控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00060": {
+      "label": "住宅耐震改修特別控除等",
+      "path": [
+        "住宅耐震改修特別控除等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00070": {
+      "label": "差引所得税額",
+      "path": [
+        "差引所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00080": {
+      "label": "免税対象飼育牛以外の特定の肉用牛の売却による収入金額等",
+      "path": [
+        "免税対象飼育牛以外の特定の肉用牛の売却による収入金額等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00090": {
+      "label": "（１１）*５％",
+      "path": [
+        "（１１）*５％"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BDF00100": {
+      "label": "（１０）＋（１２）",
+      "path": [
+        "（１０）＋（１２）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

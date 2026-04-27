@@ -1,0 +1,526 @@
+{
+  "_meta": {
+    "form_code": "KOB890",
+    "source_ver": "Ver3",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOB890-1",
+      "KOB890-2"
+    ]
+  },
+  "fields": {
+    "IMA00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMA00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "IMA00020": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "IMA00030": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "IMB00000": {
+      "label": "１　保険契約等に関する事項",
+      "path": [
+        "１　保険契約等に関する事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMB00010": {
+      "label": "年金の支払開始年",
+      "path": [
+        "年金の支払開始年"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "IMB00020": {
+      "label": "年金の残存期間等",
+      "path": [
+        "年金の残存期間等"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMB00030": {
+      "label": "年金の支払総額(見込額)",
+      "path": [
+        "年金の支払総額(見込額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMB00040": {
+      "label": "年金の支払総額(見込額)に占める保険料又は掛金の総額の割合",
+      "path": [
+        "年金の支払総額(見込額)に占める保険料又は掛金の総額の割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "IMB00050": {
+      "label": "当該年金に係る権利について相続税法第24条の規定により評価された額",
+      "path": [
+        "当該年金に係る権利について相続税法第24条の規定により評価された額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMB00060": {
+      "label": "相続税評価割合",
+      "path": [
+        "相続税評価割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "IMC00000": {
+      "label": "２　所得金額の計算の基礎となる事項",
+      "path": [
+        "２　所得金額の計算の基礎となる事項"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMC00010": {
+      "label": "相続税評価割合に応じた割合",
+      "path": [
+        "相続税評価割合に応じた割合"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMC00020": {
+      "label": "((3)*(7))",
+      "path": [
+        "((3)*(7))"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMC00030": {
+      "label": "別表３により計算した単位数",
+      "path": [
+        "別表３により計算した単位数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "IMC00040": {
+      "label": "１単位当たりの金額",
+      "path": [
+        "１単位当たりの金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00000": {
+      "label": "３　各年分の雑所得の金額の計算",
+      "path": [
+        "３　各年分の雑所得の金額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMD00010": {
+      "label": "(6)が50％超の場合",
+      "path": [
+        "(6)が50％超の場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMD00020": {
+      "label": "申告を行う年分",
+      "path": [
+        "申告を行う年分"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "IMD00030": {
+      "label": "((11)-(1)+1)",
+      "path": [
+        "((11)-(1)+1)"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMD00040": {
+      "label": "単位数",
+      "path": [
+        "単位数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMD00050": {
+      "label": "支払年金対応額",
+      "path": [
+        "支払年金対応額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMD00060": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00070": {
+      "label": "年金が月払等の場合",
+      "path": [
+        "年金が月払等の場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00080": {
+      "label": "剰余金等の金額",
+      "path": [
+        "剰余金等の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00090": {
+      "label": "総収入金額",
+      "path": [
+        "総収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00100": {
+      "label": "必要経費の額",
+      "path": [
+        "必要経費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00110": {
+      "label": "雑所得の金額",
+      "path": [
+        "雑所得の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00120": {
+      "label": "(6)が50％以下の場合",
+      "path": [
+        "(6)が50％以下の場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMD00130": {
+      "label": "申告を行う年分",
+      "path": [
+        "申告を行う年分"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "IMD00140": {
+      "label": "((11)-(1)+1)",
+      "path": [
+        "((11)-(1)+1)"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMD00150": {
+      "label": "単位数",
+      "path": [
+        "単位数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMD00160": {
+      "label": "支払年金対応額",
+      "path": [
+        "支払年金対応額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMD00170": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00180": {
+      "label": "年金が月払等の場合",
+      "path": [
+        "年金が月払等の場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00190": {
+      "label": "剰余金等の金額",
+      "path": [
+        "剰余金等の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00200": {
+      "label": "総収入金額",
+      "path": [
+        "総収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00210": {
+      "label": "必要経費の額",
+      "path": [
+        "必要経費の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMD00220": {
+      "label": "雑所得の金額",
+      "path": [
+        "雑所得の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IME00000": {
+      "label": "【別表１】　本表(2)及び本表(3)の年数等",
+      "path": [
+        "【別表１】　本表(2)及び本表(3)の年数等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IME00010": {
+      "label": "年金の残存期間",
+      "path": [
+        "年金の残存期間"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IME00020": {
+      "label": "相続等の時(年金の支払開始日)の年齢に応じた別表２により求めた年数",
+      "path": [
+        "相続等の時(年金の支払開始日)の年齢に応じた別表２により求めた年数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IME00030": {
+      "label": "年齢",
+      "path": [
+        "年齢"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IME00040": {
+      "label": "年数",
+      "path": [
+        "年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IME00050": {
+      "label": "保証残存期間",
+      "path": [
+        "保証残存期間"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMF00000": {
+      "label": "【別表３】　本表(9)の単位数",
+      "path": [
+        "【別表３】　本表(9)の単位数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMF00010": {
+      "label": "本表(6)が50％超である場合",
+      "path": [
+        "本表(6)が50％超である場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMF00020": {
+      "label": "(2)の年数",
+      "path": [
+        "(2)の年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMF00030": {
+      "label": "((2)の年数)",
+      "path": [
+        "((2)の年数)"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMF00040": {
+      "label": "単位数",
+      "path": [
+        "単位数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "IMF00050": {
+      "label": "本表(6)が50％以下である場合",
+      "path": [
+        "本表(6)が50％以下である場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMF00060": {
+      "label": "算式１",
+      "path": [
+        "算式１"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMF00070": {
+      "label": "(2)の年数",
+      "path": [
+        "(2)の年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMF00080": {
+      "label": "【特定期間算出割合】",
+      "path": [
+        "【特定期間算出割合】"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMF00090": {
+      "label": "特定期間年数",
+      "path": [
+        "特定期間年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMF00100": {
+      "label": "算式２",
+      "path": [
+        "算式２"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMF00110": {
+      "label": "(2)の年数",
+      "path": [
+        "(2)の年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMF00120": {
+      "label": "特定期間年数",
+      "path": [
+        "特定期間年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "IMF00130": {
+      "label": "単位数",
+      "path": [
+        "単位数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "IMG00000": {
+      "label": "【別表４】　本表(14)の金額",
+      "path": [
+        "【別表４】　本表(14)の金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "IMG00010": {
+      "label": "各年の年金支払額",
+      "path": [
+        "各年の年金支払額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMG00020": {
+      "label": "１単位当たりの金額",
+      "path": [
+        "１単位当たりの金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IMG00030": {
+      "label": "単位数",
+      "path": [
+        "単位数"
+      ],
+      "type": "nonNegativeInteger(4)",
+      "enum": ""
+    },
+    "IMG00040": {
+      "label": "本表(14)に入力する金額",
+      "path": [
+        "本表(14)に入力する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

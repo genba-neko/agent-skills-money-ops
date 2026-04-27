@@ -1,0 +1,595 @@
+{
+  "_meta": {
+    "form_code": "KOB977",
+    "source_ver": "Ver4",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "DXM00010": {
+      "label": "認定年月日",
+      "path": [
+        "認定年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "DXM00015": {
+      "label": "新設特定業務施設の事業供用日",
+      "path": [
+        "新設特定業務施設の事業供用日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "DXM00030": {
+      "label": "事業実施地域",
+      "path": [
+        "事業実施地域"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "DXN00010": {
+      "label": "基準雇用者数",
+      "path": [
+        "基準雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00020": {
+      "label": "地方事業所基準雇用者数",
+      "path": [
+        "地方事業所基準雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00030": {
+      "label": "調整地方事業所基準雇用者数",
+      "path": [
+        "調整地方事業所基準雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00040": {
+      "label": "特定新規雇用者数",
+      "path": [
+        "特定新規雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00050": {
+      "label": "特定新規雇用者基礎数",
+      "path": [
+        "特定新規雇用者基礎数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00060": {
+      "label": "移転型特定新規雇用者数",
+      "path": [
+        "移転型特定新規雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00070": {
+      "label": "移転型特定新規雇用者基礎数",
+      "path": [
+        "移転型特定新規雇用者基礎数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00080": {
+      "label": "新規雇用者総数",
+      "path": [
+        "新規雇用者総数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00090": {
+      "label": "特定非新規雇用者数",
+      "path": [
+        "特定非新規雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00100": {
+      "label": "特定非新規雇用者基礎数",
+      "path": [
+        "特定非新規雇用者基礎数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00110": {
+      "label": "移転型地方事業所基準雇用者数",
+      "path": [
+        "移転型地方事業所基準雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00120": {
+      "label": "移転型新規雇用者総数",
+      "path": [
+        "移転型新規雇用者総数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00130": {
+      "label": "移転型特定非新規雇用者数",
+      "path": [
+        "移転型特定非新規雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00140": {
+      "label": "移転型特定非新規雇用者基礎数",
+      "path": [
+        "移転型特定非新規雇用者基礎数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00150": {
+      "label": "対象移転型特定非新規雇用者基礎数",
+      "path": [
+        "対象移転型特定非新規雇用者基礎数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXN00160": {
+      "label": "税額控除限度額",
+      "path": [
+        "税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXN00170": {
+      "label": "調整前事業所得税額",
+      "path": [
+        "調整前事業所得税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXN00180": {
+      "label": "本年税額基準額",
+      "path": [
+        "本年税額基準額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXN00190": {
+      "label": "本年税額控除可能額",
+      "path": [
+        "本年税額控除可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXN00200": {
+      "label": "調整前事業所得税額超過構成額",
+      "path": [
+        "調整前事業所得税額超過構成額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXN00210": {
+      "label": "本年税額控除額",
+      "path": [
+        "本年税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXO00010": {
+      "label": "基準年",
+      "path": [
+        "基準年"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "DXO00070": {
+      "label": "地方事業所特別基準雇用者数",
+      "path": [
+        "地方事業所特別基準雇用者数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXO00080": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXO00090": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXO00100": {
+      "label": "明細",
+      "path": [
+        "明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXO00110": {
+      "label": "地方事業所特別税額控除限度額",
+      "path": [
+        "地方事業所特別税額控除限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXO00120": {
+      "label": "差引本年税額基準額残額",
+      "path": [
+        "差引本年税額基準額残額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXO00130": {
+      "label": "本年税額控除可能額",
+      "path": [
+        "本年税額控除可能額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXO00140": {
+      "label": "調整前事業所得税額超過構成額",
+      "path": [
+        "調整前事業所得税額超過構成額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXO00150": {
+      "label": "本年税額控除額",
+      "path": [
+        "本年税額控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXO00160": {
+      "label": "所得税額の特別控除額",
+      "path": [
+        "所得税額の特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "DXP00010": {
+      "label": "適用年の12月31日における雇用者の数",
+      "path": [
+        "適用年の12月31日における雇用者の数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXP00020": {
+      "label": "適用年の前年12月31日における雇用者の数",
+      "path": [
+        "適用年の前年12月31日における雇用者の数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXP00030": {
+      "label": "(32)のうち適用年の12月31日において高年齢雇用者に該当する者の数",
+      "path": [
+        "(32)のうち適用年の12月31日において高年齢雇用者に該当する者の数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXP00040": {
+      "label": "基準雇用者数",
+      "path": [
+        "基準雇用者数"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00010": {
+      "label": "明細　繰り返し",
+      "path": [
+        "明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00020": {
+      "label": "適用年",
+      "path": [
+        "適用年"
+      ],
+      "type": "yy",
+      "enum": ""
+    },
+    "DXQ00030": {
+      "label": "(1)が令和６年３月31日以前である場合",
+      "path": [
+        "(1)が令和６年３月31日以前である場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00040": {
+      "label": "地方事業所特別基準雇用者数の基礎となる地方事業所基準雇用者数",
+      "path": [
+        "地方事業所特別基準雇用者数の基礎となる地方事業所基準雇用者数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00050": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00060": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00070": {
+      "label": "(1)が令和６年４月１日以後である場合",
+      "path": [
+        "(1)が令和６年４月１日以後である場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00080": {
+      "label": "措法第10条の５第３項第16号イに掲げる数",
+      "path": [
+        "措法第10条の５第３項第16号イに掲げる数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00090": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00100": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00110": {
+      "label": "措法第10条の５第３項第16号ロに掲げる数",
+      "path": [
+        "措法第10条の５第３項第16号ロに掲げる数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00120": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00130": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00140": {
+      "label": "地方事業所特別基準雇用者数の基礎となる雇用者の数",
+      "path": [
+        "地方事業所特別基準雇用者数の基礎となる雇用者の数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00150": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00160": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00170": {
+      "label": "本年分",
+      "path": [
+        "本年分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00180": {
+      "label": "(1)が令和６年３月31日以前である場合",
+      "path": [
+        "(1)が令和６年３月31日以前である場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00190": {
+      "label": "地方事業所特別基準雇用者数の基礎となる地方事業所基準雇用者数",
+      "path": [
+        "地方事業所特別基準雇用者数の基礎となる地方事業所基準雇用者数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00200": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00210": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00220": {
+      "label": "(1)が令和６年４月１日以後である場合",
+      "path": [
+        "(1)が令和６年４月１日以後である場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00230": {
+      "label": "措法第10条の５第３項第16号イに掲げる数",
+      "path": [
+        "措法第10条の５第３項第16号イに掲げる数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00240": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00250": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00260": {
+      "label": "措法第10条の５第３項第16号ロに掲げる数",
+      "path": [
+        "措法第10条の５第３項第16号ロに掲げる数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00270": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00280": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00290": {
+      "label": "地方事業所特別基準雇用者数の基礎となる雇用者の数",
+      "path": [
+        "地方事業所特別基準雇用者数の基礎となる雇用者の数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00300": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00310": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00320": {
+      "label": "地方事業所特別基準雇用者数",
+      "path": [
+        "地方事業所特別基準雇用者数"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "DXQ00330": {
+      "label": "内書き",
+      "path": [
+        "内書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    },
+    "DXQ00340": {
+      "label": "本書き",
+      "path": [
+        "本書き"
+      ],
+      "type": "nonNegativeInteger(10)",
+      "enum": ""
+    }
+  }
+}

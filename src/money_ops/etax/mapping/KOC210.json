@@ -1,0 +1,603 @@
+{
+  "_meta": {
+    "form_code": "KOC210",
+    "source_ver": "Ver4",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "KJC00010": {
+      "label": "現住所",
+      "path": [
+        "現住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "KJC00020": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "KJC00030": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "KJC00040": {
+      "label": "電話番号(連絡先)",
+      "path": [
+        "電話番号(連絡先)"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "KJD00010": {
+      "label": "被相続人居住用家屋(一の建築物)及びその敷地等について",
+      "path": [
+        "被相続人居住用家屋(一の建築物)及びその敷地等について"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00020": {
+      "label": "被相続人",
+      "path": [
+        "被相続人"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00030": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": ""
+    },
+    "KJD00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "KJD00050": {
+      "label": "死亡年月日",
+      "path": [
+        "死亡年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KJD00060": {
+      "label": "死亡の時における住所",
+      "path": [
+        "死亡の時における住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "KJD00070": {
+      "label": "居住期間",
+      "path": [
+        "居住期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00080": {
+      "label": "自",
+      "path": [
+        "自"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "KJD00090": {
+      "label": "至",
+      "path": [
+        "至"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "KJD00100": {
+      "label": "被相続人居住用家屋(A)",
+      "path": [
+        "被相続人居住用家屋(A)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00110": {
+      "label": "所在地",
+      "path": [
+        "所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "KJD00120": {
+      "label": "床面積・面積",
+      "path": [
+        "床面積・面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00130": {
+      "label": "あなたが相続又は遺贈により取得した持分",
+      "path": [
+        "あなたが相続又は遺贈により取得した持分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00140": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00150": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00160": {
+      "label": "あなたが相続又は遺贈以外により取得した持分",
+      "path": [
+        "あなたが相続又は遺贈以外により取得した持分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00170": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00180": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00190": {
+      "label": "被相続人居住用家屋の敷地の用に供されていた土地等(B)",
+      "path": [
+        "被相続人居住用家屋の敷地の用に供されていた土地等(B)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00200": {
+      "label": "所在地",
+      "path": [
+        "所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "KJD00210": {
+      "label": "床面積・面積",
+      "path": [
+        "床面積・面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00220": {
+      "label": "あなたが相続又は遺贈により取得した持分",
+      "path": [
+        "あなたが相続又は遺贈により取得した持分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00230": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00240": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00250": {
+      "label": "あなたが相続又は遺贈以外により取得した持分",
+      "path": [
+        "あなたが相続又は遺贈以外により取得した持分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00260": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00270": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00280": {
+      "label": "被相続人居住用家屋の敷地の用に供されていた土地等(C)",
+      "path": [
+        "被相続人居住用家屋の敷地の用に供されていた土地等(C)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00290": {
+      "label": "所在地",
+      "path": [
+        "所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "KJD00300": {
+      "label": "床面積・面積",
+      "path": [
+        "床面積・面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00310": {
+      "label": "あなたが相続又は遺贈により取得した持分",
+      "path": [
+        "あなたが相続又は遺贈により取得した持分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00320": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00330": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00340": {
+      "label": "あなたが相続又は遺贈以外により取得した持分",
+      "path": [
+        "あなたが相続又は遺贈以外により取得した持分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00350": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00360": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00370": {
+      "label": "相続の開始の直前においてその土地が用途上不可分の関係にある二以上の建築物のある一団の土地であった場合の被相続人居住用家屋以外の建築物の種類などについて",
+      "path": [
+        "相続の開始の直前においてその土地が用途上不可分の関係にある二以上の建築物のある一団の土地であった場合の被相続人居住用家屋以外の建築物の種類などについて"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00380": {
+      "label": "一団の土地の面積",
+      "path": [
+        "一団の土地の面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00390": {
+      "label": "一団の土地の面積のうち、あなたが被相続人から相続又は遺贈により取得し、譲渡した部分の面積",
+      "path": [
+        "一団の土地の面積のうち、あなたが被相続人から相続又は遺贈により取得し、譲渡した部分の面積"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00400": {
+      "label": "被相続人居住用家屋以外の建築物の種類・床面積",
+      "path": [
+        "被相続人居住用家屋以外の建築物の種類・床面積"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00410": {
+      "label": "種類空白部",
+      "path": [
+        "種類空白部"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "KJD00420": {
+      "label": "床面積",
+      "path": [
+        "床面積"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00430": {
+      "label": "離れ",
+      "path": [
+        "離れ"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00440": {
+      "label": "倉庫",
+      "path": [
+        "倉庫"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00450": {
+      "label": "種類空白部",
+      "path": [
+        "種類空白部"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00460": {
+      "label": "床面積の合計",
+      "path": [
+        "床面積の合計"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00470": {
+      "label": "上記の建築物の所有者",
+      "path": [
+        "上記の建築物の所有者"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00480": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": ""
+    },
+    "KJD00490": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "KJD00500": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "KJD00510": {
+      "label": "被相続人居住用家屋の敷地等に該当する部分",
+      "path": [
+        "被相続人居住用家屋の敷地等に該当する部分"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "KJD00520": {
+      "label": "あなた以外の居住用家屋取得相続人がいる場合又はあなたが適用前譲渡をしている場合について",
+      "path": [
+        "あなた以外の居住用家屋取得相続人がいる場合又はあなたが適用前譲渡をしている場合について"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00530": {
+      "label": "相続人　繰り返し",
+      "path": [
+        "相続人　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00540": {
+      "label": "居住用家屋取得相続人",
+      "path": [
+        "居住用家屋取得相続人"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00550": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": ""
+    },
+    "KJD00560": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "KJD00570": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "KJD00580": {
+      "label": "相続の開始の時における被相続人居住用家屋又はその敷地等の持分",
+      "path": [
+        "相続の開始の時における被相続人居住用家屋又はその敷地等の持分"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00590": {
+      "label": "(A)家屋",
+      "path": [
+        "(A)家屋"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00600": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00610": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00620": {
+      "label": "(B)敷地等",
+      "path": [
+        "(B)敷地等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00630": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00640": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00650": {
+      "label": "(C)敷地等",
+      "path": [
+        "(C)敷地等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00660": {
+      "label": "分子",
+      "path": [
+        "分子"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00670": {
+      "label": "分母",
+      "path": [
+        "分母"
+      ],
+      "type": "nonNegativeInteger(7)",
+      "enum": ""
+    },
+    "KJD00680": {
+      "label": "適用前譲渡",
+      "path": [
+        "適用前譲渡"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KJD00690": {
+      "label": "譲渡年月日",
+      "path": [
+        "譲渡年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "KJD00700": {
+      "label": "譲渡の対価の額",
+      "path": [
+        "譲渡の対価の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

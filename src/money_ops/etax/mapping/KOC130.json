@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "form_code": "KOC130",
+    "source_ver": "Ver13",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "BMB00002": {
+      "label": "納税地区分",
+      "path": [
+        "納税地区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "BMB00004": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "BMB00006": {
+      "label": "住所以外の居所又は事業所等",
+      "path": [
+        "住所以外の居所又は事業所等"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "BMB00008": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "BMB00010": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "BMD00010": {
+      "label": "本年分の純損失の金額",
+      "path": [
+        "本年分の純損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BMD00020": {
+      "label": "特例の対象とされない金額",
+      "path": [
+        "特例の対象とされない金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BMD00030": {
+      "label": "本年分が青色申告の場合",
+      "path": [
+        "本年分が青色申告の場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BMD00040": {
+      "label": "本年分が白色申告の場合",
+      "path": [
+        "本年分が白色申告の場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BMD00050": {
+      "label": "居住用財産の譲渡損失の繰越基準額",
+      "path": [
+        "居住用財産の譲渡損失の繰越基準額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BME00010": {
+      "label": "翌年以後に繰り越される居住用財産の譲渡損失の金額",
+      "path": [
+        "翌年以後に繰り越される居住用財産の譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BME00020": {
+      "label": "譲渡した土地等の面積が５００平米を超えるときの計算",
+      "path": [
+        "譲渡した土地等の面積が５００平米を超えるときの計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "BME00030": {
+      "label": "（３）の金額と（７）の金額のいずれか少ない方の金額",
+      "path": [
+        "（３）の金額と（７）の金額のいずれか少ない方の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BME00040": {
+      "label": "土地等に係る特定損失の金額",
+      "path": [
+        "土地等に係る特定損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BME00050": {
+      "label": "（３）の金額",
+      "path": [
+        "（３）の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "BME00060": {
+      "label": "土地等の面積（分子）",
+      "path": [
+        "土地等の面積（分子）"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "BME00070": {
+      "label": "土地等の面積（分母）",
+      "path": [
+        "土地等の面積（分母）"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    }
+  }
+}

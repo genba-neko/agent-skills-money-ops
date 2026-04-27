@@ -1,0 +1,5230 @@
+{
+  "_meta": {
+    "form_code": "KOC110",
+    "source_ver": "Ver20",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOC110-1",
+      "KOC110-2"
+    ]
+  },
+  "fields": {
+    "EJK00000": {
+      "label": "申告等対象年分",
+      "path": [
+        "申告等対象年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "EJL00000": {
+      "label": "提出税務署",
+      "path": [
+        "提出税務署"
+      ],
+      "type": "zeimusho",
+      "enum": "ZEIMUSHO"
+    },
+    "EJB00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "EJB00020": {
+      "label": "（前住所）",
+      "path": [
+        "（前住所）"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "EJB00030": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJB00040": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "EJB00050": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "EJB00060": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "EJB00070": {
+      "label": "職業",
+      "path": [
+        "職業"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "EJB00080": {
+      "label": "関与税理士名",
+      "path": [
+        "関与税理士名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJB00090": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "EJB00100": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "EJC00000": {
+      "label": "１　所得金額の計算",
+      "path": [
+        "１　所得金額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJC00010": {
+      "label": "必要経費又は譲渡に要した費用等（項目）",
+      "path": [
+        "必要経費又は譲渡に要した費用等（項目）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJC00020": {
+      "label": "その他の費用項目",
+      "path": [
+        "その他の費用項目"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EJD00000": {
+      "label": "一般株式等",
+      "path": [
+        "一般株式等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00005": {
+      "label": "一般株式等　明細",
+      "path": [
+        "一般株式等　明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00010": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00430": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00440": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00450": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00460": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00020": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00470": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00480": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00490": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00500": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00030": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00510": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00520": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00530": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00540": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00040": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00050": {
+      "label": "必要経費又は譲渡に要した費用等",
+      "path": [
+        "必要経費又は譲渡に要した費用等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00550": {
+      "label": "取得費(取得価額)　外書き",
+      "path": [
+        "取得費(取得価額)　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00560": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00570": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00580": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00060": {
+      "label": "取得費(取得価額)",
+      "path": [
+        "取得費(取得価額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00590": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00600": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00610": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00620": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00070": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00630": {
+      "label": "その他の費用　外書き",
+      "path": [
+        "その他の費用　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00640": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00650": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00660": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00080": {
+      "label": "その他の費用",
+      "path": [
+        "その他の費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00670": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00680": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00690": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00700": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00100": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00750": {
+      "label": "特定投資株式の価値喪失の金額　外書き",
+      "path": [
+        "特定投資株式の価値喪失の金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00760": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00770": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00780": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00110": {
+      "label": "特定投資株式の価値喪失の金額",
+      "path": [
+        "特定投資株式の価値喪失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00790": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00800": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00810": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00820": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00120": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00830": {
+      "label": "特定投資株式の取得に要した金額等の控除　外書き",
+      "path": [
+        "特定投資株式の取得に要した金額等の控除　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00840": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00850": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00860": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00130": {
+      "label": "特定投資株式の取得に要した金額等の控除",
+      "path": [
+        "特定投資株式の取得に要した金額等の控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00870": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00880": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00890": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00900": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00140": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01710": {
+      "label": "公開等特定株式の計算　外書き",
+      "path": [
+        "公開等特定株式の計算　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01720": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01730": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01740": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01750": {
+      "label": "公開等特定株式の計算",
+      "path": [
+        "公開等特定株式の計算"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00950": {
+      "label": "本年分の損益の計算後の所得金額　外書き",
+      "path": [
+        "本年分の損益の計算後の所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00960": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00970": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00980": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00160": {
+      "label": "本年分の損益の計算後の所得金額",
+      "path": [
+        "本年分の損益の計算後の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01760": {
+      "label": "本年分で差し引く特定投資株式に係る繰越損失の金額　外書き",
+      "path": [
+        "本年分で差し引く特定投資株式に係る繰越損失の金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01770": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01780": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01790": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01800": {
+      "label": "本年分で差し引く特定投資株式に係る繰越損失の金額",
+      "path": [
+        "本年分で差し引く特定投資株式に係る繰越損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01810": {
+      "label": "繰越控除後の所得金額　外書き",
+      "path": [
+        "繰越控除後の所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01820": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01830": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01840": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01850": {
+      "label": "繰越控除後の所得金額",
+      "path": [
+        "繰越控除後の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00170": {
+      "label": "一般株式等(内、特定権利行使株式分)",
+      "path": [
+        "一般株式等(内、特定権利行使株式分)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00180": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00990": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01000": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01010": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01020": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00190": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01030": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01040": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01050": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01060": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00200": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01070": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01080": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01090": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01100": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00210": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00220": {
+      "label": "必要経費又は譲渡に要した費用等",
+      "path": [
+        "必要経費又は譲渡に要した費用等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01110": {
+      "label": "取得費(取得価額)　外書き",
+      "path": [
+        "取得費(取得価額)　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01120": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01130": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01140": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00230": {
+      "label": "取得費(取得価額)",
+      "path": [
+        "取得費(取得価額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01150": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01160": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01170": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01180": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00240": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01190": {
+      "label": "その他の費用　外書き",
+      "path": [
+        "その他の費用　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01200": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01210": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01220": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00250": {
+      "label": "その他の費用",
+      "path": [
+        "その他の費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01230": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01240": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01250": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01260": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00270": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01270": {
+      "label": "差引金額 外書き",
+      "path": [
+        "差引金額 外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01280": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01290": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01300": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00280": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01310": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01320": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01330": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01340": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00290": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00300": {
+      "label": "一般株式等(内、特定投資株式分)",
+      "path": [
+        "一般株式等(内、特定投資株式分)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD00310": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01350": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01360": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01370": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01380": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00320": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01390": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01400": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01410": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01420": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00330": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01430": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01440": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01450": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01460": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00340": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD00350": {
+      "label": "必要経費又は譲渡に要した費用等",
+      "path": [
+        "必要経費又は譲渡に要した費用等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01470": {
+      "label": "取得費(取得価額)　外書き",
+      "path": [
+        "取得費(取得価額)　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01480": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01490": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01500": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00360": {
+      "label": "取得費(取得価額)",
+      "path": [
+        "取得費(取得価額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01510": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01520": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01530": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01540": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00370": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01550": {
+      "label": "その他の費用　外書き",
+      "path": [
+        "その他の費用　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01560": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01570": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01580": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00380": {
+      "label": "その他の費用",
+      "path": [
+        "その他の費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01590": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01600": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01610": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01620": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00400": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01860": {
+      "label": "特定投資株式の価値喪失の金額　外書き",
+      "path": [
+        "特定投資株式の価値喪失の金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01870": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01880": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01890": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01900": {
+      "label": "特定投資株式の価値喪失の金額",
+      "path": [
+        "特定投資株式の価値喪失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01630": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01640": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01650": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01660": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00410": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01670": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01680": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01690": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01700": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD00420": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01910": {
+      "label": "一般株式等(内、公開等特定株式分)",
+      "path": [
+        "一般株式等(内、公開等特定株式分)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01920": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01930": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01940": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01950": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01960": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD01970": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD01980": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD01990": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02000": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02010": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02020": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02030": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02040": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02050": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02060": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02070": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02080": {
+      "label": "必要経費又は譲渡に要した費用等",
+      "path": [
+        "必要経費又は譲渡に要した費用等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02090": {
+      "label": "取得費(取得価額)　外書き",
+      "path": [
+        "取得費(取得価額)　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02100": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02110": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02120": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02130": {
+      "label": "取得費(取得価額)",
+      "path": [
+        "取得費(取得価額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02140": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02150": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02160": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02170": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02180": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02190": {
+      "label": "その他の費用　外書き",
+      "path": [
+        "その他の費用　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02200": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02210": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02220": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02230": {
+      "label": "その他の費用",
+      "path": [
+        "その他の費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02240": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02250": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02260": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02270": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02280": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02290": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02300": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02310": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02320": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02330": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02350": {
+      "label": "特定投資株式の取得に要した金額等の控除　外書き",
+      "path": [
+        "特定投資株式の取得に要した金額等の控除　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02360": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02370": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02380": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02390": {
+      "label": "特定投資株式の取得に要した金額等の控除",
+      "path": [
+        "特定投資株式の取得に要した金額等の控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02400": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJD02410": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02420": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJD02430": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJD02440": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00000": {
+      "label": "上場株式等",
+      "path": [
+        "上場株式等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00005": {
+      "label": "上場株式等　明細",
+      "path": [
+        "上場株式等　明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00010": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00440": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00450": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00460": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00470": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01920": {
+      "label": "譲渡による収入金額　内書き",
+      "path": [
+        "譲渡による収入金額　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01930": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01940": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01950": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00020": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00480": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00490": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00500": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00510": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01960": {
+      "label": "その他の収入　内書き",
+      "path": [
+        "その他の収入　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01970": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01980": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01990": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00030": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00520": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00530": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00540": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00550": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02000": {
+      "label": "小計　内書き",
+      "path": [
+        "小計　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02010": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02020": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02030": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00040": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00050": {
+      "label": "必要経費又は譲渡に要した費用等",
+      "path": [
+        "必要経費又は譲渡に要した費用等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00560": {
+      "label": "取得費(取得価額)　外書き",
+      "path": [
+        "取得費(取得価額)　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00570": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00580": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00590": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02040": {
+      "label": "取得費(取得価額)　内書き",
+      "path": [
+        "取得費(取得価額)　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02050": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02060": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02070": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00060": {
+      "label": "取得費(取得価額)",
+      "path": [
+        "取得費(取得価額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00600": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00610": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00620": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00630": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02080": {
+      "label": "譲渡のための委託手数料　内書き",
+      "path": [
+        "譲渡のための委託手数料　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02090": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02100": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02110": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00070": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00640": {
+      "label": "その他の費用　外書き",
+      "path": [
+        "その他の費用　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00650": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00660": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00670": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02120": {
+      "label": "その他の費用　内書き",
+      "path": [
+        "その他の費用　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02130": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02140": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02150": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00080": {
+      "label": "その他の費用",
+      "path": [
+        "その他の費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00680": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00690": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00700": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00710": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02160": {
+      "label": "小計　内書き",
+      "path": [
+        "小計　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02170": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02180": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02190": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00100": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01720": {
+      "label": "特定管理株式等のみなし譲渡損失の金額　外書き",
+      "path": [
+        "特定管理株式等のみなし譲渡損失の金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01730": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01740": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01750": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02200": {
+      "label": "特定管理株式等のみなし譲渡損失の金額　内書き",
+      "path": [
+        "特定管理株式等のみなし譲渡損失の金額　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02210": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02220": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02230": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01760": {
+      "label": "特定管理株式等のみなし譲渡損失の金額",
+      "path": [
+        "特定管理株式等のみなし譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00720": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00730": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00740": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00750": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02240": {
+      "label": "差引金額　内書き",
+      "path": [
+        "差引金額　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02250": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02260": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02270": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00110": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00760": {
+      "label": "特定投資株式の取得に要した金額等の控除　外書き",
+      "path": [
+        "特定投資株式の取得に要した金額等の控除　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00770": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00780": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00790": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00120": {
+      "label": "特定投資株式の取得に要した金額等の控除",
+      "path": [
+        "特定投資株式の取得に要した金額等の控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00800": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00810": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00820": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00830": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00130": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00840": {
+      "label": "公開等特定株式の計算　外書き",
+      "path": [
+        "公開等特定株式の計算　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00850": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00860": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00870": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00140": {
+      "label": "公開等特定株式の計算",
+      "path": [
+        "公開等特定株式の計算"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00880": {
+      "label": "本年分で差し引く特定投資株式に係る譲渡損失の金額　外書き",
+      "path": [
+        "本年分で差し引く特定投資株式に係る譲渡損失の金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00890": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00900": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00910": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00150": {
+      "label": "本年分で差し引く特定投資株式に係る譲渡損失の金額",
+      "path": [
+        "本年分で差し引く特定投資株式に係る譲渡損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00920": {
+      "label": "本年分の損益の計算後の所得金額　外書き",
+      "path": [
+        "本年分の損益の計算後の所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00930": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00940": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00950": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00160": {
+      "label": "本年分の損益の計算後の所得金額",
+      "path": [
+        "本年分の損益の計算後の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01770": {
+      "label": "本年分で差し引く特定投資株式に係る繰越損失の金額　外書き",
+      "path": [
+        "本年分で差し引く特定投資株式に係る繰越損失の金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01780": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01790": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01800": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01810": {
+      "label": "本年分で差し引く特定投資株式に係る繰越損失の金額",
+      "path": [
+        "本年分で差し引く特定投資株式に係る繰越損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01820": {
+      "label": "本年分で差し引く上場株式等に係る繰越損失の金額　外書き",
+      "path": [
+        "本年分で差し引く上場株式等に係る繰越損失の金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01830": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01840": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01850": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01860": {
+      "label": "本年分で差し引く上場株式等に係る繰越損失の金額",
+      "path": [
+        "本年分で差し引く上場株式等に係る繰越損失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01870": {
+      "label": "繰越控除後の所得金額　外書き",
+      "path": [
+        "繰越控除後の所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01880": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01890": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01900": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01910": {
+      "label": "繰越控除後の所得金額",
+      "path": [
+        "繰越控除後の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00170": {
+      "label": "上場株式等(内、特定権利行使株式分)",
+      "path": [
+        "上場株式等(内、特定権利行使株式分)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00180": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00960": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00970": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00980": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00990": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02280": {
+      "label": "譲渡による収入金額　内書き",
+      "path": [
+        "譲渡による収入金額　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02290": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02300": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02310": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00190": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01000": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01010": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01020": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01030": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02320": {
+      "label": "その他の収入　内書き",
+      "path": [
+        "その他の収入　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02330": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02340": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02350": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00200": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01040": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01050": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01060": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01070": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02360": {
+      "label": "小計　内書き",
+      "path": [
+        "小計　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02370": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02380": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02390": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00210": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00220": {
+      "label": "必要経費又は譲渡に要した費用等",
+      "path": [
+        "必要経費又は譲渡に要した費用等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01080": {
+      "label": "取得費(取得価額)　外書き",
+      "path": [
+        "取得費(取得価額)　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01090": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01100": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01110": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02400": {
+      "label": "取得費(取得価額)　内書き",
+      "path": [
+        "取得費(取得価額)　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02410": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02420": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02430": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00230": {
+      "label": "取得費(取得価額)",
+      "path": [
+        "取得費(取得価額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01120": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01130": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01140": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01150": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02440": {
+      "label": "譲渡のための委託手数料　内書き",
+      "path": [
+        "譲渡のための委託手数料　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02450": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02460": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02470": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00240": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01160": {
+      "label": "その他の費用　外書き",
+      "path": [
+        "その他の費用　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01170": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01180": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01190": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02480": {
+      "label": "その他の費用　内書き",
+      "path": [
+        "その他の費用　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02490": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02500": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02510": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00250": {
+      "label": "その他の費用",
+      "path": [
+        "その他の費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01200": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01210": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01220": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01230": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02520": {
+      "label": "小計　内書き",
+      "path": [
+        "小計　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02530": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02540": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02550": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00270": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01240": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01250": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01260": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01270": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02560": {
+      "label": "差引金額　内書き",
+      "path": [
+        "差引金額　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02570": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02580": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02590": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00280": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01280": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01290": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01300": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01310": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00290": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00300": {
+      "label": "上場株式等(内、公開等特定株式分)",
+      "path": [
+        "上場株式等(内、公開等特定株式分)"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE00310": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01320": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01330": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01340": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01350": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02600": {
+      "label": "譲渡による収入金額　内書き",
+      "path": [
+        "譲渡による収入金額　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02610": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02620": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02630": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00320": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01360": {
+      "label": "その他の収入　外書き",
+      "path": [
+        "その他の収入　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01370": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01380": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01390": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02640": {
+      "label": "その他の収入　内書き",
+      "path": [
+        "その他の収入　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02650": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02660": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02670": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00330": {
+      "label": "その他の収入",
+      "path": [
+        "その他の収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01400": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01410": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01420": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01430": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02680": {
+      "label": "小計　内書き",
+      "path": [
+        "小計　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02690": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02700": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02710": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00340": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE00350": {
+      "label": "必要経費又は譲渡に要した費用等",
+      "path": [
+        "必要経費又は譲渡に要した費用等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01440": {
+      "label": "取得費(取得価額)　外書き",
+      "path": [
+        "取得費(取得価額)　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01450": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01460": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01470": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02720": {
+      "label": "取得費(取得価額)　内書き",
+      "path": [
+        "取得費(取得価額)　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02730": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02740": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02750": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00360": {
+      "label": "取得費(取得価額)",
+      "path": [
+        "取得費(取得価額)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01480": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01490": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01500": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01510": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02760": {
+      "label": "譲渡のための委託手数料　内書き",
+      "path": [
+        "譲渡のための委託手数料　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02770": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02780": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02790": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00370": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01520": {
+      "label": "その他の費用　外書き",
+      "path": [
+        "その他の費用　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01530": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01540": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01550": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02800": {
+      "label": "その他の費用　内書き",
+      "path": [
+        "その他の費用　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02810": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02820": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02830": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00380": {
+      "label": "その他の費用",
+      "path": [
+        "その他の費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01560": {
+      "label": "小計　外書き",
+      "path": [
+        "小計　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01570": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01580": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01590": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02840": {
+      "label": "小計　内書き",
+      "path": [
+        "小計　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02850": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02860": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02870": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00400": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01600": {
+      "label": "差引金額　外書き",
+      "path": [
+        "差引金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01610": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01620": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01630": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02880": {
+      "label": "差引金額　内書き",
+      "path": [
+        "差引金額　内書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE02890": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE02900": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE02910": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00410": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01640": {
+      "label": "特定投資株式の取得に要した金額等の控除　外書き",
+      "path": [
+        "特定投資株式の取得に要した金額等の控除　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01650": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01660": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01670": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00420": {
+      "label": "特定投資株式の取得に要した金額等の控除",
+      "path": [
+        "特定投資株式の取得に要した金額等の控除"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01680": {
+      "label": "所得金額　外書き",
+      "path": [
+        "所得金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJE01690": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE01700": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJE01710": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJE00430": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJF00000": {
+      "label": "特例適用条文　繰り返し",
+      "path": [
+        "特例適用条文　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJF00020": {
+      "label": "条１",
+      "path": [
+        "条１"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "EJF00030": {
+      "label": "条２",
+      "path": [
+        "条２"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "EJM00000": {
+      "label": "２　申告する特定口座の上場株式等に係る譲渡所得等の金額の合計",
+      "path": [
+        "２　申告する特定口座の上場株式等に係る譲渡所得等の金額の合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJM00010": {
+      "label": "明細　繰り返し",
+      "path": [
+        "明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJM00020": {
+      "label": "口座の区分",
+      "path": [
+        "口座の区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EJM00030": {
+      "label": "取引先",
+      "path": [
+        "取引先"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJM00040": {
+      "label": "名称",
+      "path": [
+        "名称"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "EJM00050": {
+      "label": "取引先区分",
+      "path": [
+        "取引先区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EJM00060": {
+      "label": "その他取引先区分（＿）",
+      "path": [
+        "その他取引先区分（＿）"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "EJM00070": {
+      "label": "支店名",
+      "path": [
+        "支店名"
+      ],
+      "type": "string(40)",
+      "enum": ""
+    },
+    "EJM00080": {
+      "label": "本支店区分",
+      "path": [
+        "本支店区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EJM00090": {
+      "label": "その他本支店区分（＿）",
+      "path": [
+        "その他本支店区分（＿）"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "EJM00100": {
+      "label": "譲渡の対価の額",
+      "path": [
+        "譲渡の対価の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJM00110": {
+      "label": "取得費及び譲渡に要した費用の額等",
+      "path": [
+        "取得費及び譲渡に要した費用の額等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJM00120": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJM00130": {
+      "label": "源泉徴収税額",
+      "path": [
+        "源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJM00140": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJM00150": {
+      "label": "譲渡の対価の額",
+      "path": [
+        "譲渡の対価の額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJM00160": {
+      "label": "取得費及び譲渡に要した費用の額等",
+      "path": [
+        "取得費及び譲渡に要した費用の額等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJM00170": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJM00180": {
+      "label": "源泉徴収税額",
+      "path": [
+        "源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJH00000": {
+      "label": "３　特定投資株式の価値喪失の金額の計算",
+      "path": [
+        "３　特定投資株式の価値喪失の金額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJH00010": {
+      "label": "特定残株数",
+      "path": [
+        "特定残株数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EJH00020": {
+      "label": "１株当たりの取得費",
+      "path": [
+        "１株当たりの取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJH00030": {
+      "label": "特定投資株式の価値喪失の金額",
+      "path": [
+        "特定投資株式の価値喪失の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJI00000": {
+      "label": "４　公開等特定株式に該当する株式数の計算",
+      "path": [
+        "４　公開等特定株式に該当する株式数の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJI00020": {
+      "label": "譲渡の時の直前の特定残株数",
+      "path": [
+        "譲渡の時の直前の特定残株数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EJI00030": {
+      "label": "平成12年4月1日から平成20年4月30日前までの期間に払込みにより取得した株式数",
+      "path": [
+        "平成12年4月1日から平成20年4月30日前までの期間に払込みにより取得した株式数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EJI00040": {
+      "label": "公開等特定株式に該当する株式数",
+      "path": [
+        "公開等特定株式に該当する株式数"
+      ],
+      "type": "decimal(11.2)",
+      "enum": ""
+    },
+    "EJI00060": {
+      "label": "５　公開等特定株式に係る所得金額の計算",
+      "path": [
+        "５　公開等特定株式に係る所得金額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJI00170": {
+      "label": "一般株式等",
+      "path": [
+        "一般株式等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJI00180": {
+      "label": "「(Ａ)>=(Ｂ)」の場合　外書き",
+      "path": [
+        "「(Ａ)>=(Ｂ)」の場合　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJI00190": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJI00200": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJI00210": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJI00220": {
+      "label": "「(Ａ)>=(Ｂ)」の場合",
+      "path": [
+        "「(Ａ)>=(Ｂ)」の場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJI00230": {
+      "label": "「(Ａ)＜(Ｂ)」の場合　外書き",
+      "path": [
+        "「(Ａ)＜(Ｂ)」の場合　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJI00240": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJI00250": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJI00260": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJI00270": {
+      "label": "「(Ａ)＜(Ｂ)」の場合",
+      "path": [
+        "「(Ａ)＜(Ｂ)」の場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJI00090": {
+      "label": "上場株式等　「(Ｃ)>=(Ｄ)」の場合　外書き",
+      "path": [
+        "上場株式等　「(Ｃ)>=(Ｄ)」の場合　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJI00100": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJI00110": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJI00120": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJI00070": {
+      "label": "上場株式等　「(Ｃ)>=(Ｄ)」の場合",
+      "path": [
+        "上場株式等　「(Ｃ)>=(Ｄ)」の場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJI00130": {
+      "label": "上場株式等　「(Ｃ)＜(Ｄ)」の場合　外書き",
+      "path": [
+        "上場株式等　「(Ｃ)＜(Ｄ)」の場合　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJI00140": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJI00150": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJI00160": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJI00080": {
+      "label": "上場株式等　「(Ｃ)＜(Ｄ)」の場合",
+      "path": [
+        "上場株式等　「(Ｃ)＜(Ｄ)」の場合"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJJ00000": {
+      "label": "６　特定口座以外で譲渡した株式等の明細　繰り返し",
+      "path": [
+        "６　特定口座以外で譲渡した株式等の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJJ00010": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "EJJ00020": {
+      "label": "譲渡年月日(償還日)",
+      "path": [
+        "譲渡年月日(償還日)"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EJJ00030": {
+      "label": "譲渡した株式等の銘柄",
+      "path": [
+        "譲渡した株式等の銘柄"
+      ],
+      "type": "string(60)",
+      "enum": ""
+    },
+    "EJJ00120": {
+      "label": "数量　外書き",
+      "path": [
+        "数量　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJJ00130": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJJ00280": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EJJ00150": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJJ00290": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "EJJ00050": {
+      "label": "譲渡先(金融商品取引業者等)の名称・所在地等",
+      "path": [
+        "譲渡先(金融商品取引業者等)の名称・所在地等"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "EJJ00160": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJJ00170": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJJ00180": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJJ00190": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJJ00060": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJJ00200": {
+      "label": "取得費　外書き",
+      "path": [
+        "取得費　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJJ00210": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJJ00220": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJJ00230": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJJ00100": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJJ00240": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJJ00250": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJJ00260": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJJ00270": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJJ00110": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJJ00070": {
+      "label": "取得年月日",
+      "path": [
+        "取得年月日"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJJ00080": {
+      "label": "取得年月日",
+      "path": [
+        "取得年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EJJ00090": {
+      "label": "(取得年月日)",
+      "path": [
+        "(取得年月日)"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "EJN00000": {
+      "label": "６　特定口座以外で譲渡した株式等の明細　合計",
+      "path": [
+        "６　特定口座以外で譲渡した株式等の明細　合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00010": {
+      "label": "一般株式等",
+      "path": [
+        "一般株式等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00090": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00100": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00110": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00120": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00020": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00130": {
+      "label": "取得費　外書き",
+      "path": [
+        "取得費　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00140": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00150": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00160": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00030": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00170": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00180": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00190": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00200": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00040": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00050": {
+      "label": "上場株式等",
+      "path": [
+        "上場株式等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00210": {
+      "label": "譲渡による収入金額　外書き",
+      "path": [
+        "譲渡による収入金額　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00220": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00230": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00240": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00060": {
+      "label": "譲渡による収入金額",
+      "path": [
+        "譲渡による収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00250": {
+      "label": "取得費　外書き",
+      "path": [
+        "取得費　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00260": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00270": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00280": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00070": {
+      "label": "取得費",
+      "path": [
+        "取得費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00290": {
+      "label": "譲渡のための委託手数料　外書き",
+      "path": [
+        "譲渡のための委託手数料　外書き"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "EJN00300": {
+      "label": "開始括弧",
+      "path": [
+        "開始括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00310": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "EJN00320": {
+      "label": "終了括弧",
+      "path": [
+        "終了括弧"
+      ],
+      "type": "string(1)",
+      "enum": ""
+    },
+    "EJN00080": {
+      "label": "譲渡のための委託手数料",
+      "path": [
+        "譲渡のための委託手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

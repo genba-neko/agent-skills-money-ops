@@ -1,0 +1,251 @@
+{
+  "_meta": {
+    "form_code": "KOB570",
+    "source_ver": "Ver6",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "KMC00010": {
+      "label": "取組内容",
+      "path": [
+        "取組内容"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KMC00020": {
+      "label": "健康診査",
+      "path": [
+        "健康診査"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KMC00030": {
+      "label": "予防接種",
+      "path": [
+        "予防接種"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KMC00040": {
+      "label": "定期健康診断",
+      "path": [
+        "定期健康診断"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KMC00050": {
+      "label": "特定健康診査",
+      "path": [
+        "特定健康診査"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KMC00060": {
+      "label": "がん検診",
+      "path": [
+        "がん検診"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KMC00070": {
+      "label": "その他取組内容",
+      "path": [
+        "その他取組内容"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KMC00080": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "kubun",
+      "enum": ""
+    },
+    "KMC00090": {
+      "label": "（＿）",
+      "path": [
+        "（＿）"
+      ],
+      "type": "string(6)",
+      "enum": ""
+    },
+    "KMC00100": {
+      "label": "発行者名",
+      "path": [
+        "発行者名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "KMD00010": {
+      "label": "明細　繰り返し",
+      "path": [
+        "明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KMD00020": {
+      "label": "薬局などの支払先の名称",
+      "path": [
+        "薬局などの支払先の名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "KMD00030": {
+      "label": "医薬品の名称",
+      "path": [
+        "医薬品の名称"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "KMD00040": {
+      "label": "支払った金額",
+      "path": [
+        "支払った金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KMD00050": {
+      "label": "（３）のうち生命保険や社会保険などで補填される金額",
+      "path": [
+        "（３）のうち生命保険や社会保険などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KMD00060": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KMD00070": {
+      "label": "支払った金額",
+      "path": [
+        "支払った金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KMD00080": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KMD00090": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "KMD00100": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KMD00110": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KMD00120": {
+      "label": "（３）のうち生命保険や社会保険などで補填される金額",
+      "path": [
+        "（３）のうち生命保険や社会保険などで補填される金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KMD00130": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "KMD00140": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "KMD00150": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KMD00160": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KME00010": {
+      "label": "支払った金額（合計）",
+      "path": [
+        "支払った金額（合計）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KME00020": {
+      "label": "保険金などで補填される金額",
+      "path": [
+        "保険金などで補填される金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KME00030": {
+      "label": "差引金額（A－B）",
+      "path": [
+        "差引金額（A－B）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "KME00040": {
+      "label": "医療費控除額（C－12,000円）",
+      "path": [
+        "医療費控除額（C－12,000円）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

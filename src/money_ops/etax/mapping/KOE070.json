@@ -1,0 +1,235 @@
+{
+  "_meta": {
+    "form_code": "KOE070",
+    "source_ver": "Ver5",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": []
+  },
+  "fields": {
+    "IGC00010": {
+      "label": "寄附年月日",
+      "path": [
+        "寄附年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IGC00020": {
+      "label": "寄附先の所在地",
+      "path": [
+        "寄附先の所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "IGC00030": {
+      "label": "寄附先の名称",
+      "path": [
+        "寄附先の名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "IGC00040": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGD00010": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "IGD00020": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGE00010": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGF00010": {
+      "label": "寄附年月日",
+      "path": [
+        "寄附年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IGF00020": {
+      "label": "寄附先の所在地",
+      "path": [
+        "寄附先の所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "IGF00030": {
+      "label": "寄附先の名称",
+      "path": [
+        "寄附先の名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "IGF00040": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGG00010": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "IGG00020": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGH00010": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGO00010": {
+      "label": "寄附年月日",
+      "path": [
+        "寄附年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IGO00020": {
+      "label": "寄附先の所在地",
+      "path": [
+        "寄附先の所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "IGO00030": {
+      "label": "寄附先の名称",
+      "path": [
+        "寄附先の名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "IGO00040": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGP00010": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "IGP00020": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGQ00010": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGR00010": {
+      "label": "寄附年月日",
+      "path": [
+        "寄附年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "IGR00020": {
+      "label": "寄附先の所在地",
+      "path": [
+        "寄附先の所在地"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "IGR00030": {
+      "label": "寄附先の名称",
+      "path": [
+        "寄附先の名称"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "IGR00040": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGS00010": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "IGS00020": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "IGT00010": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}

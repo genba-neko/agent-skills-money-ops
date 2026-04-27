@@ -1,0 +1,3488 @@
+{
+  "_meta": {
+    "form_code": "KOA240",
+    "source_ver": "Ver8",
+    "source": "NTA e-tax09.CAB / XML構造設計書(所得-申告)",
+    "tax_type": "shotoku",
+    "pages": [
+      "KOA240-1",
+      "KOA240-2",
+      "KOA240-3",
+      "KOA240-4"
+    ]
+  },
+  "fields": {
+    "APH00000": {
+      "label": "有限責任事業組合",
+      "path": [
+        "有限責任事業組合"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "APA00000": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "APB00000": {
+      "label": "納税者等部",
+      "path": [
+        "納税者等部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APB00010": {
+      "label": "住所",
+      "path": [
+        "住所"
+      ],
+      "type": "address",
+      "enum": "NOZEISHA_ADR"
+    },
+    "APB00020": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APB00030": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "APB00040": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "APB00050": {
+      "label": "業種名",
+      "path": [
+        "業種名"
+      ],
+      "type": "shokugyo",
+      "enum": "SHOKUGYO"
+    },
+    "APB00060": {
+      "label": "農園名",
+      "path": [
+        "農園名"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "APB00070": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "NOZEISHA_TEL"
+    },
+    "APC00000": {
+      "label": "依頼税理士等",
+      "path": [
+        "依頼税理士等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APC00010": {
+      "label": "事務所所在地",
+      "path": [
+        "事務所所在地"
+      ],
+      "type": "address",
+      "enum": "DAIRI_ADR"
+    },
+    "APC00020": {
+      "label": "氏名（名称）",
+      "path": [
+        "氏名（名称）"
+      ],
+      "type": "name",
+      "enum": "DAIRI_NM"
+    },
+    "APC00030": {
+      "label": "電話番号",
+      "path": [
+        "電話番号"
+      ],
+      "type": "tel-number",
+      "enum": "DAIRI_TEL"
+    },
+    "APE00000": {
+      "label": "提出年月日",
+      "path": [
+        "提出年月日"
+      ],
+      "type": "yymmdd",
+      "enum": "TEISYUTSU_DAY"
+    },
+    "APF00000": {
+      "label": "損益計算書",
+      "path": [
+        "損益計算書"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00010": {
+      "label": "損益計算書の内訳",
+      "path": [
+        "損益計算書の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00020": {
+      "label": "事業期間",
+      "path": [
+        "事業期間"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00030": {
+      "label": "事業期間（自）",
+      "path": [
+        "事業期間（自）"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "APF00040": {
+      "label": "事業期間（至）",
+      "path": [
+        "事業期間（至）"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "APF00090": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00100": {
+      "label": "収入金額",
+      "path": [
+        "収入金額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00110": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00120": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00130": {
+      "label": "雑収入",
+      "path": [
+        "雑収入"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00140": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00150": {
+      "label": "農産物の棚卸高",
+      "path": [
+        "農産物の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00160": {
+      "label": "期首",
+      "path": [
+        "期首"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00170": {
+      "label": "期末",
+      "path": [
+        "期末"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00180": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00190": {
+      "label": "経費",
+      "path": [
+        "経費"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00200": {
+      "label": "租税公課",
+      "path": [
+        "租税公課"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00210": {
+      "label": "種苗費",
+      "path": [
+        "種苗費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00220": {
+      "label": "素畜費",
+      "path": [
+        "素畜費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00230": {
+      "label": "肥料費",
+      "path": [
+        "肥料費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00240": {
+      "label": "飼料費",
+      "path": [
+        "飼料費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00250": {
+      "label": "農具費",
+      "path": [
+        "農具費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00260": {
+      "label": "農薬・衛生費",
+      "path": [
+        "農薬・衛生費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00270": {
+      "label": "諸材料費",
+      "path": [
+        "諸材料費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00280": {
+      "label": "修繕費",
+      "path": [
+        "修繕費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00290": {
+      "label": "動力光熱費",
+      "path": [
+        "動力光熱費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00300": {
+      "label": "作業用衣料費",
+      "path": [
+        "作業用衣料費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00310": {
+      "label": "農業共済掛金",
+      "path": [
+        "農業共済掛金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00320": {
+      "label": "減価償却費",
+      "path": [
+        "減価償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00330": {
+      "label": "荷造運賃手数料",
+      "path": [
+        "荷造運賃手数料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00340": {
+      "label": "雇人費",
+      "path": [
+        "雇人費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00350": {
+      "label": "利子割引料",
+      "path": [
+        "利子割引料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00360": {
+      "label": "地代・賃借料",
+      "path": [
+        "地代・賃借料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00370": {
+      "label": "土地改良費",
+      "path": [
+        "土地改良費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00375": {
+      "label": "追加科目　繰り返し",
+      "path": [
+        "追加科目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00060": {
+      "label": "経費（科目名）",
+      "path": [
+        "経費（科目名）"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF00380": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00390": {
+      "label": "雑費",
+      "path": [
+        "雑費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00400": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00410": {
+      "label": "農産物以外の棚卸高",
+      "path": [
+        "農産物以外の棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00420": {
+      "label": "期首",
+      "path": [
+        "期首"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00430": {
+      "label": "期末",
+      "path": [
+        "期末"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00440": {
+      "label": "経費から差し引く果樹牛馬等の育成費用",
+      "path": [
+        "経費から差し引く果樹牛馬等の育成費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00450": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00460": {
+      "label": "差引金額",
+      "path": [
+        "差引金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00470": {
+      "label": "各種引当金・準備金等",
+      "path": [
+        "各種引当金・準備金等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00480": {
+      "label": "繰戻額等",
+      "path": [
+        "繰戻額等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00490": {
+      "label": "貸倒引当金",
+      "path": [
+        "貸倒引当金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00495": {
+      "label": "追加科目　繰り返し",
+      "path": [
+        "追加科目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00070": {
+      "label": "各種引当金・準備金等：繰戻額等（科目名）",
+      "path": [
+        "各種引当金・準備金等：繰戻額等（科目名）"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF00500": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00510": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00520": {
+      "label": "繰入額等",
+      "path": [
+        "繰入額等"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00530": {
+      "label": "専従者給与",
+      "path": [
+        "専従者給与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00540": {
+      "label": "貸倒引当金",
+      "path": [
+        "貸倒引当金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00545": {
+      "label": "追加科目　繰り返し",
+      "path": [
+        "追加科目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00080": {
+      "label": "各種引当金・準備金等：繰入額等（科目名）",
+      "path": [
+        "各種引当金・準備金等：繰入額等（科目名）"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF00550": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00560": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00570": {
+      "label": "青色申告特別控除前の所得金額(上段)",
+      "path": [
+        "青色申告特別控除前の所得金額(上段)"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00575": {
+      "label": "青色申告特別控除前の所得金額(下段)",
+      "path": [
+        "青色申告特別控除前の所得金額(下段)"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "APF00580": {
+      "label": "青色申告特別控除額",
+      "path": [
+        "青色申告特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00590": {
+      "label": "所得金額（特例表示）",
+      "path": [
+        "所得金額（特例表示）"
+      ],
+      "type": "string(3)",
+      "enum": ""
+    },
+    "APF00600": {
+      "label": "所得金額",
+      "path": [
+        "所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00610": {
+      "label": "（４８）のうち、肉用牛について特例の適用を受ける金額",
+      "path": [
+        "（４８）のうち、肉用牛について特例の適用を受ける金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00612": {
+      "label": "必要経費不算入損失額",
+      "path": [
+        "必要経費不算入損失額"
+      ],
+      "type": "string(30)",
+      "enum": ""
+    },
+    "APF00618": {
+      "label": "年分",
+      "path": [
+        "年分"
+      ],
+      "type": "yy",
+      "enum": "NENBUN"
+    },
+    "APF00620": {
+      "label": "（フリガナ）氏名",
+      "path": [
+        "（フリガナ）氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00630": {
+      "label": "フリガナ",
+      "path": [
+        "フリガナ"
+      ],
+      "type": "n-kana",
+      "enum": "NOZEISHA_NM_KN"
+    },
+    "APF00640": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": "NOZEISHA_NM"
+    },
+    "APF00660": {
+      "label": "収入金額の内訳",
+      "path": [
+        "収入金額の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00670": {
+      "label": "田畑",
+      "path": [
+        "田畑"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00680": {
+      "label": "田畑　繰り返し",
+      "path": [
+        "田畑　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00690": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF00700": {
+      "label": "作付面積",
+      "path": [
+        "作付面積"
+      ],
+      "type": "decimal(7.2)",
+      "enum": ""
+    },
+    "APF00710": {
+      "label": "本年収穫量",
+      "path": [
+        "本年収穫量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF00720": {
+      "label": "農産物の期首棚卸高",
+      "path": [
+        "農産物の期首棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00730": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF00740": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00750": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00760": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00770": {
+      "label": "農産物の期末棚卸高",
+      "path": [
+        "農産物の期末棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00780": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF00790": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00800": {
+      "label": "果樹　繰り返し",
+      "path": [
+        "果樹　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00810": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF00820": {
+      "label": "作付面積",
+      "path": [
+        "作付面積"
+      ],
+      "type": "decimal(7.2)",
+      "enum": ""
+    },
+    "APF00830": {
+      "label": "本年収穫量",
+      "path": [
+        "本年収穫量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF00840": {
+      "label": "農産物の期首棚卸高",
+      "path": [
+        "農産物の期首棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00850": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF00860": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00870": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00880": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00890": {
+      "label": "農産物の期末棚卸高",
+      "path": [
+        "農産物の期末棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00900": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF00910": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00920": {
+      "label": "特殊施設　繰り返し",
+      "path": [
+        "特殊施設　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00930": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF00940": {
+      "label": "作付面積",
+      "path": [
+        "作付面積"
+      ],
+      "type": "decimal(7.2)",
+      "enum": ""
+    },
+    "APF00950": {
+      "label": "本年収穫量",
+      "path": [
+        "本年収穫量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF00960": {
+      "label": "農産物の期首棚卸高",
+      "path": [
+        "農産物の期首棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF00970": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF00980": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF00990": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01000": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01010": {
+      "label": "農産物の期末棚卸高",
+      "path": [
+        "農産物の期末棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01020": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF01030": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01031": {
+      "label": "次葉合計（農産物）",
+      "path": [
+        "次葉合計（農産物）"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01032": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "APF01033": {
+      "label": "農産物の期首棚卸高（金額）",
+      "path": [
+        "農産物の期首棚卸高（金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01036": {
+      "label": "農産物の期末棚卸高（金額）",
+      "path": [
+        "農産物の期末棚卸高（金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01040": {
+      "label": "農産物計",
+      "path": [
+        "農産物計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01050": {
+      "label": "耕作面積",
+      "path": [
+        "耕作面積"
+      ],
+      "type": "decimal(8.2)",
+      "enum": ""
+    },
+    "APF01060": {
+      "label": "農産物の期首棚卸高（金額）",
+      "path": [
+        "農産物の期首棚卸高（金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01070": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01080": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01090": {
+      "label": "農産物の期末棚卸高（金額）",
+      "path": [
+        "農産物の期末棚卸高（金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01100": {
+      "label": "畜産物その他　繰り返し",
+      "path": [
+        "畜産物その他　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01110": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF01120": {
+      "label": "飼育頭羽数",
+      "path": [
+        "飼育頭羽数"
+      ],
+      "type": "nonNegativeInteger(6)",
+      "enum": ""
+    },
+    "APF01130": {
+      "label": "生産頭羽数",
+      "path": [
+        "生産頭羽数"
+      ],
+      "type": "nonNegativeInteger(6)",
+      "enum": ""
+    },
+    "APF01140": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01150": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01152": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01154": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "APF01156": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01158": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01160": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01170": {
+      "label": "販売金額",
+      "path": [
+        "販売金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01180": {
+      "label": "家事消費・事業消費金額",
+      "path": [
+        "家事消費・事業消費金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01190": {
+      "label": "雑収入の内訳",
+      "path": [
+        "雑収入の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01200": {
+      "label": "雑収入の内訳明細　繰り返し",
+      "path": [
+        "雑収入の内訳明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01210": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(20)",
+      "enum": ""
+    },
+    "APF01220": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01222": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01224": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "APF01226": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01230": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01240": {
+      "label": "農産物以外の棚卸高の内訳",
+      "path": [
+        "農産物以外の棚卸高の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01250": {
+      "label": "未収穫農産物　繰り返し",
+      "path": [
+        "未収穫農産物　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01260": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF01270": {
+      "label": "期首棚卸高",
+      "path": [
+        "期首棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01280": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF01290": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01300": {
+      "label": "期末棚卸高",
+      "path": [
+        "期末棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01310": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF01320": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01330": {
+      "label": "販売用動物　繰り返し",
+      "path": [
+        "販売用動物　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01340": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF01350": {
+      "label": "期首棚卸高",
+      "path": [
+        "期首棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01360": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF01370": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01380": {
+      "label": "期末棚卸高",
+      "path": [
+        "期末棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01390": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF01400": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01410": {
+      "label": "種苗、飼・肥料、農薬、諸材料　繰り返し",
+      "path": [
+        "種苗、飼・肥料、農薬、諸材料　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01420": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF01430": {
+      "label": "期首棚卸高",
+      "path": [
+        "期首棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01440": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF01450": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01460": {
+      "label": "期末棚卸高",
+      "path": [
+        "期末棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01470": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF01480": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01490": {
+      "label": "その他　繰り返し",
+      "path": [
+        "その他　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01500": {
+      "label": "区分",
+      "path": [
+        "区分"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF01510": {
+      "label": "期首棚卸高",
+      "path": [
+        "期首棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01520": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF01530": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01540": {
+      "label": "期末棚卸高",
+      "path": [
+        "期末棚卸高"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01550": {
+      "label": "数量",
+      "path": [
+        "数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF01560": {
+      "label": "金額",
+      "path": [
+        "金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01562": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01564": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "APF01566": {
+      "label": "期首棚卸高（金額）",
+      "path": [
+        "期首棚卸高（金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01568": {
+      "label": "期末棚卸高（金額）",
+      "path": [
+        "期末棚卸高（金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01570": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01580": {
+      "label": "期首棚卸高（金額）",
+      "path": [
+        "期首棚卸高（金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01590": {
+      "label": "期末棚卸高（金額）",
+      "path": [
+        "期末棚卸高（金額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01600": {
+      "label": "雇人費の内訳",
+      "path": [
+        "雇人費の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01610": {
+      "label": "雇人費の内訳明細　繰り返し",
+      "path": [
+        "雇人費の内訳明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01620": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "APF01630": {
+      "label": "住所又は作業名",
+      "path": [
+        "住所又は作業名"
+      ],
+      "type": "string(100)",
+      "enum": ""
+    },
+    "APF01640": {
+      "label": "日数",
+      "path": [
+        "日数"
+      ],
+      "type": "nonNegativeInteger(5)",
+      "enum": ""
+    },
+    "APF01650": {
+      "label": "支給額",
+      "path": [
+        "支給額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01660": {
+      "label": "現金",
+      "path": [
+        "現金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01670": {
+      "label": "現物",
+      "path": [
+        "現物"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01680": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01690": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01700": {
+      "label": "その他",
+      "path": [
+        "その他"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01710": {
+      "label": "人数",
+      "path": [
+        "人数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "APF01720": {
+      "label": "日数",
+      "path": [
+        "日数"
+      ],
+      "type": "nonNegativeInteger(5)",
+      "enum": ""
+    },
+    "APF01730": {
+      "label": "支給額",
+      "path": [
+        "支給額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01740": {
+      "label": "現金",
+      "path": [
+        "現金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01750": {
+      "label": "現物",
+      "path": [
+        "現物"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01760": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01770": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01780": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01790": {
+      "label": "日数",
+      "path": [
+        "日数"
+      ],
+      "type": "nonNegativeInteger(5)",
+      "enum": ""
+    },
+    "APF01800": {
+      "label": "支給額",
+      "path": [
+        "支給額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01810": {
+      "label": "現金",
+      "path": [
+        "現金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01820": {
+      "label": "現物",
+      "path": [
+        "現物"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01830": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01840": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01850": {
+      "label": "専従者給与の内訳",
+      "path": [
+        "専従者給与の内訳"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01860": {
+      "label": "専従者給与明細行　繰り返し",
+      "path": [
+        "専従者給与明細行　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01870": {
+      "label": "氏名",
+      "path": [
+        "氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "APF01880": {
+      "label": "続柄",
+      "path": [
+        "続柄"
+      ],
+      "type": "zokugara",
+      "enum": ""
+    },
+    "APF01890": {
+      "label": "年齢",
+      "path": [
+        "年齢"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "APF01900": {
+      "label": "従事月数",
+      "path": [
+        "従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "APF01910": {
+      "label": "支給額",
+      "path": [
+        "支給額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01920": {
+      "label": "給料",
+      "path": [
+        "給料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01930": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01940": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01950": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01951": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01952": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "APF01953": {
+      "label": "延べ従事月数",
+      "path": [
+        "延べ従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "APF01954": {
+      "label": "支給額",
+      "path": [
+        "支給額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01955": {
+      "label": "給料",
+      "path": [
+        "給料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01956": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01957": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01958": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF01960": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01970": {
+      "label": "延べ従事月数",
+      "path": [
+        "延べ従事月数"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "APF01980": {
+      "label": "支給額",
+      "path": [
+        "支給額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF01990": {
+      "label": "給料",
+      "path": [
+        "給料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02000": {
+      "label": "賞与",
+      "path": [
+        "賞与"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02010": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02020": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02030": {
+      "label": "減価償却費の計算",
+      "path": [
+        "減価償却費の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02040": {
+      "label": "減価償却費の明細　繰り返し",
+      "path": [
+        "減価償却費の明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02050": {
+      "label": "減価償却資産の名称等（繰延資産を含む）",
+      "path": [
+        "減価償却資産の名称等（繰延資産を含む）"
+      ],
+      "type": "string(16)",
+      "enum": ""
+    },
+    "APF02060": {
+      "label": "面積又は数量",
+      "path": [
+        "面積又は数量"
+      ],
+      "type": "string(13)",
+      "enum": ""
+    },
+    "APF02070": {
+      "label": "取得（成熟）年月",
+      "path": [
+        "取得（成熟）年月"
+      ],
+      "type": "yymm",
+      "enum": ""
+    },
+    "APF02080": {
+      "label": "取得価額",
+      "path": [
+        "取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02085": {
+      "label": "（償却保証額）",
+      "path": [
+        "（償却保証額）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02090": {
+      "label": "償却の基礎になる金額",
+      "path": [
+        "償却の基礎になる金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02100": {
+      "label": "償却方法",
+      "path": [
+        "償却方法"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF02110": {
+      "label": "耐用年数",
+      "path": [
+        "耐用年数"
+      ],
+      "type": "nonNegativeInteger(3)",
+      "enum": ""
+    },
+    "APF02120": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02130": {
+      "label": "償却率又は改定償却率",
+      "path": [
+        "償却率又は改定償却率"
+      ],
+      "type": "decimal(1.3)",
+      "enum": ""
+    },
+    "APF02160": {
+      "label": "本年中の償却期間",
+      "path": [
+        "本年中の償却期間"
+      ],
+      "type": "nonNegativeInteger(2)",
+      "enum": ""
+    },
+    "APF02170": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02180": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02190": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02200": {
+      "label": "事業専用割合",
+      "path": [
+        "事業専用割合"
+      ],
+      "type": "decimal(3.2)",
+      "enum": ""
+    },
+    "APF02210": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02220": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02230": {
+      "label": "摘要",
+      "path": [
+        "摘要"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "APF02231": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02232": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "APF02233": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02234": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02235": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02236": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02237": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02240": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02250": {
+      "label": "本年分の普通償却費",
+      "path": [
+        "本年分の普通償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02260": {
+      "label": "割増（特別）償却費",
+      "path": [
+        "割増（特別）償却費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02270": {
+      "label": "本年分の償却費合計",
+      "path": [
+        "本年分の償却費合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02280": {
+      "label": "本年分の必要経費算入額",
+      "path": [
+        "本年分の必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02290": {
+      "label": "未償却残高（期末残高）",
+      "path": [
+        "未償却残高（期末残高）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02300": {
+      "label": "摘要",
+      "path": [
+        "摘要"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "APF02310": {
+      "label": "果樹・牛馬等の育成費用の計算",
+      "path": [
+        "果樹・牛馬等の育成費用の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02320": {
+      "label": "果樹・牛馬等の育成費用の計算明細　繰り返し",
+      "path": [
+        "果樹・牛馬等の育成費用の計算明細　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02330": {
+      "label": "果樹・牛馬等の名称",
+      "path": [
+        "果樹・牛馬等の名称"
+      ],
+      "type": "string(15)",
+      "enum": ""
+    },
+    "APF02340": {
+      "label": "取得・生産・定植等の年月日",
+      "path": [
+        "取得・生産・定植等の年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "APF02350": {
+      "label": "前年からの繰越額",
+      "path": [
+        "前年からの繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02360": {
+      "label": "育成費用の明細",
+      "path": [
+        "育成費用の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02370": {
+      "label": "本年中の種苗費、種付料、素畜費",
+      "path": [
+        "本年中の種苗費、種付料、素畜費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02380": {
+      "label": "本年中の肥料、農薬等の投下費用",
+      "path": [
+        "本年中の肥料、農薬等の投下費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02390": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02400": {
+      "label": "育成中の果樹等から生じた収入金額",
+      "path": [
+        "育成中の果樹等から生じた収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02410": {
+      "label": "本年に取得価額に加算する金額",
+      "path": [
+        "本年に取得価額に加算する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02420": {
+      "label": "本年中に成熟したものの取得価額",
+      "path": [
+        "本年中に成熟したものの取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02430": {
+      "label": "翌年への繰越額",
+      "path": [
+        "翌年への繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF03000": {
+      "label": "次葉合計",
+      "path": [
+        "次葉合計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF03010": {
+      "label": "項目名",
+      "path": [
+        "項目名"
+      ],
+      "type": "string(4)",
+      "enum": ""
+    },
+    "APF03020": {
+      "label": "前年からの繰越額",
+      "path": [
+        "前年からの繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF03030": {
+      "label": "育成費用の明細",
+      "path": [
+        "育成費用の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF03040": {
+      "label": "本年中の種苗費、種付料、素畜費",
+      "path": [
+        "本年中の種苗費、種付料、素畜費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF03050": {
+      "label": "本年中の肥料、農薬等の投下費用",
+      "path": [
+        "本年中の肥料、農薬等の投下費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF03060": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF03070": {
+      "label": "育成中の果樹等から生じた収入金額",
+      "path": [
+        "育成中の果樹等から生じた収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF03080": {
+      "label": "本年に取得価額に加算する金額",
+      "path": [
+        "本年に取得価額に加算する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF03090": {
+      "label": "本年中に成熟したものの取得価額",
+      "path": [
+        "本年中に成熟したものの取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF03100": {
+      "label": "翌年への繰越額",
+      "path": [
+        "翌年への繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02440": {
+      "label": "計",
+      "path": [
+        "計"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02450": {
+      "label": "前年からの繰越額",
+      "path": [
+        "前年からの繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02460": {
+      "label": "育成費用の明細",
+      "path": [
+        "育成費用の明細"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02470": {
+      "label": "本年中の種苗費、種付料、素畜費",
+      "path": [
+        "本年中の種苗費、種付料、素畜費"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02480": {
+      "label": "本年中の肥料、農薬等の投下費用",
+      "path": [
+        "本年中の肥料、農薬等の投下費用"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02490": {
+      "label": "小計",
+      "path": [
+        "小計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02500": {
+      "label": "育成中の果樹等から生じた収入金額",
+      "path": [
+        "育成中の果樹等から生じた収入金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02510": {
+      "label": "本年に取得価額に加算する金額",
+      "path": [
+        "本年に取得価額に加算する金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02520": {
+      "label": "本年中に成熟したものの取得価額",
+      "path": [
+        "本年中に成熟したものの取得価額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02530": {
+      "label": "翌年への繰越額",
+      "path": [
+        "翌年への繰越額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02540": {
+      "label": "（ロ）、（ハ）、（ホ）の欄の金額の計算方法",
+      "path": [
+        "（ロ）、（ハ）、（ホ）の欄の金額の計算方法"
+      ],
+      "type": "string(90)",
+      "enum": ""
+    },
+    "APF02550": {
+      "label": "地代・賃借料の内訳　繰り返し",
+      "path": [
+        "地代・賃借料の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02560": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02570": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "APF02580": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "APF02590": {
+      "label": "小作料・賃耕料等の別",
+      "path": [
+        "小作料・賃耕料等の別"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APF02600": {
+      "label": "面積・数量",
+      "path": [
+        "面積・数量"
+      ],
+      "type": "decimal(7.2)",
+      "enum": ""
+    },
+    "APF02610": {
+      "label": "支払額",
+      "path": [
+        "支払額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02620": {
+      "label": "利子割引料の内訳　繰り返し",
+      "path": [
+        "利子割引料の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02630": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02640": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "APF02650": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "APF02660": {
+      "label": "期末現在の借入金等の金額",
+      "path": [
+        "期末現在の借入金等の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02670": {
+      "label": "本年中の利子割引料",
+      "path": [
+        "本年中の利子割引料"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02680": {
+      "label": "左のうち必要経費算入額",
+      "path": [
+        "左のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02690": {
+      "label": "税理士・弁護士等の報酬・料金の内訳　繰り返し",
+      "path": [
+        "税理士・弁護士等の報酬・料金の内訳　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02700": {
+      "label": "支払先の住所・氏名",
+      "path": [
+        "支払先の住所・氏名"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02710": {
+      "label": "支払先の住所",
+      "path": [
+        "支払先の住所"
+      ],
+      "type": "address",
+      "enum": ""
+    },
+    "APF02720": {
+      "label": "支払先の氏名",
+      "path": [
+        "支払先の氏名"
+      ],
+      "type": "name",
+      "enum": ""
+    },
+    "APF02730": {
+      "label": "本年中の報酬等の金額",
+      "path": [
+        "本年中の報酬等の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02740": {
+      "label": "左のうち必要経費算入額",
+      "path": [
+        "左のうち必要経費算入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02750": {
+      "label": "所得税及び復興特別所得税の源泉徴収税額",
+      "path": [
+        "所得税及び復興特別所得税の源泉徴収税額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02760": {
+      "label": "貸倒引当金繰入額の計算",
+      "path": [
+        "貸倒引当金繰入額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02770": {
+      "label": "個別評価による本年分繰入額",
+      "path": [
+        "個別評価による本年分繰入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02780": {
+      "label": "一括評価による本年分繰入額",
+      "path": [
+        "一括評価による本年分繰入額"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02790": {
+      "label": "年末における一括評価による貸倒引当金の繰入れの対象となる貸金の合計額",
+      "path": [
+        "年末における一括評価による貸倒引当金の繰入れの対象となる貸金の合計額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02800": {
+      "label": "本年分繰入限度額",
+      "path": [
+        "本年分繰入限度額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02810": {
+      "label": "本年分繰入額",
+      "path": [
+        "本年分繰入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02820": {
+      "label": "本年分の貸倒引当金繰入額",
+      "path": [
+        "本年分の貸倒引当金繰入額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02830": {
+      "label": "青色申告特別控除額の計算",
+      "path": [
+        "青色申告特別控除額の計算"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02840": {
+      "label": "本年分の不動産所得の金額",
+      "path": [
+        "本年分の不動産所得の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02850": {
+      "label": "青色申告特別控除前の事業所得の金額",
+      "path": [
+        "青色申告特別控除前の事業所得の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02860": {
+      "label": "65万円又は55万円の青色申告特別控除を受ける場合",
+      "path": [
+        "65万円又は55万円の青色申告特別控除を受ける場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02870": {
+      "label": "65万円又は55万円と（ヘ）のいずれか少ない方の金額",
+      "path": [
+        "65万円又は55万円と（ヘ）のいずれか少ない方の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02880": {
+      "label": "青色申告特別控除額",
+      "path": [
+        "青色申告特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02890": {
+      "label": "上記以外の場合",
+      "path": [
+        "上記以外の場合"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APF02900": {
+      "label": "10万円と（ヘ）のいずれか少ない方の金額",
+      "path": [
+        "10万円と（ヘ）のいずれか少ない方の金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02910": {
+      "label": "青色申告特別控除額",
+      "path": [
+        "青色申告特別控除額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APF02920": {
+      "label": "本年中における特殊事情",
+      "path": [
+        "本年中における特殊事情"
+      ],
+      "type": "string(500)",
+      "enum": ""
+    },
+    "APG00000": {
+      "label": "貸借対照表",
+      "path": [
+        "貸借対照表"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00010": {
+      "label": "期末年月日",
+      "path": [
+        "期末年月日"
+      ],
+      "type": "yymmdd",
+      "enum": ""
+    },
+    "APG00020": {
+      "label": "資産の部",
+      "path": [
+        "資産の部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00025": {
+      "label": "追加科目　繰り返し",
+      "path": [
+        "追加科目　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00030": {
+      "label": "科目名",
+      "path": [
+        "科目名"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APG00240": {
+      "label": "金額（期首）",
+      "path": [
+        "金額（期首）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00460": {
+      "label": "金額（期末）",
+      "path": [
+        "金額（期末）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00040": {
+      "label": "期首",
+      "path": [
+        "期首"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00050": {
+      "label": "期首月日",
+      "path": [
+        "期首月日"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "APG00060": {
+      "label": "現金",
+      "path": [
+        "現金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00070": {
+      "label": "普通預金",
+      "path": [
+        "普通預金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00080": {
+      "label": "定期預金",
+      "path": [
+        "定期預金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00090": {
+      "label": "その他の預金",
+      "path": [
+        "その他の預金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00100": {
+      "label": "売掛金",
+      "path": [
+        "売掛金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00110": {
+      "label": "未収金",
+      "path": [
+        "未収金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00120": {
+      "label": "有価証券",
+      "path": [
+        "有価証券"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00130": {
+      "label": "農産物等",
+      "path": [
+        "農産物等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00140": {
+      "label": "未収穫農産物等",
+      "path": [
+        "未収穫農産物等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00150": {
+      "label": "未成熟の果樹育成中の牛馬等",
+      "path": [
+        "未成熟の果樹育成中の牛馬等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00160": {
+      "label": "肥料その他の貯蔵品",
+      "path": [
+        "肥料その他の貯蔵品"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00170": {
+      "label": "前払金",
+      "path": [
+        "前払金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00180": {
+      "label": "貸付金",
+      "path": [
+        "貸付金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00190": {
+      "label": "建物・構築物",
+      "path": [
+        "建物・構築物"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00200": {
+      "label": "農機具等",
+      "path": [
+        "農機具等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00210": {
+      "label": "果樹・牛馬等",
+      "path": [
+        "果樹・牛馬等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00220": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00230": {
+      "label": "土地改良事業受益者負担金",
+      "path": [
+        "土地改良事業受益者負担金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00250": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00260": {
+      "label": "期末",
+      "path": [
+        "期末"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00270": {
+      "label": "期末月日",
+      "path": [
+        "期末月日"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "APG00280": {
+      "label": "現金",
+      "path": [
+        "現金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00290": {
+      "label": "普通預金",
+      "path": [
+        "普通預金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00300": {
+      "label": "定期預金",
+      "path": [
+        "定期預金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00310": {
+      "label": "その他の預金",
+      "path": [
+        "その他の預金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00320": {
+      "label": "売掛金",
+      "path": [
+        "売掛金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00330": {
+      "label": "未収金",
+      "path": [
+        "未収金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00340": {
+      "label": "有価証券",
+      "path": [
+        "有価証券"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00350": {
+      "label": "農産物等",
+      "path": [
+        "農産物等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00360": {
+      "label": "未収穫農産物等",
+      "path": [
+        "未収穫農産物等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00370": {
+      "label": "未成熟の果樹育成中の牛馬等",
+      "path": [
+        "未成熟の果樹育成中の牛馬等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00380": {
+      "label": "肥料その他の貯蔵品",
+      "path": [
+        "肥料その他の貯蔵品"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00390": {
+      "label": "前払金",
+      "path": [
+        "前払金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00400": {
+      "label": "貸付金",
+      "path": [
+        "貸付金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00410": {
+      "label": "建物・構築物",
+      "path": [
+        "建物・構築物"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00420": {
+      "label": "農機具等",
+      "path": [
+        "農機具等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00430": {
+      "label": "果樹・牛馬等",
+      "path": [
+        "果樹・牛馬等"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00440": {
+      "label": "土地",
+      "path": [
+        "土地"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00450": {
+      "label": "土地改良事業受益者負担金",
+      "path": [
+        "土地改良事業受益者負担金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00470": {
+      "label": "事業主貸",
+      "path": [
+        "事業主貸"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00480": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00490": {
+      "label": "負債・資本の部",
+      "path": [
+        "負債・資本の部"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00500": {
+      "label": "科目",
+      "path": [
+        "科目"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00505": {
+      "label": "追加科目１　繰り返し",
+      "path": [
+        "追加科目１　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00510": {
+      "label": "科目名",
+      "path": [
+        "科目名"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APG00600": {
+      "label": "金額（期首）",
+      "path": [
+        "金額（期首）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00720": {
+      "label": "金額（期末）",
+      "path": [
+        "金額（期末）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00515": {
+      "label": "追加科目２　繰り返し",
+      "path": [
+        "追加科目２　繰り返し"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00520": {
+      "label": "科目名",
+      "path": [
+        "科目名"
+      ],
+      "type": "string(10)",
+      "enum": ""
+    },
+    "APG00620": {
+      "label": "金額（期首）",
+      "path": [
+        "金額（期首）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00740": {
+      "label": "金額（期末）",
+      "path": [
+        "金額（期末）"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00530": {
+      "label": "期首",
+      "path": [
+        "期首"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00540": {
+      "label": "期首月日",
+      "path": [
+        "期首月日"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "APG00550": {
+      "label": "買掛金",
+      "path": [
+        "買掛金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00560": {
+      "label": "借入金",
+      "path": [
+        "借入金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00570": {
+      "label": "未払金",
+      "path": [
+        "未払金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00580": {
+      "label": "前受金",
+      "path": [
+        "前受金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00590": {
+      "label": "預り金",
+      "path": [
+        "預り金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00610": {
+      "label": "貸倒引当金",
+      "path": [
+        "貸倒引当金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00630": {
+      "label": "元入金",
+      "path": [
+        "元入金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00640": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00650": {
+      "label": "期末",
+      "path": [
+        "期末"
+      ],
+      "type": "",
+      "enum": ""
+    },
+    "APG00660": {
+      "label": "期末月日",
+      "path": [
+        "期末月日"
+      ],
+      "type": "mmdd",
+      "enum": ""
+    },
+    "APG00670": {
+      "label": "買掛金",
+      "path": [
+        "買掛金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00680": {
+      "label": "借入金",
+      "path": [
+        "借入金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00690": {
+      "label": "未払金",
+      "path": [
+        "未払金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00700": {
+      "label": "前受金",
+      "path": [
+        "前受金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00710": {
+      "label": "預り金",
+      "path": [
+        "預り金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00730": {
+      "label": "貸倒引当金",
+      "path": [
+        "貸倒引当金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00750": {
+      "label": "事業主借",
+      "path": [
+        "事業主借"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00760": {
+      "label": "元入金",
+      "path": [
+        "元入金"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00770": {
+      "label": "青色申告特別控除前の所得金額",
+      "path": [
+        "青色申告特別控除前の所得金額"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    },
+    "APG00780": {
+      "label": "合計",
+      "path": [
+        "合計"
+      ],
+      "type": "kingaku",
+      "enum": ""
+    }
+  }
+}
