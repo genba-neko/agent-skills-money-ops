@@ -21,11 +21,14 @@ _PROJECT_ROOT = _SKILLS_DIR.parents[1]
 sys.path.insert(0, str(_PROJECT_ROOT / "src"))
 
 from money_ops.etax.parser import parse  # noqa: E402
+from money_ops.etax.labeler import apply_labels, coverage_stats  # noqa: E402
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="e-Tax xtx → 素 JSON 変換")
     ap.add_argument("--year", type=int, required=True, help="申告対象年 (例: 2024)")
+    ap.add_argument("--with-labels", action="store_true",
+                    help="mapping を引いて labeled.json も併せて出力")
     args = ap.parse_args()
 
     raw_dir = _PROJECT_ROOT / "data" / "etax" / str(args.year) / "raw"
@@ -69,6 +72,23 @@ def main() -> None:
         print("\n  添付書類:")
         for f in report.attachments:
             print(f"    {f.form_id:40s}  ({f.form_code})  leaves={_depth_count(f.fields):4d}")
+
+    if args.with_labels:
+        import json as _json
+        normalized = _json.loads(out_path.read_text(encoding="utf-8"))
+        labeled = apply_labels(normalized)
+        labeled_path = out_path.with_name("labeled.json")
+        labeled_path.write_text(
+            _json.dumps(labeled, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        stats = coverage_stats(normalized)
+        t = stats["total"]
+        pct = 100 * t["hit"] / (t["hit"] + t["miss"]) if (t["hit"] + t["miss"]) else 0
+        print(f"\n[OK] labeled JSON: {labeled_path}")
+        print(f"  mapping カバレッジ: {t['hit']}/{t['hit']+t['miss']} ({pct:.1f}%)")
+        for form_id, s in stats["by_form"].items():
+            mark = "✓" if s["miss"] == 0 else "△"
+            print(f"    {mark} {form_id:30s} hit={s['hit']:4d} miss={s['miss']:3d}")
 
 
 if __name__ == "__main__":

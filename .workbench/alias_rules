@@ -15,6 +15,7 @@ tax-convert       $VENV_PYTHON $PROJECT_ROOT/skills/tax-collect/convert.py @args
 expense-collect   $VENV_PYTHON $PROJECT_ROOT/skills/expense-collect/run.py @args     # expense-collect 一括収集
 expense-normalize $VENV_PYTHON $PROJECT_ROOT/skills/expense-collect/normalize.py @args  # 各社CSV → 共通フォーマットJSON 正規化
 expense-dividend  $VENV_PYTHON $PROJECT_ROOT/skills/expense-collect/aggregate_dividend.py @args  # 配当金集計（画面表示+CSV出力）
+etax-parse        $VENV_PYTHON $PROJECT_ROOT/skills/tax-etax/parse_xtx.py @args      # e-Tax xtx → JSON 化（--with-labels で labeled.json 併出）
 browser-recorder $VENV_PYTHON $PROJECT_ROOT/tools/browser_recorder.py @args      # 新規サイト追加用 操作記録（汎用）
 browser-backup   $VENV_PYTHON $PROJECT_ROOT/tools/browser_profile.py backup @args   # ブラウザプロファイルバックアップ（data/browser/）
 browser-restore  $VENV_PYTHON $PROJECT_ROOT/tools/browser_profile.py restore @args  # ブラウザプロファイルリストア（~/.money-ops-browser/）
