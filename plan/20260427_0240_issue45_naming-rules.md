@@ -251,7 +251,12 @@ if year is not None:
   - [x] `python tools/browser_profile.py backup --code sbi --yes` → `data/browser-backups/sbi_*.zip`
   - [x] `python tools/browser_recorder.py --help` 起動確認
   - [x] `pytest tests/` → 294 passed
-  - [ ] expense-collect 実機収集確認（要ブラウザログイン、後ほどユーザー実施）
+  - [x] expense-collect 実機収集確認: `data/expenses/sbi/2025/raw/DetailInquiry_*.csv` 出力 OK
+- レビュー追加対応（コミット 8-11）
+  - [x] webull test の目的劣化解消（max_wait_sec=2 + capsys）
+  - [x] base.py {year} placeholder 展開テスト追加
+  - [x] conftest skill 引数対応 + expense_collect/test_sbi.py 追加
+  - [x] expense-collect/sbi __init__ 復活 (site_json_path デフォルト)
 
 ---
 
