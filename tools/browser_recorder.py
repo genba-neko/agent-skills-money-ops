@@ -190,7 +190,8 @@ def main() -> int:
         add_event(kind, url=url, **(data if isinstance(data, dict) else {"value": data}))
 
     def input_loop() -> None:
-        print("\n[recorder] 操作開始。Enter=milestone（ラベル任意） / 'q'+Enter=停止\n")
+        print("\n[recorder] 操作開始。Enter=milestone（ラベル任意） / 'q'+Enter=停止")
+        print("[recorder] trace データは traces/ 配下に逐次保存。q+Enter で zip 化、× 閉じでも traces/ 内に残ります\n")
         while not stop_event.is_set():
             try:
                 line = input()
@@ -296,10 +297,15 @@ def main() -> int:
     from playwright.sync_api import sync_playwright
 
     with sync_playwright() as p:
+        # traces_dir: ブラウザ × 閉じ後も中間 trace データが残る保存先
+        # （Playwright doc: "The directory is not cleaned up when the browser closes"）
+        traces_dir = out_dir / "traces"
+        traces_dir.mkdir(parents=True, exist_ok=True)
         context = p.chromium.launch_persistent_context(
             str(profile_dir),
             headless=False,
             record_har_path=str(out_dir / "network.har"),
+            traces_dir=str(traces_dir),
             args=[
                 "--disable-blink-features=AutomationControlled",
                 "--use-angle=d3d11",
@@ -309,7 +315,7 @@ def main() -> int:
         # 全 page（popup 含む）で user 操作を捕捉
         context.expose_binding("__recorder_event", on_user_event)
         context.add_init_script(user_event_js)
-        context.tracing.start(screenshots=True, snapshots=True, sources=True)
+        context.tracing.start(name="recording", screenshots=True, snapshots=True, sources=True)
         page = context.new_page()
         state["page"] = page
         attach_page_events(page)
@@ -332,12 +338,24 @@ def main() -> int:
                 try:
                     label = milestone_queue.get(timeout=0.2)
                 except _queue.Empty:
+                    # 全 page closed = ブラウザ × 閉じ → 停止
+                    # （persistent context で context.on("close") が発火しないケース対策）
+                    try:
+                        active_pages = [pg for pg in context.pages if not pg.is_closed()]
+                    except Exception as e:
+                        # context 自体 closed
+                        print(f"\n[recorder] context closed 検出 → 停止: {e}")
+                        stop_event.set()
+                        break
+                    if not active_pages:
+                        print("\n[recorder] 全ページ閉じ → 停止")
+                        stop_event.set()
+                        break
                     # CDP イベントポンプ: 新 popup target の waitForDebugger 解除のため
                     # 短い Playwright API 呼び出しでメッセージキューを drain
                     try:
-                        for pg in context.pages:
-                            if not pg.is_closed():
-                                pg.evaluate("1")
+                        for pg in active_pages:
+                            pg.evaluate("1")
                     except Exception:
                         pass
                     continue
@@ -362,11 +380,27 @@ def main() -> int:
                     pass
         except Exception:
             pass
+        trace_zip_path = out_dir / "trace.zip"
+        tracing_stopped = False
         try:
-            context.tracing.stop(path=str(out_dir / "trace.zip"))
+            context.tracing.stop(path=str(trace_zip_path))
             print("[recorder] trace.zip 保存完了")
+            tracing_stopped = True
         except Exception as e:
             print(f"[recorder] tracing 停止失敗（ブラウザ既閉鎖）: {e}")
+            # tracing.stop() 失敗 → traces_dir に残った unarchived データを自前で zip 化
+            try:
+                import zipfile as _zip
+                if traces_dir.exists() and any(traces_dir.iterdir()):
+                    with _zip.ZipFile(trace_zip_path, "w", _zip.ZIP_DEFLATED) as zf:
+                        for f in traces_dir.rglob("*"):
+                            if f.is_file():
+                                zf.write(f, arcname=str(f.relative_to(traces_dir)))
+                    size_mb = trace_zip_path.stat().st_size / (1024 * 1024)
+                    print(f"[recorder] traces/ から trace.zip 復旧: {trace_zip_path} ({size_mb:.1f} MB)")
+                    tracing_stopped = True
+            except Exception as e2:
+                print(f"[recorder] traces/ 復旧失敗: {e2}")
         try:
             context.close()
         except Exception:
