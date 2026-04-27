@@ -186,6 +186,8 @@ class RakutenExpenseCollector(BaseCollector):
         if not paths:
             self.log_result("error", [], "両 CSV 取得失敗")
             return
+        if len(paths) < 2:
+            print(f"[{self.name}] [WARN] 部分取得 ({len(paths)}/2): {paths}")
         self.log_result("success", paths)
 
 
