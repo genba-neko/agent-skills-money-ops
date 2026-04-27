@@ -101,14 +101,91 @@ class RakutenExpenseCollector(BaseCollector):
         print(f"[{self.name}] CSV 保存: {csv_path}")
         return str(csv_path)
 
+    def _navigate_to_dividend(self, page) -> None:
+        """マイメニュー → 配当・分配金。"""
+        print(f"[{self.name}] マイメニュー → 配当・分配金")
+        page.get_by_role("button", name=re.compile("マイメニュー")).click()
+        _wait()
+        page.locator("#megaMenu").get_by_role("link", name="配当・分配金").click()
+        page.wait_for_load_state("domcontentloaded")
+        _wait(2.0, 3.0)
+        page.locator("form[name='AssDividendHistoryForm']").first.wait_for(state="visible", timeout=60_000)
+        self.dlog(f"dividend URL: {page.url}")
+        self.save_html(page, "dividend_history")
+
+    def _set_dividend_period(self, page, year: int) -> None:
+        """期間 select 設定: year/01/01 〜 year/12/31。"""
+        print(f"[{self.name}] 期間設定: {year}/01/01 〜 {year}/12/31")
+        page.locator("select#yearFrom").select_option(value=str(year))
+        _wait(0.3, 0.7)
+        page.locator("select#monthFrom").select_option(value="01")
+        _wait(0.3, 0.7)
+        page.locator("select#dayFrom").select_option(value="01")
+        _wait(0.3, 0.7)
+        page.locator("select#yearTo").select_option(value=str(year))
+        _wait(0.3, 0.7)
+        page.locator("select#monthTo").select_option(value="12")
+        _wait(0.3, 0.7)
+        page.locator("select#dayTo").select_option(value="31")
+        _wait(0.5, 1.0)
+
+    def _submit_and_download_dividend(self, page) -> str | None:
+        """配当金画面の CSV エクスポート: <a onclick='csvOutput()'> click → ?eventType=csv navigation。"""
+        print(f"[{self.name}] 配当金 CSV エクスポート")
+        # 照会 button が必要なら先に click（form 名で limit）
+        try:
+            inquiry = page.locator("form[name='AssDividendHistoryForm'] input[type='submit'], form[name='AssDividendHistoryForm'] button[type='submit']").first
+            if inquiry.count() > 0:
+                inquiry.click()
+                page.wait_for_load_state("domcontentloaded")
+                _wait(2.0, 3.0)
+        except Exception:
+            pass
+
+        csv_link = page.locator("a[onclick*='csvOutput']").first
+        try:
+            csv_link.wait_for(state="visible", timeout=30_000)
+        except Exception as e:
+            self.dlog(f"配当金 CSV link 未表示: {e}")
+            self.save_html(page, "no_dividend_csv_link")
+            return None
+
+        self.prepare_directory()
+        with page.expect_download(timeout=30_000) as dl_info:
+            csv_link.click()
+        download = dl_info.value
+        suggested = download.suggested_filename or f"dividendlist_{self.config['target_year']}.csv"
+        csv_path = self.output_dir / suggested
+        download.save_as(str(csv_path))
+
+        if not csv_path.exists() or csv_path.stat().st_size == 0:
+            self.dlog(f"配当金 CSV 保存失敗 or 空ファイル: {csv_path}")
+            return None
+        print(f"[{self.name}] 配当金 CSV 保存: {csv_path}")
+        return str(csv_path)
+
     def _collect_core(self, page) -> None:
         self._wait_for_login(page)
+        paths = []
+
+        # 1. 入出金履歴
         self._navigate_to_history(page)
-        csv_path = self._submit_and_download(page)
-        if csv_path is None:
-            self.log_result("error", [], "CSV 取得失敗")
+        p1 = self._submit_and_download(page)
+        if p1:
+            paths.append(p1)
+
+        # 2. 配当金履歴
+        target_year = self.config["target_year"]
+        self._navigate_to_dividend(page)
+        self._set_dividend_period(page, target_year)
+        p2 = self._submit_and_download_dividend(page)
+        if p2:
+            paths.append(p2)
+
+        if not paths:
+            self.log_result("error", [], "両 CSV 取得失敗")
             return
-        self.log_result("success", [csv_path])
+        self.log_result("success", paths)
 
 
 def main() -> None:

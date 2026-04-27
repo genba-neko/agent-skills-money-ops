@@ -85,16 +85,17 @@ def _collect_core(self, page) -> None:
 
 ## 実装タスク
 
-- [ ] `skills/expense-collect/sites/rakuten/collect.py` 拡張
-  - `_navigate_to_dividend` 追加
+- [x] `skills/expense-collect/sites/rakuten/collect.py` 拡張
+  - `_navigate_to_dividend` 追加 (megaMenu 内に limit で strict mode 回避)
   - `_set_dividend_period` 追加 (期間 select 6個)
-  - `_submit_and_download_dividend` 追加 (CSV link selector は HAR/recorder 再分析で確定)
+  - `_submit_and_download_dividend` 追加 (`a[onclick*='csvOutput']` selector)
   - `_collect_core` で 2段階採取に変更
-- [ ] 実機テスト
-  - `python skills/expense-collect/run.py --year 2025 --sites rakuten --force`
-  - 両 CSV 保存確認: `Withdrawallist_*.csv` + `dividendlist_*.csv`
-- [ ] 配当金 CSV の中身サンプリング確認 (列構成、列名、件数)
-- [ ] PR 作成・マージ
+- [x] 実機テスト → 両 CSV 出力確認:
+  - `Withdrawallist_20260427.csv` 1515 行 (入出金)
+  - `dividendlist_20260427.csv` 59 行 (配当金)
+- [x] 配当金 CSV の中身確認:
+  列: 入金日 / 商品 / 口座 / 銘柄コード / 銘柄 / 受取通貨 / 単価 / 数量 / 配当・分配金合計(税引前) / 税額合計 / 受取金額
+- [x] PR 作成
 
 ---
 
