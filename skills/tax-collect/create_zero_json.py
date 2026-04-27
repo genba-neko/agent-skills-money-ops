@@ -31,7 +31,7 @@ def load_registry() -> list[dict]:
 
 def json_path(code: str, year: int) -> Path:
     return (
-        _PROJECT_ROOT / "data" / "income" / "securities"
+        _PROJECT_ROOT / "data" / "incomes" / "securities"
         / code / str(year) / "nenkantorihikihokokusho.json"
     )
 

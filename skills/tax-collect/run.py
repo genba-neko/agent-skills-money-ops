@@ -44,7 +44,7 @@ def load_sites() -> list[dict]:
 
 def is_collected(code: str, year: int) -> bool:
     json_path = (
-        _PROJECT_ROOT / "data" / "income" / "securities"
+        _PROJECT_ROOT / "data" / "incomes" / "securities"
         / code / str(year) / "nenkantorihikihokokusho.json"
     )
     return json_path.exists() and json_path.stat().st_size > 0

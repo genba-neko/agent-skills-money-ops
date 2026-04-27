@@ -64,7 +64,7 @@ def main() -> int:
             raw_files=args.raw_files,
         )
 
-        out_dir = Path("data") / "income" / "securities" / args.code / str(args.year)
+        out_dir = Path("data") / "incomes" / "securities" / args.code / str(args.year)
         out_dir.mkdir(parents=True, exist_ok=True)
         json_path = out_dir / "nenkantorihikihokokusho.json"
         json_path.write_text(
