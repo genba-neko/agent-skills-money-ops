@@ -145,24 +145,59 @@ python skills/expense-collect/normalize.py --year 2025 --sites sbi nomura
 
 ## 検証
 
-- [ ] SBI: 配当金 0 件以上抽出 (今回サンプルでは摘要に「配当金」明記なし、要実機確認)
-- [ ] nomura: 配当金 5 件以上抽出 (取引区分 = "入金（配当金）")
-- [ ] rakuten: 1515 行 → year=2025 でフィルタリング後の件数妥当
-- [ ] 共通 JSON で配当金集計 (filter `category=dividend` → sum amount_in)
+- [x] SBI: 配当金 84 件抽出（要精査: 「配当」文字列に税還付等の誤 hit 含む可能性）
+- [x] nomura: 配当金 5 件抽出 (取引区分 = "入金（配当金）" 完全一致)
+- [x] rakuten: 478 件 (Withdrawal 386 + Dividend 92) → 配当 92 件妥当
+- [x] 共通 JSON で配当金集計 (filter `category=dividend`)
+
+### 適合率 実測
+
+| フィールド | sbi (n=127) | nomura (n=15) | rakuten (n=478) |
+|-----------|-------------|---------------|-----------------|
+| date | 100% | 100% | 100% |
+| amount_in!=0 | 92.9% | 33.3% | 67.6% |
+| amount_out!=0 | 7.1% | 33.3% | 23.8% |
+| description | 100% | 100% | 100% |
+| category_raw | 100% | 100% | 100% |
+| category != other | **100%** | **100%** | **100%** |
+| security_code | 0% | 73.3% | 17.8% |
+| security_name | 0% | 73.3% | 19.2% |
+
+#### 観察
+
+- 必須コア（date/description/category）は全社 100% 充足
+- classify は 100% 分類成功（other 残り 0%）
+- security_code/name の不足は仕様妥当:
+  - sbi: 摘要に銘柄コード埋込なし、抽出未実装（後続 issue 候補）
+  - rakuten: 配当 CSV のみ持つ（入出金 CSV は資金移動のため銘柄なし）
+  - nomura: 現金取引にはコード無し（株式取引のみ持つ）
+
+#### 配当金検出妥当性
+
+| 社 | dividend 件数 | 妥当性 |
+|----|--------------|--------|
+| sbi | 84 | ⚠ 過多疑い。「配当」文字列の誤 hit（税還付等）含む可能性 → 要 description サンプル精査 + classify ルール改善 |
+| nomura | 5 | ✅ 取引区分明示で完全一致 |
+| rakuten | 92 | ✅ dividendlist CSV 全件 |
 
 ---
 
 ## 実装タスク
 
-- [ ] `src/money_ops/normalizer/expense_csv.py` 新設
-  - Transaction / NormalizedReport dataclass
+- [x] `src/money_ops/normalizer/expense_csv.py` 新設
+  - Transaction / NormalizedReport dataclass（currency 追加、外貨は cent 単位 ×100 整数で保存）
   - カテゴリ正規化関数 (`classify`)
-- [ ] `skills/expense-collect/parsers/sbi.py` 新設
-- [ ] `skills/expense-collect/parsers/nomura.py` 新設
-- [ ] `skills/expense-collect/parsers/rakuten.py` 新設 (encoding cp932)
-- [ ] `skills/expense-collect/normalize.py` 新設 (CLI)
+  - `build_summary` は通貨別集計（`total_in_by_currency` / `total_out_by_currency`）
+- [x] `skills/expense-collect/parsers/sbi.py` 新設
+- [x] `skills/expense-collect/parsers/nomura.py` 新設（header 検出は列数 >= 10 で実データ行に絞る）
+- [x] `skills/expense-collect/parsers/rakuten.py` 新設 (encoding cp932、Withdrawal/Dividend 双方対応、外貨対応)
+- [x] `skills/expense-collect/normalize.py` 新設 (CLI、同種 CSV は最新のみ採用で重複排除)
+- [x] `skills/expense-collect/aggregate_dividend.py` 派生追加（配当集計 CLI、USD/JPY 別列表示、frankfurter.app spot rate で円換算、CSV 出力）
+- [x] `.workbench/alias_rules` に `expense-normalize` / `expense-dividend` 登録
+- [x] 実機実行 → `normalized.json` 出力確認 + 配当金集計確認（sbi 127 / nomura 15 / rakuten 478 件、配当 USD 41 件含む円換算合計確認）
 - [ ] `tests/expense_collect/test_parsers.py` 新設 (各 parser サンプル CSV → Transaction list 検証)
-- [ ] 実機実行 → `normalized.json` 出力確認 + 配当金集計確認
+- [ ] sbi 配当金 84 件の精査（description サンプリング + classify ルール改善）
+- [ ] sbi parser の銘柄名抽出（CSV に銘柄コード列なし、摘要から銘柄名のみ抽出可、別 issue 候補）
 
 ---
 

@@ -10,8 +10,11 @@ adb           C:\Users\g\AppData\Local\Microsoft\WinGet\Packages\Google.Platform
 format        $VENV_PYTHON -m black . ; $VENV_PYTHON -m isort .  # black で整形 → isort で import 整理
 lint          $VENV_PYTHON -m mypy . ; $VENV_PYTHON -m pylint --recursive=y .  # 型チェック → 静的解析
 test          $VENV_PYTHON -m pytest @args  # pytest 実行
-tax-collect   $VENV_PYTHON $PROJECT_ROOT/skills/tax-collect/run.py @args  # tax-collect 一括収集
-tax-convert   $VENV_PYTHON $PROJECT_ROOT/skills/tax-collect/convert.py @args  # PDF→JSON 直列変換（30秒delay）
+tax-collect       $VENV_PYTHON $PROJECT_ROOT/skills/tax-collect/run.py @args         # tax-collect 一括収集
+tax-convert       $VENV_PYTHON $PROJECT_ROOT/skills/tax-collect/convert.py @args     # PDF→JSON 直列変換（30秒delay）
+expense-collect   $VENV_PYTHON $PROJECT_ROOT/skills/expense-collect/run.py @args     # expense-collect 一括収集
+expense-normalize $VENV_PYTHON $PROJECT_ROOT/skills/expense-collect/normalize.py @args  # 各社CSV → 共通フォーマットJSON 正規化
+expense-dividend  $VENV_PYTHON $PROJECT_ROOT/skills/expense-collect/aggregate_dividend.py @args  # 配当金集計（画面表示+CSV出力）
 browser-recorder $VENV_PYTHON $PROJECT_ROOT/tools/browser_recorder.py @args      # 新規サイト追加用 操作記録（汎用）
 browser-backup   $VENV_PYTHON $PROJECT_ROOT/tools/browser_profile.py backup @args   # ブラウザプロファイルバックアップ（data/browser/）
 browser-restore  $VENV_PYTHON $PROJECT_ROOT/tools/browser_profile.py restore @args  # ブラウザプロファイルリストア（~/.money-ops-browser/）
