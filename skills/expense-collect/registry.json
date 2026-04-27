@@ -10,6 +10,17 @@
       "dashboard_url": "https://site2.sbisec.co.jp/ETGate/",
       "history_url": "https://member.c.sbisec.co.jp/banking/yen/detail-history",
       "collection": "auto"
+    },
+    {
+      "code": "nomura",
+      "name": "野村證券（取引履歴）",
+      "category": "securities",
+      "document_type": "取引履歴",
+      "site_url": "https://www.nomura.co.jp/",
+      "login_url": "https://hometrade.nomura.co.jp/web/rmfIndexWebAction.do",
+      "dashboard_url": "https://hometrade.nomura.co.jp/web/",
+      "history_url": "https://hometrade.nomura.co.jp/web/rmfAstTrhTrhLstInitAction.do",
+      "collection": "auto"
     }
   ]
 }
