@@ -71,10 +71,10 @@ importlib で `run.py` をロード（`run` という名前は他とぶつかる
 
 ## 実装タスク
 
-- [ ] `tests/tax_collect/test_run.py` 新設（6 ケース）
-- [ ] `tests/expense_collect/test_run.py` 新設（5 ケース）
-- [ ] pytest 全件パス確認
-- [ ] プラン完了マーク + コミット + PR
+- [x] `tests/tax_collect/test_run.py` 新設（6 ケース全パス）
+- [x] `tests/expense_collect/test_run.py` 新設（5 ケース全パス）
+- [x] pytest 全件パス確認（300 → 311 件）
+- [x] プラン完了マーク + コミット + PR
 
 ---
 
