@@ -130,17 +130,18 @@ class RakutenExpenseCollector(BaseCollector):
         _wait(0.5, 1.0)
 
     def _submit_and_download_dividend(self, page) -> str | None:
-        """配当金画面の CSV エクスポート: <a onclick='csvOutput()'> click → ?eventType=csv navigation。"""
-        print(f"[{self.name}] 配当金 CSV エクスポート")
-        # 照会 button が必要なら先に click（form 名で limit）
-        try:
-            inquiry = page.locator("form[name='AssDividendHistoryForm'] input[type='submit'], form[name='AssDividendHistoryForm'] button[type='submit']").first
-            if inquiry.count() > 0:
-                inquiry.click()
-                page.wait_for_load_state("domcontentloaded")
-                _wait(2.0, 3.0)
-        except Exception:
-            pass
+        """配当金画面の CSV エクスポート。
+
+        フロー:
+            1. 「表示」 button (input[type=image] onclick='clickSearch()') click
+               → eventType=search に設定 + form submit → 期間絞り込み結果表示
+            2. CSV エクスポート link (a[onclick='csvOutput()']) click → DL
+        """
+        print(f"[{self.name}] 表示 button → CSV エクスポート")
+        # 「表示」 button click（期間絞り込みを反映するため必須）
+        page.locator("form[name='AssDividendHistoryForm'] input[type='image'][onclick*='clickSearch']").first.click()
+        page.wait_for_load_state("domcontentloaded")
+        _wait(2.0, 3.0)
 
         csv_link = page.locator("a[onclick*='csvOutput']").first
         try:
