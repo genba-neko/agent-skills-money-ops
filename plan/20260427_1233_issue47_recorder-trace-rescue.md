@@ -71,18 +71,18 @@ trace データ救済可能を明示:
 
 ## 検証
 
-- [ ] **q+Enter 停止 → 従来通り trace.zip 化される**
-  - `python tools/browser_recorder.py --code test --start-url about:blank`
-  - User 操作後 q+Enter
-  - 期待: `trace.zip` 生成、`traces/` も存在
-- [ ] **ブラウザ × 閉じ → traces/ 配下に unarchived trace データ残る**
-  - 上記同手順で × 閉じ
-  - 期待: `traces/` 配下に trace 中間ファイル残存、Trace Viewer で開ける
-- [ ] **Trace Viewer 動作確認**
-  - `npx playwright show-trace <traces_dir or trace.zip>` で再生可能か
-- [ ] **HAR 救済可否確認**
-  - × 閉じ時 `network.har` が部分的にでも残るか
-  - 残らない場合は trace 内 network 情報で代替可能か確認
+- [ ] **q+Enter 停止 → 従来通り trace.zip 化される** (未検証)
+  - 理由: Claude (Bash) 経由起動だと TTY なし = q+Enter 不可、検証不能
+  - 既存挙動なので回帰なしの想定。ユーザ手動 terminal で確認推奨
+- [x] **ブラウザ × 閉じ → traces/ 配下に unarchived trace データ残る**
+  - google.com で検証 → `recording.trace` 2.8MB / `recording.network` 1.3MB / `resources/` 残存
+- [x] **Trace Viewer 動作確認**
+  - `npx playwright show-trace trace.zip` で再生 OK
+  - 22秒分スクショ・network 233件・操作 timeline 完全再現確認
+- [x] **HAR 救済可否確認**
+  - × 閉じ時 `network.har` ファイル自体作成されない
+    （Playwright が close 時 flush するため）
+  - 代替: trace.zip 内 network 情報で完全代替可能
 
 ---
 
