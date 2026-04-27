@@ -1,7 +1,7 @@
-"""tax-collect サイト追加用 操作記録ツール
+"""サイト追加用 操作記録ツール（汎用）
 
 使い方:
-    python skills/tax-collect/recorder.py --code newsite --start-url https://example.com/
+    python tools/browser_recorder.py --code newsite --start-url https://example.com/
 
 動作:
     1. Playwright persistent context（既存プロファイル使用）でブラウザ起動
@@ -35,7 +35,7 @@ import threading
 from datetime import datetime
 from pathlib import Path
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+_PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def _now() -> str:
@@ -120,7 +120,7 @@ def _write_summary(out_dir: Path, events: list[dict], milestones: list[dict]) ->
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="tax-collect サイト追加用 操作記録ツール")
+    parser = argparse.ArgumentParser(description="サイト追加用 操作記録ツール（汎用）")
     parser.add_argument("--code", required=True, help="サイトコード（例: newsite）")
     parser.add_argument("--start-url", default=None, help="起動時に開く URL")
     parser.add_argument("--fresh", action="store_true", help="新規プロファイル使用（既存cookie流用しない）")
@@ -194,9 +194,12 @@ def main() -> int:
         while not stop_event.is_set():
             try:
                 line = input()
-            except EOFError:
-                stop_event.set()
-                break
+            except (EOFError, OSError):
+                # stdin 切断（バックグラウンド/パイプ実行）→ 即停止せず
+                # ブラウザ閉じ or Ctrl+C まで待機
+                print("[recorder] stdin EOF → milestone 記録不可。ブラウザ閉じ or Ctrl+C で停止")
+                stop_event.wait()
+                return
             if line.strip().lower() == "q":
                 stop_event.set()
                 break

@@ -35,11 +35,6 @@ class SBIExpenseCollector(BaseCollector):
     def __init__(self, site_json_path: str | Path = _SITE_JSON, year: int | None = None,
                  headless: bool | None = None, debug: bool | None = None):
         super().__init__(site_json_path, year, headless=headless, debug=debug)
-        # BaseCollector は data/income/securities/... を hardcode するので
-        # expense 用に上書き
-        if year is not None:
-            self.output_dir = Path(f"data/expense/{self.code}/{year}/raw/")
-            self.config["output_dir"] = str(self.output_dir)
 
     def _build_date_range(self) -> tuple[str, str]:
         """target_year に応じた検索期間を返す（過去年=1/1〜12/31、当年=1/1〜今日 試行）。

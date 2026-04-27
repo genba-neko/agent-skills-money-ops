@@ -46,7 +46,7 @@ ERROR が出た場合は内容を確認してユーザーに伝える。
 
 ## 収集済み判定
 
-`data/expense/<code>/<year>/raw/` 配下に CSV ファイルが 1 つ以上存在で収集済みと判断。
+`data/expenses/<category>/<code>/<year>/raw/` 配下に CSV ファイルが 1 つ以上存在で収集済みと判断。
 
 ## 前提条件
 

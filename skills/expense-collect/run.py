@@ -6,7 +6,7 @@
     python skills/expense-collect/run.py --year 2025 --force
     python skills/expense-collect/run.py --year 2025 --fail-fast
 
-デフォルト: 収集済み（data/expense/<code>/<year>/raw/ に CSV 1つ以上存在）はスキップ。
+デフォルト: 収集済み（data/expenses/<category>/<code>/<year>/raw/ に CSV 1つ以上存在）はスキップ。
 --force: 収集済みでも再実行。
 """
 
@@ -41,9 +41,9 @@ def load_accounts() -> list[dict]:
         sys.exit(1)
 
 
-def is_collected(code: str, year: int) -> bool:
-    """収集済み判定: data/expense/<code>/<year>/raw/ に CSV ファイルが 1 つ以上存在。"""
-    raw_dir = _PROJECT_ROOT / "data" / "expense" / code / str(year) / "raw"
+def is_collected(category: str, code: str, year: int) -> bool:
+    """収集済み判定: data/expenses/<category>/<code>/<year>/raw/ に CSV ファイルが 1 つ以上存在。"""
+    raw_dir = _PROJECT_ROOT / "data" / "expenses" / category / code / str(year) / "raw"
     if not raw_dir.exists():
         return False
     return any(raw_dir.glob("*.csv"))
@@ -119,6 +119,7 @@ def main() -> None:
                 break
             code = account["code"]
             name = account["name"]
+            category = account.get("category", "securities")
             collection = account.get("collection", "auto")
 
             if collection != "auto":
@@ -126,7 +127,7 @@ def main() -> None:
                 results["skip"].append(code)
                 continue
 
-            if not args.force and is_collected(code, args.year):
+            if not args.force and is_collected(category, code, args.year):
                 print(f"\n[DONE] {code} ({name}): 収集済み（スキップ）")
                 results["done"].append(code)
                 continue

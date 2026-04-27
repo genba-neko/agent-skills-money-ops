@@ -4,7 +4,7 @@ import pytest
 
 from money_ops.converter import convert_teg204_xml
 
-SAMPLE_XML = Path(__file__).parent / "fixtures" / "teg204_sample.xml"
+SAMPLE_XML = Path(__file__).resolve().parents[1] / "fixtures" / "teg204_sample.xml"
 
 _NS_K = "http://xml.e-tax.nta.go.jp/XSD/kyotsu"
 

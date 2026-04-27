@@ -7,7 +7,7 @@
 動作:
     - 起動直後に lock ファイル output/converting/<code>_<year>.lock を作成
     - docling 経由 PDF→JSON 変換
-    - 結果を data/income/securities/<code>/<year>/nenkantorihikihokokusho.json に保存
+    - 結果を data/incomes/securities/<code>/<year>/nenkantorihikihokokusho.json に保存
     - ハートビート: 10秒ごとに「[CONVERT][<code>] 経過Xs」を stderr に出す
     - 終了時（成功・失敗問わず）lock ファイルを削除
 
@@ -64,7 +64,7 @@ def main() -> int:
             raw_files=args.raw_files,
         )
 
-        out_dir = Path("data") / "income" / "securities" / args.code / str(args.year)
+        out_dir = Path("data") / "incomes" / "securities" / args.code / str(args.year)
         out_dir.mkdir(parents=True, exist_ok=True)
         json_path = out_dir / "nenkantorihikihokokusho.json"
         json_path.write_text(

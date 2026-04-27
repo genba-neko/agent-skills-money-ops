@@ -2,7 +2,7 @@
   "name": "GMOクリック証券",
   "code": "gmo-click",
   "target_year": 2025,
-  "output_dir": "data/income/securities/gmo-click/2025/raw/",
+  "output_dir": "data/incomes/securities/gmo-click/{year}/raw/",
   "documents": [
     {
       "type": "特定口座年間取引報告書"

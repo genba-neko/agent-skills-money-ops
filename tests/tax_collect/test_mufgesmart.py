@@ -73,7 +73,7 @@ def test_collect_success_flow(tmp_path):
          patch.object(c, "_open_trade_page", return_value=page1), \
          patch.object(c, "_navigate_to_pdf_report"), \
          patch.object(c, "_download_pdf", return_value=pdf_path), \
-         patch.object(_mod, "convert_pdf_to_json", return_value={"code": _CODE}), \
+         patch.object(c, "_queue_pdf_to_json"), \
          patch.object(c, "log_result") as mock_log:
         c.run()
 

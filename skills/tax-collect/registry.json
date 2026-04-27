@@ -1,5 +1,5 @@
 {
-  "securities": [
+  "accounts": [
     {
       "code": "webull",
       "name": "ウィブル証券",
@@ -10,7 +10,8 @@
       "has_xml": false,
       "マイナ連携": false,
       "collection": "android",
-      "login_detection": null
+      "login_detection": null,
+      "category": "securities"
     },
     {
       "code": "sbi",
@@ -25,7 +26,8 @@
       "login_detection": {
         "done_url": "**/ETGate/**",
         "skip_selector_absent": "input[name='username']"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "rakuten",
@@ -40,7 +42,8 @@
       "login_detection": {
         "done_url": "**/member.rakuten-sec.co.jp/app/**",
         "skip_url_contains": "member.rakuten-sec.co.jp/app/"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "nomura",
@@ -55,7 +58,8 @@
       "login_detection": {
         "skip_url_contains": "hometrade.nomura.co.jp",
         "skip_url_excludes": "login"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "monex",
@@ -69,7 +73,8 @@
       "collection": "auto",
       "login_detection": {
         "skip_url_contains": "mxp3.monex.co.jp"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "matsui",
@@ -84,7 +89,8 @@
       "login_detection": {
         "done_selector": "frame[name='GM']",
         "skip_selector": "frame[name='GM']"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "gmo-click",
@@ -99,7 +105,8 @@
       "login_detection": {
         "done_url": "**/mypage/top**",
         "skip_url_contains": "mypage/top"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "smbcnikko",
@@ -114,7 +121,8 @@
       "login_detection": {
         "skip_url_contains": "trade.smbcnikko.co.jp",
         "skip_url_excludes": "/Login/0/login/"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "mufg-esmart",
@@ -128,7 +136,8 @@
       "collection": "auto",
       "login_detection": {
         "custom": true
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "tsumiki",
@@ -142,7 +151,8 @@
       "collection": "auto",
       "login_detection": {
         "custom": true
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "daiwa-connect",
@@ -157,7 +167,8 @@
       "login_detection": {
         "done_url": "**/webbroker3/**",
         "skip_url_contains": "webbroker3"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "paypay",
@@ -171,7 +182,8 @@
       "collection": "auto",
       "login_detection": {
         "custom": true
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "nomura-mochikabu",
@@ -186,7 +198,8 @@
       "login_detection": {
         "skip_url_contains": "e-plan.nomura.co.jp",
         "skip_url_excludes": "login"
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "hifumi",
@@ -200,7 +213,8 @@
       "collection": "auto",
       "login_detection": {
         "custom": true
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "sawakami",
@@ -214,7 +228,8 @@
       "collection": "auto",
       "login_detection": {
         "custom": true
-      }
+      },
+      "category": "securities"
     },
     {
       "code": "saison-am",
@@ -228,7 +243,8 @@
       "collection": "auto",
       "login_detection": {
         "custom": true
-      }
+      },
+      "category": "securities"
     }
   ]
 }

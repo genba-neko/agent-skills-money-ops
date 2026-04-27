@@ -2,7 +2,7 @@
   "name": "さわかみ投信",
   "code": "sawakami",
   "target_year": 2025,
-  "output_dir": "data/income/securities/sawakami/2025/raw/",
+  "output_dir": "data/incomes/securities/sawakami/{year}/raw/",
   "documents": [
     {
       "type": "特定口座年間取引報告書"

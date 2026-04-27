@@ -39,17 +39,15 @@ class BaseCollector:
         self.config = _load_site_config(site_json_path)
         self.code: str = self.config["code"]
         self.name: str = self.config["name"]
-        self.output_dir = Path(self.config["output_dir"])
+        if year is not None:
+            self.config["target_year"] = year
+        self.output_dir = Path(self.config["output_dir"].format(year=self.config["target_year"]))
         self.headless: bool = headless if headless is not None else _is_headless()
         self.debug: bool = debug if debug is not None else _is_debug()
         self._debug_seq: int = 0  # HTML採取連番
         self._final_status: str | None = None  # 最終 log_result の status を保持（exit code 判定用）
         self.trace: bool = _is_trace()
         self._trace_dir: Path | None = None
-        if year is not None:
-            self.config["target_year"] = year
-            self.config["output_dir"] = f"data/income/securities/{self.code}/{year}/raw/"
-            self.output_dir = Path(self.config["output_dir"])
 
     def _debug_dir(self) -> Path:
         d = Path("output") / "debug" / self.code

@@ -81,7 +81,7 @@ python skills/tax-collect/create_zero_json.py --year <YEAR>
 
 ## 収集済み判定
 
-`data/income/securities/<code>/<year>/nenkantorihikihokokusho.json` の存在で判断。
+`data/incomes/securities/<code>/<year>/nenkantorihikihokokusho.json` の存在で判断。
 
 ## 前提条件
 

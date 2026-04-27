@@ -2,7 +2,7 @@
   "name": "松井証券",
   "code": "matsui",
   "target_year": 2025,
-  "output_dir": "data/income/securities/matsui/2025/raw/",
+  "output_dir": "data/incomes/securities/matsui/{year}/raw/",
   "documents": [
     {
       "type": "特定口座年間取引報告書"
