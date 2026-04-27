@@ -194,9 +194,12 @@ def main() -> int:
         while not stop_event.is_set():
             try:
                 line = input()
-            except EOFError:
-                stop_event.set()
-                break
+            except (EOFError, OSError):
+                # stdin 切断（バックグラウンド/パイプ実行）→ 即停止せず
+                # ブラウザ閉じ or Ctrl+C まで待機
+                print("[recorder] stdin EOF → milestone 記録不可。ブラウザ閉じ or Ctrl+C で停止")
+                stop_event.wait()
+                return
             if line.strip().lower() == "q":
                 stop_event.set()
                 break
