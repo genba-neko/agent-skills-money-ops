@@ -1,0 +1,14 @@
+{
+  "name": "楽天証券（入出金履歴）",
+  "code": "rakuten",
+  "target_year": 2025,
+  "output_dir": "data/expenses/securities/rakuten/{year}/raw/",
+  "documents": [
+    {
+      "type": "入出金履歴"
+    }
+  ],
+  "login_url": "https://www.rakuten-sec.co.jp/",
+  "history_url": "https://member.rakuten-sec.co.jp/app/ass_money_trans_lst.do?eventType=init&gmn=S&smn=03&lmn=03&fmn=01",
+  "converter_type": "csv"
+}
