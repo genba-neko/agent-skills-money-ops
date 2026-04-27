@@ -88,16 +88,19 @@ trace データ救済可能を明示:
 
 ## 実装タスク
 
-- [ ] `tools/browser_recorder.py` 修正
-  - [ ] `launch_kwargs` に `traces_dir` 追加
-  - [ ] `tracing.start(..., live=True)` 化
-  - [ ] 起動時メッセージ更新（× 閉じでも trace 残る案内）
-- [ ] empirical test (nomura で実施)
-  - [ ] q+Enter 停止 → trace.zip 化確認
-  - [ ] × 閉じ → traces/ 配下確認
-  - [ ] Trace Viewer (`npx playwright show-trace`) で開けるか
-- [ ] HAR の挙動調査 + ドキュメント追記
-- [ ] プラン完了マーク + コミット + PR
+- [x] `tools/browser_recorder.py` 修正
+  - [x] `launch_kwargs` に `traces_dir` 追加
+  - [x] `tracing.start(name="recording", ...)` 化
+  - [x] 起動時メッセージ更新（× 閉じでも trace 残る案内）
+  - [x] 追加: main loop で全 page closed 検知 → stop（context.on("close") 不発火対策）
+  - [x] 追加: tracing.stop 失敗時 traces/ → trace.zip 自動 zip 化
+- [x] empirical test (google.com で実施)
+  - [x] × 閉じ → traces/ 配下に recording.trace / .network / resources/ 残存
+  - [x] Trace Viewer (`npx playwright show-trace trace.zip`) で再生 OK
+    （22秒分スクショ・network 233件・操作 timeline 完全再現）
+  - [x] 自動 zip 化後の trace.zip 4.9MB 生成
+- [ ] HAR の挙動調査（× 閉じで network.har は flush されないが trace.zip 内 network 情報で代替可能）
+- [x] プラン完了マーク
 
 ---
 
