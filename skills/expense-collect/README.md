@@ -22,7 +22,7 @@ python skills/expense-collect/run.py --year <YEAR> --sites sbi
 python skills/expense-collect/run.py --year <YEAR> --fail-fast
 ```
 
-収集済み判定: `data/expenses/<code>/<YEAR>/raw/` に CSV ファイルが 1 つ以上存在。
+収集済み判定: `data/expenses/<category>/<code>/<YEAR>/raw/` に CSV ファイルが 1 つ以上存在。
 
 ## 個別実行
 

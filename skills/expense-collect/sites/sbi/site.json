@@ -2,7 +2,7 @@
   "name": "SBI証券（入出金明細）",
   "code": "sbi",
   "target_year": 2025,
-  "output_dir": "data/expenses/sbi/{year}/raw/",
+  "output_dir": "data/expenses/securities/sbi/{year}/raw/",
   "documents": [
     {
       "type": "入出金明細"

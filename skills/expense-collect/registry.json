@@ -3,6 +3,7 @@
     {
       "code": "sbi",
       "name": "SBI証券（入出金明細）",
+      "category": "securities",
       "document_type": "入出金明細",
       "site_url": "https://www.sbisec.co.jp/",
       "login_url": "https://www.sbisec.co.jp/ETGate/",
